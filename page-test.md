@@ -4,4 +4,4 @@ title: Page Test
 permalink: /page-test.html
 ---
 
-This is content for Page Test
+This is content for Page Test x.
