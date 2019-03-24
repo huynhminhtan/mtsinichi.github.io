@@ -23,7 +23,6 @@ bundle show minima
 Open the theme’s directory in Finder or Explorer.
 
 ```bash
-# On Linux
 xdg-open $(bundle show minima)
 ```
 
