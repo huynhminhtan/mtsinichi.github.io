@@ -14,6 +14,12 @@ Builds your site any time a source file changes and serves it locally.
 jekyll serve
 ```
 
+To specify a *production* environment in the build command, like this.
+
+```bash
+JEKYLL_ENV=production jekyll build
+```
+
 Show folder theme.
 
 ```bash
