@@ -21,6 +21,7 @@ fi
 cd ../gh-pages/
 git checkout gh-pages
 git add .
+git add *
 git commit -m "Update blog"
 git push -u origin gh-pages
 
