@@ -1,5 +1,22 @@
 # HUYNH MINH TAN
 
+## Auto build and deloy
+
+One-hit to awesome.
+
+```bash
+./one-hist.bash
+```
+
+Manual by hand.
+
+```bash
+# build at production
+JEKYLL_ENV=production jekyll serve
+./git-auto.bash
+```
+
+
 ## Mini Cheat Sheet
 
 Performs a one off build your site to *./_site* (by default).
