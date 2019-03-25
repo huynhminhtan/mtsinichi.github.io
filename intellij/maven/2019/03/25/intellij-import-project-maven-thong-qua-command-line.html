@@ -7,15 +7,15 @@
 <meta name="generator" content="Jekyll v3.8.5" />
 <meta property="og:title" content="Intellij Import Project Maven Thông Qua Command Line" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Để tiếp kiệm thời gian, chúng ta chỉ cần cd vào project có chứa file pom.xml, rồi chạy lệnh idea pom.xml sau đó Intellij tự động import project một cách nhanh chống." />
-<meta property="og:description" content="Để tiếp kiệm thời gian, chúng ta chỉ cần cd vào project có chứa file pom.xml, rồi chạy lệnh idea pom.xml sau đó Intellij tự động import project một cách nhanh chống." />
+<meta name="description" content="Để tiếp kiệm thời gian, chỉ cần cd vào project có chứa file pom.xml, rồi chạy lệnh idea pom.xml sau đó Intellij tự động import project một cách nhanh nhất cho chúng ta." />
+<meta property="og:description" content="Để tiếp kiệm thời gian, chỉ cần cd vào project có chứa file pom.xml, rồi chạy lệnh idea pom.xml sau đó Intellij tự động import project một cách nhanh nhất cho chúng ta." />
 <link rel="canonical" href="http://minhtan.me/intellij/maven/2019/03/25/intellij-import-project-maven-thong-qua-command-line.html" />
 <meta property="og:url" content="http://minhtan.me/intellij/maven/2019/03/25/intellij-import-project-maven-thong-qua-command-line.html" />
 <meta property="og:site_name" content="Huynh Minh Tan" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2019-03-25T23:48:35+07:00" />
 <script type="application/ld+json">
-{"description":"Để tiếp kiệm thời gian, chúng ta chỉ cần cd vào project có chứa file pom.xml, rồi chạy lệnh idea pom.xml sau đó Intellij tự động import project một cách nhanh chống.","@type":"BlogPosting","url":"http://minhtan.me/intellij/maven/2019/03/25/intellij-import-project-maven-thong-qua-command-line.html","headline":"Intellij Import Project Maven Thông Qua Command Line","dateModified":"2019-03-25T23:48:35+07:00","datePublished":"2019-03-25T23:48:35+07:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://minhtan.me/intellij/maven/2019/03/25/intellij-import-project-maven-thong-qua-command-line.html"},"@context":"https://schema.org"}</script>
+{"description":"Để tiếp kiệm thời gian, chỉ cần cd vào project có chứa file pom.xml, rồi chạy lệnh idea pom.xml sau đó Intellij tự động import project một cách nhanh nhất cho chúng ta.","@type":"BlogPosting","url":"http://minhtan.me/intellij/maven/2019/03/25/intellij-import-project-maven-thong-qua-command-line.html","headline":"Intellij Import Project Maven Thông Qua Command Line","dateModified":"2019-03-25T23:48:35+07:00","datePublished":"2019-03-25T23:48:35+07:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://minhtan.me/intellij/maven/2019/03/25/intellij-import-project-maven-thong-qua-command-line.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://minhtan.me/feed.xml" title="Huynh Minh Tan" /><script async src="https://www.googletagmanager.com/gtag/js?id=UA-136835999-1"></script>
 <script>
@@ -52,11 +52,13 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <p>Để tiếp kiệm thời gian, chúng ta chỉ cần <code class="highlighter-rouge">cd</code> vào project có chứa file pom.xml, rồi chạy lệnh <code class="highlighter-rouge">idea pom.xml</code> sau đó Intellij tự động import project một cách nhanh chống.</p>
+    <p>Để tiếp kiệm thời gian, chỉ cần <code class="highlighter-rouge">cd</code> vào project có chứa file <em>pom.xml</em>, rồi chạy lệnh <code class="highlighter-rouge">idea pom.xml</code> sau đó Intellij tự động import project một cách nhanh nhất cho chúng ta.</p>
 
-<p>Mặc định khi cài đặt, Intellij sẽ tự tạo command line laucher xử dụng được trong terminarl. Nếu bị lỗi <em>idea: command not found</em>  thì mở một project bất kỳ chọn <strong>Tool -&gt; Create Command-line Launcher…</strong> rồi nhập <strong>“/usr/local/bin/idea” -&gt; Okay</strong>.</p>
+<p>Mặc định khi cài đặt, Intellij sẽ tự tạo command line laucher sử dụng được trong terminal. Nếu bị lỗi <em>idea: command not found</em>  thì mở một project bất kỳ chọn <strong>Tool -&gt; Create Command-line Launcher…</strong> rồi nhập <strong>“/usr/local/bin/idea” -&gt; Okay</strong>.</p>
 
 <p><img src="http://minhtan.me/assets/images/intellij-import-project-maven-via-command.gif" alt="intellij-import-project-maven-via-command" class="img-responsive" /></p>
+
+<p><em>*Do máy mình đã thiết lặp *Command-line Launcher</em> rồi nên mới hiện hộp thông báo hỏi có muốn ghi đè hay không.*</p>
 
 
   </div><a class="u-url" href="/intellij/maven/2019/03/25/intellij-import-project-maven-thong-qua-command-line.html" hidden></a>
