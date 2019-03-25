@@ -5,6 +5,8 @@ date:   2019-03-25 16:04:35 +0700
 categories: java docker
 ---
 
+# Chuẩn bị đường với muối
+
 Tạo ra cấu trúc thư mục như sau:
 
 ```bash
@@ -65,6 +67,8 @@ java HelloWorld
 # exec $@
 ```
 
+# Bắt đầu kho thịch
+
 Build container tên *java-hello*:
 
 ```bash
@@ -75,4 +79,14 @@ Chạy container để xem kết quả:
 
 ```bash
 docker run java-hello
+```
+
+# Ăn no lăng co ra ngủ
+
+Kết quả:
+
+```bash
+$ docker run java-hello
+Workspace dir:  /src
+Hello, World - mtSiniChi - yoll - hihi
 ```
