@@ -12,6 +12,6 @@ Mặc định khi cài đặt, Intellij sẽ tự tạo command line laucher s�
 
 ![intellij-import-project-maven-via-command][1]{:class="img-responsive"}
 
-**Do máy mình đã thiết lặp *Command-line Launcher* rồi nên mới hiện hộp thông báo hỏi có muốn ghi đè hay không.*
+**Do máy mình đã thiết lặp Command-line Launcher rồi nên mới hiện hộp thông báo hỏi có muốn ghi đè hay không.*
 
 [1]:{{ site.url }}/assets/images/intellij-import-project-maven-via-command.gif
