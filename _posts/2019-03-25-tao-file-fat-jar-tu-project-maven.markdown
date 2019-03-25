@@ -120,7 +120,7 @@ Thay *com.minhtan.core.OrderVerticle* thành class có chứa hàm main tương 
 
 ## Tạo file demo OrderVerticle.java
 
-Trong project này, mình sử dụng thư viện Vert.X để làm ví dụ để thử chạy có dependency, xem thử thi run project có bị lỗi gì không. Mã nguồn *OrderVerticle.java* như bên dưới:
+Trong project này, mình sử dụng thư viện Vert.X để xem khi run file Jar có bị lỗi thiếu dependency không. Mã nguồn *OrderVerticle.java* như bên dưới:
 
 ```Java
 package com.minhtan.core;
