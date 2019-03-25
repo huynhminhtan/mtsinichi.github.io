@@ -67,7 +67,7 @@ java HelloWorld
 # exec $@
 ```
 
-# Bắt đầu kho thịch
+# Bắt đầu kho thịt
 
 Build container tên *java-hello*:
 
