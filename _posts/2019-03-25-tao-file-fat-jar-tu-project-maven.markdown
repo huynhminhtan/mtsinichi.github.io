@@ -36,6 +36,8 @@ Như vậy, toàn bộ mã nguồn chương trình sẽ được gói gọn tron
 
 ## File pom.xml
 
+Thay *com.minhtan.core.OrderVerticle* thành class có chứa hàm main, hãy tạo ra package chứa class main nếu link tới không thành công. Ví dụ pakage có tên là *com.minhtan.core.** .
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
