@@ -167,38 +167,38 @@
 
 <p>Trong project này, mình sử dụng thư viện Vert.X để xem khi run file Jar có bị lỗi thiếu dependency không. Mã nguồn <em>OrderVerticle.java</em> như bên dưới:</p>
 
-<pre><code class="language-Java">package com.minhtan.core;
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">minhtan</span><span class="o">.</span><span class="na">core</span><span class="o">;</span>
 
-import io.vertx.core.AbstractVerticle;
-import io.vertx.core.Vertx;
+<span class="kn">import</span> <span class="nn">io.vertx.core.AbstractVerticle</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">io.vertx.core.Vertx</span><span class="o">;</span>
 
-public class OrderVerticle extends AbstractVerticle {
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">OrderVerticle</span> <span class="kd">extends</span> <span class="n">AbstractVerticle</span> <span class="o">{</span>
 
-    private static Vertx vertx = null;
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">Vertx</span> <span class="n">vertx</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
 
-    public static Vertx getInstanceVertX() {
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Vertx</span> <span class="nf">getInstanceVertX</span><span class="o">()</span> <span class="o">{</span>
 
-        if (vertx == null) {
-            vertx = Vertx.vertx();
-            vertx.deployVerticle(new OrderVerticle());
-        }
+        <span class="k">if</span> <span class="o">(</span><span class="n">vertx</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">vertx</span> <span class="o">=</span> <span class="n">Vertx</span><span class="o">.</span><span class="na">vertx</span><span class="o">();</span>
+            <span class="n">vertx</span><span class="o">.</span><span class="na">deployVerticle</span><span class="o">(</span><span class="k">new</span> <span class="n">OrderVerticle</span><span class="o">());</span>
+        <span class="o">}</span>
 
-        return vertx;
-    }
+        <span class="k">return</span> <span class="n">vertx</span><span class="o">;</span>
+    <span class="o">}</span>
 
-    public static void main(String[] args) {
-        Vertx vertx = getInstanceVertX();
-        vertx.deployVerticle(new OrderVerticle());
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Vertx</span> <span class="n">vertx</span> <span class="o">=</span> <span class="n">getInstanceVertX</span><span class="o">();</span>
+        <span class="n">vertx</span><span class="o">.</span><span class="na">deployVerticle</span><span class="o">(</span><span class="k">new</span> <span class="n">OrderVerticle</span><span class="o">());</span>
 
-        System.out.println("He nhu u! : build to fat-jar with maven project ");
-    }
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"He nhu u! : build to fat-jar with maven project "</span><span class="o">);</span>
+    <span class="o">}</span>
 
-}
-</code></pre>
+<span class="o">}</span>
+</code></pre></div></div>
 
 <h1 id="tạo-ra-file-jar">Tạo ra File Jar</h1>
 
-<p>Sử dụng command của Maven sẽ tự động tạo ra được file Jar, vào thư mục gốc của project bần build và chạy lệnh bên dưới:</p>
+<p>Sử dụng command của Maven sẽ tự động tạo ra được file Jar, vào thư mục gốc của project cần build và chạy lệnh bên dưới:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mvn package
 

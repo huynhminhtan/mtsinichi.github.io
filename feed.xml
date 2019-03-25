@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://minhtan.me/feed.xml" rel="self" type="application/atom+xml" /><link href="http://minhtan.me/" rel="alternate" type="text/html" /><updated>2019-03-25T23:21:25+07:00</updated><id>http://minhtan.me/feed.xml</id><title type="html">Huynh Minh Tan</title><subtitle>The new land for mtsinichi unleash my mind.</subtitle><entry><title type="html">Tạo tập tin Fat Jar từ project Maven</title><link href="http://minhtan.me/java/maven/2019/03/25/tao-file-fat-jar-tu-project-maven.html" rel="alternate" type="text/html" title="Tạo tập tin Fat Jar từ project Maven" /><published>2019-03-25T21:35:35+07:00</published><updated>2019-03-25T21:35:35+07:00</updated><id>http://minhtan.me/java/maven/2019/03/25/tao-file-fat-jar-tu-project-maven</id><content type="html" xml:base="http://minhtan.me/java/maven/2019/03/25/tao-file-fat-jar-tu-project-maven.html">&lt;p&gt;&lt;em&gt;Bài viết sẽ hướng dẫn tạo ra tập tin Fat Jar từ project Maven bằng việc sử dụng &lt;a href=&quot;https://maven.apache.org/plugins/maven-shade-plugin/&quot;&gt;Maven Shade Plugin&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://minhtan.me/feed.xml" rel="self" type="application/atom+xml" /><link href="http://minhtan.me/" rel="alternate" type="text/html" /><updated>2019-03-25T23:23:50+07:00</updated><id>http://minhtan.me/feed.xml</id><title type="html">Huynh Minh Tan</title><subtitle>The new land for mtsinichi unleash my mind.</subtitle><entry><title type="html">Tạo tập tin Fat Jar từ project Maven</title><link href="http://minhtan.me/java/maven/2019/03/25/tao-file-fat-jar-tu-project-maven.html" rel="alternate" type="text/html" title="Tạo tập tin Fat Jar từ project Maven" /><published>2019-03-25T21:35:35+07:00</published><updated>2019-03-25T21:35:35+07:00</updated><id>http://minhtan.me/java/maven/2019/03/25/tao-file-fat-jar-tu-project-maven</id><content type="html" xml:base="http://minhtan.me/java/maven/2019/03/25/tao-file-fat-jar-tu-project-maven.html">&lt;p&gt;&lt;em&gt;Bài viết sẽ hướng dẫn tạo ra tập tin Fat Jar từ project Maven bằng việc sử dụng &lt;a href=&quot;https://maven.apache.org/plugins/maven-shade-plugin/&quot;&gt;Maven Shade Plugin&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;fat-jar-là-gì&quot;&gt;Fat Jar là gì&lt;/h1&gt;
 
@@ -113,38 +113,38 @@
 
 &lt;p&gt;Trong project này, mình sử dụng thư viện Vert.X để xem khi run file Jar có bị lỗi thiếu dependency không. Mã nguồn &lt;em&gt;OrderVerticle.java&lt;/em&gt; như bên dưới:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-Java&quot;&gt;package com.minhtan.core;
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;minhtan&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;core&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
 
-import io.vertx.core.AbstractVerticle;
-import io.vertx.core.Vertx;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;io.vertx.core.AbstractVerticle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;io.vertx.core.Vertx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
 
-public class OrderVerticle extends AbstractVerticle {
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;OrderVerticle&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;AbstractVerticle&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
 
-    private static Vertx vertx = null;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Vertx&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vertx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
 
-    public static Vertx getInstanceVertX() {
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Vertx&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getInstanceVertX&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
 
-        if (vertx == null) {
-            vertx = Vertx.vertx();
-            vertx.deployVerticle(new OrderVerticle());
-        }
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vertx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;vertx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Vertx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;vertx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;vertx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;deployVerticle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OrderVerticle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 
-        return vertx;
-    }
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vertx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 
-    public static void main(String[] args) {
-        Vertx vertx = getInstanceVertX();
-        vertx.deployVerticle(new OrderVerticle());
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Vertx&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vertx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getInstanceVertX&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;vertx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;deployVerticle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OrderVerticle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
 
-        System.out.println(&quot;He nhu u! : build to fat-jar with maven project &quot;);
-    }
+        &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;He nhu u! : build to fat-jar with maven project &quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 
-}
-&lt;/code&gt;&lt;/pre&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h1 id=&quot;tạo-ra-file-jar&quot;&gt;Tạo ra File Jar&lt;/h1&gt;
 
-&lt;p&gt;Sử dụng command của Maven sẽ tự động tạo ra được file Jar, vào thư mục gốc của project bần build và chạy lệnh bên dưới:&lt;/p&gt;
+&lt;p&gt;Sử dụng command của Maven sẽ tự động tạo ra được file Jar, vào thư mục gốc của project cần build và chạy lệnh bên dưới:&lt;/p&gt;
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mvn package
 
