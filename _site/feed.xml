@@ -1,4 +1,83 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://minhtan.me/feed.xml" rel="self" type="application/atom+xml" /><link href="http://minhtan.me/" rel="alternate" type="text/html" /><updated>2019-03-26T00:10:35+07:00</updated><id>http://minhtan.me/feed.xml</id><title type="html">Huynh Minh Tan</title><subtitle>The new land for mtsinichi unleash my mind.</subtitle><entry><title type="html">Intellij Import Project Maven Thông Qua Command Line</title><link href="http://minhtan.me/intellij/maven/2019/03/25/intellij-import-project-maven-thong-qua-command-line.html" rel="alternate" type="text/html" title="Intellij Import Project Maven Thông Qua Command Line" /><published>2019-03-25T23:48:35+07:00</published><updated>2019-03-25T23:48:35+07:00</updated><id>http://minhtan.me/intellij/maven/2019/03/25/intellij-import-project-maven-thong-qua-command-line</id><content type="html" xml:base="http://minhtan.me/intellij/maven/2019/03/25/intellij-import-project-maven-thong-qua-command-line.html">&lt;p&gt;Để tiếp kiệm thời gian, chỉ cần &lt;code class=&quot;highlighter-rouge&quot;&gt;cd&lt;/code&gt; vào project có chứa file &lt;em&gt;pom.xml&lt;/em&gt;, rồi chạy lệnh &lt;code class=&quot;highlighter-rouge&quot;&gt;idea pom.xml&lt;/code&gt; sau đó Intellij tự động import project một cách nhanh nhất cho chúng ta.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://minhtan.me/feed.xml" rel="self" type="application/atom+xml" /><link href="http://minhtan.me/" rel="alternate" type="text/html" /><updated>2019-03-26T00:36:19+07:00</updated><id>http://minhtan.me/feed.xml</id><title type="html">Huynh Minh Tan</title><subtitle>The new land for mtsinichi unleash my mind.</subtitle><entry><title type="html">Deploy File Jar Bằng Docker</title><link href="http://minhtan.me/java/docker/2019/03/26/deploy-file-jar-bang-docker.html" rel="alternate" type="text/html" title="Deploy File Jar Bằng Docker" /><published>2019-03-26T00:25:35+07:00</published><updated>2019-03-26T00:25:35+07:00</updated><id>http://minhtan.me/java/docker/2019/03/26/deploy-file-jar-bang-docker</id><content type="html" xml:base="http://minhtan.me/java/docker/2019/03/26/deploy-file-jar-bang-docker.html">&lt;p&gt;Xem thêm cách tạo ra file Jar: &lt;a href=&quot;/java/maven/2019/03/25/tao-file-fat-jar-tu-project-maven.html&quot;&gt;Tạo Tập Tin Fat Jar Từ Project Maven&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;cấu-trúc-thư-mục&quot;&gt;Cấu trúc thư mục&lt;/h1&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.
+├── dependency-reduced-pom.xml
+├── deploymavendocker.iml
+├── Dockerfile
+├── pom.xml
+├── src
+│   ├── main
+│   │   ├── java
+│   │   │   └── com
+│   │   │       └── minhtan
+│   │   │           └── core
+│   │   │               └── OrderVerticle.java
+│   │   └── resources
+│   └── test
+│       └── java
+└── target
+    ├── classes
+    │   └── com
+    │       └── minhtan
+    │           └── core
+    │               └── OrderVerticle.class
+    ├── generated-sources
+    │   └── annotations
+    ├── maven.-1.0-SNAPSHOT.jar
+    ├── maven-archiver
+    │   └── pom.properties
+    ├── maven-status
+    │   └── maven-compiler-plugin
+    │       ├── compile
+    │       │   └── default-compile
+    │       │       ├── createdFiles.lst
+    │       │       └── inputFiles.lst
+    │       └── testCompile
+    │           └── default-testCompile
+    │               └── inputFiles.lst
+    └── original-maven.-1.0-SNAPSHOT.jar
+
+23 directories, 12 files
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;xây-dựng-dockerfile&quot;&gt;Xây dựng Dockerfile&lt;/h1&gt;
+
+&lt;div class=&quot;language-dockerfile highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; openjdk:8-jre-alpine&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Set file Jar need execute&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;ENV&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; VERTICLE_FILE maven.-1.0-SNAPSHOT.jar&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Set the location of the verticles&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;ENV&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; VERTICLE_HOME /usr/verticles&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;EXPOSE&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; 8080&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Copy your fat jar to the container&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;COPY&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; target/$VERTICLE_FILE $VERTICLE_HOME/&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Launch the verticle&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;WORKDIR&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; $VERTICLE_HOME&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;ENTRYPOINT&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; [&quot;sh&quot;, &quot;-c&quot;]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;CMD&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; [&quot;exec java -jar $VERTICLE_FILE&quot;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;build-và-run-container&quot;&gt;Build và Run container&lt;/h1&gt;
+
+&lt;p&gt;Build với tên &lt;em&gt;sample/deploy-java-fat&lt;/em&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker build &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; sample/deploy-java-fat &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Run container, chiêm ngưỡng thành quả:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker run &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; 8080:8080 sample/deploy-java-fat
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;tham-khảo&quot;&gt;Tham khảo&lt;/h1&gt;
+
+&lt;p&gt;https://vertx.io/docs/vertx-docker/#_deploying_a_fat_jar&lt;/p&gt;</content><author><name></name></author><summary type="html">Xem thêm cách tạo ra file Jar: Tạo Tập Tin Fat Jar Từ Project Maven</summary></entry><entry><title type="html">Intellij Import Project Maven Thông Qua Command Line</title><link href="http://minhtan.me/intellij/maven/2019/03/25/intellij-import-project-maven-thong-qua-command-line.html" rel="alternate" type="text/html" title="Intellij Import Project Maven Thông Qua Command Line" /><published>2019-03-25T23:48:35+07:00</published><updated>2019-03-25T23:48:35+07:00</updated><id>http://minhtan.me/intellij/maven/2019/03/25/intellij-import-project-maven-thong-qua-command-line</id><content type="html" xml:base="http://minhtan.me/intellij/maven/2019/03/25/intellij-import-project-maven-thong-qua-command-line.html">&lt;p&gt;Để tiếp kiệm thời gian, chỉ cần &lt;code class=&quot;highlighter-rouge&quot;&gt;cd&lt;/code&gt; vào project có chứa file &lt;em&gt;pom.xml&lt;/em&gt;, rồi chạy lệnh &lt;code class=&quot;highlighter-rouge&quot;&gt;idea pom.xml&lt;/code&gt; sau đó Intellij tự động import project một cách nhanh nhất cho chúng ta.&lt;/p&gt;
 
 &lt;p&gt;Mặc định khi cài đặt, Intellij sẽ tự tạo command line laucher sử dụng được trong terminal. Nếu bị lỗi &lt;em&gt;idea: command not found&lt;/em&gt;  thì mở một project bất kỳ chọn &lt;strong&gt;Tool -&amp;gt; Create Command-line Launcher…&lt;/strong&gt; rồi nhập &lt;strong&gt;“/usr/local/bin/idea” -&amp;gt; Okay&lt;/strong&gt;.&lt;/p&gt;
 
