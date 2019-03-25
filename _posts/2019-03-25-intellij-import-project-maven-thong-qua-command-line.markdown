@@ -10,4 +10,6 @@ categories: intellij maven
 
 Mặc định khi cài đặt, Intellij sẽ tự tạo command line laucher xử dụng được trong terminarl. Nếu bị lỗi *idea: command not found*  thì mở một project bất kỳ chọn **Tool -> Create Command-line Launcher...** rồi nhập **"/usr/local/bin/idea" -> Okay**.
 
-![]
+![][2]
+
+[1]:{{ site.url }}/assets/images/intellij-import-project-maven-via-command.gif
