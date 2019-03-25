@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://minhtan.me/feed.xml" rel="self" type="application/atom+xml" /><link href="http://minhtan.me/" rel="alternate" type="text/html" /><updated>2019-03-25T16:32:01+07:00</updated><id>http://minhtan.me/feed.xml</id><title type="html">Huynh Minh Tan</title><subtitle>The new land for mtsinichi unleash my mind.</subtitle><entry><title type="html">Chương trình Hello World bằng Java Thông Qua Docker</title><link href="http://minhtan.me/java/docker/2019/03/25/hello-world-Java-thong-qua-docker.html" rel="alternate" type="text/html" title="Chương trình Hello World bằng Java Thông Qua Docker" /><published>2019-03-25T16:04:35+07:00</published><updated>2019-03-25T16:04:35+07:00</updated><id>http://minhtan.me/java/docker/2019/03/25/hello-world-Java-thong-qua-docker</id><content type="html" xml:base="http://minhtan.me/java/docker/2019/03/25/hello-world-Java-thong-qua-docker.html">&lt;h1 id=&quot;chuẩn-bị-đường-với-muối&quot;&gt;Chuẩn bị đường với muối&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://minhtan.me/feed.xml" rel="self" type="application/atom+xml" /><link href="http://minhtan.me/" rel="alternate" type="text/html" /><updated>2019-03-25T16:33:35+07:00</updated><id>http://minhtan.me/feed.xml</id><title type="html">Huynh Minh Tan</title><subtitle>The new land for mtsinichi unleash my mind.</subtitle><entry><title type="html">Chương trình Hello World bằng Java Thông Qua Docker</title><link href="http://minhtan.me/java/docker/2019/03/25/hello-world-Java-thong-qua-docker.html" rel="alternate" type="text/html" title="Chương trình Hello World bằng Java Thông Qua Docker" /><published>2019-03-25T16:04:35+07:00</published><updated>2019-03-25T16:04:35+07:00</updated><id>http://minhtan.me/java/docker/2019/03/25/hello-world-Java-thong-qua-docker</id><content type="html" xml:base="http://minhtan.me/java/docker/2019/03/25/hello-world-Java-thong-qua-docker.html">&lt;h1 id=&quot;chuẩn-bị-đường-với-muối&quot;&gt;Chuẩn bị đường với muối&lt;/h1&gt;
 
 &lt;p&gt;Tạo ra cấu trúc thư mục như sau:&lt;/p&gt;
 
@@ -56,7 +56,7 @@ java HelloWorld
 &lt;span class=&quot;c&quot;&gt;# exec $@&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h1 id=&quot;bắt-đầu-kho-thịch&quot;&gt;Bắt đầu kho thịch&lt;/h1&gt;
+&lt;h1 id=&quot;bắt-đầu-kho-thịt&quot;&gt;Bắt đầu kho thịt&lt;/h1&gt;
 
 &lt;p&gt;Build container tên &lt;em&gt;java-hello&lt;/em&gt;:&lt;/p&gt;
 
