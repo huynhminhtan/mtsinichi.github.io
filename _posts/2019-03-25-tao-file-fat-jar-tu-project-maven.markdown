@@ -122,7 +122,7 @@ Thay *com.minhtan.core.OrderVerticle* thành class có chứa hàm main tương 
 
 Trong project này, mình sử dụng thư viện Vert.X để xem khi run file Jar có bị lỗi thiếu dependency không. Mã nguồn *OrderVerticle.java* như bên dưới:
 
-```Java
+```java
 package com.minhtan.core;
 
 import io.vertx.core.AbstractVerticle;
@@ -154,7 +154,7 @@ public class OrderVerticle extends AbstractVerticle {
 
 # Tạo ra File Jar
 
-Sử dụng command của Maven sẽ tự động tạo ra được file Jar, vào thư mục gốc của project bần build và chạy lệnh bên dưới:
+Sử dụng command của Maven sẽ tự động tạo ra được file Jar, vào thư mục gốc của project cần build và chạy lệnh bên dưới:
 
 ```bash
 mvn package
