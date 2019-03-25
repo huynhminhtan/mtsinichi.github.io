@@ -1,4 +1,203 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://minhtan.me/feed.xml" rel="self" type="application/atom+xml" /><link href="http://minhtan.me/" rel="alternate" type="text/html" /><updated>2019-03-25T16:33:35+07:00</updated><id>http://minhtan.me/feed.xml</id><title type="html">Huynh Minh Tan</title><subtitle>The new land for mtsinichi unleash my mind.</subtitle><entry><title type="html">Chương trình Hello World bằng Java Thông Qua Docker</title><link href="http://minhtan.me/java/docker/2019/03/25/hello-world-Java-thong-qua-docker.html" rel="alternate" type="text/html" title="Chương trình Hello World bằng Java Thông Qua Docker" /><published>2019-03-25T16:04:35+07:00</published><updated>2019-03-25T16:04:35+07:00</updated><id>http://minhtan.me/java/docker/2019/03/25/hello-world-Java-thong-qua-docker</id><content type="html" xml:base="http://minhtan.me/java/docker/2019/03/25/hello-world-Java-thong-qua-docker.html">&lt;h1 id=&quot;chuẩn-bị-đường-với-muối&quot;&gt;Chuẩn bị đường với muối&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://minhtan.me/feed.xml" rel="self" type="application/atom+xml" /><link href="http://minhtan.me/" rel="alternate" type="text/html" /><updated>2019-03-25T23:08:03+07:00</updated><id>http://minhtan.me/feed.xml</id><title type="html">Huynh Minh Tan</title><subtitle>The new land for mtsinichi unleash my mind.</subtitle><entry><title type="html">Tạo file Fat Jar từ project Maven</title><link href="http://minhtan.me/java/maven/2019/03/25/tao-file-fat-jar-tu-project-maven.html" rel="alternate" type="text/html" title="Tạo file Fat Jar từ project Maven" /><published>2019-03-25T21:35:35+07:00</published><updated>2019-03-25T21:35:35+07:00</updated><id>http://minhtan.me/java/maven/2019/03/25/tao-file-fat-jar-tu-project-maven</id><content type="html" xml:base="http://minhtan.me/java/maven/2019/03/25/tao-file-fat-jar-tu-project-maven.html">&lt;p&gt;&lt;em&gt;Bài viết sẽ hướng dẫn tạo ra tập tin Fat Jar của project Maven bằng việc sử dụng &lt;a href=&quot;https://maven.apache.org/plugins/maven-shade-plugin/&quot;&gt;Maven Shade Plugin&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;fat-jar-là-gì&quot;&gt;Fat Jar là gì&lt;/h1&gt;
+
+&lt;p&gt;Fat Jar, Uber Jar, Shaded Jar chúng có tên khác nhau nhưng được xem là một. Đó được xem như một tập tin nén Jar mà trong đó bao gồm tất cả các class file đã được compile, cộng thêm tất cả các dependencies có trong project.&lt;/p&gt;
+
+&lt;p&gt;Như vậy, toàn bộ mã nguồn chương trình sẽ được gói gọn trong một file Fat Jar và ta có thể thực thi nhanh chống thông qua command &lt;code class=&quot;highlighter-rouge&quot;&gt;java -jar file-fat-jar.jar&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;chuẩn-bị-mã-nguồn&quot;&gt;Chuẩn bị mã nguồn&lt;/h1&gt;
+
+&lt;h2 id=&quot;cấu-trúc-project&quot;&gt;Cấu trúc project&lt;/h2&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.
+├── pom.xml
+└── src
+    ├── main
+    │   ├── java
+    │   │   └── com
+    │   │       └── minhtan
+    │   │           └── core
+    │   │               └── OrderVerticle.java
+    │   └── resources
+    └── test
+        └── java
+
+9 directories, 2 files
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;file-pomxml&quot;&gt;File pom.xml&lt;/h2&gt;
+
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;project&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://maven.apache.org/POM/4.0.0&quot;&lt;/span&gt;
+         &lt;span class=&quot;na&quot;&gt;xmlns:xsi=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&lt;/span&gt;
+         &lt;span class=&quot;na&quot;&gt;xsi:schemaLocation=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;modelVersion&amp;gt;&lt;/span&gt;4.0.0&lt;span class=&quot;nt&quot;&gt;&amp;lt;/modelVersion&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;test&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;maven.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;1.0-SNAPSHOT&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;properties&amp;gt;--&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;jdk.version&amp;gt;1.7&amp;lt;/jdk.version&amp;gt;--&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;jodatime.version&amp;gt;2.5&amp;lt;/jodatime.version&amp;gt;--&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;junit.version&amp;gt;4.11&amp;lt;/junit.version&amp;gt;--&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;/properties&amp;gt;--&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;build&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;plugins&amp;gt;&lt;/span&gt;
+
+            &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Set a compiler level --&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;plugin&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.apache.maven.plugins&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;maven-compiler-plugin&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;source&amp;gt;&lt;/span&gt;8&lt;span class=&quot;nt&quot;&gt;&amp;lt;/source&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;target&amp;gt;&lt;/span&gt;8&lt;span class=&quot;nt&quot;&gt;&amp;lt;/target&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/configuration&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/plugin&amp;gt;&lt;/span&gt;
+
+            &lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;plugin&amp;gt;--&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;groupId&amp;gt;org.apache.maven.plugins&amp;lt;/groupId&amp;gt;--&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;artifactId&amp;gt;maven-compiler-plugin&amp;lt;/artifactId&amp;gt;--&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;version&amp;gt;2.3.2&amp;lt;/version&amp;gt;--&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;configuration&amp;gt;--&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;source&amp;gt;${jdk.version}&amp;lt;/source&amp;gt;--&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;target&amp;gt;${jdk.version}&amp;lt;/target&amp;gt;--&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;/configuration&amp;gt;--&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;/plugin&amp;gt;--&amp;gt;&lt;/span&gt;
+
+
+            &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Maven Shade Plugin --&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;plugin&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.apache.maven.plugins&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;maven-shade-plugin&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;2.3&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;executions&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Run shade goal on package phase --&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;execution&amp;gt;&lt;/span&gt;
+                        &lt;span class=&quot;nt&quot;&gt;&amp;lt;phase&amp;gt;&lt;/span&gt;package&lt;span class=&quot;nt&quot;&gt;&amp;lt;/phase&amp;gt;&lt;/span&gt;
+                        &lt;span class=&quot;nt&quot;&gt;&amp;lt;goals&amp;gt;&lt;/span&gt;
+                            &lt;span class=&quot;nt&quot;&gt;&amp;lt;goal&amp;gt;&lt;/span&gt;shade&lt;span class=&quot;nt&quot;&gt;&amp;lt;/goal&amp;gt;&lt;/span&gt;
+                        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/goals&amp;gt;&lt;/span&gt;
+                        &lt;span class=&quot;nt&quot;&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
+                            &lt;span class=&quot;nt&quot;&gt;&amp;lt;transformers&amp;gt;&lt;/span&gt;
+                                &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- add Main-Class to manifest file --&amp;gt;&lt;/span&gt;
+                                &lt;span class=&quot;nt&quot;&gt;&amp;lt;transformer&lt;/span&gt;
+                                        &lt;span class=&quot;na&quot;&gt;implementation=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;org.apache.maven.plugins.shade.resource.ManifestResourceTransformer&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+                                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;mainClass&amp;gt;&lt;/span&gt;com.minhtan.core.OrderVerticle&lt;span class=&quot;nt&quot;&gt;&amp;lt;/mainClass&amp;gt;&lt;/span&gt;
+                                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/transformer&amp;gt;&lt;/span&gt;
+                            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/transformers&amp;gt;&lt;/span&gt;
+                        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/configuration&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/execution&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/executions&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/plugin&amp;gt;&lt;/span&gt;
+
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/plugins&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/build&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;dependencies&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;io.vertx&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;vertx-web&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;3.5.0&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependencies&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/project&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;tạo-file-demo-orderverticlejava&quot;&gt;Tạo file demo OrderVerticle.java&lt;/h2&gt;
+
+&lt;p&gt;Trong project này, mình sử dụng thư viện Vert.X để làm ví dụ để thử chạy có dependency, xem thử thi run project có bị lỗi gì không. Mã nguồn &lt;em&gt;OrderVerticle.java&lt;/em&gt; như bên dưới:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Java&quot;&gt;package com.minhtan.core;
+
+import io.vertx.core.AbstractVerticle;
+import io.vertx.core.Vertx;
+
+public class OrderVerticle extends AbstractVerticle {
+
+    private static Vertx vertx = null;
+
+    public static Vertx getInstanceVertX() {
+
+        if (vertx == null) {
+            vertx = Vertx.vertx();
+            vertx.deployVerticle(new OrderVerticle());
+        }
+
+        return vertx;
+    }
+
+    public static void main(String[] args) {
+        Vertx vertx = getInstanceVertX();
+        vertx.deployVerticle(new OrderVerticle());
+
+        System.out.println(&quot;He nhu u! : build to fat-jar with maven project &quot;);
+    }
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&quot;tạo-ra-file-jar&quot;&gt;Tạo ra File Jar&lt;/h1&gt;
+
+&lt;p&gt;Sử dụng command của Maven sẽ tự động tạo ra được file Jar, vào thư mục gốc của project bần build và chạy lệnh bên dưới:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mvn package
+
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] Scanning &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;projects...
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] &lt;span class=&quot;nt&quot;&gt;------------------------------------------------------------------------&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] Building maven. 1.0-SNAPSHOT
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] &lt;span class=&quot;nt&quot;&gt;------------------------------------------------------------------------&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO]
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] &lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt; maven-resources-plugin:2.6:resources &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;default-resources&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; @ maven. &lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;WARNING] Using platform encoding &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;UTF-8 actually&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; to copy filtered resources, i.e. build is platform dependent!
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] Copying 0 resource
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO]
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] &lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt; maven-compiler-plugin:3.2:compile &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;default-compile&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; @ maven. &lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] Changes detected - recompiling the module!
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Sau khi chạy thành công, có 2 tập tin được tạo ra trong thư mục &lt;em&gt;target/&lt;/em&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;maven.-1.0-SNAPSHOT.jar: đây là file Jar chúng ta cần.&lt;/li&gt;
+  &lt;li&gt;original-maven.-1.0-SNAPSHOT.jar: không cần sử dụng.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;thực-thi-file-jar&quot;&gt;Thực thi file Jar&lt;/h1&gt;
+
+&lt;p&gt;Hiển thị những class, những dependency có trong file Jar:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jar tf target/maven.-1.0-SNAPSHOT.jar
+
+com/fasterxml/jackson/databind/util/ViewMatcher.class
+META-INF/maven/com.fasterxml.jackson.core/jackson-annotations/
+META-INF/maven/com.fasterxml.jackson.core/jackson-annotations/pom.properties
+META-INF/maven/com.fasterxml.jackson.core/jackson-annotations/pom.xml
+com/fasterxml/jackson/annotation/
+com/fasterxml/jackson/annotation/JacksonAnnotation.class
+com/fasterxml/jackson/annotation/SimpleObjectIdResolver.class
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Chạy file Jar, cũng như chạy cả project:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;java &lt;span class=&quot;nt&quot;&gt;-jar&lt;/span&gt; target/maven.-1.0-SNAPSHOT.jar
+
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; He nhu u! : build to fat-jar with maven project
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Tải source code: &lt;a href=&quot;http://minhtan.me/materials/create-jar-maven.zip&quot;&gt;create-jar-maven.zip&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;tham-khảo&quot;&gt;Tham khảo&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;https://www.tomitribe.com/blog/tomee-fat-jar-deployments/&lt;/li&gt;
+  &lt;li&gt;https://www.mkyong.com/maven/create-a-fat-jar-file-maven-shade-plugin/&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Bài viết sẽ hướng dẫn tạo ra tập tin Fat Jar của project Maven bằng việc sử dụng Maven Shade Plugin.</summary></entry><entry><title type="html">Chương trình Hello World bằng Java Thông Qua Docker</title><link href="http://minhtan.me/java/docker/2019/03/25/hello-world-java-thong-qua-docker.html" rel="alternate" type="text/html" title="Chương trình Hello World bằng Java Thông Qua Docker" /><published>2019-03-25T16:04:35+07:00</published><updated>2019-03-25T16:04:35+07:00</updated><id>http://minhtan.me/java/docker/2019/03/25/hello-world-java-thong-qua-docker</id><content type="html" xml:base="http://minhtan.me/java/docker/2019/03/25/hello-world-java-thong-qua-docker.html">&lt;h1 id=&quot;chuẩn-bị-đường-với-muối&quot;&gt;Chuẩn bị đường với muối&lt;/h1&gt;
 
 &lt;p&gt;Tạo ra cấu trúc thư mục như sau:&lt;/p&gt;
 
