@@ -87,6 +87,10 @@ Run container, chiêm ngưỡng thành quả:
 docker run -t -i -p 8080:8080 sample/deploy-java-fat
 ```
 
+Tải source code: [create-jar-maven.zip][1]
+
+[1]:{{ site.url }}/materials/deploy-maven-vertx-docker.zip
+
 # Tham khảo
 
 https://vertx.io/docs/vertx-docker/#_deploying_a_fat_jar
