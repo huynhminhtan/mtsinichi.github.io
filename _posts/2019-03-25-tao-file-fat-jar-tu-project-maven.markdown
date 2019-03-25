@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Tạo tập tin Fat Jar từ project Maven"
+title:  "Tạo Tập Tin Fat Jar Từ Project Maven"
 date:   2019-03-25 21:35:35 +0700
 categories: java maven
 ---
