@@ -1,4 +1,68 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://minhtan.me/feed.xml" rel="self" type="application/atom+xml" /><link href="http://minhtan.me/" rel="alternate" type="text/html" /><updated>2019-03-25T00:34:24+07:00</updated><id>http://minhtan.me/feed.xml</id><title type="html">Huynh Minh Tan</title><subtitle>The new land for mtsinichi unleash my mind.</subtitle><entry><title type="html">Welcome to Jekyll!</title><link href="http://minhtan.me/jekyll/update/2019/03/24/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2019-03-24T11:38:35+07:00</published><updated>2019-03-24T11:38:35+07:00</updated><id>http://minhtan.me/jekyll/update/2019/03/24/welcome-to-jekyll</id><content type="html" xml:base="http://minhtan.me/jekyll/update/2019/03/24/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://minhtan.me/feed.xml" rel="self" type="application/atom+xml" /><link href="http://minhtan.me/" rel="alternate" type="text/html" /><updated>2019-03-25T16:12:24+07:00</updated><id>http://minhtan.me/feed.xml</id><title type="html">Huynh Minh Tan</title><subtitle>The new land for mtsinichi unleash my mind.</subtitle><entry><title type="html">Hello World Java Thông Qua Docker</title><link href="http://minhtan.me/java/docker/2019/03/25/hello-world-Java-thong-qua-docker.html" rel="alternate" type="text/html" title="Hello World Java Thông Qua Docker" /><published>2019-03-25T16:04:35+07:00</published><updated>2019-03-25T16:04:35+07:00</updated><id>http://minhtan.me/java/docker/2019/03/25/hello-world-Java-thong-qua-docker</id><content type="html" xml:base="http://minhtan.me/java/docker/2019/03/25/hello-world-Java-thong-qua-docker.html">&lt;p&gt;Tạo ra cấu trúc thư mục như sau:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+├── Dockerfile
+├── HelloWorld.java
+└── start.sh
+
+0 directories, 3 files
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Định nghĩa &lt;em&gt;Dockerfile&lt;/em&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Dockerfile&quot;&gt;# FROM alpine:latest
+FROM openjdk:8
+
+# Thực thi câu lệnh khi built image
+# RUN DEBIAN_FRONTEND=noninteractive
+
+# RUN apk --update add openjdk8-jre
+
+# Định nghĩa thư mục CMD trỏ tới
+WORKDIR /src
+
+# COPY . /evrun
+COPY . .
+
+RUN chmod a+x ./*
+
+# ENTRYPOINT [&quot;/evrun/start.sh&quot;]
+ENTRYPOINT [&quot;sh&quot;,&quot;./start.sh&quot;]
+
+# Port cho container
+# EXPOSE 80
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Tạo tập tin &lt;em&gt;HelloWorld.java&lt;/em&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HelloWorld&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello, World - mtSiniChi - yoll - hihi&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Tập tin &lt;em&gt;start.sh&lt;/em&gt; dùng để build chương trình container:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/sh&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Workspace dir: &quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$PWD&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# pwd&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# ls&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# cat HelloWorld.java&lt;/span&gt;
+javac HelloWorld.java
+java HelloWorld
+&lt;span class=&quot;c&quot;&gt;# exec $@&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Build container tên &lt;em&gt;java-hello&lt;/em&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker build &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; java-hello &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Chạy container để xem kết quả:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker run java-hello
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Tạo ra cấu trúc thư mục như sau:</summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://minhtan.me/jekyll/update/2019/03/24/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2019-03-24T11:38:35+07:00</published><updated>2019-03-24T11:38:35+07:00</updated><id>http://minhtan.me/jekyll/update/2019/03/24/welcome-to-jekyll</id><content type="html" xml:base="http://minhtan.me/jekyll/update/2019/03/24/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
 
 &lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
 
