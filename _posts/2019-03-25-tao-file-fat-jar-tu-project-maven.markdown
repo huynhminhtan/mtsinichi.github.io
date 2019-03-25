@@ -9,9 +9,9 @@ categories: java maven
 
 # Fat Jar là gì
 
-Fat Jar, Uber Jar, Shaded Jar chúng có tên khác nhau nhưng được xem là một. Đó được xem như một tập tin nén Jar mà trong đó bao gồm tất cả các class file đã được compile, cộng thêm tất cả các dependencies có trong project.
+Fat Jar, Uber Jar, Shaded Jar chúng có tên khác nhau nhưng được xem là một. Là một tập tin nén Jar mà trong đó bao gồm tất cả các class file đã được compile, cộng thêm tất cả các dependencies có trong project.
 
-Như vậy, toàn bộ mã nguồn chương trình sẽ được gói gọn trong một file Fat Jar và ta có thể thực thi nhanh chống thông qua command `java -jar file-fat-jar.jar`.
+Như vậy, toàn bộ mã nguồn chương trình sẽ được gói gọn trong một file Fat Jar và ta có thể thực thi nhanh chống thông qua command `java -jar name-file-fat-jar.jar`.
 
 # Chuẩn bị mã nguồn
 
