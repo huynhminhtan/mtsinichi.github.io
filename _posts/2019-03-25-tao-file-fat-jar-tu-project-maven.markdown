@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  "Tạo file Fat Jar từ project Maven"
+title:  "Tạo tập tin Fat Jar từ project Maven"
 date:   2019-03-25 21:35:35 +0700
 categories: java maven
 ---
 
-*Bài viết sẽ hướng dẫn tạo ra tập tin Fat Jar của project Maven bằng việc sử dụng [Maven Shade Plugin][1].*
+*Bài viết sẽ hướng dẫn tạo ra tập tin Fat Jar từ project Maven bằng việc sử dụng [Maven Shade Plugin][1].*
 
 # Fat Jar là gì
 
