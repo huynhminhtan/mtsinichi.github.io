@@ -1,12 +1,13 @@
 ---
 layout: post
-title:  "Deploy File Jar Bằng Docker"
+title:  "Thực Thi Project Java Sử Dụng Docker"
 date:   2019-03-26 00:25:35 +0700
 categories: java docker
 ---
 
-Xem thêm cách tạo ra file Jar: [Tạo Tập Tin Fat Jar Từ Project Maven]({% link _posts/2019-03-25-tao-file-fat-jar-tu-project-maven.markdown %})
+Để thực thi project Java thông qua Docker có nhiều cách, trong đó sử dụng file Fat Jar là một trong những cách đơn giản.
 
+Từ project ban đầu, các bạn phải tạo ra file Fat Jar, xem thêm cách tạo ra file Jar: [Tạo Tập Tin Fat Jar Từ Project Maven]({% link _posts/2019-03-25-tao-file-fat-jar-tu-project-maven.markdown %})
 
 # Cấu trúc thư mục
 
