@@ -90,3 +90,7 @@ $ docker run java-hello
 Workspace dir:  /src
 Hello, World - mtSiniChi - yoll - hihi
 ```
+
+Tải source code: [docker-java-hello.zip][1]
+
+[1]:{{ site.url }}/materials/docker-java-hello.zip
