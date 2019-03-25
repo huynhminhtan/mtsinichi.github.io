@@ -81,7 +81,7 @@ Chạy container để xem kết quả:
 docker run java-hello
 ```
 
-# Ăn no lăng co ra ngủ
+# Ăn no lăn co ra ngủ
 
 Kết quả:
 
