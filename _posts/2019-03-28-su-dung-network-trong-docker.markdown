@@ -9,9 +9,9 @@ Bài viết sẽ mô tả cách mà các container giao tiếp với nhau thông
 
 Ví dụ, tạo một ứng dụng hiện thực việc thêm và lấy dữ liệu từ Redis, trong dự án có sử dụng VertX mục đích là thêm một dependency cho project nó bự bự ra ấy mà.
 
-Để project có thể thực thi trên Docker, tức là cả source code và Redis đều chạy trên Docker. Redis thì sử dụng image có sẵn trên Docker Hub, còn source code mình sẽ tự tạo ra container chứa nó bằng Dockerfile đều này sẽ thuận tiện khi deploy chỉ cần một dòng lệnh *docker-compose up*.
+Để project có thể thực thi trên Docker, tức là cả source code và Redis đều chạy trên Docker. Redis ta tận dụng image có sẵn trên Docker Hub, còn source code sẽ tự tạo ra container chứa nó bằng Dockerfile vì sẽ thuận tiện sau này muốn deploy chỉ cần một dòng lệnh *docker-compose up*.
 
-Từ project Maven ban đầu chạy trên Docker, ta sẽ tiến hành các bước sau:
+Từ Maven project muốn chạy trên Docker, ta sẽ tiến hành các bước sau:
 
 - Build project Maven thành tập tin Fat Jar.
 - Xây dựng Dockerfile dựa trên Fat Jar bước trước để tạo container thực thi phần source code.
