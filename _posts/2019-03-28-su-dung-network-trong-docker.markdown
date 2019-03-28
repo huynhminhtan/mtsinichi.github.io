@@ -17,7 +17,7 @@ Từ Maven project muốn chạy trên Docker, ta sẽ tiến hành các bước
 - Xây dựng Dockerfile dựa trên Fat Jar để tạo container thực thi phần source code.
 - Viết *docker-compose.yml* để kết nối các container lại với nhau.
 
-Trong bài này, mình chỉ đề cập đến phần Dockerfile và docker-compose có sử dụng docker network để các containers/ services tương tác qua lại. Xem thêm [Tạo Tập Tin Fat Jar Từ Project Maven]({% link _posts/2019-03-25-tao-file-fat-jar-tu-project-maven.markdown %})
+Trong phạm vi bài này, mình chỉ đề cập đến Dockerfile và docker-compose sử dụng docker network để các containers/ services tương tác qua lại. Xem thêm [Tạo Tập Tin Fat Jar Từ Project Maven]({% link _posts/2019-03-25-tao-file-fat-jar-tu-project-maven.markdown %})
 
 # Tạo Dockerfile từ Fat Jar có sẵn
 
