@@ -5,9 +5,9 @@ date:   2019-03-28 10:08:35 +0700
 categories: java docker
 ---
 
-Bài viết sẽ mô tả cách mà các container giao tiếp với nhau thông qua network docker, cùng với ví dụ cụ thể. Cũng như các bước có thể chạy Maven project trên Docker.
+Bài viết sẽ mô tả cách mà các container giao tiếp với nhau thông qua network docker cùng với ví dụ cụ thể, cũng như các bước có thể chạy một Maven project trên Docker.
 
-Lấy ví dụ, tạo một ứng dụng hiện thực việc thêm và lấy dữ liệu từ Redis, trong dự án có sử dụng VertX mục đích là thêm một dependency cho project nó bự bự ra ấy mà.
+Ví dụ, tạo một ứng dụng hiện thực việc thêm và lấy dữ liệu từ Redis, trong dự án có sử dụng VertX mục đích là thêm một dependency cho project nó bự bự ra ấy mà.
 
 Để project có thể thực thi trên Docker, tức là cả source code và Redis đều chạy trên Docker. Redis thì sử dụng image có sẵn trên Docker Hub, còn source code mình sẽ tự tạo ra container chứa nó bằng Dockerfile đều này sẽ thuận tiện khi deploy chỉ cần một dòng lệnh *docker-compose up*.
 
