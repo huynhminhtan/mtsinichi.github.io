@@ -7,15 +7,15 @@
 <meta name="generator" content="Jekyll v3.8.5" />
 <meta property="og:title" content="Sử Dụng Network Trong Docker" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Bài viết sẽ mô tả cách các container giao tiếp với nhau thông qua network docker, cùng với ví dụ cụ thể. Cũng như các bước có thể chạy Maven project trên Docker." />
-<meta property="og:description" content="Bài viết sẽ mô tả cách các container giao tiếp với nhau thông qua network docker, cùng với ví dụ cụ thể. Cũng như các bước có thể chạy Maven project trên Docker." />
+<meta name="description" content="Bài viết sẽ mô tả cách mà các container giao tiếp với nhau thông qua network docker, cùng với ví dụ cụ thể. Cũng như các bước có thể chạy Maven project trên Docker." />
+<meta property="og:description" content="Bài viết sẽ mô tả cách mà các container giao tiếp với nhau thông qua network docker, cùng với ví dụ cụ thể. Cũng như các bước có thể chạy Maven project trên Docker." />
 <link rel="canonical" href="http://minhtan.me/java/docker/2019/03/28/su-dung-network-trong-docker.html" />
 <meta property="og:url" content="http://minhtan.me/java/docker/2019/03/28/su-dung-network-trong-docker.html" />
 <meta property="og:site_name" content="Huynh Minh Tan" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2019-03-28T10:08:35+07:00" />
 <script type="application/ld+json">
-{"description":"Bài viết sẽ mô tả cách các container giao tiếp với nhau thông qua network docker, cùng với ví dụ cụ thể. Cũng như các bước có thể chạy Maven project trên Docker.","@type":"BlogPosting","url":"http://minhtan.me/java/docker/2019/03/28/su-dung-network-trong-docker.html","headline":"Sử Dụng Network Trong Docker","dateModified":"2019-03-28T10:08:35+07:00","datePublished":"2019-03-28T10:08:35+07:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://minhtan.me/java/docker/2019/03/28/su-dung-network-trong-docker.html"},"@context":"https://schema.org"}</script>
+{"description":"Bài viết sẽ mô tả cách mà các container giao tiếp với nhau thông qua network docker, cùng với ví dụ cụ thể. Cũng như các bước có thể chạy Maven project trên Docker.","@type":"BlogPosting","url":"http://minhtan.me/java/docker/2019/03/28/su-dung-network-trong-docker.html","headline":"Sử Dụng Network Trong Docker","dateModified":"2019-03-28T10:08:35+07:00","datePublished":"2019-03-28T10:08:35+07:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://minhtan.me/java/docker/2019/03/28/su-dung-network-trong-docker.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://minhtan.me/feed.xml" title="Huynh Minh Tan" /><script async src="https://www.googletagmanager.com/gtag/js?id=UA-136835999-1"></script>
 <script>
@@ -52,7 +52,7 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <p>Bài viết sẽ mô tả cách các container giao tiếp với nhau thông qua network docker, cùng với ví dụ cụ thể. Cũng như các bước có thể chạy Maven project trên Docker.</p>
+    <p>Bài viết sẽ mô tả cách mà các container giao tiếp với nhau thông qua network docker, cùng với ví dụ cụ thể. Cũng như các bước có thể chạy Maven project trên Docker.</p>
 
 <p>Lấy ví dụ, tạo một ứng dụng hiện thực việc thêm và lấy dữ liệu từ Redis, trong dự án có sử dụng VertX mục đích là thêm một dependency cho project nó bự bự ra ấy mà.</p>
 
