@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Sử Dụng Network Trong Docker"
-date:   2019-03-25 16:04:35 +0700
+date:   2019-03-28 16:04:35 +0700
 categories: java docker
 ---
 
@@ -15,7 +15,7 @@ Mình đã có project Maven, để có thể chạy trên Docker cho toàn bộ
 - Xây dựng Dockerfile dựa trên Fat Jar bước trước để tạo container thực thi phần source code.
 - Viết *docker-compose.yml* để kết nối các container lại với nhau.
 
-Trong bài này, mình chỉ đề cập đến phần Dockerfile và docker-compose có sử dụng docker network để các containers/ services tương tác qua lại.
+Trong bài này, mình chỉ đề cập đến phần Dockerfile và docker-compose có sử dụng docker network để các containers/ services tương tác qua lại. Xem thêm [Tạo Tập Tin Fat Jar Từ Project Maven]({% link _posts/2019-03-25-tao-file-fat-jar-tu-project-maven.markdown %})
 
 # Tạo Dockerfile từ Fat Jar có sẵn
 
