@@ -193,6 +193,7 @@ Mình có viết *auto.sh* để tổng hợp các script, kết quả cuối c�
 ```bash
 ➜ maven-docker-network:✗ ./auto.sh
 
+...
 redis_db_1  | 1:M 28 Mar 2019 02:31:48.307 * Ready to accept connections
 app_1       | log4j:WARN No appenders could be found for logger (io.netty.util.internal.logging.InternalLoggerFactory).
 app_1       | log4j:WARN Please initialize the log4j system properly.
