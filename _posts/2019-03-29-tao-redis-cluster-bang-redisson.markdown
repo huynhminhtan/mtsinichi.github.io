@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "Tạo Redis Cluster Bằng Redisson"
-date:   2019-03-28 10:08:35 +0700
-categories: java docker
+date:   2019-03-28 09:36:35 +0700
+categories: redis redisson
 ---
 
 content redis cluster
