@@ -2,7 +2,7 @@
 
 Development theme v1.
 
-## Auto build and deloy
+<!-- ## Auto build and deloy
 
 One-hit to awesome.
 
@@ -16,7 +16,7 @@ Manual by hand.
 # build at production
 JEKYLL_ENV=production jekyll serve
 ./git-auto.bash
-```
+``` -->
 
 ## Mini Cheat Sheet
 
