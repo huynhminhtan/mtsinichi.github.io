@@ -5,7 +5,9 @@ date:   2019-03-25 16:04:35 +0700
 categories: java docker
 ---
 
-# Chuẩn bị đường với muối
+Bài viết sẽ hướng dẫn chạy chương trình Java bằng việc sử dụng Docker, từ cách viết Dockerfile, build ứng dụng Java và cuối cùng là chạy thực tế.
+
+## Chuẩn bị đường với muối
 
 Tạo ra cấu trúc thư mục như sau:
 
@@ -67,7 +69,7 @@ java HelloWorld
 # exec $@
 ```
 
-# Bắt đầu kho thịt
+## Bắt đầu kho thịt
 
 Build container tên *java-hello*:
 
@@ -81,7 +83,7 @@ Chạy container để xem kết quả:
 docker run java-hello
 ```
 
-# Ăn no lăn co ra ngủ
+## Ăn no lăn co ra ngủ
 
 Kết quả:
 
@@ -93,4 +95,4 @@ Hello, World - mtSiniChi - yoll - hihi
 
 Tải source code: [docker-java-hello.zip][1]
 
-[1]:{{ site.url }}/materials/docker-java-hello.zip
+[1]:{{ site.url }}/materials/docker-java-hello.

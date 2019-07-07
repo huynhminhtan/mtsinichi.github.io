@@ -3,7 +3,7 @@
 
   <div class="wrapper">
 
-    <h2 class="footer-heading">{{ site.title | escape }}</h2>
+    <!-- <h2 class="footer-heading">{{ site.title | escape }}</h2>
 
     <div class="footer-col-wrapper">
       <div class="footer-col footer-col-1">
@@ -28,7 +28,19 @@
       <div class="footer-col footer-col-3">
         <p>{{- site.description | escape -}}</p>
       </div>
-    </div>
+    </div> -->
+
+
+    <p>
+      {% include social.html %}
+    </p>
+
+    <span>© 2017 mtSiniChi, powered by
+      <a href="http://jekyllrb.com">jekyll</a>.
+      <span class="rss-subscribe">Subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a>.</span>
+
+    </span>
+
 
   </div>
 
