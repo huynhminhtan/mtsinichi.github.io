@@ -3,6 +3,7 @@ layout: post
 title:  "Chương Trình Hello World Bằng Java Thông Qua Docker"
 date:   2019-03-25 16:04:35 +0700
 categories: java docker
+author: mtSiniChi
 ---
 
 Bài viết sẽ hướng dẫn chạy chương trình Java bằng việc sử dụng Docker, từ cách viết Dockerfile, build ứng dụng Java và cuối cùng là chạy thực tế.

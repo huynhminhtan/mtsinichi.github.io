@@ -3,6 +3,7 @@ layout: post
 title:  "Thực Thi Project Java Sử Dụng Docker"
 date:   2019-03-26 00:25:35 +0700
 categories: java docker
+author: mtSiniChi
 ---
 
 Để thực thi project Java thông qua Docker có nhiều cách, trong đó sử dụng file Fat Jar là một cách đơn giản.

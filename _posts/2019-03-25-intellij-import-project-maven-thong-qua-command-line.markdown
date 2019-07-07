@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "Intellij Import Project Maven Thông Qua Command Line"
- 
 date:   2019-03-25 23:48:35 +0700
 categories: intellij maven
+author: mtSiniChi
 ---
 
 Để tiếp kiệm thời gian, chỉ cần `cd` vào project có chứa file *pom.xml*, rồi chạy lệnh `idea pom.xml` sau đó Intellij tự động import project một cách nhanh nhất cho chúng ta.

@@ -3,6 +3,7 @@ layout: post
 title:  "Sử Dụng Network Trong Docker Compose"
 date:   2019-03-28 10:08:35 +0700
 categories: java docker
+author: mtSiniChi
 ---
 
 Bài viết sẽ mô tả cách mà các container giao tiếp với nhau thông qua network docker cùng với ví dụ cụ thể, cũng như các bước có thể chạy một Maven project trên Docker.

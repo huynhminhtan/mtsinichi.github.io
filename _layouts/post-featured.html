@@ -1,0 +1,53 @@
+---
+layout: default
+---
+
+{%- assign img_featured = page.image | default: site.image_featured -%}
+<header class="post-header post-featured hero" style="
+    background-image: url({{img_featured}});
+  ">
+  <div class="wrapper">
+
+    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {%- assign date_format = site.date_format | default: "%b %-d, %Y" -%}
+        {{ page.date | date: date_format }}
+      </time>
+      <!-- {%- if page.author -%}
+      • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card"
+          itemprop="name">{{ page.author }} </span></span>
+      {%- endif -%} -->
+
+      • <span>{{ page.content | strip_html | number_of_words }} words </span>
+      • <span class="reading-time" title="Estimated read time">
+        {% assign words = page.content | strip_html | number_of_words %}
+        {{ words | divided_by: 200 | plus: 1 }} min
+      </span>
+    </p>
+
+    <p class="excerpt">
+      {% assign excerpt = page.excerpt %}
+      {%- if page.article_description -%}
+      {% assign excerpt = page.article_description%}
+      {%- endif -%}
+      {{ excerpt | smartify }}
+
+    </p>
+  </div>
+</header>
+
+<div class="wrapper">
+  <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="post-content e-content" itemprop="articleBody">
+      {{ content }}
+    </div>
+
+    {%- if site.disqus.shortname -%}
+    {%- include disqus_comments.html -%}
+    {%- endif -%}
+
+    <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+  </article>
+</div>

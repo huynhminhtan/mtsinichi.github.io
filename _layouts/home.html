@@ -2,14 +2,16 @@
 layout: default
 ---
 
-<div class="home">
-  {%- if page.title -%}
+<div class="wrapper margin-top-30">
+
+  <div class="home">
+    {%- if page.title -%}
     <h1 class="page-heading">{{ page.title }}</h1>
-  {%- endif -%}
+    {%- endif -%}
 
-  {{ content }}
+    {{ content }}
 
-  {%- if site.posts.size > 0 -%}
+    {%- if site.posts.size > 0 -%}
     <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
     <ul class="post-list">
       {%- for post in site.posts -%}
@@ -27,13 +29,19 @@ layout: default
 
         <div class="excerpt">
           {%- if site.show_excerpts -%}
-          {{ post.excerpt }}
-        {%- endif -%}
+          {%- assign excerpt = post.excerpt -%}
+          {%- if post.article_description -%}
+          {%- assign excerpt = post.article_description -%}
+          {%- endif -%}
+          {{ excerpt }}
+          {%- endif -%}
         </div>
       </li>
       {%- endfor -%}
     </ul>
 
-  {%- endif -%}
+    {%- endif -%}
+
+  </div>
 
 </div>
