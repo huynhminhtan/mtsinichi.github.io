@@ -86,6 +86,15 @@ ul.social-media-list li {
 }
 
 /**
+* Anchor links
+*/ 
+
+:hover > .anchorjs-link, .anchorjs-link:focus {
+  opacity: 0.3;
+}
+
+
+/**
  * Site header
  */
 .site-header {
