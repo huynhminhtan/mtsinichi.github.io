@@ -9,11 +9,11 @@ image: https://www.outsystems.com/-/media/images/case-studies/via-verde-crm-incr
 article_description: You’ll find this post in your  directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run, which launches a web server and auto-regenerates your site when a file is updated, acticles.
 ---
 
-## # Contents
+<!-- ## # Contents
 {:.no_toc}
 
 * Will be replaced with the ToC, excluding the "Contents" header
-{:toc}
+{:toc} -->
 
 ## Checkout
 
