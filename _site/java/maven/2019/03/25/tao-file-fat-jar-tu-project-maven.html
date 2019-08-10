@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Tạo Tập Tin Fat Jar Từ Project Maven | mtSiniChi</title>
+<meta name="generator" content="Jekyll v3.8.6" />
+<meta property="og:title" content="Tạo Tập Tin Fat Jar Từ Project Maven" />
+<meta name="author" content="mtSiniChi" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Bài viết sẽ hướng dẫn tạo ra tập tin Fat Jar từ project Maven bằng việc sử dụng Maven Shade Plugin." />
+<meta property="og:description" content="Bài viết sẽ hướng dẫn tạo ra tập tin Fat Jar từ project Maven bằng việc sử dụng Maven Shade Plugin." />
+<link rel="canonical" href="/java/maven/2019/03/25/tao-file-fat-jar-tu-project-maven.html" />
+<meta property="og:url" content="/java/maven/2019/03/25/tao-file-fat-jar-tu-project-maven.html" />
+<meta property="og:site_name" content="mtSiniChi" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-03-25T21:35:35+07:00" />
+<script type="application/ld+json">
+{"description":"Bài viết sẽ hướng dẫn tạo ra tập tin Fat Jar từ project Maven bằng việc sử dụng Maven Shade Plugin.","author":{"@type":"Person","name":"mtSiniChi"},"@type":"BlogPosting","url":"/java/maven/2019/03/25/tao-file-fat-jar-tu-project-maven.html","headline":"Tạo Tập Tin Fat Jar Từ Project Maven","dateModified":"2019-03-25T21:35:35+07:00","datePublished":"2019-03-25T21:35:35+07:00","mainEntityOfPage":{"@type":"WebPage","@id":"/java/maven/2019/03/25/tao-file-fat-jar-tu-project-maven.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="mtSiniChi" /><script src="/assets/js/anchor.js"></script>
+  <script src="/assets/js/jquery-3.1.1.min.js"></script>
+  <script src="/assets/js/jquery.toc.min.js"></script>
+
+</head><body><header class="site-header" role="banner">
+
+  <div class="container"><a class="site-title" rel="author" href="/">mtSiniChi</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/page-test.html">Page Test</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <!-- <div class="wrapper"> -->
+        <div class="wrapper margin-top-30">
+  <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <header class="post-header">
+      <h1 class="post-title p-name" itemprop="name headline">Tạo Tập Tin Fat Jar Từ Project Maven</h1>
+      <p class="post-meta">
+        <time class="dt-published" datetime="2019-03-25T21:35:35+07:00" itemprop="datePublished">Mar 25, 2019
+        </time>
+        <!--• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card"
+          itemprop="name">mtSiniChi </span></span>-->
+
+        • <span>535 words </span>
+        • <span class="reading-time" title="Estimated read time">
+          
+          3 min
+        </span>
+      </p>
+
+    </header>
+
+    <div class="post-content e-content" itemprop="articleBody">
+      <p><em>Bài viết sẽ hướng dẫn tạo ra tập tin Fat Jar từ project Maven bằng việc sử dụng <a href="https://maven.apache.org/plugins/maven-shade-plugin/">Maven Shade Plugin</a>.</em></p>
+
+<h1 id="fat-jar-là-gì">Fat Jar là gì</h1>
+
+<p>Fat Jar, Uber Jar, Shaded Jar chúng có tên khác nhau nhưng được xem là một. Là một tập tin nén Jar mà trong đó bao gồm tất cả các class file đã được compile, cộng thêm tất cả các dependencies có trong project.</p>
+
+<p>Như vậy, toàn bộ mã nguồn chương trình sẽ được gói gọn trong một file Fat Jar và ta có thể thực thi nhanh chóng thông qua command <code class="highlighter-rouge">java -jar name-file-fat-jar.jar</code>.</p>
+
+<h1 id="chuẩn-bị-mã-nguồn">Chuẩn bị mã nguồn</h1>
+
+<h2 id="cấu-trúc-project">Cấu trúc project</h2>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.
+├── pom.xml
+└── src
+    ├── main
+    │   ├── java
+    │   │   └── com
+    │   │       └── minhtan
+    │   │           └── core
+    │   │               └── OrderVerticle.java
+    │   └── resources
+    └── test
+        └── java
+
+9 directories, 2 files
+</code></pre></div></div>
+
+<h2 id="file-pomxml">File pom.xml</h2>
+
+<p>Thay <em>com.minhtan.core.OrderVerticle</em> thành class có chứa hàm main tương ứng. Hãy tạo ra package chứa class main nếu link tới không thành công, trong ví dụ ngày pakage có tên là <em>com.minhtan.core.</em></p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">"http://maven.apache.org/POM/4.0.0"</span>
+         <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
+         <span class="na">xsi:schemaLocation=</span><span class="s">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+
+    <span class="nt">&lt;groupId&gt;</span>test<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>maven.<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+
+    <span class="c">&lt;!--&lt;properties&gt;--&gt;</span>
+    <span class="c">&lt;!--&lt;jdk.version&gt;1.7&lt;/jdk.version&gt;--&gt;</span>
+    <span class="c">&lt;!--&lt;jodatime.version&gt;2.5&lt;/jodatime.version&gt;--&gt;</span>
+    <span class="c">&lt;!--&lt;junit.version&gt;4.11&lt;/junit.version&gt;--&gt;</span>
+    <span class="c">&lt;!--&lt;/properties&gt;--&gt;</span>
+
+    <span class="nt">&lt;build&gt;</span>
+        <span class="nt">&lt;plugins&gt;</span>
+
+            <span class="c">&lt;!-- Set a compiler level --&gt;</span>
+            <span class="nt">&lt;plugin&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>maven-compiler-plugin<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;configuration&gt;</span>
+                    <span class="nt">&lt;source&gt;</span>8<span class="nt">&lt;/source&gt;</span>
+                    <span class="nt">&lt;target&gt;</span>8<span class="nt">&lt;/target&gt;</span>
+                <span class="nt">&lt;/configuration&gt;</span>
+            <span class="nt">&lt;/plugin&gt;</span>
+
+            <span class="c">&lt;!--&lt;plugin&gt;--&gt;</span>
+            <span class="c">&lt;!--&lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;--&gt;</span>
+            <span class="c">&lt;!--&lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;--&gt;</span>
+            <span class="c">&lt;!--&lt;version&gt;2.3.2&lt;/version&gt;--&gt;</span>
+            <span class="c">&lt;!--&lt;configuration&gt;--&gt;</span>
+            <span class="c">&lt;!--&lt;source&gt;${jdk.version}&lt;/source&gt;--&gt;</span>
+            <span class="c">&lt;!--&lt;target&gt;${jdk.version}&lt;/target&gt;--&gt;</span>
+            <span class="c">&lt;!--&lt;/configuration&gt;--&gt;</span>
+            <span class="c">&lt;!--&lt;/plugin&gt;--&gt;</span>
+
+
+            <span class="c">&lt;!-- Maven Shade Plugin --&gt;</span>
+            <span class="nt">&lt;plugin&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>maven-shade-plugin<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>2.3<span class="nt">&lt;/version&gt;</span>
+                <span class="nt">&lt;executions&gt;</span>
+                    <span class="c">&lt;!-- Run shade goal on package phase --&gt;</span>
+                    <span class="nt">&lt;execution&gt;</span>
+                        <span class="nt">&lt;phase&gt;</span>package<span class="nt">&lt;/phase&gt;</span>
+                        <span class="nt">&lt;goals&gt;</span>
+                            <span class="nt">&lt;goal&gt;</span>shade<span class="nt">&lt;/goal&gt;</span>
+                        <span class="nt">&lt;/goals&gt;</span>
+                        <span class="nt">&lt;configuration&gt;</span>
+                            <span class="nt">&lt;transformers&gt;</span>
+                                <span class="c">&lt;!-- add Main-Class to manifest file --&gt;</span>
+                                <span class="nt">&lt;transformer</span>
+                                        <span class="na">implementation=</span><span class="s">"org.apache.maven.plugins.shade.resource.ManifestResourceTransformer"</span><span class="nt">&gt;</span>
+                                    <span class="nt">&lt;mainClass&gt;</span>com.minhtan.core.OrderVerticle<span class="nt">&lt;/mainClass&gt;</span>
+                                <span class="nt">&lt;/transformer&gt;</span>
+                            <span class="nt">&lt;/transformers&gt;</span>
+                        <span class="nt">&lt;/configuration&gt;</span>
+                    <span class="nt">&lt;/execution&gt;</span>
+                <span class="nt">&lt;/executions&gt;</span>
+            <span class="nt">&lt;/plugin&gt;</span>
+
+        <span class="nt">&lt;/plugins&gt;</span>
+    <span class="nt">&lt;/build&gt;</span>
+
+    <span class="nt">&lt;dependencies&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>io.vertx<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>vertx-web<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>3.5.0<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+    <span class="nt">&lt;/dependencies&gt;</span>
+
+<span class="nt">&lt;/project&gt;</span>
+</code></pre></div></div>
+
+<h2 id="tạo-file-demo-orderverticlejava">Tạo file demo OrderVerticle.java</h2>
+
+<p>Trong project này, mình sử dụng thư viện Vert.X để xem khi run file Jar có bị lỗi thiếu dependency không. Mã nguồn <em>OrderVerticle.java</em> như bên dưới:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">minhtan</span><span class="o">.</span><span class="na">core</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">io.vertx.core.AbstractVerticle</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">io.vertx.core.Vertx</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">OrderVerticle</span> <span class="kd">extends</span> <span class="nc">AbstractVerticle</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="nc">Vertx</span> <span class="n">vertx</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">Vertx</span> <span class="nf">getInstanceVertX</span><span class="o">()</span> <span class="o">{</span>
+
+        <span class="k">if</span> <span class="o">(</span><span class="n">vertx</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">vertx</span> <span class="o">=</span> <span class="nc">Vertx</span><span class="o">.</span><span class="na">vertx</span><span class="o">();</span>
+            <span class="n">vertx</span><span class="o">.</span><span class="na">deployVerticle</span><span class="o">(</span><span class="k">new</span> <span class="nc">OrderVerticle</span><span class="o">());</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">vertx</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Vertx</span> <span class="n">vertx</span> <span class="o">=</span> <span class="n">getInstanceVertX</span><span class="o">();</span>
+        <span class="n">vertx</span><span class="o">.</span><span class="na">deployVerticle</span><span class="o">(</span><span class="k">new</span> <span class="nc">OrderVerticle</span><span class="o">());</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"He nhu u! : build to fat-jar with maven project "</span><span class="o">);</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h1 id="tạo-ra-file-jar">Tạo ra File Jar</h1>
+
+<p>Sử dụng command của Maven sẽ tự động tạo ra được file Jar, vào thư mục gốc của project cần build và chạy lệnh bên dưới:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mvn package
+
+<span class="o">[</span>INFO] Scanning <span class="k">for </span>projects...
+<span class="o">[</span>INFO] <span class="nt">------------------------------------------------------------------------</span>
+<span class="o">[</span>INFO] Building maven. 1.0-SNAPSHOT
+<span class="o">[</span>INFO] <span class="nt">------------------------------------------------------------------------</span>
+<span class="o">[</span>INFO]
+<span class="o">[</span>INFO] <span class="nt">---</span> maven-resources-plugin:2.6:resources <span class="o">(</span>default-resources<span class="o">)</span> @ maven. <span class="nt">---</span>
+<span class="o">[</span>WARNING] Using platform encoding <span class="o">(</span>UTF-8 actually<span class="o">)</span> to copy filtered resources, i.e. build is platform dependent!
+<span class="o">[</span>INFO] Copying 0 resource
+<span class="o">[</span>INFO]
+<span class="o">[</span>INFO] <span class="nt">---</span> maven-compiler-plugin:3.2:compile <span class="o">(</span>default-compile<span class="o">)</span> @ maven. <span class="nt">---</span>
+<span class="o">[</span>INFO] Changes detected - recompiling the module!
+...
+</code></pre></div></div>
+
+<p>Sau khi chạy thành công, có 2 tập tin được tạo ra trong thư mục <em>target/</em>:</p>
+
+<ul>
+  <li>maven.-1.0-SNAPSHOT.jar: đây là file Jar chúng ta cần.</li>
+  <li>original-maven.-1.0-SNAPSHOT.jar: không cần sử dụng.</li>
+</ul>
+
+<h1 id="thực-thi-file-jar">Thực thi file Jar</h1>
+
+<p>Hiển thị những class, những dependency có trong file Jar:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jar tf target/maven.-1.0-SNAPSHOT.jar
+
+com/fasterxml/jackson/databind/util/ViewMatcher.class
+META-INF/maven/com.fasterxml.jackson.core/jackson-annotations/
+META-INF/maven/com.fasterxml.jackson.core/jackson-annotations/pom.properties
+META-INF/maven/com.fasterxml.jackson.core/jackson-annotations/pom.xml
+com/fasterxml/jackson/annotation/
+com/fasterxml/jackson/annotation/JacksonAnnotation.class
+com/fasterxml/jackson/annotation/SimpleObjectIdResolver.class
+...
+</code></pre></div></div>
+
+<p>Chạy file Jar, cũng như chạy cả project:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>java <span class="nt">-jar</span> target/maven.-1.0-SNAPSHOT.jar
+
+<span class="o">&gt;</span> He nhu u! : build to fat-jar with maven project
+</code></pre></div></div>
+
+<p>Tải source code: <a href="/materials/create-jar-maven.zip">create-jar-maven.zip</a></p>
+
+<h2 id="tham-khảo">Tham khảo</h2>
+
+<ul>
+  <li>https://www.tomitribe.com/blog/tomee-fat-jar-deployments/</li>
+  <li>https://www.mkyong.com/maven/create-a-fat-jar-file-maven-shade-plugin/</li>
+</ul>
+
+    </div><a class="u-url" href="/java/maven/2019/03/25/tao-file-fat-jar-tu-project-maven.html" hidden></a>
+  </article>
+</div>
+      <!-- </div> -->
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <!-- <h2 class="footer-heading">mtSiniChi</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">mtSiniChi</li><li><a class="u-email" href="mailto:your-email@example.com">your-email@example.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a target="_blank" tooltip="fb.com/tan.shinichi"
+      href="https://www.facebook.com/tan.shinichi"><svg class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#facebook"></use>
+      </svg> <span class="username"></span></a></li><li><a target="_blank" tooltip="github.com/huynhminhtan" href="https://github.com/huynhminhtan"><svg
+        class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#github"></use>
+      </svg> <span class="username"></span></a></li><li><a target="_blank" tooltip="instagram.com/mtsinichi"
+      href="https://instagram.com/mtsinichi"><svg class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#instagram"></use>
+      </svg> <span class="username"></span></a></li><li><a  target="_blank" tooltip="linkedin.com/in/mtsinichi"
+      href="https://www.linkedin.com/in/mtsinichi"><svg class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#linkedin"></use>
+      </svg> <span tooltip="sdsdsd"></span></a></li><li><a target="_blank" tooltip="twitter.com/mtsinichi"" 
+      href="https://www.twitter.com/mtsinichi"><svg class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#twitter"></use>
+      </svg> <span class="username"></span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</p>
+      </div>
+    </div> -->
+
+
+    <p>
+      <ul class="social-media-list"><li><a target="_blank" tooltip="fb.com/tan.shinichi"
+      href="https://www.facebook.com/tan.shinichi"><svg class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#facebook"></use>
+      </svg> <span class="username"></span></a></li><li><a target="_blank" tooltip="github.com/huynhminhtan" href="https://github.com/huynhminhtan"><svg
+        class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#github"></use>
+      </svg> <span class="username"></span></a></li><li><a target="_blank" tooltip="instagram.com/mtsinichi"
+      href="https://instagram.com/mtsinichi"><svg class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#instagram"></use>
+      </svg> <span class="username"></span></a></li><li><a  target="_blank" tooltip="linkedin.com/in/mtsinichi"
+      href="https://www.linkedin.com/in/mtsinichi"><svg class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#linkedin"></use>
+      </svg> <span tooltip="sdsdsd"></span></a></li><li><a target="_blank" tooltip="twitter.com/mtsinichi"" 
+      href="https://www.twitter.com/mtsinichi"><svg class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#twitter"></use>
+      </svg> <span class="username"></span></a></li></ul>
+
+    </p>
+
+    <span>© 2017 mtSiniChi, powered by
+      <a href="http://jekyllrb.com">jekyll</a>.
+      <span class="rss-subscribe">Subscribe <a href="/feed.xml">via RSS</a>.</span>
+      
+
+    </span>
+
+
+  </div>
+
+</footer>
+
+<script>
+	$(function() {
+		// anchors.options.visible = 'always'; 
+		anchors.add('.post-content > h1, .post-content > h2, .post-content > h3, .post-content > h4, .post-content > h5, .post-content > h6');
+	});
+</script></body>
+
+</html>
