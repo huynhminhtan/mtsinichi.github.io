@@ -1,6 +1,8 @@
 
 DIR_GH_PAGE=gh-page-mt-must-not-duplicate-12122312121232323
 
+JEKYLL_ENV=production jekyll build
+
 if [ ! -d "_site" ]; then
     echo "folder _site not exist"
     return
@@ -32,7 +34,7 @@ echo "
     git checkout gh-pages
     git pull
     git add .
-    git commit -m 'update blog'
+    git commit -m 'update content'
     git push -u origin gh-pages 
 " >> ../"$DIR_GH_PAGE"/git-upate.sh
 
