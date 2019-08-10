@@ -24,7 +24,7 @@ git push origin mt-theme-v1
 # cd ../master/
 if [ -d "_site" ]; then
     cp -R ./_site/* ../gh-pages
-    cp -R ./.git/* ../gh-pages
+    cp -R ./.git/* ../gh-pages/.git
 fi
 
 
