@@ -1,7 +1,7 @@
 git add .
 git add *
 git commit -m "Update blog"
-git push origin master
+git push origin mt-theme-v1
 
 # cd gh-pages
 cd ../gh-pages/
