@@ -1,5 +1,5 @@
 
-DIR_GH_PAGE = gh-page-mt-not-check-12122312121232323
+DIR_GH_PAGE = gh-page-12122312121232323
 
 git add .
 git add *
