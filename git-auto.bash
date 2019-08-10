@@ -8,7 +8,7 @@ git push origin mt-theme-v1
 
 # create gh-page if not exist, then clean
 cd ../
- mkdir DIR_GH_PAGE
+ mkdir $DIR_GH_PAGE
 # if [! -d "gh-page"]
 # then
 #     mkdir DIR_GH_PAGE
