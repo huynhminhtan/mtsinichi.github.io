@@ -15,6 +15,9 @@ else
     git remote add origin https://github.com/huynhminhtan/mtsinichi.github.io.git
     git config user.name "Huynh Minh Tan"
     git config user.email "minhtan.itdev@gmail.com"
+    git pull
+    git rm -rf .
+    git clean -fxd
 fi
 
 # copy to gh-pages
