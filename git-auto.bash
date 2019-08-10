@@ -1,14 +1,40 @@
 
-DIR_GH_PAGE = gh-page-12122312121232323
+DIR_GH_PAGE=gh-page-mt-must-not-duplicate-12122312121232323
 
-git add .
-git add *
-git commit -m "Update blog"
-git push origin mt-theme-v1
+# git add .
+# git add *
+# git commit -m "Update blog"
+# git push origin mt-theme-v1
 
-# create gh-page if not exist, then clean
-cd ../
- mkdir $DIR_GH_PAGE
+# clear gh-page
+rm -rf ../"$DIR_GH_PAGE"
+echo "rm -rf ../$DIR_GH_PAGE"
+
+# create gh-page
+mkdir -p ../"$DIR_GH_PAGE"
+echo "mkdir -p ../$DIR_GH_PAGE"
+
+# copy _site and .git to gh-pages
+if [ -d "_site" ]; then
+    cp -R ./_site/* ../"$DIR_GH_PAGE"
+    echo "cp -R ./_site/* ../$DIR_GH_PAGE"
+    cp -R ./.git ../"$DIR_GH_PAGE"
+    echo "cp -R ./.git ../$DIR_GH_PAGE"
+fi
+
+touch ../"$DIR_GH_PAGE"/git-upate.sh
+echo "
+    git checkout gh-pages
+    git add .
+    git add *
+    git commit -m 'update blog'
+    git push -u origin gh-pages 
+" >> ../"$DIR_GH_PAGE"/git-upate.sh
+
+# run
+chmod a+x ../"$DIR_GH_PAGE"/git-upate.sh
+../"$DIR_GH_PAGE"/git-upate.sh
+
 # if [! -d "gh-page"]
 # then
 #     mkdir DIR_GH_PAGE
