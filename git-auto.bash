@@ -27,12 +27,12 @@ echo "cp -R ./.git ../$DIR_GH_PAGE"
 # git 1 create new data
 touch ../"$DIR_GH_PAGE"/git-step-1.sh
 echo "#!/bin/sh
-    git add .
-    git commit -m 'tmp'
-    git checkout gh-pages 
+git add .
+git commit -m 'tmp'
+git checkout gh-pages 
 " >>../"$DIR_GH_PAGE"/git-step-1.sh
 chmod a+x ../"$DIR_GH_PAGE"/git-step-1.sh
-../"$DIR_GH_PAGE"/git-step-1.sh
+sh ../"$DIR_GH_PAGE"/git-step-1.sh
 
 # # copy _site to $DIR_GH_PAGE
 # cp -R ./_site/* ../"$DIR_GH_PAGE"
