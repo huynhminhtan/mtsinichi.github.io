@@ -11,7 +11,7 @@
       href="https://www.flickr.com/photos/{{ site.flickr_username| cgi_escape | escape }}"><svg class="svg-icon">
         <use xlink:href="{{ '/assets/minima-social-icons.svg#flickr' | relative_url }}"></use>
       </svg> <span class="username">{{ site.flickr_username| escape }}</span></a></li>{%- endif -%}
-  {%- if site.github_username -%}<li><a target="_blank" tooltip="github.com/mtsinichi" href="https://github.com/{{ site.github_username| cgi_escape | escape }}"><svg
+  {%- if site.github_username -%}<li><a target="_blank" tooltip="github.com/{{ site.github_username| cgi_escape | escape }}" href="https://github.com/{{ site.github_username| cgi_escape | escape }}"><svg
         class="svg-icon">
         <use xlink:href="{{ '/assets/minima-social-icons.svg#github' | relative_url }}"></use>
       </svg> <span class="username"></span></a></li>{%- endif -%}
