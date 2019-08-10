@@ -1,6 +1,8 @@
-# HUYNH MINH TAN
+# HUYNH MINH TAN BLOG
 
-## Auto build and deloy
+Development theme v1.
+
+<!-- ## Auto build and deloy
 
 One-hit to awesome.
 
@@ -14,8 +16,7 @@ Manual by hand.
 # build at production
 JEKYLL_ENV=production jekyll serve
 ./git-auto.bash
-```
-
+``` -->
 
 ## Mini Cheat Sheet
 

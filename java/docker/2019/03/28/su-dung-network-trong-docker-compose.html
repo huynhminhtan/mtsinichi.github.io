@@ -2,32 +2,29 @@
 <html lang="en"><head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.0 -->
-<title>Sử Dụng Network Trong Docker Compose | Huynh Minh Tan</title>
-<meta name="generator" content="Jekyll v3.8.5" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Sử Dụng Network Trong Docker Compose | mtSiniChi</title>
+<meta name="generator" content="Jekyll v3.8.6" />
 <meta property="og:title" content="Sử Dụng Network Trong Docker Compose" />
+<meta name="author" content="mtSiniChi" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Bài viết sẽ mô tả cách mà các container giao tiếp với nhau thông qua network docker cùng với ví dụ cụ thể, cũng như các bước có thể chạy một Maven project trên Docker." />
 <meta property="og:description" content="Bài viết sẽ mô tả cách mà các container giao tiếp với nhau thông qua network docker cùng với ví dụ cụ thể, cũng như các bước có thể chạy một Maven project trên Docker." />
-<link rel="canonical" href="http://minhtan.me/java/docker/2019/03/28/su-dung-network-trong-docker-compose.html" />
-<meta property="og:url" content="http://minhtan.me/java/docker/2019/03/28/su-dung-network-trong-docker-compose.html" />
-<meta property="og:site_name" content="Huynh Minh Tan" />
+<link rel="canonical" href="/java/docker/2019/03/28/su-dung-network-trong-docker-compose.html" />
+<meta property="og:url" content="/java/docker/2019/03/28/su-dung-network-trong-docker-compose.html" />
+<meta property="og:site_name" content="mtSiniChi" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2019-03-28T10:08:35+07:00" />
 <script type="application/ld+json">
-{"description":"Bài viết sẽ mô tả cách mà các container giao tiếp với nhau thông qua network docker cùng với ví dụ cụ thể, cũng như các bước có thể chạy một Maven project trên Docker.","@type":"BlogPosting","url":"http://minhtan.me/java/docker/2019/03/28/su-dung-network-trong-docker-compose.html","headline":"Sử Dụng Network Trong Docker Compose","dateModified":"2019-03-28T10:08:35+07:00","datePublished":"2019-03-28T10:08:35+07:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://minhtan.me/java/docker/2019/03/28/su-dung-network-trong-docker-compose.html"},"@context":"https://schema.org"}</script>
+{"description":"Bài viết sẽ mô tả cách mà các container giao tiếp với nhau thông qua network docker cùng với ví dụ cụ thể, cũng như các bước có thể chạy một Maven project trên Docker.","author":{"@type":"Person","name":"mtSiniChi"},"@type":"BlogPosting","url":"/java/docker/2019/03/28/su-dung-network-trong-docker-compose.html","headline":"Sử Dụng Network Trong Docker Compose","dateModified":"2019-03-28T10:08:35+07:00","datePublished":"2019-03-28T10:08:35+07:00","mainEntityOfPage":{"@type":"WebPage","@id":"/java/docker/2019/03/28/su-dung-network-trong-docker-compose.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://minhtan.me/feed.xml" title="Huynh Minh Tan" /><script async src="https://www.googletagmanager.com/gtag/js?id=UA-136835999-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag() { dataLayer.push(arguments); }
-  gtag('js', new Date());
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="mtSiniChi" /><script src="/assets/js/anchor.js"></script>
+  <script src="/assets/js/jquery-3.1.1.min.js"></script>
+  <script src="/assets/js/jquery.toc.min.js"></script>
 
-  gtag('config', 'UA-136835999-1');
-</script></head>
-<body><header class="site-header" role="banner">
+</head><body><header class="site-header" role="banner">
 
-  <div class="wrapper"><a class="site-title" rel="author" href="/">Huynh Minh Tan</a><nav class="site-nav">
+  <div class="container"><a class="site-title" rel="author" href="/">mtSiniChi</a><nav class="site-nav">
         <input type="checkbox" id="nav-trigger" class="nav-trigger" />
         <label for="nav-trigger">
           <span class="menu-icon">
@@ -41,18 +38,29 @@
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
-      <div class="wrapper">
-        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+      <!-- <div class="wrapper"> -->
+        <div class="wrapper margin-top-30">
+  <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Sử Dụng Network Trong Docker Compose</h1>
-    <p class="post-meta">
-      <time class="dt-published" datetime="2019-03-28T10:08:35+07:00" itemprop="datePublished">Mar 28, 2019
-      </time></p>
-  </header>
+    <header class="post-header">
+      <h1 class="post-title p-name" itemprop="name headline">Sử Dụng Network Trong Docker Compose</h1>
+      <p class="post-meta">
+        <time class="dt-published" datetime="2019-03-28T10:08:35+07:00" itemprop="datePublished">Mar 28, 2019
+        </time>
+        <!--• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card"
+          itemprop="name">mtSiniChi </span></span>-->
 
-  <div class="post-content e-content" itemprop="articleBody">
-    <p>Bài viết sẽ mô tả cách mà các container giao tiếp với nhau thông qua network docker cùng với ví dụ cụ thể, cũng như các bước có thể chạy một Maven project trên Docker.</p>
+        • <span>934 words </span>
+        • <span class="reading-time" title="Estimated read time">
+          
+          5 min
+        </span>
+      </p>
+
+    </header>
+
+    <div class="post-content e-content" itemprop="articleBody">
+      <p>Bài viết sẽ mô tả cách mà các container giao tiếp với nhau thông qua network docker cùng với ví dụ cụ thể, cũng như các bước có thể chạy một Maven project trên Docker.</p>
 
 <p>Ví dụ, tạo một ứng dụng hiện thực việc thêm và lấy dữ liệu từ Redis, trong dự án có sử dụng VertX mục đích là thêm một dependency cho project nó bự bự ra ấy mà.</p>
 
@@ -190,44 +198,44 @@
 <span class="kn">import</span> <span class="nn">org.redisson.api.RedissonClient</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.redisson.config.Config</span><span class="o">;</span>
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">OrderVerticle</span> <span class="kd">extends</span> <span class="n">AbstractVerticle</span> <span class="o">{</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">OrderVerticle</span> <span class="kd">extends</span> <span class="nc">AbstractVerticle</span> <span class="o">{</span>
 
-    <span class="kd">private</span> <span class="kd">static</span> <span class="n">Vertx</span> <span class="n">vertx</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="nc">Vertx</span> <span class="n">vertx</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Vertx</span> <span class="nf">getInstanceVertX</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">Vertx</span> <span class="nf">getInstanceVertX</span><span class="o">()</span> <span class="o">{</span>
 
         <span class="k">if</span> <span class="o">(</span><span class="n">vertx</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">vertx</span> <span class="o">=</span> <span class="n">Vertx</span><span class="o">.</span><span class="na">vertx</span><span class="o">();</span>
-            <span class="n">vertx</span><span class="o">.</span><span class="na">deployVerticle</span><span class="o">(</span><span class="k">new</span> <span class="n">OrderVerticle</span><span class="o">());</span>
+            <span class="n">vertx</span> <span class="o">=</span> <span class="nc">Vertx</span><span class="o">.</span><span class="na">vertx</span><span class="o">();</span>
+            <span class="n">vertx</span><span class="o">.</span><span class="na">deployVerticle</span><span class="o">(</span><span class="k">new</span> <span class="nc">OrderVerticle</span><span class="o">());</span>
         <span class="o">}</span>
 
         <span class="k">return</span> <span class="n">vertx</span><span class="o">;</span>
     <span class="o">}</span>
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">Vertx</span> <span class="n">vertx</span> <span class="o">=</span> <span class="n">getInstanceVertX</span><span class="o">();</span>
-        <span class="n">vertx</span><span class="o">.</span><span class="na">deployVerticle</span><span class="o">(</span><span class="k">new</span> <span class="n">OrderVerticle</span><span class="o">());</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Vertx</span> <span class="n">vertx</span> <span class="o">=</span> <span class="n">getInstanceVertX</span><span class="o">();</span>
+        <span class="n">vertx</span><span class="o">.</span><span class="na">deployVerticle</span><span class="o">(</span><span class="k">new</span> <span class="nc">OrderVerticle</span><span class="o">());</span>
 
-        <span class="n">Config</span> <span class="n">config</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Config</span><span class="o">();</span>
+        <span class="nc">Config</span> <span class="n">config</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Config</span><span class="o">();</span>
         <span class="c1">// connect to Redis</span>
         <span class="n">config</span><span class="o">.</span><span class="na">useSingleServer</span><span class="o">().</span><span class="na">setAddress</span><span class="o">(</span><span class="s">"redis://redis_db:6379"</span><span class="o">);</span>
-        <span class="n">RedissonClient</span> <span class="n">redisson</span> <span class="o">=</span> <span class="n">Redisson</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">config</span><span class="o">);</span>
+        <span class="nc">RedissonClient</span> <span class="n">redisson</span> <span class="o">=</span> <span class="nc">Redisson</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">config</span><span class="o">);</span>
 
-        <span class="n">RList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="n">redisson</span><span class="o">.</span><span class="na">getList</span><span class="o">(</span><span class="s">"mylist"</span><span class="o">);</span>
+        <span class="nc">RList</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="n">redisson</span><span class="o">.</span><span class="na">getList</span><span class="o">(</span><span class="s">"mylist"</span><span class="o">);</span>
 
         <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"aaaaaaaaaa"</span><span class="o">);</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Add 'aaaaaaaaaa' to Redis"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Add 'aaaaaaaaaa' to Redis"</span><span class="o">);</span>
         <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"bbbbbbbbbb"</span><span class="o">);</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Add 'bbbbbbbbbb' to Redis"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Add 'bbbbbbbbbb' to Redis"</span><span class="o">);</span>
         <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"cccccccccc"</span><span class="o">);</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Add 'cccccccccc' to Redis"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Add 'cccccccccc' to Redis"</span><span class="o">);</span>
 
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Get list[0],[1],[2],[3] from Redis: "</span><span class="o">);</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">));</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">));</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">));</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">3</span><span class="o">));</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Get done!"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Get list[0],[1],[2],[3] from Redis: "</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">3</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Get done!"</span><span class="o">);</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div></div>
@@ -299,14 +307,14 @@ app_1       | Get <span class="k">done</span><span class="o">!</span>
 
 <h1 id="tài-nguyên">Tài nguyên</h1>
 
-<p>Tải source cho toàn bộ từ project Java Maven, Dockerfile và Docker Compose: <a href="http://minhtan.me/materials/maven-docker-network.zip">maven-docker-network.zip</a></p>
+<p>Tải source cho toàn bộ từ project Java Maven, Dockerfile và Docker Compose: <a href="/materials/maven-docker-network.zip">maven-docker-network.zip</a></p>
 
 <p>Chạy bằng lệnh <code class="highlighter-rouge">./auto.sh</code>, mình viết nó để chạy một lệnh cho tất cả các công việc:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># auto.sh</span>
 mvn clean
 mvn package
-docker <span class="nb">rm</span> <span class="k">$(</span>docker ps <span class="nt">-a</span> <span class="nt">-q</span><span class="k">)</span>
+docker <span class="nb">rm</span> <span class="si">$(</span>docker ps <span class="nt">-a</span> <span class="nt">-q</span><span class="si">)</span>
 
 <span class="c"># docker-compose build --no-cache</span>
 <span class="c"># docker-compose up --force-recreate</span>
@@ -324,34 +332,84 @@ docker-compose up
 </ul>
 
 
-  </div><a class="u-url" href="/java/docker/2019/03/28/su-dung-network-trong-docker-compose.html" hidden></a>
-</article>
-
-      </div>
+    </div><a class="u-url" href="/java/docker/2019/03/28/su-dung-network-trong-docker-compose.html" hidden></a>
+  </article>
+</div>
+      <!-- </div> -->
     </main><footer class="site-footer h-card">
   <data class="u-url" href="/"></data>
 
   <div class="wrapper">
 
-    <h2 class="footer-heading">Huynh Minh Tan</h2>
+    <!-- <h2 class="footer-heading">mtSiniChi</h2>
 
     <div class="footer-col-wrapper">
       <div class="footer-col footer-col-1">
         <ul class="contact-list">
-          <li class="p-name">Huynh Minh Tan</li><li><a class="u-email" href="mailto:minhtan.itdev@gmail.com">minhtan.itdev@gmail.com</a></li></ul>
+          <li class="p-name">mtSiniChi</li><li><a class="u-email" href="mailto:your-email@example.com">your-email@example.com</a></li></ul>
       </div>
 
-      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/mtsinichi"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">mtsinichi</span></a></li></ul>
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a target="_blank" tooltip="fb.com/tan.shinichi"
+      href="https://www.facebook.com/tan.shinichi"><svg class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#facebook"></use>
+      </svg> <span class="username"></span></a></li><li><a target="_blank" tooltip="github.com/huynhminhtan" href="https://github.com/huynhminhtan"><svg
+        class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#github"></use>
+      </svg> <span class="username"></span></a></li><li><a target="_blank" tooltip="instagram.com/mtsinichi"
+      href="https://instagram.com/mtsinichi"><svg class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#instagram"></use>
+      </svg> <span class="username"></span></a></li><li><a  target="_blank" tooltip="linkedin.com/in/mtsinichi"
+      href="https://www.linkedin.com/in/mtsinichi"><svg class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#linkedin"></use>
+      </svg> <span tooltip="sdsdsd"></span></a></li><li><a target="_blank" tooltip="twitter.com/mtsinichi"" 
+      href="https://www.twitter.com/mtsinichi"><svg class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#twitter"></use>
+      </svg> <span class="username"></span></a></li></ul>
 </div>
 
       <div class="footer-col footer-col-3">
-        <p>The new land for mtsinichi unleash my mind.</p>
+        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</p>
       </div>
-    </div>
+    </div> -->
+
+
+    <p>
+      <ul class="social-media-list"><li><a target="_blank" tooltip="fb.com/tan.shinichi"
+      href="https://www.facebook.com/tan.shinichi"><svg class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#facebook"></use>
+      </svg> <span class="username"></span></a></li><li><a target="_blank" tooltip="github.com/huynhminhtan" href="https://github.com/huynhminhtan"><svg
+        class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#github"></use>
+      </svg> <span class="username"></span></a></li><li><a target="_blank" tooltip="instagram.com/mtsinichi"
+      href="https://instagram.com/mtsinichi"><svg class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#instagram"></use>
+      </svg> <span class="username"></span></a></li><li><a  target="_blank" tooltip="linkedin.com/in/mtsinichi"
+      href="https://www.linkedin.com/in/mtsinichi"><svg class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#linkedin"></use>
+      </svg> <span tooltip="sdsdsd"></span></a></li><li><a target="_blank" tooltip="twitter.com/mtsinichi"" 
+      href="https://www.twitter.com/mtsinichi"><svg class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#twitter"></use>
+      </svg> <span class="username"></span></a></li></ul>
+
+    </p>
+
+    <span>© 2017 mtSiniChi, powered by
+      <a href="http://jekyllrb.com">jekyll</a>.
+      <span class="rss-subscribe">Subscribe <a href="/feed.xml">via RSS</a>.</span>
+      
+
+    </span>
+
 
   </div>
 
 </footer>
-</body>
+
+<script>
+	$(function() {
+		// anchors.options.visible = 'always'; 
+		anchors.add('.post-content > h1, .post-content > h2, .post-content > h3, .post-content > h4, .post-content > h5, .post-content > h6');
+	});
+</script></body>
 
 </html>

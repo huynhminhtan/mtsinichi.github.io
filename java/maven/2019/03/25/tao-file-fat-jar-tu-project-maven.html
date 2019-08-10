@@ -2,32 +2,29 @@
 <html lang="en"><head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.0 -->
-<title>Tạo Tập Tin Fat Jar Từ Project Maven | Huynh Minh Tan</title>
-<meta name="generator" content="Jekyll v3.8.5" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Tạo Tập Tin Fat Jar Từ Project Maven | mtSiniChi</title>
+<meta name="generator" content="Jekyll v3.8.6" />
 <meta property="og:title" content="Tạo Tập Tin Fat Jar Từ Project Maven" />
+<meta name="author" content="mtSiniChi" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Bài viết sẽ hướng dẫn tạo ra tập tin Fat Jar từ project Maven bằng việc sử dụng Maven Shade Plugin." />
 <meta property="og:description" content="Bài viết sẽ hướng dẫn tạo ra tập tin Fat Jar từ project Maven bằng việc sử dụng Maven Shade Plugin." />
-<link rel="canonical" href="http://minhtan.me/java/maven/2019/03/25/tao-file-fat-jar-tu-project-maven.html" />
-<meta property="og:url" content="http://minhtan.me/java/maven/2019/03/25/tao-file-fat-jar-tu-project-maven.html" />
-<meta property="og:site_name" content="Huynh Minh Tan" />
+<link rel="canonical" href="/java/maven/2019/03/25/tao-file-fat-jar-tu-project-maven.html" />
+<meta property="og:url" content="/java/maven/2019/03/25/tao-file-fat-jar-tu-project-maven.html" />
+<meta property="og:site_name" content="mtSiniChi" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2019-03-25T21:35:35+07:00" />
 <script type="application/ld+json">
-{"description":"Bài viết sẽ hướng dẫn tạo ra tập tin Fat Jar từ project Maven bằng việc sử dụng Maven Shade Plugin.","@type":"BlogPosting","url":"http://minhtan.me/java/maven/2019/03/25/tao-file-fat-jar-tu-project-maven.html","headline":"Tạo Tập Tin Fat Jar Từ Project Maven","dateModified":"2019-03-25T21:35:35+07:00","datePublished":"2019-03-25T21:35:35+07:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://minhtan.me/java/maven/2019/03/25/tao-file-fat-jar-tu-project-maven.html"},"@context":"https://schema.org"}</script>
+{"description":"Bài viết sẽ hướng dẫn tạo ra tập tin Fat Jar từ project Maven bằng việc sử dụng Maven Shade Plugin.","author":{"@type":"Person","name":"mtSiniChi"},"@type":"BlogPosting","url":"/java/maven/2019/03/25/tao-file-fat-jar-tu-project-maven.html","headline":"Tạo Tập Tin Fat Jar Từ Project Maven","dateModified":"2019-03-25T21:35:35+07:00","datePublished":"2019-03-25T21:35:35+07:00","mainEntityOfPage":{"@type":"WebPage","@id":"/java/maven/2019/03/25/tao-file-fat-jar-tu-project-maven.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://minhtan.me/feed.xml" title="Huynh Minh Tan" /><script async src="https://www.googletagmanager.com/gtag/js?id=UA-136835999-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag() { dataLayer.push(arguments); }
-  gtag('js', new Date());
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="mtSiniChi" /><script src="/assets/js/anchor.js"></script>
+  <script src="/assets/js/jquery-3.1.1.min.js"></script>
+  <script src="/assets/js/jquery.toc.min.js"></script>
 
-  gtag('config', 'UA-136835999-1');
-</script></head>
-<body><header class="site-header" role="banner">
+</head><body><header class="site-header" role="banner">
 
-  <div class="wrapper"><a class="site-title" rel="author" href="/">Huynh Minh Tan</a><nav class="site-nav">
+  <div class="container"><a class="site-title" rel="author" href="/">mtSiniChi</a><nav class="site-nav">
         <input type="checkbox" id="nav-trigger" class="nav-trigger" />
         <label for="nav-trigger">
           <span class="menu-icon">
@@ -41,24 +38,35 @@
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
-      <div class="wrapper">
-        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+      <!-- <div class="wrapper"> -->
+        <div class="wrapper margin-top-30">
+  <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Tạo Tập Tin Fat Jar Từ Project Maven</h1>
-    <p class="post-meta">
-      <time class="dt-published" datetime="2019-03-25T21:35:35+07:00" itemprop="datePublished">Mar 25, 2019
-      </time></p>
-  </header>
+    <header class="post-header">
+      <h1 class="post-title p-name" itemprop="name headline">Tạo Tập Tin Fat Jar Từ Project Maven</h1>
+      <p class="post-meta">
+        <time class="dt-published" datetime="2019-03-25T21:35:35+07:00" itemprop="datePublished">Mar 25, 2019
+        </time>
+        <!--• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card"
+          itemprop="name">mtSiniChi </span></span>-->
 
-  <div class="post-content e-content" itemprop="articleBody">
-    <p><em>Bài viết sẽ hướng dẫn tạo ra tập tin Fat Jar từ project Maven bằng việc sử dụng <a href="https://maven.apache.org/plugins/maven-shade-plugin/">Maven Shade Plugin</a>.</em></p>
+        • <span>535 words </span>
+        • <span class="reading-time" title="Estimated read time">
+          
+          3 min
+        </span>
+      </p>
+
+    </header>
+
+    <div class="post-content e-content" itemprop="articleBody">
+      <p><em>Bài viết sẽ hướng dẫn tạo ra tập tin Fat Jar từ project Maven bằng việc sử dụng <a href="https://maven.apache.org/plugins/maven-shade-plugin/">Maven Shade Plugin</a>.</em></p>
 
 <h1 id="fat-jar-là-gì">Fat Jar là gì</h1>
 
 <p>Fat Jar, Uber Jar, Shaded Jar chúng có tên khác nhau nhưng được xem là một. Là một tập tin nén Jar mà trong đó bao gồm tất cả các class file đã được compile, cộng thêm tất cả các dependencies có trong project.</p>
 
-<p>Như vậy, toàn bộ mã nguồn chương trình sẽ được gói gọn trong một file Fat Jar và ta có thể thực thi nhanh chống thông qua command <code class="highlighter-rouge">java -jar name-file-fat-jar.jar</code>.</p>
+<p>Như vậy, toàn bộ mã nguồn chương trình sẽ được gói gọn trong một file Fat Jar và ta có thể thực thi nhanh chóng thông qua command <code class="highlighter-rouge">java -jar name-file-fat-jar.jar</code>.</p>
 
 <h1 id="chuẩn-bị-mã-nguồn">Chuẩn bị mã nguồn</h1>
 
@@ -172,25 +180,25 @@
 <span class="kn">import</span> <span class="nn">io.vertx.core.AbstractVerticle</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">io.vertx.core.Vertx</span><span class="o">;</span>
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">OrderVerticle</span> <span class="kd">extends</span> <span class="n">AbstractVerticle</span> <span class="o">{</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">OrderVerticle</span> <span class="kd">extends</span> <span class="nc">AbstractVerticle</span> <span class="o">{</span>
 
-    <span class="kd">private</span> <span class="kd">static</span> <span class="n">Vertx</span> <span class="n">vertx</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="nc">Vertx</span> <span class="n">vertx</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Vertx</span> <span class="nf">getInstanceVertX</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">Vertx</span> <span class="nf">getInstanceVertX</span><span class="o">()</span> <span class="o">{</span>
 
         <span class="k">if</span> <span class="o">(</span><span class="n">vertx</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">vertx</span> <span class="o">=</span> <span class="n">Vertx</span><span class="o">.</span><span class="na">vertx</span><span class="o">();</span>
-            <span class="n">vertx</span><span class="o">.</span><span class="na">deployVerticle</span><span class="o">(</span><span class="k">new</span> <span class="n">OrderVerticle</span><span class="o">());</span>
+            <span class="n">vertx</span> <span class="o">=</span> <span class="nc">Vertx</span><span class="o">.</span><span class="na">vertx</span><span class="o">();</span>
+            <span class="n">vertx</span><span class="o">.</span><span class="na">deployVerticle</span><span class="o">(</span><span class="k">new</span> <span class="nc">OrderVerticle</span><span class="o">());</span>
         <span class="o">}</span>
 
         <span class="k">return</span> <span class="n">vertx</span><span class="o">;</span>
     <span class="o">}</span>
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">Vertx</span> <span class="n">vertx</span> <span class="o">=</span> <span class="n">getInstanceVertX</span><span class="o">();</span>
-        <span class="n">vertx</span><span class="o">.</span><span class="na">deployVerticle</span><span class="o">(</span><span class="k">new</span> <span class="n">OrderVerticle</span><span class="o">());</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Vertx</span> <span class="n">vertx</span> <span class="o">=</span> <span class="n">getInstanceVertX</span><span class="o">();</span>
+        <span class="n">vertx</span><span class="o">.</span><span class="na">deployVerticle</span><span class="o">(</span><span class="k">new</span> <span class="nc">OrderVerticle</span><span class="o">());</span>
 
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"He nhu u! : build to fat-jar with maven project "</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"He nhu u! : build to fat-jar with maven project "</span><span class="o">);</span>
     <span class="o">}</span>
 
 <span class="o">}</span>
@@ -246,7 +254,7 @@ com/fasterxml/jackson/annotation/SimpleObjectIdResolver.class
 <span class="o">&gt;</span> He nhu u! : build to fat-jar with maven project
 </code></pre></div></div>
 
-<p>Tải source code: <a href="http://minhtan.me/materials/create-jar-maven.zip">create-jar-maven.zip</a></p>
+<p>Tải source code: <a href="/materials/create-jar-maven.zip">create-jar-maven.zip</a></p>
 
 <h2 id="tham-khảo">Tham khảo</h2>
 
@@ -255,34 +263,84 @@ com/fasterxml/jackson/annotation/SimpleObjectIdResolver.class
   <li>https://www.mkyong.com/maven/create-a-fat-jar-file-maven-shade-plugin/</li>
 </ul>
 
-  </div><a class="u-url" href="/java/maven/2019/03/25/tao-file-fat-jar-tu-project-maven.html" hidden></a>
-</article>
-
-      </div>
+    </div><a class="u-url" href="/java/maven/2019/03/25/tao-file-fat-jar-tu-project-maven.html" hidden></a>
+  </article>
+</div>
+      <!-- </div> -->
     </main><footer class="site-footer h-card">
   <data class="u-url" href="/"></data>
 
   <div class="wrapper">
 
-    <h2 class="footer-heading">Huynh Minh Tan</h2>
+    <!-- <h2 class="footer-heading">mtSiniChi</h2>
 
     <div class="footer-col-wrapper">
       <div class="footer-col footer-col-1">
         <ul class="contact-list">
-          <li class="p-name">Huynh Minh Tan</li><li><a class="u-email" href="mailto:minhtan.itdev@gmail.com">minhtan.itdev@gmail.com</a></li></ul>
+          <li class="p-name">mtSiniChi</li><li><a class="u-email" href="mailto:your-email@example.com">your-email@example.com</a></li></ul>
       </div>
 
-      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/mtsinichi"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">mtsinichi</span></a></li></ul>
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a target="_blank" tooltip="fb.com/tan.shinichi"
+      href="https://www.facebook.com/tan.shinichi"><svg class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#facebook"></use>
+      </svg> <span class="username"></span></a></li><li><a target="_blank" tooltip="github.com/huynhminhtan" href="https://github.com/huynhminhtan"><svg
+        class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#github"></use>
+      </svg> <span class="username"></span></a></li><li><a target="_blank" tooltip="instagram.com/mtsinichi"
+      href="https://instagram.com/mtsinichi"><svg class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#instagram"></use>
+      </svg> <span class="username"></span></a></li><li><a  target="_blank" tooltip="linkedin.com/in/mtsinichi"
+      href="https://www.linkedin.com/in/mtsinichi"><svg class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#linkedin"></use>
+      </svg> <span tooltip="sdsdsd"></span></a></li><li><a target="_blank" tooltip="twitter.com/mtsinichi"" 
+      href="https://www.twitter.com/mtsinichi"><svg class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#twitter"></use>
+      </svg> <span class="username"></span></a></li></ul>
 </div>
 
       <div class="footer-col footer-col-3">
-        <p>The new land for mtsinichi unleash my mind.</p>
+        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</p>
       </div>
-    </div>
+    </div> -->
+
+
+    <p>
+      <ul class="social-media-list"><li><a target="_blank" tooltip="fb.com/tan.shinichi"
+      href="https://www.facebook.com/tan.shinichi"><svg class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#facebook"></use>
+      </svg> <span class="username"></span></a></li><li><a target="_blank" tooltip="github.com/huynhminhtan" href="https://github.com/huynhminhtan"><svg
+        class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#github"></use>
+      </svg> <span class="username"></span></a></li><li><a target="_blank" tooltip="instagram.com/mtsinichi"
+      href="https://instagram.com/mtsinichi"><svg class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#instagram"></use>
+      </svg> <span class="username"></span></a></li><li><a  target="_blank" tooltip="linkedin.com/in/mtsinichi"
+      href="https://www.linkedin.com/in/mtsinichi"><svg class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#linkedin"></use>
+      </svg> <span tooltip="sdsdsd"></span></a></li><li><a target="_blank" tooltip="twitter.com/mtsinichi"" 
+      href="https://www.twitter.com/mtsinichi"><svg class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#twitter"></use>
+      </svg> <span class="username"></span></a></li></ul>
+
+    </p>
+
+    <span>© 2017 mtSiniChi, powered by
+      <a href="http://jekyllrb.com">jekyll</a>.
+      <span class="rss-subscribe">Subscribe <a href="/feed.xml">via RSS</a>.</span>
+      
+
+    </span>
+
 
   </div>
 
 </footer>
-</body>
+
+<script>
+	$(function() {
+		// anchors.options.visible = 'always'; 
+		anchors.add('.post-content > h1, .post-content > h2, .post-content > h3, .post-content > h4, .post-content > h5, .post-content > h6');
+	});
+</script></body>
 
 </html>

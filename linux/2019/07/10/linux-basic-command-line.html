@@ -3,20 +3,21 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Chương Trình Hello World Bằng Java Thông Qua Docker | mtSiniChi</title>
+<title>Linux basic command line | mtSiniChi</title>
 <meta name="generator" content="Jekyll v3.8.6" />
-<meta property="og:title" content="Chương Trình Hello World Bằng Java Thông Qua Docker" />
+<meta property="og:title" content="Linux basic command line" />
 <meta name="author" content="mtSiniChi" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Bài viết sẽ hướng dẫn chạy chương trình Java bằng việc sử dụng Docker, từ cách viết Dockerfile, build ứng dụng Java và cuối cùng là chạy thực tế." />
-<meta property="og:description" content="Bài viết sẽ hướng dẫn chạy chương trình Java bằng việc sử dụng Docker, từ cách viết Dockerfile, build ứng dụng Java và cuối cùng là chạy thực tế." />
-<link rel="canonical" href="/java/docker/2019/03/25/hello-world-java-thong-qua-docker.html" />
-<meta property="og:url" content="/java/docker/2019/03/25/hello-world-java-thong-qua-docker.html" />
+<meta name="description" content="Alias" />
+<meta property="og:description" content="Alias" />
+<link rel="canonical" href="/linux/2019/07/10/linux-basic-command-line.html" />
+<meta property="og:url" content="/linux/2019/07/10/linux-basic-command-line.html" />
 <meta property="og:site_name" content="mtSiniChi" />
+<meta property="og:image" content="https://www.outsystems.com/-/media/images/case-studies/via-verde-crm-increases-customer-adoption/via-verde-crm-increases-customer-adoption-hero.png" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2019-03-25T16:04:35+07:00" />
+<meta property="article:published_time" content="2019-07-10T13:38:27+07:00" />
 <script type="application/ld+json">
-{"description":"Bài viết sẽ hướng dẫn chạy chương trình Java bằng việc sử dụng Docker, từ cách viết Dockerfile, build ứng dụng Java và cuối cùng là chạy thực tế.","author":{"@type":"Person","name":"mtSiniChi"},"@type":"BlogPosting","url":"/java/docker/2019/03/25/hello-world-java-thong-qua-docker.html","headline":"Chương Trình Hello World Bằng Java Thông Qua Docker","dateModified":"2019-03-25T16:04:35+07:00","datePublished":"2019-03-25T16:04:35+07:00","mainEntityOfPage":{"@type":"WebPage","@id":"/java/docker/2019/03/25/hello-world-java-thong-qua-docker.html"},"@context":"https://schema.org"}</script>
+{"description":"Alias","author":{"@type":"Person","name":"mtSiniChi"},"@type":"BlogPosting","url":"/linux/2019/07/10/linux-basic-command-line.html","image":"https://www.outsystems.com/-/media/images/case-studies/via-verde-crm-increases-customer-adoption/via-verde-crm-increases-customer-adoption-hero.png","headline":"Linux basic command line","dateModified":"2019-07-10T13:38:27+07:00","datePublished":"2019-07-10T13:38:27+07:00","mainEntityOfPage":{"@type":"WebPage","@id":"/linux/2019/07/10/linux-basic-command-line.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="mtSiniChi" /><script src="/assets/js/anchor.js"></script>
   <script src="/assets/js/jquery-3.1.1.min.js"></script>
@@ -39,112 +40,129 @@
 </header>
 <main class="page-content" aria-label="Content">
       <!-- <div class="wrapper"> -->
-        <div class="wrapper margin-top-30">
-  <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+        <header class="post-header post-featured hero" style="
+    background-image: url(https://www.outsystems.com/-/media/images/case-studies/via-verde-crm-increases-customer-adoption/via-verde-crm-increases-customer-adoption-hero.png);
+  ">
+  <div class="wrapper">
 
-    <header class="post-header">
-      <h1 class="post-title p-name" itemprop="name headline">Chương Trình Hello World Bằng Java Thông Qua Docker</h1>
-      <p class="post-meta">
-        <time class="dt-published" datetime="2019-03-25T16:04:35+07:00" itemprop="datePublished">Mar 25, 2019
-        </time>
-        <!--• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card"
+    <h1 class="post-title p-name" itemprop="name headline">Linux basic command line</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2019-07-10T13:38:27+07:00" itemprop="datePublished">Jul 10, 2019
+      </time>
+      <!--• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card"
           itemprop="name">mtSiniChi </span></span>-->
 
-        • <span>213 words </span>
-        • <span class="reading-time" title="Estimated read time">
-          
-          2 min
-        </span>
-      </p>
+      • <span>171 words </span>
+      • <span class="reading-time" title="Estimated read time">
+        
+        1 min
+      </span>
+    </p>
 
-    </header>
+    <p class="excerpt">
+      Collection of commands.
+
+    </p>
+  </div>
+</header>
+
+<div class="wrapper">
+  <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <!-- <ul data-toc></ul> -->
+
+    <div class="table-content">
+      <p class="toc-title">Nội dung</p>
+      <!-- <p>Table of contents, auto-generated from the content on this page:</p> -->
+      <!-- <p>Mục lục, được tạo tự động từ nội dung trên trang này:</p> -->
+      <ul data-toc data-toc-headings="h2,h3,h4"></ul>
+    </div>
 
     <div class="post-content e-content" itemprop="articleBody">
-      <p>Bài viết sẽ hướng dẫn chạy chương trình Java bằng việc sử dụng Docker, từ cách viết Dockerfile, build ứng dụng Java và cuối cùng là chạy thực tế.</p>
+      <h2 id="alias">Alias</h2>
 
-<h2 id="chuẩn-bị-đường-với-muối">Chuẩn bị đường với muối</h2>
+<ul>
+  <li>Add alias <code class="highlighter-rouge">alias jmeter=apache-jmeter-5.1.1/bin/jmeter</code> to <code class="highlighter-rouge">vim ~/.bashrc</code> or <code class="highlighter-rouge">vim ~/.zshrc</code>.</li>
+  <li>Then run <code class="highlighter-rouge">source ~/.bashrc</code>.</li>
+</ul>
 
-<p>Tạo ra cấu trúc thư mục như sau:</p>
+<h2 id="user">User</h2>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">.</span>
-├── Dockerfile
-├── HelloWorld.java
-└── start.sh
+<ul>
+  <li>Create user: <code class="highlighter-rouge">sudo useradd &lt;user-name&gt;</code>.</li>
+  <li>Change pass: <code class="highlighter-rouge">sudo passwd &lt;user-name&gt;</code>.</li>
+  <li>Login user: <code class="highlighter-rouge">su &lt;user-name&gt;</code>.</li>
+  <li>Change owner and group of file/folder: <code class="highlighter-rouge">chown [-R] &lt;user-name&gt;:&lt;group&gt; [directory]/&lt;file-name&gt;</code>. Ex: <code class="highlighter-rouge">sudo chown -R  mtuser:www-data ./apache-activemq-5.15.0</code>.</li>
+  <li>List all users: <code class="highlighter-rouge">cat /etc/passwd</code>.</li>
+  <li>List all group: <code class="highlighter-rouge">cat /etc/group</code>.</li>
+</ul>
 
-0 directories, 3 files
-</code></pre></div></div>
+<h2 id="git">Git</h2>
 
-<p>Định nghĩa <em>Dockerfile</em>:</p>
+<ul>
+  <li>Discard change: <code class="highlighter-rouge">git checkout -- env.development.config.ini</code>.</li>
+  <li>Add to .gitignore: <code class="highlighter-rouge">git rm --cached -r ./site/</code>.</li>
+  <li>Store account git: <code class="highlighter-rouge">git config credential.helper store</code> then <code class="highlighter-rouge">git pull</code>.</li>
+</ul>
 
-<pre><code class="language-Dockerfile"># FROM alpine:latest
-FROM openjdk:8
+<h2 id="sort">Sort</h2>
 
-# Thực thi câu lệnh khi built image
-# RUN DEBIAN_FRONTEND=noninteractive
+<ul>
+  <li>Sort by name full info: <code class="highlighter-rouge">ls -l</code>.</li>
+  <li>Sort by last modified: <code class="highlighter-rouge">ls -t</code>, reverise: <code class="highlighter-rouge">ls -tlr</code>.</li>
+  <li>Sort by file size: <code class="highlighter-rouge">ls -S</code>.</li>
+</ul>
 
-# RUN apk --update add openjdk8-jre
+<h2 id="find">Find</h2>
 
-# Định nghĩa thư mục CMD trỏ tới
-WORKDIR /src
+<ul>
+  <li>Find by port: <code class="highlighter-rouge">sudo netstat -lpn | grep :8080</code>.</li>
+  <li>Find by name: <code class="highlighter-rouge">sudo ps aux | grep 'firefox'</code>.</li>
+</ul>
 
-# COPY . /evrun
-COPY . .
+<h2 id="ping">Ping</h2>
 
-RUN chmod a+x ./*
+<ul>
+  <li>Ping connect by ip and port: <code class="highlighter-rouge">nc -vz localhost 80</code>.</li>
+  <li>Ping connect by ip and port: <code class="highlighter-rouge">telnet localhost 80</code>.</li>
+  <li>Journey package destination: <code class="highlighter-rouge">traceroute localhost 80</code>.</li>
+</ul>
 
-# ENTRYPOINT ["/evrun/start.sh"]
-ENTRYPOINT ["sh","./start.sh"]
+<h2 id="redis">Redis</h2>
 
-# Port cho container
-# EXPOSE 80
-</code></pre>
+<ul>
+  <li>Login redis cli cluster: <code class="highlighter-rouge">redis-cli -c -p 7000</code>.</li>
+  <li>Get all key: <code class="highlighter-rouge">KEYS *</code>.</li>
+</ul>
 
-<p>Tạo tập tin <em>HelloWorld.java</em>:</p>
+<p><br /></p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloWorld</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Hello, World - mtSiniChi - yoll - hihi"</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
+<hr />
 
-<p>Tập tin <em>start.sh</em> dùng để build chương trình container:</p>
+<p><br /></p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
-<span class="nb">echo</span> <span class="s2">"Workspace dir: "</span> <span class="nv">$PWD</span>
-<span class="c"># pwd</span>
-<span class="c"># ls</span>
-<span class="c"># cat HelloWorld.java</span>
-javac HelloWorld.java
-java HelloWorld
-<span class="c"># exec $@</span>
-</code></pre></div></div>
+<h2 id="refers">Refers</h2>
 
-<h2 id="bắt-đầu-kho-thịt">Bắt đầu kho thịt</h2>
+<ul>
+  <li>User
+    <ul>
+      <li>https://www.hostingadvice.com/how-to/change-file-ownershipgroups-linux/</li>
+      <li>http://xahlee.info/linux/linux_users_groups_admin.html</li>
+    </ul>
+  </li>
+  <li>Sort
+    <ul>
+      <li>https://www.lostsaloon.com/technology/how-to-sort-the-output-of-ls-in-linux/</li>
+    </ul>
+  </li>
+  <li>Alias
+    <ul>
+      <li>https://www.tecmint.com/create-alias-in-linux/</li>
+    </ul>
+  </li>
+</ul>
 
-<p>Build container tên <em>java-hello</em>:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker build <span class="nt">-t</span> java-hello <span class="nb">.</span>
-</code></pre></div></div>
-
-<p>Chạy container để xem kết quả:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run java-hello
-</code></pre></div></div>
-
-<h2 id="Ăn-no-lăn-co-ra-ngủ">Ăn no lăn co ra ngủ</h2>
-
-<p>Kết quả:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker run java-hello
-Workspace <span class="nb">dir</span>:  /src
-Hello, World - mtSiniChi - yoll - hihi
-</code></pre></div></div>
-
-<p>Tải source code: <a href="/materials/docker-java-hello.">docker-java-hello.zip</a></p>
-
-
-    </div><a class="u-url" href="/java/docker/2019/03/25/hello-world-java-thong-qua-docker.html" hidden></a>
+    </div><a class="u-url" href="/linux/2019/07/10/linux-basic-command-line.html" hidden></a>
   </article>
 </div>
       <!-- </div> -->
