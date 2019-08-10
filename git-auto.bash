@@ -35,22 +35,22 @@ echo "
 chmod a+x ../"$DIR_GH_PAGE"/git-step-1.sh
 ../"$DIR_GH_PAGE"/git-step-1.sh
 
-# copy _site to $DIR_GH_PAGE
-cp -R ./_site/* ../"$DIR_GH_PAGE"
-echo "cp -R ./_site/* ../$DIR_GH_PAGE"
+# # copy _site to $DIR_GH_PAGE
+# cp -R ./_site/* ../"$DIR_GH_PAGE"
+# echo "cp -R ./_site/* ../$DIR_GH_PAGE"
 
-# git 2 push to gh-pages branch
-touch ../"$DIR_GH_PAGE"/git-step-2.sh
-echo "
-    #!/bin/sh
-    git add .
-    git commit -m 'update content'
-    git checkout gh-pages
-    git push -u origin gh-pages 
+# # git 2 push to gh-pages branch
+# touch ../"$DIR_GH_PAGE"/git-step-2.sh
+# echo "
+#     #!/bin/sh
+#     git add .
+#     git commit -m 'update content'
+#     git checkout gh-pages
+#     git push -u origin gh-pages 
 
-" >>../"$DIR_GH_PAGE"/git-step-2.sh
-chmod a+x ../"$DIR_GH_PAGE"/git-step-2.sh
-../"$DIR_GH_PAGE"/git-step-2.sh
+# " >>../"$DIR_GH_PAGE"/git-step-2.sh
+# chmod a+x ../"$DIR_GH_PAGE"/git-step-2.sh
+# ../"$DIR_GH_PAGE"/git-step-2.sh
 
 
 
