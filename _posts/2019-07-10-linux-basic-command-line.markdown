@@ -28,6 +28,8 @@ article_description: Collection of commands.
 - Discard change: `git checkout -- env.development.config.ini`.
 - Add to .gitignore: `git rm --cached -r ./site/`.
 - Store account git: `git config credential.helper store` then `git pull`.
+- Verify that the remote URL: `git remote -v`.
+- Change your remote's URL: `git remote set-url origin https://github.com/huynhminhtan/repo.git`.
 
 ## Sort
 
