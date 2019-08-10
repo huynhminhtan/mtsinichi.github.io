@@ -29,7 +29,10 @@ touch ../"$DIR_GH_PAGE"/git-step-1.sh
 echo "#!/bin/sh
 git add .
 git commit -m 'tmp'
-git checkout gh-pages 
+git checkout gh-pages
+git pull
+git rm -rf .
+git clean -fxd
 " >>../"$DIR_GH_PAGE"/git-step-1.sh
 chmod a+x ../"$DIR_GH_PAGE"/git-step-1.sh
 cd ../"$DIR_GH_PAGE"
@@ -54,6 +57,10 @@ cd ../"$DIR_GH_PAGE"
 ./git-step-2.sh
 
 cd ../master
+
+# clean
+rm -rf ../"$DIR_GH_PAGE"
+echo "rm -rf ../$DIR_GH_PAGE"
 
 # cd ../"$DIR_GH_PAGE"
 # git add .
