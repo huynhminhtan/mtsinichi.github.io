@@ -6,7 +6,6 @@ categories: linux
 author: mtSiniChi
 
 image: https://www.outsystems.com/-/media/images/case-studies/via-verde-crm-increases-customer-adoption/via-verde-crm-increases-customer-adoption-hero.png
-article_description: Collection of commands.
 ---
 
 ## Alias
@@ -30,6 +29,7 @@ article_description: Collection of commands.
 - Store account git: `git config credential.helper store` then `git pull`.
 - Verify that the remote URL: `git remote -v`.
 - Change your remote's URL: `git remote set-url origin https://github.com/huynhminhtan/repo.git`.
+- Branch all branch: `git branch -a`.
 
 ## Sort
 
