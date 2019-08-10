@@ -1,6 +1,11 @@
 
 DIR_GH_PAGE=gh-page-mt-must-not-duplicate-12122312121232323
 
+if [ ! -d "_site" ]; then
+    echo "folder _site not exist"
+    return
+fi
+
 # git add .
 # git add *
 # git commit -m "Update blog"
