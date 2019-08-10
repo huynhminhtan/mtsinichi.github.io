@@ -1,5 +1,10 @@
+# folder temp for working, must not duplicate
 DIR_GH_PAGE=gh-pages-mt-must-not-duplicate-12122312121232323
 
+# push brach
+GIT_BRANCH=mt-theme-v1
+
+# build jekyll
 JEKYLL_ENV=production jekyll build
 
 if [ ! -d "_site" ]; then
@@ -7,10 +12,11 @@ if [ ! -d "_site" ]; then
     return
 fi
 
-# git add .
-# git add *
-# git commit -m "Update blog"
-# git push origin mt-theme-v1
+# push current project to git
+git add .
+git add *
+git commit -m "update source"
+git push origin "$GIT_BRANCH"
 
 # clear gh-pages
 rm -rf ../"$DIR_GH_PAGE"
