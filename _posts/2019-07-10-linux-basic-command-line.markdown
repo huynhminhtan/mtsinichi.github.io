@@ -6,6 +6,7 @@ categories: linux
 author: mtSiniChi
 
 image: https://www.outsystems.com/-/media/images/case-studies/via-verde-crm-increases-customer-adoption/via-verde-crm-increases-customer-adoption-hero.png
+article_description: Collection of commands.
 ---
 
 ## Alias
