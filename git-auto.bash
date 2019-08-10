@@ -30,8 +30,8 @@ fi
 touch ../"$DIR_GH_PAGE"/git-upate.sh
 echo "
     git checkout gh-pages
+    git pull
     git add .
-    git add *
     git commit -m 'update blog'
     git push -u origin gh-pages 
 " >> ../"$DIR_GH_PAGE"/git-upate.sh
