@@ -1,5 +1,4 @@
-
-DIR_GH_PAGE=gh-page-mt-must-not-duplicate-12122312121232323
+DIR_GH_PAGE=gh-pages-mt-must-not-duplicate-12122312121232323
 
 JEKYLL_ENV=production jekyll build
 
@@ -13,34 +12,68 @@ fi
 # git commit -m "Update blog"
 # git push origin mt-theme-v1
 
-# clear gh-page
+# clear gh-pages
 rm -rf ../"$DIR_GH_PAGE"
 echo "rm -rf ../$DIR_GH_PAGE"
 
-# create gh-page
+# create gh-pages
 mkdir -p ../"$DIR_GH_PAGE"
 echo "mkdir -p ../$DIR_GH_PAGE"
 
-# copy _site and .git to gh-pages
-if [ -d "_site" ]; then
-    cp -R ./_site/* ../"$DIR_GH_PAGE"
-    echo "cp -R ./_site/* ../$DIR_GH_PAGE"
-    cp -R ./.git ../"$DIR_GH_PAGE"
-    echo "cp -R ./.git ../$DIR_GH_PAGE"
-fi
+# copy .git and switch to branch gh-pages
+cp -R ./.git ../"$DIR_GH_PAGE"
+echo "cp -R ./.git ../$DIR_GH_PAGE"
 
-touch ../"$DIR_GH_PAGE"/git-upate.sh
+# git 1 create new data
+touch ../"$DIR_GH_PAGE"/git-step-1.sh
 echo "
-    git checkout gh-pages
-    git pull
+    #!/bin/sh
+    git add .
+    git commit -m 'tmp'
+    git checkout gh-pages 
+" >>../"$DIR_GH_PAGE"/git-step-1.sh
+chmod a+x ../"$DIR_GH_PAGE"/git-step-1.sh
+../"$DIR_GH_PAGE"/git-step-1.sh
+
+# copy _site to $DIR_GH_PAGE
+cp -R ./_site/* ../"$DIR_GH_PAGE"
+echo "cp -R ./_site/* ../$DIR_GH_PAGE"
+
+# git 2 push to gh-pages branch
+touch ../"$DIR_GH_PAGE"/git-step-2.sh
+echo "
+    #!/bin/sh
     git add .
     git commit -m 'update content'
+    git checkout gh-pages
     git push -u origin gh-pages 
-" >> ../"$DIR_GH_PAGE"/git-upate.sh
 
-# run
-chmod a+x ../"$DIR_GH_PAGE"/git-upate.sh
-../"$DIR_GH_PAGE"/git-upate.sh
+" >>../"$DIR_GH_PAGE"/git-step-2.sh
+chmod a+x ../"$DIR_GH_PAGE"/git-step-2.sh
+../"$DIR_GH_PAGE"/git-step-2.sh
+
+
+
+# cd ../"$DIR_GH_PAGE"
+# git add .
+# git commit -m "tmp"
+# git checkout gh-pages
+# echo "cp -R ./.git ../$DIR_GH_PAGE"
+
+# # clean
+
+# touch ../"$DIR_GH_PAGE"/git-upate.sh
+# echo "
+#     git checkout gh-pages
+#     git pull
+#     git add .
+#     git commit -m 'update content'
+#     git push -u origin gh-pages 
+# " >>../"$DIR_GH_PAGE"/git-upate.sh
+
+# # run
+# chmod a+x ../"$DIR_GH_PAGE"/git-upate.sh
+# source ../"$DIR_GH_PAGE"/git-upate.sh
 
 # if [! -d "gh-page"]
 # then
@@ -49,8 +82,7 @@ chmod a+x ../"$DIR_GH_PAGE"/git-upate.sh
 #     rm -rf gh-page
 # fi
 
-
-# if [ -d ".git" ]; 
+# if [ -d ".git" ];
 # then
 #     git checkout gh-pages
 #     git rm -rf .
