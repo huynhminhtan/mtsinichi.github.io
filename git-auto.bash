@@ -26,8 +26,7 @@ echo "cp -R ./.git ../$DIR_GH_PAGE"
 
 # git 1 create new data
 touch ../"$DIR_GH_PAGE"/git-step-1.sh
-echo "
-    #!/bin/sh
+echo "#!/bin/sh
     git add .
     git commit -m 'tmp'
     git checkout gh-pages 
