@@ -137,3 +137,11 @@ echo "rm -rf ../$DIR_GH_PAGE"
 
 # Happy !
 ```
+
+## Notes
+
+- Error: Github Page auto change custom domain after push code.
+  - Add *CNAME* file fix proplem.
+  - https://github.com/travis-ci/travis-ci/issues/7538#issuecomment-290148354
+  - https://help.github.com/en/articles/troubleshooting-custom-domains#github-repository-setup-errors
+- ./
