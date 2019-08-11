@@ -25,6 +25,7 @@ article_description: Collection of commands.
 ## Git
 
 - Discard change: `git checkout -- env.development.config.ini`.
+- Drop all local changes and commits: `git fetch origin` then `git reset --hard origin/master`.
 - Add to .gitignore: `git rm --cached -r ./site/`.
 - Store account git: `git config credential.helper store` then `git pull`.
 - Verify that the remote URL: `git remote -v`.
