@@ -73,3 +73,6 @@ article_description: Collection of commands.
   - https://www.lostsaloon.com/technology/how-to-sort-the-output-of-ls-in-linux/
 - Alias
   - https://www.tecmint.com/create-alias-in-linux/
+- Maven
+  - https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
+  
