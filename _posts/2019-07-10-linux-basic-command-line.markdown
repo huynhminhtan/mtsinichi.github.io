@@ -54,6 +54,11 @@ article_description: Collection of commands.
 - Login redis cli cluster: `redis-cli -c -p 7000`.
 - Get all key: `KEYS *`.
 
+## Maven
+
+- Spring Boot run app: `mvn spring-boot:run`.
+- Clean target and build: `mvn clean install`.
+
 <br>
 
 ---
