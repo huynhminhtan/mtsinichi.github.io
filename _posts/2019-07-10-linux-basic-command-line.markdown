@@ -57,7 +57,7 @@ article_description: Collection of commands.
 ## Maven
 
 - Spring Boot run app: `mvn spring-boot:run`.
-- Clean target and build: `mvn clean install`.
+- Clean target folder and build: `mvn clean install`.
 
 <br>
 
