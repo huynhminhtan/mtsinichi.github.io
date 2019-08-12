@@ -31,6 +31,7 @@ article_description: Collection of commands.
 - Verify that the remote URL: `git remote -v`.
 - Change your remote's URL: `git remote set-url origin https://github.com/huynhminhtan/repo.git`.
 - Show all branch: `git branch -a`.
+- Edit config: `git config --edit`.
 
 ## Sort
 
