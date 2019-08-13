@@ -1,7 +1,7 @@
 ---
 layout: post-featured
-title:  "Errors for Linux Ubuntu"
-date:   2019-08-13 13:38:27 +0700
+title: "Errors for Linux Ubuntu"
+date:   2019-8-13 12:38:27 +0700 
 categories: linux
 author: mtSiniChi
 
@@ -15,7 +15,7 @@ article_description: Collection of errors for Linux.
 
 Giải quyết:
 
-- Vào termial từ màn hình login: `ctrl + alt + f1`.
+- Vào terminal từ màn hình login: `ctrl + alt + f1`.
 - Login vào hệ thống.
 - Thực hiện: `sudo mv ~/.Xauthority ~/.Xauthority.bak`.
 - Thực hiện: `sudo service lightdm restart`.
