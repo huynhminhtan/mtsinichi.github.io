@@ -1,4 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-08-13T13:04:48+07:00</updated><id>/feed.xml</id><title type="html">mtSiniChi</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Linux basic command line</title><link href="/linux/2019/07/10/linux-basic-command-line.html" rel="alternate" type="text/html" title="Linux basic command line" /><published>2019-07-10T13:38:27+07:00</published><updated>2019-07-10T13:38:27+07:00</updated><id>/linux/2019/07/10/linux-basic-command-line</id><content type="html" xml:base="/linux/2019/07/10/linux-basic-command-line.html">&lt;h2 id=&quot;alias&quot;&gt;Alias&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-08-13T13:18:09+07:00</updated><id>/feed.xml</id><title type="html">mtSiniChi</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Errors for Linux Ubuntu</title><link href="/linux/2019/08/13/errors-for-linux.html" rel="alternate" type="text/html" title="Errors for Linux Ubuntu" /><published>2019-08-13T12:38:27+07:00</published><updated>2019-08-13T12:38:27+07:00</updated><id>/linux/2019/08/13/errors-for-linux</id><content type="html" xml:base="/linux/2019/08/13/errors-for-linux.html">&lt;h2 id=&quot;ubuntu-loop-loging&quot;&gt;Ubuntu Loop Loging&lt;/h2&gt;
+
+&lt;p&gt;Ở màn hình đăng nhập, dù đã nhập đúng password nhưng không thể login vào “desktop”, nó lặp lại ở màn hình login.&lt;/p&gt;
+
+&lt;p&gt;Giải quyết:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Vào terminal từ màn hình login: &lt;code class=&quot;highlighter-rouge&quot;&gt;ctrl + alt + f1&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Login vào hệ thống.&lt;/li&gt;
+  &lt;li&gt;Thực hiện: &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo mv ~/.Xauthority ~/.Xauthority.bak&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Thực hiện: &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo service lightdm restart&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Các triệu chứng và điều trị:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;https://www.youtube.com/watch?v=OG4deLa_vK8&lt;/li&gt;
+  &lt;li&gt;https://askubuntu.com/questions/223501/ubuntu-gets-stuck-in-a-login-loop&lt;/li&gt;
+  &lt;li&gt;https://www.maketecheasier.com/fix-ubuntu-login-loop/&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Ubuntu Loop Loging</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.outsystems.com/-/media/images/case-studies/via-verde-crm-increases-customer-adoption/via-verde-crm-increases-customer-adoption-hero.png" /></entry><entry><title type="html">Linux basic command line</title><link href="/linux/2019/07/10/linux-basic-command-line.html" rel="alternate" type="text/html" title="Linux basic command line" /><published>2019-07-10T13:38:27+07:00</published><updated>2019-07-10T13:38:27+07:00</updated><id>/linux/2019/07/10/linux-basic-command-line</id><content type="html" xml:base="/linux/2019/07/10/linux-basic-command-line.html">&lt;h2 id=&quot;alias&quot;&gt;Alias&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Add alias &lt;code class=&quot;highlighter-rouge&quot;&gt;alias jmeter=apache-jmeter-5.1.1/bin/jmeter&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;vim ~/.bashrc&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;vim ~/.zshrc&lt;/code&gt; then run &lt;code class=&quot;highlighter-rouge&quot;&gt;source ~/.bashrc&lt;/code&gt;.&lt;/li&gt;

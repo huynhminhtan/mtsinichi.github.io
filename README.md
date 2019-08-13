@@ -144,4 +144,4 @@ echo "rm -rf ../$DIR_GH_PAGE"
   - Add *CNAME* file fix problem.
   - https://github.com/travis-ci/travis-ci/issues/7538#issuecomment-290148354
   - https://help.github.com/en/articles/troubleshooting-custom-domains#github-repository-setup-errors
-- ./
+- Thời gian post của bài viết nếu lơn hơn thời điểm hiện tại, bài viết đó sẽ không hiển thị được ở trang chủ.
