@@ -28,6 +28,7 @@ article_description: Collection of commands.
 - Drop all local changes and commits: `git fetch origin` then `git reset --hard origin/master`.
 - Add to .gitignore: `git rm --cached -r ./site/`.
 - Store account git: `git config credential.helper store` then `git pull`.
+- Where credential store: `vi ~/.git-credentials`.
 - Verify that the remote URL: `git remote -v`.
 - Change your remote's URL: `git remote set-url origin https://github.com/huynhminhtan/repo.git`.
 - Show all branch: `git branch -a`.
