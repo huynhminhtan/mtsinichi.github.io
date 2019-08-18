@@ -145,3 +145,7 @@ echo "rm -rf ../$DIR_GH_PAGE"
   - https://github.com/travis-ci/travis-ci/issues/7538#issuecomment-290148354
   - https://help.github.com/en/articles/troubleshooting-custom-domains#github-repository-setup-errors
 - Thời gian post của bài viết nếu lơn hơn thời điểm hiện tại, bài viết đó sẽ không hiển thị được ở trang chủ.
+- Error: *Liquid Exception: Liquid syntax error (line 11): Tag '{%' was not properly terminated with regexp: /\%\}/ in /home/lap11410/Dropbox/workspace/college/mtsinichi/bloger/minhtanme/master/_posts/2019-08-18-log4j-with-java-example.markdown*
+  - Bị lỗi khi trong nội dung markdown có các ký tự là `% }`.
+  - https://stackoverflow.com/a/37602736/9488752
+  - Giải quyết bằng cách thêm `{% raw %} trích đoạn code tại đây {% endraw %}`
