@@ -26,7 +26,7 @@ Step1: Thêm dependencies vào *pom.xml*:
 </dependency>
 ```
 
-Step2: Tạo tập tin cấu hình *resources/log4j2.xml*:
+Step2: Tạo tập tin cấu hình *resources/log4j2.xml*, nếu tập tin cấu hình không ở *resources/* cần xác định đường dẫn tập tin cấu hình trong IntellIJ tại **Edit Configurations...** -> **VM Options** nhập `-Dlog4j.configurationFile=your-path/log4j2.xml`:
 
 {% raw %}
 
