@@ -8,15 +8,15 @@ author: mtSiniChi
 
 *Bài viết sẽ hướng dẫn tạo ra tập tin Fat Jar từ project Maven bằng việc sử dụng [Maven Shade Plugin][1].*
 
-# Fat Jar là gì
+## Fat Jar là gì
 
 Fat Jar, Uber Jar, Shaded Jar chúng có tên khác nhau nhưng được xem là một. Là một tập tin nén Jar mà trong đó bao gồm tất cả các class file đã được compile, cộng thêm tất cả các dependencies có trong project.
 
 Như vậy, toàn bộ mã nguồn chương trình sẽ được gói gọn trong một file Fat Jar và ta có thể thực thi nhanh chóng thông qua command `java -jar name-file-fat-jar.jar`.
 
-# Chuẩn bị mã nguồn
+## Chuẩn bị mã nguồn
 
-## Cấu trúc project
+### Cấu trúc project
 
 ```text
 .
@@ -35,7 +35,7 @@ Như vậy, toàn bộ mã nguồn chương trình sẽ được gói gọn tron
 9 directories, 2 files
 ```
 
-## File pom.xml
+### File pom.xml
 
 Thay *com.minhtan.core.OrderVerticle* thành class có chứa hàm main tương ứng. Hãy tạo ra package chứa class main nếu link tới không thành công, trong ví dụ ngày pakage có tên là *com.minhtan.core.*
 
@@ -48,6 +48,8 @@ Thay *com.minhtan.core.OrderVerticle* thành class có chứa hàm main tương 
 
     <groupId>test</groupId>
     <artifactId>maven.</artifactId>
+    <!-- set packaging if dont create file .jar -->
+    <!-- <packaging>jar</packaging> -->
     <version>1.0-SNAPSHOT</version>
 
     <!--<properties>-->
@@ -119,7 +121,7 @@ Thay *com.minhtan.core.OrderVerticle* thành class có chứa hàm main tương 
 </project>
 ```
 
-## Tạo file demo OrderVerticle.java
+### Tạo file demo OrderVerticle.java
 
 Trong project này, mình sử dụng thư viện Vert.X để xem khi run file Jar có bị lỗi thiếu dependency không. Mã nguồn *OrderVerticle.java* như bên dưới:
 
@@ -153,7 +155,7 @@ public class OrderVerticle extends AbstractVerticle {
 }
 ```
 
-# Tạo ra File Jar
+## Tạo ra File Jar
 
 Sử dụng command của Maven sẽ tự động tạo ra được file Jar, vào thư mục gốc của project cần build và chạy lệnh bên dưới:
 
@@ -179,7 +181,7 @@ Sau khi chạy thành công, có 2 tập tin được tạo ra trong thư mục 
 - maven.-1.0-SNAPSHOT.jar: đây là file Jar chúng ta cần.
 - original-maven.-1.0-SNAPSHOT.jar: không cần sử dụng.
 
-# Thực thi file Jar
+## Thực thi file Jar
 
 Hiển thị những class, những dependency có trong file Jar:
 
@@ -209,7 +211,8 @@ Tải source code: [create-jar-maven.zip][2]
 [1]:https://maven.apache.org/plugins/maven-shade-plugin/
 [2]:{{ site.url }}/materials/create-jar-maven.zip
 
-## Tham khảo
+### Tham khảo
 
+- https://www.mkyong.com/maven/how-to-create-a-java-project-with-maven/
 - https://www.tomitribe.com/blog/tomee-fat-jar-deployments/
 - https://www.mkyong.com/maven/create-a-fat-jar-file-maven-shade-plugin/
