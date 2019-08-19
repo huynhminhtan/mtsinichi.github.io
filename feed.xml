@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-08-19T09:21:29+07:00</updated><id>/feed.xml</id><title type="html">mtSiniChi</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Errors for Linux Ubuntu</title><link href="/linux/2019/08/13/errors-for-linux.html" rel="alternate" type="text/html" title="Errors for Linux Ubuntu" /><published>2019-08-13T12:38:27+07:00</published><updated>2019-08-13T12:38:27+07:00</updated><id>/linux/2019/08/13/errors-for-linux</id><content type="html" xml:base="/linux/2019/08/13/errors-for-linux.html">&lt;h2 id=&quot;ubuntu-loop-loging&quot;&gt;Ubuntu Loop Loging&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-08-19T13:47:01+07:00</updated><id>/feed.xml</id><title type="html">mtSiniChi</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Errors for Linux Ubuntu</title><link href="/linux/2019/08/13/errors-for-linux.html" rel="alternate" type="text/html" title="Errors for Linux Ubuntu" /><published>2019-08-13T12:38:27+07:00</published><updated>2019-08-13T12:38:27+07:00</updated><id>/linux/2019/08/13/errors-for-linux</id><content type="html" xml:base="/linux/2019/08/13/errors-for-linux.html">&lt;h2 id=&quot;ubuntu-loop-loging&quot;&gt;Ubuntu Loop Loging&lt;/h2&gt;
 
 &lt;p&gt;Ở màn hình đăng nhập, dù đã nhập đúng password nhưng không thể login vào “desktop”, nó lặp lại ở màn hình login.&lt;/p&gt;
 
@@ -577,15 +577,15 @@ docker-compose up
 
 &lt;p&gt;&lt;em&gt;*Do máy mình đã thiết lặp Command-line Launcher rồi nên mới hiện hộp thông báo hỏi có muốn ghi đè hay không.&lt;/em&gt;&lt;/p&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Để tiếp kiệm thời gian, chỉ cần cd vào project có chứa file pom.xml, rồi chạy lệnh idea pom.xml sau đó Intellij tự động import project một cách nhanh nhất cho chúng ta.</summary></entry><entry><title type="html">Tạo Tập Tin Fat Jar Từ Project Maven</title><link href="/java/maven/2019/03/25/tao-file-fat-jar-tu-project-maven.html" rel="alternate" type="text/html" title="Tạo Tập Tin Fat Jar Từ Project Maven" /><published>2019-03-25T21:35:35+07:00</published><updated>2019-03-25T21:35:35+07:00</updated><id>/java/maven/2019/03/25/tao-file-fat-jar-tu-project-maven</id><content type="html" xml:base="/java/maven/2019/03/25/tao-file-fat-jar-tu-project-maven.html">&lt;p&gt;&lt;em&gt;Bài viết sẽ hướng dẫn tạo ra tập tin Fat Jar từ project Maven bằng việc sử dụng &lt;a href=&quot;https://maven.apache.org/plugins/maven-shade-plugin/&quot;&gt;Maven Shade Plugin&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
 
-&lt;h1 id=&quot;fat-jar-là-gì&quot;&gt;Fat Jar là gì&lt;/h1&gt;
+&lt;h2 id=&quot;fat-jar-là-gì&quot;&gt;Fat Jar là gì&lt;/h2&gt;
 
 &lt;p&gt;Fat Jar, Uber Jar, Shaded Jar chúng có tên khác nhau nhưng được xem là một. Là một tập tin nén Jar mà trong đó bao gồm tất cả các class file đã được compile, cộng thêm tất cả các dependencies có trong project.&lt;/p&gt;
 
 &lt;p&gt;Như vậy, toàn bộ mã nguồn chương trình sẽ được gói gọn trong một file Fat Jar và ta có thể thực thi nhanh chóng thông qua command &lt;code class=&quot;highlighter-rouge&quot;&gt;java -jar name-file-fat-jar.jar&lt;/code&gt;.&lt;/p&gt;
 
-&lt;h1 id=&quot;chuẩn-bị-mã-nguồn&quot;&gt;Chuẩn bị mã nguồn&lt;/h1&gt;
+&lt;h2 id=&quot;chuẩn-bị-mã-nguồn&quot;&gt;Chuẩn bị mã nguồn&lt;/h2&gt;
 
-&lt;h2 id=&quot;cấu-trúc-project&quot;&gt;Cấu trúc project&lt;/h2&gt;
+&lt;h3 id=&quot;cấu-trúc-project&quot;&gt;Cấu trúc project&lt;/h3&gt;
 
 &lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.
 ├── pom.xml
@@ -603,7 +603,7 @@ docker-compose up
 9 directories, 2 files
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;file-pomxml&quot;&gt;File pom.xml&lt;/h2&gt;
+&lt;h3 id=&quot;file-pomxml&quot;&gt;File pom.xml&lt;/h3&gt;
 
 &lt;p&gt;Thay &lt;em&gt;com.minhtan.core.OrderVerticle&lt;/em&gt; thành class có chứa hàm main tương ứng. Hãy tạo ra package chứa class main nếu link tới không thành công, trong ví dụ ngày pakage có tên là &lt;em&gt;com.minhtan.core.&lt;/em&gt;&lt;/p&gt;
 
@@ -615,6 +615,8 @@ docker-compose up
 
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;test&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;maven.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- set packaging if dont create file .jar --&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- &amp;lt;packaging&amp;gt;jar&amp;lt;/packaging&amp;gt; --&amp;gt;&lt;/span&gt;
     &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;1.0-SNAPSHOT&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
 
     &lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;properties&amp;gt;--&amp;gt;&lt;/span&gt;
@@ -686,7 +688,7 @@ docker-compose up
 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/project&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;tạo-file-demo-orderverticlejava&quot;&gt;Tạo file demo OrderVerticle.java&lt;/h2&gt;
+&lt;h3 id=&quot;tạo-file-demo-orderverticlejava&quot;&gt;Tạo file demo OrderVerticle.java&lt;/h3&gt;
 
 &lt;p&gt;Trong project này, mình sử dụng thư viện Vert.X để xem khi run file Jar có bị lỗi thiếu dependency không. Mã nguồn &lt;em&gt;OrderVerticle.java&lt;/em&gt; như bên dưới:&lt;/p&gt;
 
@@ -719,7 +721,7 @@ docker-compose up
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h1 id=&quot;tạo-ra-file-jar&quot;&gt;Tạo ra File Jar&lt;/h1&gt;
+&lt;h2 id=&quot;tạo-ra-file-jar&quot;&gt;Tạo ra File Jar&lt;/h2&gt;
 
 &lt;p&gt;Sử dụng command của Maven sẽ tự động tạo ra được file Jar, vào thư mục gốc của project cần build và chạy lệnh bên dưới:&lt;/p&gt;
 
@@ -746,7 +748,7 @@ docker-compose up
   &lt;li&gt;original-maven.-1.0-SNAPSHOT.jar: không cần sử dụng.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&quot;thực-thi-file-jar&quot;&gt;Thực thi file Jar&lt;/h1&gt;
+&lt;h2 id=&quot;thực-thi-file-jar&quot;&gt;Thực thi file Jar&lt;/h2&gt;
 
 &lt;p&gt;Hiển thị những class, những dependency có trong file Jar:&lt;/p&gt;
 
@@ -771,9 +773,10 @@ com/fasterxml/jackson/annotation/SimpleObjectIdResolver.class
 
 &lt;p&gt;Tải source code: &lt;a href=&quot;/materials/create-jar-maven.zip&quot;&gt;create-jar-maven.zip&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;tham-khảo&quot;&gt;Tham khảo&lt;/h2&gt;
+&lt;h3 id=&quot;tham-khảo&quot;&gt;Tham khảo&lt;/h3&gt;
 
 &lt;ul&gt;
+  &lt;li&gt;https://www.mkyong.com/maven/how-to-create-a-java-project-with-maven/&lt;/li&gt;
   &lt;li&gt;https://www.tomitribe.com/blog/tomee-fat-jar-deployments/&lt;/li&gt;
   &lt;li&gt;https://www.mkyong.com/maven/create-a-fat-jar-file-maven-shade-plugin/&lt;/li&gt;
 &lt;/ul&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Bài viết sẽ hướng dẫn tạo ra tập tin Fat Jar từ project Maven bằng việc sử dụng Maven Shade Plugin.</summary></entry><entry><title type="html">Chương Trình Hello World Bằng Java Thông Qua Docker</title><link href="/java/docker/2019/03/25/hello-world-java-thong-qua-docker.html" rel="alternate" type="text/html" title="Chương Trình Hello World Bằng Java Thông Qua Docker" /><published>2019-03-25T16:04:35+07:00</published><updated>2019-03-25T16:04:35+07:00</updated><id>/java/docker/2019/03/25/hello-world-java-thong-qua-docker</id><content type="html" xml:base="/java/docker/2019/03/25/hello-world-java-thong-qua-docker.html">&lt;p&gt;Bài viết sẽ hướng dẫn chạy chương trình Java bằng việc sử dụng Docker, từ cách viết Dockerfile, build ứng dụng Java và cuối cùng là chạy thực tế.&lt;/p&gt;

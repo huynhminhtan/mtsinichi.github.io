@@ -50,7 +50,7 @@
         <!--• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card"
           itemprop="name">mtSiniChi </span></span>-->
 
-        • <span>535 words </span>
+        • <span>548 words </span>
         • <span class="reading-time" title="Estimated read time">
           
           3 min
@@ -62,15 +62,15 @@
     <div class="post-content e-content" itemprop="articleBody">
       <p><em>Bài viết sẽ hướng dẫn tạo ra tập tin Fat Jar từ project Maven bằng việc sử dụng <a href="https://maven.apache.org/plugins/maven-shade-plugin/">Maven Shade Plugin</a>.</em></p>
 
-<h1 id="fat-jar-là-gì">Fat Jar là gì</h1>
+<h2 id="fat-jar-là-gì">Fat Jar là gì</h2>
 
 <p>Fat Jar, Uber Jar, Shaded Jar chúng có tên khác nhau nhưng được xem là một. Là một tập tin nén Jar mà trong đó bao gồm tất cả các class file đã được compile, cộng thêm tất cả các dependencies có trong project.</p>
 
 <p>Như vậy, toàn bộ mã nguồn chương trình sẽ được gói gọn trong một file Fat Jar và ta có thể thực thi nhanh chóng thông qua command <code class="highlighter-rouge">java -jar name-file-fat-jar.jar</code>.</p>
 
-<h1 id="chuẩn-bị-mã-nguồn">Chuẩn bị mã nguồn</h1>
+<h2 id="chuẩn-bị-mã-nguồn">Chuẩn bị mã nguồn</h2>
 
-<h2 id="cấu-trúc-project">Cấu trúc project</h2>
+<h3 id="cấu-trúc-project">Cấu trúc project</h3>
 
 <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.
 ├── pom.xml
@@ -88,7 +88,7 @@
 9 directories, 2 files
 </code></pre></div></div>
 
-<h2 id="file-pomxml">File pom.xml</h2>
+<h3 id="file-pomxml">File pom.xml</h3>
 
 <p>Thay <em>com.minhtan.core.OrderVerticle</em> thành class có chứa hàm main tương ứng. Hãy tạo ra package chứa class main nếu link tới không thành công, trong ví dụ ngày pakage có tên là <em>com.minhtan.core.</em></p>
 
@@ -100,6 +100,8 @@
 
     <span class="nt">&lt;groupId&gt;</span>test<span class="nt">&lt;/groupId&gt;</span>
     <span class="nt">&lt;artifactId&gt;</span>maven.<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="c">&lt;!-- set packaging if dont create file .jar --&gt;</span>
+    <span class="c">&lt;!-- &lt;packaging&gt;jar&lt;/packaging&gt; --&gt;</span>
     <span class="nt">&lt;version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
 
     <span class="c">&lt;!--&lt;properties&gt;--&gt;</span>
@@ -171,7 +173,7 @@
 <span class="nt">&lt;/project&gt;</span>
 </code></pre></div></div>
 
-<h2 id="tạo-file-demo-orderverticlejava">Tạo file demo OrderVerticle.java</h2>
+<h3 id="tạo-file-demo-orderverticlejava">Tạo file demo OrderVerticle.java</h3>
 
 <p>Trong project này, mình sử dụng thư viện Vert.X để xem khi run file Jar có bị lỗi thiếu dependency không. Mã nguồn <em>OrderVerticle.java</em> như bên dưới:</p>
 
@@ -204,7 +206,7 @@
 <span class="o">}</span>
 </code></pre></div></div>
 
-<h1 id="tạo-ra-file-jar">Tạo ra File Jar</h1>
+<h2 id="tạo-ra-file-jar">Tạo ra File Jar</h2>
 
 <p>Sử dụng command của Maven sẽ tự động tạo ra được file Jar, vào thư mục gốc của project cần build và chạy lệnh bên dưới:</p>
 
@@ -231,7 +233,7 @@
   <li>original-maven.-1.0-SNAPSHOT.jar: không cần sử dụng.</li>
 </ul>
 
-<h1 id="thực-thi-file-jar">Thực thi file Jar</h1>
+<h2 id="thực-thi-file-jar">Thực thi file Jar</h2>
 
 <p>Hiển thị những class, những dependency có trong file Jar:</p>
 
@@ -256,9 +258,10 @@ com/fasterxml/jackson/annotation/SimpleObjectIdResolver.class
 
 <p>Tải source code: <a href="/materials/create-jar-maven.zip">create-jar-maven.zip</a></p>
 
-<h2 id="tham-khảo">Tham khảo</h2>
+<h3 id="tham-khảo">Tham khảo</h3>
 
 <ul>
+  <li>https://www.mkyong.com/maven/how-to-create-a-java-project-with-maven/</li>
   <li>https://www.tomitribe.com/blog/tomee-fat-jar-deployments/</li>
   <li>https://www.mkyong.com/maven/create-a-fat-jar-file-maven-shade-plugin/</li>
 </ul>
