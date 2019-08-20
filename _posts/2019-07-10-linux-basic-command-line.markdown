@@ -61,6 +61,11 @@ article_description: Collection of commands.
 - Spring Boot run app: `mvn spring-boot:run`.
 - Clean target folder and build: `mvn clean install`.
 
+## SSH
+
+- Create the RSA key: `ssh-keygen`.
+- Copying public key: `cat ~/.ssh/id_rsa.pub`.
+
 <br>
 
 ---
