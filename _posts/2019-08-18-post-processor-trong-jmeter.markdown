@@ -6,104 +6,41 @@ categories: linux
 author: mtSiniChi
 
 image: /assets/images/via-verde-crm-increases-customer-adoption-hero.png
-article_description: Java implement Log4j2 quickly in project Maven.
+article_description: Sử dụng JSON extractor của Post Processor để lưu data respone của api thực thi trước, để phục vụ cho các api thực thi sau nếu cần.
 ---
 
-Hiện thực Log4j2 trong project Maven, gói ghém chỉ qua 3 bước như bên dưới.
+Jmeter Post processor giúp lấy những dữ liệu sau khi thực thi xong một api trong testcript, lưu dữ liệu trả về vào biến, rồi có thể dùng biến đó cung cấp dữ liệu cho những lần thực thi api sau.
 
-Step1: Thêm dependencies vào *pom.xml*:
+Thêm bằng cách, **click chuột phải vào api cần tạo Post processor -> Add -> Post processors -> JSON Extractor**.
 
-```xml
-<dependency>
-    <groupId>org.apache.logging.log4j</groupId>
-    <artifactId>log4j-api</artifactId>
-    <version>2.6.1</version>
-</dependency>
-<dependency>
-    <groupId>org.apache.logging.log4j</groupId>
-    <artifactId>log4j-core</artifactId>
-    <version>2.6.1</version>
-</dependency>
-```
+![json-extractor-jmeter][1]{:class="img-responsive"}
 
-Step2: Tạo tập tin cấu hình *resources/log4j2.xml*, nếu tập tin cấu hình không ở *resources/* cần xác định đường dẫn tập tin cấu hình trong IntellIJ tại **Edit Configurations...** -> **VM Options** nhập `-Dlog4j.configurationFile=your-path/log4j2.xml`:
+Ví dụ, có 1 api trả về json:
 
-{% raw %}
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<Configuration name="systemConfiguration" schema="http://jakarta.apache.org/log4j2/">
-    <Properties>
-        <Property name="log-path">log</Property>
-        <Property name="log-name">conv</Property>
-    </Properties>
-    <Appenders>
-        <Console name="console-appender" target="STDOUT">
-            <PatternLayout>
-                <pattern>
-                    <!--%highlight{[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} -
-                     %msg%n}-->
-                    <!--[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n-->
-                    %highlight{%d{HH:mm:ss.SSS} %-5level %logger{36}.%M() @%L - %msg%n}
-                    {FATAL=red, ERROR=red, WARN=yellow, INFO=black, DEBUG=green, 
-                    TRACE=blue}
-                </pattern>
-            </PatternLayout>
-        </Console>
-
-        <RollingFile name="file-logger" fileName="${log-path}/${log-name}.log"
-                     filePattern="${log-path}/${log-name}-%d{yyyy-MM-dd}.log">
-            <PatternLayout>
-                <pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} 
-                [%t] %c{1} - %msg%n</pattern>
-            </PatternLayout>
-            <Policies>
-                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
-            </Policies>
-        </RollingFile>
-
-    </Appenders>
-    <Loggers>
-        <Root level="INFO">
-            <AppenderRef ref="console-appender" level="INFO"/>
-            <AppenderRef ref="file-logger" level="INFO"/>
-        </Root>
-    </Loggers>
-</Configuration>
-```
-
-{% endraw %}
-
-Step3: Ghi log bằng code Java:
-
-```java
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-public class Application {
-    private static final Logger logger = LogManager.getLogger(Application.class);
-
-    public static void main(String[] args){
-        logger.info("Hello log quickly.");
-        logger.warn("Hello log quickly again.");
-    }
+```json
+{
+    "zptransid": 190820006451952,
+    "ordersid": "ODOO",
+    "isOk": false,
 }
 ```
 
-Thêm: Loggin Level
+Lấy ra giá trị của thuộc tính *zptransid* với cú pháp `$.zptransid` từ JSON trả về lưu vào biến `zptransID` và sau đó sử dụng `${zptransID}` để lấy ra giá trị vừa lưu.
 
-![logs-level][1]{:class="img-responsive"}
+Trong đó:
 
-<br>
+- Variable names: đặt tên cho biến để lưu trữ dữ liệu. Ví dụ: `zptransID`
+- JSON Path expressions: cú pháp rúc trích giá trị từ JSON data trả về giống như cách lấy xPath. Ví dụ: `$.zptransid`
+- Match No. (0 for Random): khi cú pháp rúc trích có nhiều giá trị, thì chỉ ra thứ tự của giá trị cần lấy là bao nhiêu. Giá trị là 1 sẽ lấy đầu tiên.
+- Compute concatenation var (suffix_ALL): tiền tố biến (không quan tâm).
+- Default value: giá trị mặc định khi không kiếm được trong JSON data.
 
----
+Tham khảo:
 
-<br>
+- https://www.redline13.com/blog/2018/09/jmeter-extract-and-re-use-as-variable/
+- https://goessner.net/articles/JsonPath/
+- https://stackoverflow.com/a/44755425/9488752
+- https://loadium.com/blog/jmeter-post-processors/
+- https://medium.com/@loadium/jmeter-post-processors-667139a69dd
 
-Refers
-
-- https://stackoverflow.com/q/21979699/9488752 :: add color to log console
-- https://stackoverflow.com/questions/21206993/very-simple-log4j2-xml-configuration-file-using-console-and-file-appender
-- https://howtodoinjava.com/log4j2/log4j-2-xml-configuration-example/
-
-[1]:{{ site.url }}/assets/images/logs.jpeg
+[1]:{{ site.url }}/assets/images/json-extractor-jmeter.png

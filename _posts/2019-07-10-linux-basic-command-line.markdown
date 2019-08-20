@@ -64,7 +64,7 @@ article_description: Collection of commands.
 ## SSH
 
 - Create the RSA key: `ssh-keygen`.
-- Copying public key: `cat ~/.ssh/id_rsa.pub`.
+- Show the RSA public key: `cat ~/.ssh/id_rsa.pub`.
 
 <br>
 
