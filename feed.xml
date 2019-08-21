@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-08-21T13:36:18+07:00</updated><id>/feed.xml</id><title type="html">mtSiniChi</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Errors for Linux Ubuntu</title><link href="/linux/2019/08/13/errors-for-linux.html" rel="alternate" type="text/html" title="Errors for Linux Ubuntu" /><published>2019-08-13T12:38:27+07:00</published><updated>2019-08-13T12:38:27+07:00</updated><id>/linux/2019/08/13/errors-for-linux</id><content type="html" xml:base="/linux/2019/08/13/errors-for-linux.html">&lt;h2 id=&quot;ubuntu-loop-loging&quot;&gt;Ubuntu Loop Loging&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-08-21T13:47:53+07:00</updated><id>/feed.xml</id><title type="html">mtSiniChi</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Errors for Linux Ubuntu</title><link href="/linux/2019/08/13/errors-for-linux.html" rel="alternate" type="text/html" title="Errors for Linux Ubuntu" /><published>2019-08-13T12:38:27+07:00</published><updated>2019-08-13T12:38:27+07:00</updated><id>/linux/2019/08/13/errors-for-linux</id><content type="html" xml:base="/linux/2019/08/13/errors-for-linux.html">&lt;h2 id=&quot;ubuntu-loop-loging&quot;&gt;Ubuntu Loop Loging&lt;/h2&gt;
 
 &lt;p&gt;Ở màn hình đăng nhập, dù đã nhập đúng password nhưng không thể login vào “desktop”, nó lặp lại ở màn hình login.&lt;/p&gt;
 
@@ -330,6 +330,17 @@
 &lt;/ul&gt;
 
 &lt;p&gt;Chúng ta sẽ đi qua hiện thực từng goal. Chỉ thao tác với tập tin &lt;em&gt;pom.xml&lt;/em&gt; mà không cần sửa đổi tập tin nào khác.&lt;/p&gt;
+
+&lt;h2 id=&quot;csm-info&quot;&gt;CSM Info&lt;/h2&gt;
+
+&lt;p&gt;Khai báo địa chỉ repository để &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;connectionType&amp;gt;&lt;/code&gt; gọi sử dụng.&lt;/p&gt;
+
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;scm&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;connection&amp;gt;&lt;/span&gt;scm:git:https://github.com/mtsinichi/spring-cloud-configs.git&lt;span class=&quot;nt&quot;&gt;&amp;lt;/connection&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;developerConnection&amp;gt;&lt;/span&gt;scm:git:https://github.com/mtsinichi/spring-cloud-configs.git&lt;span class=&quot;nt&quot;&gt;&amp;lt;/developerConnection&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;url&amp;gt;&lt;/span&gt;https://github.com/mtsinichi/spring-cloud-configs&lt;span class=&quot;nt&quot;&gt;&amp;lt;/url&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/scm&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;scmcheckin&quot;&gt;SCM:checkin&lt;/h2&gt;
 
