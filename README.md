@@ -149,3 +149,10 @@ echo "rm -rf ../$DIR_GH_PAGE"
   - Bị lỗi khi trong nội dung markdown có các ký tự là `% }`.
   - https://stackoverflow.com/a/37602736/9488752
   - Giải quyết bằng cách thêm `{% raw %} trích đoạn code tại đây {% endraw %}`
+
+## PIN
+
+[Link to a document]({{ site.baseurl }}{% link _collection/name-of-document.md %})
+[Link to a post]({{ site.baseurl }}{% link _posts/2016-07-26-name-of-post.md %})
+[Link to a page]({{ site.baseurl }}{% link news/index.html %})
+[Link to a file]({{ site.baseurl }}{% link /assets/files/doc.pdf %})

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-08-20T16:16:44+07:00</updated><id>/feed.xml</id><title type="html">mtSiniChi</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Errors for Linux Ubuntu</title><link href="/linux/2019/08/13/errors-for-linux.html" rel="alternate" type="text/html" title="Errors for Linux Ubuntu" /><published>2019-08-13T12:38:27+07:00</published><updated>2019-08-13T12:38:27+07:00</updated><id>/linux/2019/08/13/errors-for-linux</id><content type="html" xml:base="/linux/2019/08/13/errors-for-linux.html">&lt;h2 id=&quot;ubuntu-loop-loging&quot;&gt;Ubuntu Loop Loging&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-08-21T13:36:18+07:00</updated><id>/feed.xml</id><title type="html">mtSiniChi</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Errors for Linux Ubuntu</title><link href="/linux/2019/08/13/errors-for-linux.html" rel="alternate" type="text/html" title="Errors for Linux Ubuntu" /><published>2019-08-13T12:38:27+07:00</published><updated>2019-08-13T12:38:27+07:00</updated><id>/linux/2019/08/13/errors-for-linux</id><content type="html" xml:base="/linux/2019/08/13/errors-for-linux.html">&lt;h2 id=&quot;ubuntu-loop-loging&quot;&gt;Ubuntu Loop Loging&lt;/h2&gt;
 
 &lt;p&gt;Ở màn hình đăng nhập, dù đã nhập đúng password nhưng không thể login vào “desktop”, nó lặp lại ở màn hình login.&lt;/p&gt;
 
@@ -257,7 +257,150 @@
   &lt;li&gt;https://stackoverflow.com/a/44755425/9488752&lt;/li&gt;
   &lt;li&gt;https://loadium.com/blog/jmeter-post-processors/&lt;/li&gt;
   &lt;li&gt;https://medium.com/@loadium/jmeter-post-processors-667139a69dd&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Jmeter Post processor giúp lấy những dữ liệu sau khi thực thi xong một api trong testcript, lưu dữ liệu trả về vào biến, rồi có thể dùng biến đó cung cấp dữ liệu cho những lần thực thi api sau.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" /></entry><entry><title type="html">Sử Dụng Network Trong Docker Compose</title><link href="/java/docker/2019/03/28/su-dung-network-trong-docker-compose.html" rel="alternate" type="text/html" title="Sử Dụng Network Trong Docker Compose" /><published>2019-03-28T10:08:35+07:00</published><updated>2019-03-28T10:08:35+07:00</updated><id>/java/docker/2019/03/28/su-dung-network-trong-docker-compose</id><content type="html" xml:base="/java/docker/2019/03/28/su-dung-network-trong-docker-compose.html">&lt;p&gt;Bài viết sẽ mô tả cách mà các container giao tiếp với nhau thông qua network docker cùng với ví dụ cụ thể, cũng như các bước có thể chạy một Maven project trên Docker.&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Jmeter Post processor giúp lấy những dữ liệu sau khi thực thi xong một api trong testcript, lưu dữ liệu trả về vào biến, rồi có thể dùng biến đó cung cấp dữ liệu cho những lần thực thi api sau.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" /></entry><entry><title type="html">Sử dụng SCM plugin Maven push và clone souce code từ Git</title><link href="/linux/2019/07/10/su-dung-scm-plugin-maven-de-push-va-clone-code-code.html" rel="alternate" type="text/html" title="Sử dụng SCM plugin Maven push và clone souce code từ Git" /><published>2019-07-10T13:38:27+07:00</published><updated>2019-07-10T13:38:27+07:00</updated><id>/linux/2019/07/10/su-dung-scm-plugin-maven-de-push-va-clone-code-code</id><content type="html" xml:base="/linux/2019/07/10/su-dung-scm-plugin-maven-de-push-va-clone-code-code.html">&lt;p&gt;Tập tin &lt;em&gt;pom.xml&lt;/em&gt; của Maven.&lt;/p&gt;
+
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;project&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://maven.apache.org/POM/4.0.0&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:xsi=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&lt;/span&gt;
+         &lt;span class=&quot;na&quot;&gt;xsi:schemaLocation=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;modelVersion&amp;gt;&lt;/span&gt;4.0.0&lt;span class=&quot;nt&quot;&gt;&amp;lt;/modelVersion&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;gs-centralized-configuration&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;0.1.0&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;packaging&amp;gt;&lt;/span&gt;pom&lt;span class=&quot;nt&quot;&gt;&amp;lt;/packaging&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;scm&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;connection&amp;gt;&lt;/span&gt;scm:git:https://github.com/mtsinichi/spring-cloud-configs.git&lt;span class=&quot;nt&quot;&gt;&amp;lt;/connection&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;developerConnection&amp;gt;&lt;/span&gt;scm:git:https://github.com/mtsinichi/spring-cloud-configs.git&lt;span class=&quot;nt&quot;&gt;&amp;lt;/developerConnection&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;url&amp;gt;&lt;/span&gt;https://github.com/mtsinichi/spring-cloud-configs&lt;span class=&quot;nt&quot;&gt;&amp;lt;/url&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/scm&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;modules&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;module&amp;gt;&lt;/span&gt;order-management-service&lt;span class=&quot;nt&quot;&gt;&amp;lt;/module&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;module&amp;gt;&lt;/span&gt;configuration-service&lt;span class=&quot;nt&quot;&gt;&amp;lt;/module&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;module&amp;gt;&lt;/span&gt;user-management-service&lt;span class=&quot;nt&quot;&gt;&amp;lt;/module&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/modules&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;properties&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;checkout.basedir&amp;gt;&lt;/span&gt;${basedir}/clone&lt;span class=&quot;nt&quot;&gt;&amp;lt;/checkout.basedir&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/properties&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;build&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;plugins&amp;gt;&lt;/span&gt;
+
+            &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- git repository --&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;plugin&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.apache.maven.plugins&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;maven-scm-plugin&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;1.9.5&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;checkoutDirectory&amp;gt;&lt;/span&gt;${basedir}/core&lt;span class=&quot;nt&quot;&gt;&amp;lt;/checkoutDirectory&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;connectionType&amp;gt;&lt;/span&gt;url&lt;span class=&quot;nt&quot;&gt;&amp;lt;/connectionType&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;basedir&amp;gt;&lt;/span&gt;${basedir}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/basedir&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;workingDirectory&amp;gt;&lt;/span&gt;${basedir}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/workingDirectory&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/configuration&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;executions&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;execution&amp;gt;&lt;/span&gt;
+                        &lt;span class=&quot;nt&quot;&gt;&amp;lt;id&amp;gt;&lt;/span&gt;git-pull-mvn&lt;span class=&quot;nt&quot;&gt;&amp;lt;/id&amp;gt;&lt;/span&gt;
+                        &lt;span class=&quot;nt&quot;&gt;&amp;lt;goals&amp;gt;&lt;/span&gt;
+                            &lt;span class=&quot;nt&quot;&gt;&amp;lt;goal&amp;gt;&lt;/span&gt;checkout&lt;span class=&quot;nt&quot;&gt;&amp;lt;/goal&amp;gt;&lt;/span&gt;
+                        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/goals&amp;gt;&lt;/span&gt;
+                        &lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;phase&amp;gt;validate&amp;lt;/phase&amp;gt;--&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/execution&amp;gt;&lt;/span&gt;
+
+                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;execution&amp;gt;&lt;/span&gt;
+                        &lt;span class=&quot;nt&quot;&gt;&amp;lt;id&amp;gt;&lt;/span&gt;git-push-mvn&lt;span class=&quot;nt&quot;&gt;&amp;lt;/id&amp;gt;&lt;/span&gt;
+                        &lt;span class=&quot;nt&quot;&gt;&amp;lt;goals&amp;gt;&lt;/span&gt;
+                            &lt;span class=&quot;nt&quot;&gt;&amp;lt;goal&amp;gt;&lt;/span&gt;checkin&lt;span class=&quot;nt&quot;&gt;&amp;lt;/goal&amp;gt;&lt;/span&gt;
+                        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/goals&amp;gt;&lt;/span&gt;
+                        &lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;phase&amp;gt;validate&amp;lt;/phase&amp;gt;--&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/execution&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/executions&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/plugin&amp;gt;&lt;/span&gt;
+
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/plugins&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/build&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/project&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Tập tin pom.xml của Maven.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" /></entry><entry><title type="html">Sử dụng SCM plugin Maven push và clone souce code từ Git</title><link href="/linux/2019/07/10/su-dung-scm-plugin-maven-de-push-va-clone-code.html" rel="alternate" type="text/html" title="Sử dụng SCM plugin Maven push và clone souce code từ Git" /><published>2019-07-10T13:38:27+07:00</published><updated>2019-07-10T13:38:27+07:00</updated><id>/linux/2019/07/10/su-dung-scm-plugin-maven-de-push-va-clone-code</id><content type="html" xml:base="/linux/2019/07/10/su-dung-scm-plugin-maven-de-push-va-clone-code.html">&lt;p&gt;Với tính tiện lợi, &lt;a href=&quot;https://maven.apache.org/scm/maven-scm-plugin/index.html&quot;&gt;Maven SCM Plugin&lt;/a&gt; hỗ trợ kết nối, tương tác với nhiều loại SCM (source code management), cũng như cung cấp một số lệnh có thể thao tác nhanh thay vì sử dụng các lệnh git thông thường. Maven SCM Plugin hỗ trợ nhiều lệnh và nhiều mục đích, có 2 loại goals thường hay sử dụng như:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;checkin: commit các thay đổi lên repository.&lt;/li&gt;
+  &lt;li&gt;checkout: clone source code trên repository.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Chúng ta sẽ đi qua hiện thực từng goal. Chỉ thao tác với tập tin &lt;em&gt;pom.xml&lt;/em&gt; mà không cần sửa đổi tập tin nào khác.&lt;/p&gt;
+
+&lt;h2 id=&quot;scmcheckin&quot;&gt;SCM:checkin&lt;/h2&gt;
+
+&lt;p&gt;Thực hiện tổng hợp các lệnh git add, git commit, git push lên repository. Thêm 1 plugin trong &lt;em&gt;pom.xml&lt;/em&gt; của project Maven. Trong tag &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;configuration&amp;gt;&lt;/code&gt; có thuộc tính &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;connectionType&amp;gt;&lt;/code&gt; dùng để khai báo địa chỉ repository Git. Xem thêm các thuộc tính của goal &lt;em&gt;scm:checkin&lt;/em&gt; tại &lt;a href=&quot;https://maven.apache.org/scm/maven-scm-plugin/checkin-mojo.html&quot;&gt;Optional Parameters scm:checkin&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Chạy lệnh Maven: &lt;code class=&quot;highlighter-rouge&quot;&gt;mvn scm:checkin -Dmessage=&quot;message commit source code&quot;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;plugin&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.apache.maven.plugins&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;maven-scm-plugin&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;1.9.5&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;connectionType&amp;gt;&lt;/span&gt;url&lt;span class=&quot;nt&quot;&gt;&amp;lt;/connectionType&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;basedir&amp;gt;&lt;/span&gt;${basedir}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/basedir&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;workingDirectory&amp;gt;&lt;/span&gt;${basedir}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/workingDirectory&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/configuration&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;executions&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;execution&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;id&amp;gt;&lt;/span&gt;git-push-mvn&lt;span class=&quot;nt&quot;&gt;&amp;lt;/id&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;goals&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;goal&amp;gt;&lt;/span&gt;checkin&lt;span class=&quot;nt&quot;&gt;&amp;lt;/goal&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/goals&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;phase&amp;gt;validate&amp;lt;/phase&amp;gt;--&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/execution&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/executions&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/plugin&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;scmcheckout&quot;&gt;SCM:checkout&lt;/h2&gt;
+
+&lt;p&gt;Thực hiện công việc clone (không phải pull) souce code trên repository về. Trong tag &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;configuration&amp;gt;&lt;/code&gt; có thuộc tính &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;checkoutDirectory&amp;gt;&lt;/code&gt; dùng để chỉ định thư mục sẽ lưu trữ source code được clone từ repository về, nếu không khai báo mặc định sẽ lưu trong &lt;em&gt;target/checkout/&lt;/em&gt;. Xem thêm các thuộc tính của goal &lt;em&gt;scm:checkout&lt;/em&gt; tại &lt;a href=&quot;https://maven.apache.org/scm/maven-scm-plugin/checkout-mojo.html&quot;&gt;Optional Parameters scm:checkout&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Chạy lệnh Maven: &lt;code class=&quot;highlighter-rouge&quot;&gt;mvn scm:checkout&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;plugin&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.apache.maven.plugins&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;maven-scm-plugin&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;1.9.5&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;checkoutDirectory&amp;gt;&lt;/span&gt;${basedir}/core&lt;span class=&quot;nt&quot;&gt;&amp;lt;/checkoutDirectory&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;connectionType&amp;gt;&lt;/span&gt;url&lt;span class=&quot;nt&quot;&gt;&amp;lt;/connectionType&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;basedir&amp;gt;&lt;/span&gt;${basedir}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/basedir&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/configuration&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;executions&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;execution&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;id&amp;gt;&lt;/span&gt;git-pull-mvn&lt;span class=&quot;nt&quot;&gt;&amp;lt;/id&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;goals&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;goal&amp;gt;&lt;/span&gt;checkout&lt;span class=&quot;nt&quot;&gt;&amp;lt;/goal&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/goals&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;phase&amp;gt;validate&amp;lt;/phase&amp;gt;--&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/execution&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/executions&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/plugin&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;source-code&quot;&gt;Source code&lt;/h2&gt;
+
+&lt;p&gt;Xem toàn bộ &lt;em&gt;pom.xml&lt;/em&gt; ví dụ tại &lt;a href=&quot;/linux/2019/07/10/su-dung-scm-plugin-maven-de-push-va-clone-code-code.html&quot;&gt;pom.xml&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Tham khảo&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;https://maven.apache.org/scm/maven-scm-plugin/plugin-info.html&lt;/li&gt;
+  &lt;li&gt;https://stackoverflow.com/a/10147826/9488752&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Với tính tiện lợi, Maven SCM Plugin hỗ trợ kết nối, tương tác với nhiều loại SCM (source code management), cũng như cung cấp một số lệnh có thể thao tác nhanh thay vì sử dụng các lệnh git thông thường. Maven SCM Plugin hỗ trợ nhiều lệnh và nhiều mục đích, có 2 loại goals thường hay sử dụng như:</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" /></entry><entry><title type="html">Sử Dụng Network Trong Docker Compose</title><link href="/java/docker/2019/03/28/su-dung-network-trong-docker-compose.html" rel="alternate" type="text/html" title="Sử Dụng Network Trong Docker Compose" /><published>2019-03-28T10:08:35+07:00</published><updated>2019-03-28T10:08:35+07:00</updated><id>/java/docker/2019/03/28/su-dung-network-trong-docker-compose</id><content type="html" xml:base="/java/docker/2019/03/28/su-dung-network-trong-docker-compose.html">&lt;p&gt;Bài viết sẽ mô tả cách mà các container giao tiếp với nhau thông qua network docker cùng với ví dụ cụ thể, cũng như các bước có thể chạy một Maven project trên Docker.&lt;/p&gt;
 
 &lt;p&gt;Ví dụ, tạo một ứng dụng hiện thực việc thêm và lấy dữ liệu từ Redis, trong dự án có sử dụng VertX mục đích là thêm một dependency cho project nó bự bự ra ấy mà.&lt;/p&gt;
 
@@ -617,289 +760,4 @@ docker-compose up
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/intellij-import-project-maven-via-command.gif&quot; alt=&quot;intellij-import-project-maven-via-command&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;*Do máy mình đã thiết lặp Command-line Launcher rồi nên mới hiện hộp thông báo hỏi có muốn ghi đè hay không.&lt;/em&gt;&lt;/p&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Để tiếp kiệm thời gian, chỉ cần cd vào project có chứa file pom.xml, rồi chạy lệnh idea pom.xml sau đó Intellij tự động import project một cách nhanh nhất cho chúng ta.</summary></entry><entry><title type="html">Tạo Tập Tin Fat Jar Từ Project Maven</title><link href="/java/maven/2019/03/25/tao-file-fat-jar-tu-project-maven.html" rel="alternate" type="text/html" title="Tạo Tập Tin Fat Jar Từ Project Maven" /><published>2019-03-25T21:35:35+07:00</published><updated>2019-03-25T21:35:35+07:00</updated><id>/java/maven/2019/03/25/tao-file-fat-jar-tu-project-maven</id><content type="html" xml:base="/java/maven/2019/03/25/tao-file-fat-jar-tu-project-maven.html">&lt;p&gt;&lt;em&gt;Bài viết sẽ hướng dẫn tạo ra tập tin Fat Jar từ project Maven bằng việc sử dụng &lt;a href=&quot;https://maven.apache.org/plugins/maven-shade-plugin/&quot;&gt;Maven Shade Plugin&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;fat-jar-là-gì&quot;&gt;Fat Jar là gì&lt;/h2&gt;
-
-&lt;p&gt;Fat Jar, Uber Jar, Shaded Jar chúng có tên khác nhau nhưng được xem là một. Là một tập tin nén Jar mà trong đó bao gồm tất cả các class file đã được compile, cộng thêm tất cả các dependencies có trong project.&lt;/p&gt;
-
-&lt;p&gt;Như vậy, toàn bộ mã nguồn chương trình sẽ được gói gọn trong một file Fat Jar và ta có thể thực thi nhanh chóng thông qua command &lt;code class=&quot;highlighter-rouge&quot;&gt;java -jar name-file-fat-jar.jar&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;chuẩn-bị-mã-nguồn&quot;&gt;Chuẩn bị mã nguồn&lt;/h2&gt;
-
-&lt;h3 id=&quot;cấu-trúc-project&quot;&gt;Cấu trúc project&lt;/h3&gt;
-
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.
-├── pom.xml
-└── src
-    ├── main
-    │   ├── java
-    │   │   └── com
-    │   │       └── minhtan
-    │   │           └── core
-    │   │               └── OrderVerticle.java
-    │   └── resources
-    └── test
-        └── java
-
-9 directories, 2 files
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;file-pomxml&quot;&gt;File pom.xml&lt;/h3&gt;
-
-&lt;p&gt;Thay &lt;em&gt;com.minhtan.core.OrderVerticle&lt;/em&gt; thành class có chứa hàm main tương ứng. Hãy tạo ra package chứa class main nếu link tới không thành công, trong ví dụ ngày pakage có tên là &lt;em&gt;com.minhtan.core.&lt;/em&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;project&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://maven.apache.org/POM/4.0.0&quot;&lt;/span&gt;
-         &lt;span class=&quot;na&quot;&gt;xmlns:xsi=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&lt;/span&gt;
-         &lt;span class=&quot;na&quot;&gt;xsi:schemaLocation=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;modelVersion&amp;gt;&lt;/span&gt;4.0.0&lt;span class=&quot;nt&quot;&gt;&amp;lt;/modelVersion&amp;gt;&lt;/span&gt;
-
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;test&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;maven.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- set packaging if dont create file .jar --&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- &amp;lt;packaging&amp;gt;jar&amp;lt;/packaging&amp;gt; --&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;1.0-SNAPSHOT&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
-
-    &lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;properties&amp;gt;--&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;jdk.version&amp;gt;1.7&amp;lt;/jdk.version&amp;gt;--&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;jodatime.version&amp;gt;2.5&amp;lt;/jodatime.version&amp;gt;--&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;junit.version&amp;gt;4.11&amp;lt;/junit.version&amp;gt;--&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;/properties&amp;gt;--&amp;gt;&lt;/span&gt;
-
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;build&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;plugins&amp;gt;&lt;/span&gt;
-
-            &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Set a compiler level --&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;plugin&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.apache.maven.plugins&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;maven-compiler-plugin&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
-                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;source&amp;gt;&lt;/span&gt;8&lt;span class=&quot;nt&quot;&gt;&amp;lt;/source&amp;gt;&lt;/span&gt;
-                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;target&amp;gt;&lt;/span&gt;8&lt;span class=&quot;nt&quot;&gt;&amp;lt;/target&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/configuration&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/plugin&amp;gt;&lt;/span&gt;
-
-            &lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;plugin&amp;gt;--&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;groupId&amp;gt;org.apache.maven.plugins&amp;lt;/groupId&amp;gt;--&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;artifactId&amp;gt;maven-compiler-plugin&amp;lt;/artifactId&amp;gt;--&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;version&amp;gt;2.3.2&amp;lt;/version&amp;gt;--&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;configuration&amp;gt;--&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;source&amp;gt;${jdk.version}&amp;lt;/source&amp;gt;--&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;target&amp;gt;${jdk.version}&amp;lt;/target&amp;gt;--&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;/configuration&amp;gt;--&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;/plugin&amp;gt;--&amp;gt;&lt;/span&gt;
-
-
-            &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Maven Shade Plugin --&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;plugin&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.apache.maven.plugins&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;maven-shade-plugin&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;2.3&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;executions&amp;gt;&lt;/span&gt;
-                    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Run shade goal on package phase --&amp;gt;&lt;/span&gt;
-                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;execution&amp;gt;&lt;/span&gt;
-                        &lt;span class=&quot;nt&quot;&gt;&amp;lt;phase&amp;gt;&lt;/span&gt;package&lt;span class=&quot;nt&quot;&gt;&amp;lt;/phase&amp;gt;&lt;/span&gt;
-                        &lt;span class=&quot;nt&quot;&gt;&amp;lt;goals&amp;gt;&lt;/span&gt;
-                            &lt;span class=&quot;nt&quot;&gt;&amp;lt;goal&amp;gt;&lt;/span&gt;shade&lt;span class=&quot;nt&quot;&gt;&amp;lt;/goal&amp;gt;&lt;/span&gt;
-                        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/goals&amp;gt;&lt;/span&gt;
-                        &lt;span class=&quot;nt&quot;&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
-                            &lt;span class=&quot;nt&quot;&gt;&amp;lt;transformers&amp;gt;&lt;/span&gt;
-                                &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- add Main-Class to manifest file --&amp;gt;&lt;/span&gt;
-                                &lt;span class=&quot;nt&quot;&gt;&amp;lt;transformer&lt;/span&gt;
-                                        &lt;span class=&quot;na&quot;&gt;implementation=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;org.apache.maven.plugins.shade.resource.ManifestResourceTransformer&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-                                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;mainClass&amp;gt;&lt;/span&gt;com.minhtan.core.OrderVerticle&lt;span class=&quot;nt&quot;&gt;&amp;lt;/mainClass&amp;gt;&lt;/span&gt;
-                                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/transformer&amp;gt;&lt;/span&gt;
-                            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/transformers&amp;gt;&lt;/span&gt;
-                        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/configuration&amp;gt;&lt;/span&gt;
-                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/execution&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/executions&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/plugin&amp;gt;&lt;/span&gt;
-
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/plugins&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/build&amp;gt;&lt;/span&gt;
-
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;dependencies&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;io.vertx&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;vertx-web&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;3.5.0&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependencies&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/project&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;tạo-file-demo-orderverticlejava&quot;&gt;Tạo file demo OrderVerticle.java&lt;/h3&gt;
-
-&lt;p&gt;Trong project này, mình sử dụng thư viện Vert.X để xem khi run file Jar có bị lỗi thiếu dependency không. Mã nguồn &lt;em&gt;OrderVerticle.java&lt;/em&gt; như bên dưới:&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;minhtan&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;core&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;io.vertx.core.AbstractVerticle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;io.vertx.core.Vertx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;OrderVerticle&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AbstractVerticle&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Vertx&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vertx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Vertx&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getInstanceVertX&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vertx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;vertx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Vertx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;vertx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;vertx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;deployVerticle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;OrderVerticle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vertx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nc&quot;&gt;Vertx&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vertx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getInstanceVertX&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;vertx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;deployVerticle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;OrderVerticle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
-
-        &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;He nhu u! : build to fat-jar with maven project &quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;tạo-ra-file-jar&quot;&gt;Tạo ra File Jar&lt;/h2&gt;
-
-&lt;p&gt;Sử dụng command của Maven sẽ tự động tạo ra được file Jar, vào thư mục gốc của project cần build và chạy lệnh bên dưới:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mvn package
-
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] Scanning &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;projects...
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] &lt;span class=&quot;nt&quot;&gt;------------------------------------------------------------------------&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] Building maven. 1.0-SNAPSHOT
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] &lt;span class=&quot;nt&quot;&gt;------------------------------------------------------------------------&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO]
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] &lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt; maven-resources-plugin:2.6:resources &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;default-resources&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; @ maven. &lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;WARNING] Using platform encoding &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;UTF-8 actually&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; to copy filtered resources, i.e. build is platform dependent!
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] Copying 0 resource
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO]
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] &lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt; maven-compiler-plugin:3.2:compile &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;default-compile&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; @ maven. &lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;INFO] Changes detected - recompiling the module!
-...
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Sau khi chạy thành công, có 2 tập tin được tạo ra trong thư mục &lt;em&gt;target/&lt;/em&gt;:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;maven.-1.0-SNAPSHOT.jar: đây là file Jar chúng ta cần.&lt;/li&gt;
-  &lt;li&gt;original-maven.-1.0-SNAPSHOT.jar: không cần sử dụng.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;thực-thi-file-jar&quot;&gt;Thực thi file Jar&lt;/h2&gt;
-
-&lt;p&gt;Hiển thị những class, những dependency có trong file Jar:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jar tf target/maven.-1.0-SNAPSHOT.jar
-
-com/fasterxml/jackson/databind/util/ViewMatcher.class
-META-INF/maven/com.fasterxml.jackson.core/jackson-annotations/
-META-INF/maven/com.fasterxml.jackson.core/jackson-annotations/pom.properties
-META-INF/maven/com.fasterxml.jackson.core/jackson-annotations/pom.xml
-com/fasterxml/jackson/annotation/
-com/fasterxml/jackson/annotation/JacksonAnnotation.class
-com/fasterxml/jackson/annotation/SimpleObjectIdResolver.class
-...
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Chạy file Jar, cũng như chạy cả project:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;java &lt;span class=&quot;nt&quot;&gt;-jar&lt;/span&gt; target/maven.-1.0-SNAPSHOT.jar
-
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; He nhu u! : build to fat-jar with maven project
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Tải source code: &lt;a href=&quot;/materials/create-jar-maven.zip&quot;&gt;create-jar-maven.zip&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;tham-khảo&quot;&gt;Tham khảo&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;https://www.mkyong.com/maven/how-to-create-a-java-project-with-maven/&lt;/li&gt;
-  &lt;li&gt;https://www.tomitribe.com/blog/tomee-fat-jar-deployments/&lt;/li&gt;
-  &lt;li&gt;https://www.mkyong.com/maven/create-a-fat-jar-file-maven-shade-plugin/&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Bài viết sẽ hướng dẫn tạo ra tập tin Fat Jar từ project Maven bằng việc sử dụng Maven Shade Plugin.</summary></entry><entry><title type="html">Chương Trình Hello World Bằng Java Thông Qua Docker</title><link href="/java/docker/2019/03/25/hello-world-java-thong-qua-docker.html" rel="alternate" type="text/html" title="Chương Trình Hello World Bằng Java Thông Qua Docker" /><published>2019-03-25T16:04:35+07:00</published><updated>2019-03-25T16:04:35+07:00</updated><id>/java/docker/2019/03/25/hello-world-java-thong-qua-docker</id><content type="html" xml:base="/java/docker/2019/03/25/hello-world-java-thong-qua-docker.html">&lt;p&gt;Bài viết sẽ hướng dẫn chạy chương trình Java bằng việc sử dụng Docker, từ cách viết Dockerfile, build ứng dụng Java và cuối cùng là chạy thực tế.&lt;/p&gt;
-
-&lt;h2 id=&quot;chuẩn-bị-đường-với-muối&quot;&gt;Chuẩn bị đường với muối&lt;/h2&gt;
-
-&lt;p&gt;Tạo ra cấu trúc thư mục như sau:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
-├── Dockerfile
-├── HelloWorld.java
-└── start.sh
-
-0 directories, 3 files
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Định nghĩa &lt;em&gt;Dockerfile&lt;/em&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-Dockerfile&quot;&gt;# FROM alpine:latest
-FROM openjdk:8
-
-# Thực thi câu lệnh khi built image
-# RUN DEBIAN_FRONTEND=noninteractive
-
-# RUN apk --update add openjdk8-jre
-
-# Định nghĩa thư mục CMD trỏ tới
-WORKDIR /src
-
-# COPY . /evrun
-COPY . .
-
-RUN chmod a+x ./*
-
-# ENTRYPOINT [&quot;/evrun/start.sh&quot;]
-ENTRYPOINT [&quot;sh&quot;,&quot;./start.sh&quot;]
-
-# Port cho container
-# EXPOSE 80
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Tạo tập tin &lt;em&gt;HelloWorld.java&lt;/em&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HelloWorld&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello, World - mtSiniChi - yoll - hihi&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Tập tin &lt;em&gt;start.sh&lt;/em&gt; dùng để build chương trình container:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/sh&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Workspace dir: &quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$PWD&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# pwd&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# ls&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# cat HelloWorld.java&lt;/span&gt;
-javac HelloWorld.java
-java HelloWorld
-&lt;span class=&quot;c&quot;&gt;# exec $@&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;bắt-đầu-kho-thịt&quot;&gt;Bắt đầu kho thịt&lt;/h2&gt;
-
-&lt;p&gt;Build container tên &lt;em&gt;java-hello&lt;/em&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker build &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; java-hello &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Chạy container để xem kết quả:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker run java-hello
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;Ăn-no-lăn-co-ra-ngủ&quot;&gt;Ăn no lăn co ra ngủ&lt;/h2&gt;
-
-&lt;p&gt;Kết quả:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker run java-hello
-Workspace &lt;span class=&quot;nb&quot;&gt;dir&lt;/span&gt;:  /src
-Hello, World - mtSiniChi - yoll - hihi
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Tải source code: &lt;a href=&quot;/materials/docker-java-hello.&quot;&gt;docker-java-hello.zip&lt;/a&gt;&lt;/p&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Bài viết sẽ hướng dẫn chạy chương trình Java bằng việc sử dụng Docker, từ cách viết Dockerfile, build ứng dụng Java và cuối cùng là chạy thực tế.</summary></entry></feed>
+&lt;p&gt;&lt;em&gt;*Do máy mình đã thiết lặp Command-line Launcher rồi nên mới hiện hộp thông báo hỏi có muốn ghi đè hay không.&lt;/em&gt;&lt;/p&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Để tiếp kiệm thời gian, chỉ cần cd vào project có chứa file pom.xml, rồi chạy lệnh idea pom.xml sau đó Intellij tự động import project một cách nhanh nhất cho chúng ta.</summary></entry></feed>
