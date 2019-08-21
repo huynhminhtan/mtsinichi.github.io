@@ -16,6 +16,18 @@ Với tính tiện lợi, [Maven SCM Plugin][2] hỗ trợ kết nối, tương 
 
 Chúng ta sẽ đi qua hiện thực từng goal. Chỉ thao tác với tập tin *pom.xml* mà không cần sửa đổi tập tin nào khác.
 
+## CSM Info
+
+Khai báo địa chỉ repository để `<connectionType>` gọi sử dụng.
+
+```xml
+<scm>
+    <connection>scm:git:https://github.com/mtsinichi/spring-cloud-configs.git</connection>
+    <developerConnection>scm:git:https://github.com/mtsinichi/spring-cloud-configs.git</developerConnection>
+    <url>https://github.com/mtsinichi/spring-cloud-configs</url>
+</scm>
+```
+
 ## SCM:checkin
 
 Thực hiện tổng hợp các lệnh git add, git commit, git push lên repository. Thêm 1 plugin trong *pom.xml* của project Maven. Trong tag `<configuration>` có thuộc tính `<connectionType>` dùng để khai báo địa chỉ repository Git. Xem thêm các thuộc tính của goal *scm:checkin* tại [Optional Parameters scm:checkin][3].
