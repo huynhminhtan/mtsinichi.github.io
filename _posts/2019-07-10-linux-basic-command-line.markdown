@@ -66,6 +66,11 @@ article_description: Collection of commands.
 - Create the RSA key: `ssh-keygen`.
 - Show the RSA public key: `cat ~/.ssh/id_rsa.pub`.
 
+## Cron
+
+- Edit cron: `crontab -e`, content example: `* 2 * * * ~/script/up-report.sh >> ~/cronlog.log`.
+- Restart cron: `/etc/init.d/cron restart`.
+
 <br>
 
 ---
