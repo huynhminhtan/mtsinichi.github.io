@@ -43,7 +43,7 @@ git clean -fxd
 " >>../"$DIR_GH_PAGE"/git-step-1.sh
 chmod a+x ../"$DIR_GH_PAGE"/git-step-1.sh
 cd ../"$DIR_GH_PAGE"
-./git-step-1.sh
+# ./git-step-1.sh
 
 # cd ../master
 
