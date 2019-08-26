@@ -1,6 +1,9 @@
 # folder temp for working, must not duplicate
 DIR_GH_PAGE=gh-pages-mt-must-not-duplicate-12122312121232323
 
+# folder working
+DIR_MASTER=mtsinichi
+
 # push brach
 GIT_BRANCH=mt-theme-v1
 
@@ -45,7 +48,7 @@ chmod a+x ../"$DIR_GH_PAGE"/git-step-1.sh
 cd ../"$DIR_GH_PAGE"
 ./git-step-1.sh
 
-cd ../master
+cd ../"$DIR_MASTER"
 
 # copy _site to $DIR_GH_PAGE
 cp -R ./_site/* ../"$DIR_GH_PAGE"
@@ -61,12 +64,12 @@ git push -u origin gh-pages
 " >>../"$DIR_GH_PAGE"/git-step-2.sh
 chmod a+x ../"$DIR_GH_PAGE"/git-step-2.sh
 cd ../"$DIR_GH_PAGE" 
-# ./git-step-2.sh
+./git-step-2.sh
 
-# cd ../master
+cd ../master
 
-# # clean
-# rm -rf ../"$DIR_GH_PAGE"
-# echo "rm -rf ../$DIR_GH_PAGE"
+# clean
+rm -rf ../"$DIR_GH_PAGE"
+echo "rm -rf ../$DIR_GH_PAGE"
 
-# # Happy !
+# Happy !
