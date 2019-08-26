@@ -5,7 +5,8 @@ DIR_GH_PAGE=gh-pages-mt-must-not-duplicate-12122312121232323
 GIT_BRANCH=mt-theme-v1
 
 # build jekyll
-JEKYLL_ENV=production jekyll build
+# JEKYLL_ENV=production jekyll build
+bundle exec jekyll build JEKYLL_ENV=production
 
 if [ ! -d "_site" ]; then
     echo "folder _site not exist"
