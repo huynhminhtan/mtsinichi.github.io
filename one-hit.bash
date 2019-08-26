@@ -2,7 +2,7 @@
 DIR_GH_PAGE=gh-pages-mt-must-not-duplicate-12122312121232323
 
 # folder working
-DIR_MASTER=mtsinichi
+DIR_MASTER=minhtan.me
 
 # push brach
 GIT_BRANCH=mt-theme-v1
