@@ -31,19 +31,19 @@ echo "mkdir -p ../$DIR_GH_PAGE"
 cp -R ./.git ../"$DIR_GH_PAGE"
 echo "cp -R ./.git ../$DIR_GH_PAGE"
 
-# # git 1 create new data
-# touch ../"$DIR_GH_PAGE"/git-step-1.sh
-# echo "#!/bin/sh
-# git add .
-# git commit -m 'tmp'
-# git checkout gh-pages
-# git pull
-# git rm -rf .
-# git clean -fxd
-# " >>../"$DIR_GH_PAGE"/git-step-1.sh
-# chmod a+x ../"$DIR_GH_PAGE"/git-step-1.sh
-# cd ../"$DIR_GH_PAGE"
-# ./git-step-1.sh
+# git 1 create new data
+touch ../"$DIR_GH_PAGE"/git-step-1.sh
+echo "#!/bin/sh
+git add .
+git commit -m 'tmp'
+git checkout gh-pages
+git pull
+git rm -rf .
+git clean -fxd
+" >>../"$DIR_GH_PAGE"/git-step-1.sh
+chmod a+x ../"$DIR_GH_PAGE"/git-step-1.sh
+cd ../"$DIR_GH_PAGE"
+./git-step-1.sh
 
 # cd ../master
 
