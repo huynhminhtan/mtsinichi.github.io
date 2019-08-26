@@ -10,6 +10,10 @@ With main features:
 - Count num of words, estimated time read post.
 - Anchors heading.
 
+Orthers features:
+
+- Post only source code (dont show at home page).
+
 Auto build and deploy to Github Pages:
 
 ```bash

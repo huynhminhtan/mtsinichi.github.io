@@ -5,13 +5,17 @@ date:   2019-07-10 13:38:27 +0700
 categories: linux
 author: mtSiniChi
 
-image: https://www.outsystems.com/-/media/images/case-studies/via-verde-crm-increases-customer-adoption/via-verde-crm-increases-customer-adoption-hero.png
+image: /assets/images/via-verde-crm-increases-customer-adoption-hero.png
 article_description: Collection of commands.
 ---
 
 ## Alias
 
-- Add alias `alias jmeter=apache-jmeter-5.1.1/bin/jmeter` to `vim ~/.bashrc` or `vim ~/.zshrc` then run `source ~/.bashrc`.
+- Add alias: `alias jmeter=apache-jmeter-5.1.1/bin/jmeter` to `vim ~/.bashrc` or `vim ~/.zshrc` then run `source ~/.bashrc`.
+
+## Path
+
+- Add path: `echo 'export PATH="/usr/local/opt/ruby/bin:$PATH"' >> ~/.zshrc` then `source ~/.zshrc` or reopen terminal to take affect.
 
 ## User
 

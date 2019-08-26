@@ -7,6 +7,7 @@ author: mtSiniChi
 
 image: /assets/images/via-verde-crm-increases-customer-adoption-hero.png
 article_description: Với tính tiện lợi, Maven SCM Plugin hỗ trợ kết nối, tương tác với nhiều loại SCM (source code management), cũng như cung cấp một số lệnh có thể thao tác nhanh thay vì sử dụng các lệnh git thông thường.
+source_code: true
 ---
 
 Tập tin *pom.xml* của Maven.
