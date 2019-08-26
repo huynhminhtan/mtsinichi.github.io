@@ -66,7 +66,7 @@ chmod a+x ../"$DIR_GH_PAGE"/git-step-2.sh
 cd ../"$DIR_GH_PAGE" 
 ./git-step-2.sh
 
-cd ../master
+cd ../"$DIR_MASTER"
 
 # clean
 rm -rf ../"$DIR_GH_PAGE"
