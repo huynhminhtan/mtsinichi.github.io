@@ -31,42 +31,42 @@ echo "mkdir -p ../$DIR_GH_PAGE"
 cp -R ./.git ../"$DIR_GH_PAGE"
 echo "cp -R ./.git ../$DIR_GH_PAGE"
 
-# git 1 create new data
-touch ../"$DIR_GH_PAGE"/git-step-1.sh
-echo "#!/bin/sh
-git add .
-git commit -m 'tmp'
-git checkout gh-pages
-git pull
-git rm -rf .
-git clean -fxd
-" >>../"$DIR_GH_PAGE"/git-step-1.sh
-chmod a+x ../"$DIR_GH_PAGE"/git-step-1.sh
-cd ../"$DIR_GH_PAGE"
-./git-step-1.sh
+# # git 1 create new data
+# touch ../"$DIR_GH_PAGE"/git-step-1.sh
+# echo "#!/bin/sh
+# git add .
+# git commit -m 'tmp'
+# git checkout gh-pages
+# git pull
+# git rm -rf .
+# git clean -fxd
+# " >>../"$DIR_GH_PAGE"/git-step-1.sh
+# chmod a+x ../"$DIR_GH_PAGE"/git-step-1.sh
+# cd ../"$DIR_GH_PAGE"
+# ./git-step-1.sh
 
-cd ../master
+# cd ../master
 
-# copy _site to $DIR_GH_PAGE
-cp -R ./_site/* ../"$DIR_GH_PAGE"
-echo "cp -R ./_site/* ../$DIR_GH_PAGE"
+# # copy _site to $DIR_GH_PAGE
+# cp -R ./_site/* ../"$DIR_GH_PAGE"
+# echo "cp -R ./_site/* ../$DIR_GH_PAGE"
 
-# git 2 push to gh-pages branch
-touch ../"$DIR_GH_PAGE"/git-step-2.sh
-echo "#!/bin/sh
-git add .
-git commit -m 'update content'
-git checkout gh-pages
-git push -u origin gh-pages 
-" >>../"$DIR_GH_PAGE"/git-step-2.sh
-chmod a+x ../"$DIR_GH_PAGE"/git-step-2.sh
-cd ../"$DIR_GH_PAGE" 
-./git-step-2.sh
+# # git 2 push to gh-pages branch
+# touch ../"$DIR_GH_PAGE"/git-step-2.sh
+# echo "#!/bin/sh
+# git add .
+# git commit -m 'update content'
+# git checkout gh-pages
+# git push -u origin gh-pages 
+# " >>../"$DIR_GH_PAGE"/git-step-2.sh
+# chmod a+x ../"$DIR_GH_PAGE"/git-step-2.sh
+# cd ../"$DIR_GH_PAGE" 
+# ./git-step-2.sh
 
-cd ../master
+# cd ../master
 
-# clean
-rm -rf ../"$DIR_GH_PAGE"
-echo "rm -rf ../$DIR_GH_PAGE"
+# # clean
+# rm -rf ../"$DIR_GH_PAGE"
+# echo "rm -rf ../$DIR_GH_PAGE"
 
-# Happy !
+# # Happy !
