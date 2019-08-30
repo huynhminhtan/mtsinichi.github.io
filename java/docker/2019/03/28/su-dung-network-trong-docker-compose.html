@@ -50,7 +50,7 @@
         <!--• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card"
           itemprop="name">mtSiniChi </span></span>-->
 
-        • <span>934 words </span>
+        • <span>933 words </span>
         • <span class="reading-time" title="Estimated read time">
           
           5 min
@@ -186,7 +186,7 @@
 
 <p>Ở trên có 2 container <em>maven-docker-network_app_1</em> và <em>maven-docker-network_redis_db_1</em> nằm trong network này khi chạy <code class="highlighter-rouge">docker-compose up</code>.</p>
 
-<p>Còn ở phần code, để có thể sử kết nối với Redis ta sẽ sử dụng chuỗi kết nối là <em>redis://redis_db:6379</em>, với <em>redis_db</em> là tên kết nối giống với tên của container định nghĩa ở <em>docker-compose.yml</em> và sử dụng CONTAINER_PORT mặc định của Redis là 6379.</p>
+<p>Còn ở phần code, để có thể kết nối với Redis ta sẽ sử dụng chuỗi kết nối là <em>redis://redis_db:6379</em>, với <em>redis_db</em> là tên kết nối giống với tên của container định nghĩa ở <em>docker-compose.yml</em> và sử dụng CONTAINER_PORT mặc định của Redis là 6379.</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// OrderVerticle.java</span>
 <span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">minhtan</span><span class="o">.</span><span class="na">core</span><span class="o">;</span>
