@@ -134,7 +134,7 @@ Sẽ tiến hành kiểm tra network này bằng lệnh `docker network inspect 
 
 Ở trên có 2 container *maven-docker-network_app_1* và *maven-docker-network_redis_db_1* nằm trong network này khi chạy `docker-compose up`.
 
-Còn ở phần code, để có thể sử kết nối với Redis ta sẽ sử dụng chuỗi kết nối là *redis://redis_db:6379*, với *redis_db* là tên kết nối giống với tên của container định nghĩa ở *docker-compose.yml* và sử dụng CONTAINER_PORT mặc định của Redis là 6379.
+Còn ở phần code, để có thể kết nối với Redis ta sẽ sử dụng chuỗi kết nối là *redis://redis_db:6379*, với *redis_db* là tên kết nối giống với tên của container định nghĩa ở *docker-compose.yml* và sử dụng CONTAINER_PORT mặc định của Redis là 6379.
 
 ```java
 // OrderVerticle.java
