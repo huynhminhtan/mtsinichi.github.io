@@ -49,6 +49,7 @@ article_description: Collection of commands.
 - Find by port: `lsof -i :8080`.
 - Find by port: `sudo netstat -lpn | grep :8080`.
 - Find by name: `sudo ps aux | grep 'firefox'`.
+- Find name file: `find . -iname "ApacheJMeter*"`
 
 ## Ping
 
