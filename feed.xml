@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-09-19T15:23:47+07:00</updated><id>/feed.xml</id><title type="html">mtSiniChi</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Errors for Linux Ubuntu</title><link href="/linux/2019/08/13/errors-for-linux.html" rel="alternate" type="text/html" title="Errors for Linux Ubuntu" /><published>2019-08-13T12:38:27+07:00</published><updated>2019-08-13T12:38:27+07:00</updated><id>/linux/2019/08/13/errors-for-linux</id><content type="html" xml:base="/linux/2019/08/13/errors-for-linux.html">&lt;h2 id=&quot;ubuntu-loop-loging&quot;&gt;Ubuntu Loop Loging&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-09-22T22:45:00+07:00</updated><id>/feed.xml</id><title type="html">mtSiniChi</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Errors for Linux Ubuntu</title><link href="/linux/2019/08/13/errors-for-linux.html" rel="alternate" type="text/html" title="Errors for Linux Ubuntu" /><published>2019-08-13T12:38:27+07:00</published><updated>2019-08-13T12:38:27+07:00</updated><id>/linux/2019/08/13/errors-for-linux</id><content type="html" xml:base="/linux/2019/08/13/errors-for-linux.html">&lt;h2 id=&quot;ubuntu-loop-loging&quot;&gt;Ubuntu Loop Loging&lt;/h2&gt;
 
 &lt;p&gt;Ở màn hình đăng nhập, dù đã nhập đúng password nhưng không thể login vào “desktop”, nó lặp lại ở màn hình login.&lt;/p&gt;
 
@@ -341,13 +341,19 @@
   &lt;li&gt;Sort by file size: &lt;code class=&quot;highlighter-rouge&quot;&gt;ls -S&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;h2 id=&quot;scp&quot;&gt;Scp&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Upload file from local to server: &lt;code class=&quot;highlighter-rouge&quot;&gt;scp ~/assets/foodorder.json root@45.77.174.39:/root/foodorder.json&lt;/code&gt; then press passwork.&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h2 id=&quot;find&quot;&gt;Find&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Find by port: &lt;code class=&quot;highlighter-rouge&quot;&gt;lsof -i :8080&lt;/code&gt;.&lt;/li&gt;
   &lt;li&gt;Find by port: &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo netstat -lpn | grep :8080&lt;/code&gt;.&lt;/li&gt;
   &lt;li&gt;Find by name: &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo ps aux | grep 'firefox'&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Find name file: &lt;code class=&quot;highlighter-rouge&quot;&gt;find . -iname &quot;ApacheJMeter*&quot;&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Find name file: &lt;code class=&quot;highlighter-rouge&quot;&gt;find . -iname &quot;ApacheJMeter*&quot;&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;ping&quot;&gt;Ping&lt;/h2&gt;
