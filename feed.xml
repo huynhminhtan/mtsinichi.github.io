@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-09-22T22:45:00+07:00</updated><id>/feed.xml</id><title type="html">mtSiniChi</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Errors for Linux Ubuntu</title><link href="/linux/2019/08/13/errors-for-linux.html" rel="alternate" type="text/html" title="Errors for Linux Ubuntu" /><published>2019-08-13T12:38:27+07:00</published><updated>2019-08-13T12:38:27+07:00</updated><id>/linux/2019/08/13/errors-for-linux</id><content type="html" xml:base="/linux/2019/08/13/errors-for-linux.html">&lt;h2 id=&quot;ubuntu-loop-loging&quot;&gt;Ubuntu Loop Loging&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-09-22T22:47:33+07:00</updated><id>/feed.xml</id><title type="html">mtSiniChi</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Errors for Linux Ubuntu</title><link href="/linux/2019/08/13/errors-for-linux.html" rel="alternate" type="text/html" title="Errors for Linux Ubuntu" /><published>2019-08-13T12:38:27+07:00</published><updated>2019-08-13T12:38:27+07:00</updated><id>/linux/2019/08/13/errors-for-linux</id><content type="html" xml:base="/linux/2019/08/13/errors-for-linux.html">&lt;h2 id=&quot;ubuntu-loop-loging&quot;&gt;Ubuntu Loop Loging&lt;/h2&gt;
 
 &lt;p&gt;Ở màn hình đăng nhập, dù đã nhập đúng password nhưng không thể login vào “desktop”, nó lặp lại ở màn hình login.&lt;/p&gt;
 
@@ -376,6 +376,7 @@
 &lt;ul&gt;
   &lt;li&gt;Spring Boot run app: &lt;code class=&quot;highlighter-rouge&quot;&gt;mvn spring-boot:run&lt;/code&gt;.&lt;/li&gt;
   &lt;li&gt;Clean target folder and build: &lt;code class=&quot;highlighter-rouge&quot;&gt;mvn clean install&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Set JAVA_HOME: execute command &lt;code class=&quot;highlighter-rouge&quot;&gt;export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;export PATH=$PATH:$JAVA_HOME/bin&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;ssh&quot;&gt;SSH&lt;/h2&gt;
@@ -425,6 +426,11 @@
   &lt;li&gt;Git
     &lt;ul&gt;
       &lt;li&gt;https://rogerdudler.github.io/git-guide/&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Scp
+    &lt;ul&gt;
+      &lt;li&gt;https://kb.iweb.com/hc/en-us/articles/230241568-Copying-a-file-to-another-server-through-SSH&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
 &lt;/ul&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Alias</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" /></entry><entry><title type="html">Bookmarks</title><link href="/linux/2019/07/10/bookmarks.html" rel="alternate" type="text/html" title="Bookmarks" /><published>2019-07-10T13:38:27+07:00</published><updated>2019-07-10T13:38:27+07:00</updated><id>/linux/2019/07/10/bookmarks</id><content type="html" xml:base="/linux/2019/07/10/bookmarks.html">&lt;h2 id=&quot;-take-a-screenshot-of-your-code&quot;&gt;# Take A Screenshot of your Code&lt;/h2&gt;
