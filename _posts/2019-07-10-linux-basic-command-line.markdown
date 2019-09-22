@@ -44,12 +44,16 @@ article_description: Collection of commands.
 - Sort by last modified: `ls -t`, reverise: `ls -tlr`.
 - Sort by file size: `ls -S`.
 
+## Scp
+
+- Upload file from local to server: `scp ~/assets/foodorder.json root@45.77.174.39:/root/foodorder.json` then press passwork.
+
 ## Find
 
 - Find by port: `lsof -i :8080`.
 - Find by port: `sudo netstat -lpn | grep :8080`.
 - Find by name: `sudo ps aux | grep 'firefox'`.
-- Find name file: `find . -iname "ApacheJMeter*"`
+- Find name file: `find . -iname "ApacheJMeter*"`.
 
 ## Ping
 
