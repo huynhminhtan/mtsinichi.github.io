@@ -46,7 +46,7 @@ article_description: Collection of commands.
 
 ## Scp
 
-- Upload file from local to server: `scp ~/assets/foodorder.json root@45.77.174.39:/root/foodorder.json` then press passwork.
+- Upload file from local to server: `scp ~/assets/foodorder.json root@45.77.174.39:/root/foodorder.json` then press password.
 
 ## Find
 
