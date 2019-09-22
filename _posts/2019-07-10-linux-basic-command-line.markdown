@@ -70,6 +70,7 @@ article_description: Collection of commands.
 
 - Spring Boot run app: `mvn spring-boot:run`.
 - Clean target folder and build: `mvn clean install`.
+- Set JAVA_HOME: execute command `export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64` and `export PATH=$PATH:$JAVA_HOME/bin`.
 
 ## SSH
 
@@ -100,4 +101,5 @@ article_description: Collection of commands.
   - https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
 - Git
   - https://rogerdudler.github.io/git-guide/
-  
+- Scp
+  - https://kb.iweb.com/hc/en-us/articles/230241568-Copying-a-file-to-another-server-through-SSH
