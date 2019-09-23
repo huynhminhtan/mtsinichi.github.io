@@ -9,6 +9,8 @@ image: /assets/images/via-verde-crm-increases-customer-adoption-hero.png
 article_description: Với tính tiện lợi, Maven SCM Plugin hỗ trợ kết nối, tương tác với nhiều loại SCM (source code management), cũng như cung cấp một số lệnh có thể thao tác nhanh thay vì sử dụng các lệnh git thông thường.
 ---
 
+Bài viết sẽ trả lời câu hỏi: *Tôi muốn sử dụng lệnh maven để commit và push source code lên repository git*.
+
 Với tính tiện lợi, [Maven SCM Plugin][2] hỗ trợ kết nối, tương tác với nhiều loại SCM (source code management), cũng như cung cấp một số lệnh có thể thao tác nhanh thay vì sử dụng các lệnh git thông thường. Maven SCM Plugin hỗ trợ nhiều lệnh và nhiều mục đích, có 2 loại goals thường hay sử dụng như:
 
 - checkin: commit các thay đổi lên repository.
