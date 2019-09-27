@@ -52,7 +52,7 @@
       <!--• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card"
           itemprop="name">mtSiniChi </span></span>-->
 
-      • <span>123 words </span>
+      • <span>141 words </span>
       • <span class="reading-time" title="Estimated read time">
         
         1 min
@@ -127,6 +127,13 @@ curl <span class="nt">-i</span> <span class="nt">-XPOST</span> <span class="s1">
 <span class="k">select</span> <span class="k">*</span> from cpu_load_short
 <span class="k">select</span> <span class="k">*</span> from cpu_load_short where value <span class="o">&gt;</span> 1
 <span class="k">select</span> <span class="k">*</span> from cpu_load_short group by region
+</code></pre></div></div>
+
+<h2 id="time-series-admin">Time Series Admin</h2>
+
+<p>Administration and querying interface for InfluxDB databases, run docker:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run <span class="nt">-p</span> 8085:80 <span class="nt">-it</span> timeseriesadmin/timeseriesadmin:0.1.4
 </code></pre></div></div>
 
 <h2 id="tham-khảo">Tham khảo</h2>
