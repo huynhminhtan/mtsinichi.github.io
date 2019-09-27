@@ -6,7 +6,7 @@ categories: docker
 author: mtSiniChi
 
 image: https://www.outsystems.com/-/media/images/case-studies/via-verde-crm-increases-customer-adoption/via-verde-crm-increases-customer-adoption-hero.png
-article_description: Làm việc nhanh với InfluxDB.
+article_description: Làm việc nhanh với InfluxDB theo phong cách implement.
 ---
 
 ## Cài đặt
@@ -49,9 +49,12 @@ show meaturements
 insert cpu_load_short,host=server01,region=us-west value=0.7
 
 # Insert HTTP
-curl -i -XPOST 'http://localhost:8086/write?db=mydb1' --data-binary 'cpu_load_short,host=server01,region=us-west value=0.64 1434055562000000001'
-curl -i -XPOST 'http://localhost:8086/write?db=mydb1' --data-binary 'cpu_load_short,host=server01,region=us-west value=0.46 1434055562000000002'
-curl -i -XPOST 'http://localhost:8086/write?db=mydb1' --data-binary 'cpu_load_short,host=server01,region=us-west value=11i'
+curl -i -XPOST 'http://localhost:8086/write?db=mydb1' \
+    --data-binary 'cpu_load_short,host=server01,region=us-west value=0.64 1434055562000000001'
+curl -i -XPOST 'http://localhost:8086/write?db=mydb1' \
+    --data-binary 'cpu_load_short,host=server01,region=us-west value=0.46 1434055562000000002'
+curl -i -XPOST 'http://localhost:8086/write?db=mydb1' \
+    --data-binary 'cpu_load_short,host=server01,region=us-west value=11i'
 
 # Select
 select * from cpu_load_short
@@ -59,7 +62,7 @@ select * from cpu_load_short where value > 1
 select * from cpu_load_short group by region
 ```
 
-Tham khảo:
+## Tham khảo
 
 - https://docs.influxdata.com/influxdb/v1.7/query_language/data_exploration/
 - https://hub.docker.com/_/influxdb
