@@ -1,7 +1,7 @@
 ---
 layout: post-featured
 title: "Làm việc với InfluxDB trên Docker"
-date:   2019-09-27 12:38:27 +0700 
+date:   2019-09-26 12:38:27 +0700 
 categories: docker
 author: mtSiniChi
 
