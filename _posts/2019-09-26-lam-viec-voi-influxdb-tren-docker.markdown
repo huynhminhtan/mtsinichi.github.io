@@ -74,7 +74,7 @@ Administration and querying interface for InfluxDB databases, run docker:
 docker run -p 8085:80 -it timeseriesadmin/timeseriesadmin:0.1.4
 ```
 
-With, database url: *http://localhost:8086*, user: *admin*, password: *123456* (option), database: *mydb1*.
+Default, don't have supports for credentials, database url: *http://localhost:8086*, user: *admin*, password: *123456* (option), database: *mydb1*.
 
 ## Tham khảo
 
