@@ -62,6 +62,14 @@ select * from cpu_load_short where value > 1
 select * from cpu_load_short group by region
 ```
 
+## Time Series Admin
+
+Administration and querying interface for InfluxDB databases, run docker:
+
+```bash
+docker run -p 8085:80 -it timeseriesadmin/timeseriesadmin:0.1.4
+```
+
 ## Tham khảo
 
 - https://docs.influxdata.com/influxdb/v1.7/query_language/data_exploration/
