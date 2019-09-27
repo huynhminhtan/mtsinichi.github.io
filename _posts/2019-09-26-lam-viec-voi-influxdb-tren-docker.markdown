@@ -60,6 +60,10 @@ curl -i -XPOST 'http://localhost:8086/write?db=mydb1' \
 select * from cpu_load_short
 select * from cpu_load_short where value > 1
 select * from cpu_load_short group by region
+
+# Show user
+show users
+curl -G 'http://localhost:8086/query?pretty=true' --data-urlencode "q=SHOW USERS"
 ```
 
 ## Time Series Admin
