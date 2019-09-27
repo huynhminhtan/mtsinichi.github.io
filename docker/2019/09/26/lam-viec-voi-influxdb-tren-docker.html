@@ -52,7 +52,7 @@
       <!--• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card"
           itemprop="name">mtSiniChi </span></span>-->
 
-      • <span>120 words </span>
+      • <span>123 words </span>
       • <span class="reading-time" title="Estimated read time">
         
         1 min
@@ -60,7 +60,7 @@
     </p>
 
     <p class="excerpt">
-      Làm việc nhanh với InfluxDB.
+      Làm việc nhanh với InfluxDB theo phong cách implement.
 
     </p>
   </div>
@@ -116,9 +116,12 @@ show meaturements
 insert cpu_load_short,host<span class="o">=</span>server01,region<span class="o">=</span>us-west <span class="nv">value</span><span class="o">=</span>0.7
 
 <span class="c"># Insert HTTP</span>
-curl <span class="nt">-i</span> <span class="nt">-XPOST</span> <span class="s1">'http://localhost:8086/write?db=mydb1'</span> <span class="nt">--data-binary</span> <span class="s1">'cpu_load_short,host=server01,region=us-west value=0.64 1434055562000000001'</span>
-curl <span class="nt">-i</span> <span class="nt">-XPOST</span> <span class="s1">'http://localhost:8086/write?db=mydb1'</span> <span class="nt">--data-binary</span> <span class="s1">'cpu_load_short,host=server01,region=us-west value=0.46 1434055562000000002'</span>
-curl <span class="nt">-i</span> <span class="nt">-XPOST</span> <span class="s1">'http://localhost:8086/write?db=mydb1'</span> <span class="nt">--data-binary</span> <span class="s1">'cpu_load_short,host=server01,region=us-west value=11i'</span>
+curl <span class="nt">-i</span> <span class="nt">-XPOST</span> <span class="s1">'http://localhost:8086/write?db=mydb1'</span> <span class="se">\</span>
+    <span class="nt">--data-binary</span> <span class="s1">'cpu_load_short,host=server01,region=us-west value=0.64 1434055562000000001'</span>
+curl <span class="nt">-i</span> <span class="nt">-XPOST</span> <span class="s1">'http://localhost:8086/write?db=mydb1'</span> <span class="se">\</span>
+    <span class="nt">--data-binary</span> <span class="s1">'cpu_load_short,host=server01,region=us-west value=0.46 1434055562000000002'</span>
+curl <span class="nt">-i</span> <span class="nt">-XPOST</span> <span class="s1">'http://localhost:8086/write?db=mydb1'</span> <span class="se">\</span>
+    <span class="nt">--data-binary</span> <span class="s1">'cpu_load_short,host=server01,region=us-west value=11i'</span>
 
 <span class="c"># Select</span>
 <span class="k">select</span> <span class="k">*</span> from cpu_load_short
@@ -126,7 +129,7 @@ curl <span class="nt">-i</span> <span class="nt">-XPOST</span> <span class="s1">
 <span class="k">select</span> <span class="k">*</span> from cpu_load_short group by region
 </code></pre></div></div>
 
-<p>Tham khảo:</p>
+<h2 id="tham-khảo">Tham khảo</h2>
 
 <ul>
   <li>https://docs.influxdata.com/influxdb/v1.7/query_language/data_exploration/</li>
