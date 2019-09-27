@@ -6,7 +6,7 @@ categories: docker
 author: mtSiniChi
 
 image: https://www.outsystems.com/-/media/images/case-studies/via-verde-crm-increases-customer-adoption/via-verde-crm-increases-customer-adoption-hero.png
-article_description: Collection of errors for Linux.
+article_description: Làm việc nhanh với InfluxDB.
 ---
 
 ## Cài đặt
