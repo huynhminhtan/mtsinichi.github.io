@@ -1,4 +1,56 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-09-27T12:01:08+07:00</updated><id>/feed.xml</id><title type="html">mtSiniChi</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Errors for Linux Ubuntu</title><link href="/linux/2019/08/13/errors-for-linux.html" rel="alternate" type="text/html" title="Errors for Linux Ubuntu" /><published>2019-08-13T12:38:27+07:00</published><updated>2019-08-13T12:38:27+07:00</updated><id>/linux/2019/08/13/errors-for-linux</id><content type="html" xml:base="/linux/2019/08/13/errors-for-linux.html">&lt;h2 id=&quot;ubuntu-loop-loging&quot;&gt;Ubuntu Loop Loging&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-09-27T12:02:33+07:00</updated><id>/feed.xml</id><title type="html">mtSiniChi</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Làm việc với InfluxDB trên Docker</title><link href="/docker/2019/09/26/lam-viec-voi-influxdb-tren-docker.html" rel="alternate" type="text/html" title="Làm việc với InfluxDB trên Docker" /><published>2019-09-26T12:38:27+07:00</published><updated>2019-09-26T12:38:27+07:00</updated><id>/docker/2019/09/26/lam-viec-voi-influxdb-tren-docker</id><content type="html" xml:base="/docker/2019/09/26/lam-viec-voi-influxdb-tren-docker.html">&lt;h2 id=&quot;cài-đặt&quot;&gt;Cài đặt&lt;/h2&gt;
+
+&lt;p&gt;Chạy container, nếu chưa có sẽ tự pull trên hub.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker run &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; 8086:8086 &lt;span class=&quot;nt&quot;&gt;--name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;influxdb-master influxdb
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Truy cập vào terminal trong docker.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker &lt;span class=&quot;nb&quot;&gt;exec&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--user&lt;/span&gt; root &lt;span class=&quot;nt&quot;&gt;-it&lt;/span&gt; influxdb-master bash
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Thao tác với InfluxDB.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;c&quot;&gt;# Verify&lt;/span&gt;
+influxd
+
+&lt;span class=&quot;c&quot;&gt;# Access CLI&lt;/span&gt;
+influx
+
+&lt;span class=&quot;c&quot;&gt;# Create database&lt;/span&gt;
+create database mydb
+
+&lt;span class=&quot;c&quot;&gt;# Show databases&lt;/span&gt;
+show databases
+
+&lt;span class=&quot;c&quot;&gt;# Using database&lt;/span&gt;
+use mydb
+
+&lt;span class=&quot;c&quot;&gt;# Show tables&lt;/span&gt;
+show meaturements
+
+&lt;span class=&quot;c&quot;&gt;# Insert CLI&lt;/span&gt;
+insert cpu_load_short,host&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;server01,region&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;us-west &lt;span class=&quot;nv&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0.7
+
+&lt;span class=&quot;c&quot;&gt;# Insert HTTP&lt;/span&gt;
+curl &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-XPOST&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'http://localhost:8086/write?db=mydb1'&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--data-binary&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'cpu_load_short,host=server01,region=us-west value=0.64 1434055562000000001'&lt;/span&gt;
+curl &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-XPOST&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'http://localhost:8086/write?db=mydb1'&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--data-binary&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'cpu_load_short,host=server01,region=us-west value=0.46 1434055562000000002'&lt;/span&gt;
+curl &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-XPOST&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'http://localhost:8086/write?db=mydb1'&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--data-binary&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'cpu_load_short,host=server01,region=us-west value=11i'&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Select&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; from cpu_load_short
+&lt;span class=&quot;k&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; from cpu_load_short where value &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 1
+&lt;span class=&quot;k&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; from cpu_load_short group by region
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Tham khảo:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;https://docs.influxdata.com/influxdb/v1.7/query_language/data_exploration/&lt;/li&gt;
+  &lt;li&gt;https://hub.docker.com/_/influxdb&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Cài đặt</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.outsystems.com/-/media/images/case-studies/via-verde-crm-increases-customer-adoption/via-verde-crm-increases-customer-adoption-hero.png" /></entry><entry><title type="html">Errors for Linux Ubuntu</title><link href="/linux/2019/08/13/errors-for-linux.html" rel="alternate" type="text/html" title="Errors for Linux Ubuntu" /><published>2019-08-13T12:38:27+07:00</published><updated>2019-08-13T12:38:27+07:00</updated><id>/linux/2019/08/13/errors-for-linux</id><content type="html" xml:base="/linux/2019/08/13/errors-for-linux.html">&lt;h2 id=&quot;ubuntu-loop-loging&quot;&gt;Ubuntu Loop Loging&lt;/h2&gt;
 
 &lt;p&gt;Ở màn hình đăng nhập, dù đã nhập đúng password nhưng không thể login vào “desktop”, nó lặp lại ở màn hình login.&lt;/p&gt;
 
@@ -298,7 +350,12 @@
 &lt;ul&gt;
   &lt;li&gt;https://maven.apache.org/scm/maven-scm-plugin/plugin-info.html&lt;/li&gt;
   &lt;li&gt;https://stackoverflow.com/a/10147826/9488752&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Bài viết sẽ trả lời câu hỏi: Tôi muốn sử dụng lệnh maven để pull và push source code lên repository git.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" /></entry><entry><title type="html">Linux basic command line</title><link href="/linux/2019/07/10/linux-basic-command-line.html" rel="alternate" type="text/html" title="Linux basic command line" /><published>2019-07-10T13:38:27+07:00</published><updated>2019-07-10T13:38:27+07:00</updated><id>/linux/2019/07/10/linux-basic-command-line</id><content type="html" xml:base="/linux/2019/07/10/linux-basic-command-line.html">&lt;h2 id=&quot;alias&quot;&gt;Alias&lt;/h2&gt;
+&lt;/ul&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Bài viết sẽ trả lời câu hỏi: Tôi muốn sử dụng lệnh maven để pull và push source code lên repository git.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" /></entry><entry><title type="html">Bookmarks</title><link href="/linux/2019/07/10/bookmarks.html" rel="alternate" type="text/html" title="Bookmarks" /><published>2019-07-10T13:38:27+07:00</published><updated>2019-07-10T13:38:27+07:00</updated><id>/linux/2019/07/10/bookmarks</id><content type="html" xml:base="/linux/2019/07/10/bookmarks.html">&lt;h2 id=&quot;-take-a-screenshot-of-your-code&quot;&gt;# Take A Screenshot of your Code&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;https://scotch.io/bar-talk/6-awesome-ways-to-take-a-screenshot-of-your-code&lt;/li&gt;
+  &lt;li&gt;https://marketplace.visualstudio.com/items?itemName=pnp.polacode&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>mtSiniChi</name></author><summary type="html"># Take A Screenshot of your Code</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" /></entry><entry><title type="html">Linux basic command line</title><link href="/linux/2019/07/10/linux-basic-command-line.html" rel="alternate" type="text/html" title="Linux basic command line" /><published>2019-07-10T13:38:27+07:00</published><updated>2019-07-10T13:38:27+07:00</updated><id>/linux/2019/07/10/linux-basic-command-line</id><content type="html" xml:base="/linux/2019/07/10/linux-basic-command-line.html">&lt;h2 id=&quot;alias&quot;&gt;Alias&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Add alias: &lt;code class=&quot;highlighter-rouge&quot;&gt;alias jmeter=apache-jmeter-5.1.1/bin/jmeter&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;vim ~/.bashrc&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;vim ~/.zshrc&lt;/code&gt; then run &lt;code class=&quot;highlighter-rouge&quot;&gt;source ~/.bashrc&lt;/code&gt;.&lt;/li&gt;
@@ -435,12 +492,7 @@
       &lt;li&gt;https://kb.iweb.com/hc/en-us/articles/230241568-Copying-a-file-to-another-server-through-SSH&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Alias</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" /></entry><entry><title type="html">Bookmarks</title><link href="/linux/2019/07/10/bookmarks.html" rel="alternate" type="text/html" title="Bookmarks" /><published>2019-07-10T13:38:27+07:00</published><updated>2019-07-10T13:38:27+07:00</updated><id>/linux/2019/07/10/bookmarks</id><content type="html" xml:base="/linux/2019/07/10/bookmarks.html">&lt;h2 id=&quot;-take-a-screenshot-of-your-code&quot;&gt;# Take A Screenshot of your Code&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;https://scotch.io/bar-talk/6-awesome-ways-to-take-a-screenshot-of-your-code&lt;/li&gt;
-  &lt;li&gt;https://marketplace.visualstudio.com/items?itemName=pnp.polacode&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>mtSiniChi</name></author><summary type="html"># Take A Screenshot of your Code</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" /></entry><entry><title type="html">Sử Dụng Network Trong Docker Compose</title><link href="/java/docker/2019/03/28/su-dung-network-trong-docker-compose.html" rel="alternate" type="text/html" title="Sử Dụng Network Trong Docker Compose" /><published>2019-03-28T10:08:35+07:00</published><updated>2019-03-28T10:08:35+07:00</updated><id>/java/docker/2019/03/28/su-dung-network-trong-docker-compose</id><content type="html" xml:base="/java/docker/2019/03/28/su-dung-network-trong-docker-compose.html">&lt;p&gt;Bài viết sẽ mô tả cách mà các container giao tiếp với nhau thông qua network docker cùng với ví dụ cụ thể, cũng như các bước có thể chạy một Maven project trên Docker.&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Alias</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" /></entry><entry><title type="html">Sử Dụng Network Trong Docker Compose</title><link href="/java/docker/2019/03/28/su-dung-network-trong-docker-compose.html" rel="alternate" type="text/html" title="Sử Dụng Network Trong Docker Compose" /><published>2019-03-28T10:08:35+07:00</published><updated>2019-03-28T10:08:35+07:00</updated><id>/java/docker/2019/03/28/su-dung-network-trong-docker-compose</id><content type="html" xml:base="/java/docker/2019/03/28/su-dung-network-trong-docker-compose.html">&lt;p&gt;Bài viết sẽ mô tả cách mà các container giao tiếp với nhau thông qua network docker cùng với ví dụ cụ thể, cũng như các bước có thể chạy một Maven project trên Docker.&lt;/p&gt;
 
 &lt;p&gt;Ví dụ, tạo một ứng dụng hiện thực việc thêm và lấy dữ liệu từ Redis, trong dự án có sử dụng VertX mục đích là thêm một dependency cho project nó bự bự ra ấy mà.&lt;/p&gt;
 
@@ -794,10 +846,4 @@ docker-compose up
 
 &lt;h1 id=&quot;tham-khảo&quot;&gt;Tham khảo&lt;/h1&gt;
 
-&lt;p&gt;https://vertx.io/docs/vertx-docker/#_deploying_a_fat_jar&lt;/p&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Để thực thi project Java thông qua Docker có nhiều cách, trong đó sử dụng file Fat Jar là một cách đơn giản.</summary></entry><entry><title type="html">Intellij Import Project Maven Thông Qua Command Line</title><link href="/intellij/maven/2019/03/25/intellij-import-project-maven-thong-qua-command-line.html" rel="alternate" type="text/html" title="Intellij Import Project Maven Thông Qua Command Line" /><published>2019-03-25T23:48:35+07:00</published><updated>2019-03-25T23:48:35+07:00</updated><id>/intellij/maven/2019/03/25/intellij-import-project-maven-thong-qua-command-line</id><content type="html" xml:base="/intellij/maven/2019/03/25/intellij-import-project-maven-thong-qua-command-line.html">&lt;p&gt;Để tiếp kiệm thời gian, chỉ cần &lt;code class=&quot;highlighter-rouge&quot;&gt;cd&lt;/code&gt; vào project có chứa file &lt;em&gt;pom.xml&lt;/em&gt;, rồi chạy lệnh &lt;code class=&quot;highlighter-rouge&quot;&gt;idea pom.xml&lt;/code&gt; sau đó Intellij tự động import project một cách nhanh nhất cho chúng ta.&lt;/p&gt;
-
-&lt;p&gt;Mặc định khi cài đặt, Intellij sẽ tự tạo command line laucher sử dụng được trong terminal. Nếu bị lỗi &lt;em&gt;idea: command not found&lt;/em&gt;  thì mở một project bất kỳ chọn &lt;strong&gt;Tool -&amp;gt; Create Command-line Launcher…&lt;/strong&gt; rồi nhập &lt;strong&gt;“/usr/local/bin/idea” -&amp;gt; Okay&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/intellij-import-project-maven-via-command.gif&quot; alt=&quot;intellij-import-project-maven-via-command&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;*Do máy mình đã thiết lặp Command-line Launcher rồi nên mới hiện hộp thông báo hỏi có muốn ghi đè hay không.&lt;/em&gt;&lt;/p&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Để tiếp kiệm thời gian, chỉ cần cd vào project có chứa file pom.xml, rồi chạy lệnh idea pom.xml sau đó Intellij tự động import project một cách nhanh nhất cho chúng ta.</summary></entry></feed>
+&lt;p&gt;https://vertx.io/docs/vertx-docker/#_deploying_a_fat_jar&lt;/p&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Để thực thi project Java thông qua Docker có nhiều cách, trong đó sử dụng file Fat Jar là một cách đơn giản.</summary></entry></feed>
