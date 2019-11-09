@@ -82,6 +82,11 @@ article_description: Collection of commands.
 - Edit cron: `crontab -e`, content example: `* 2 * * * ~/script/up-report.sh >> ~/cronlog.log`.
 - Restart cron: `/etc/init.d/cron restart`.
 
+## Zip
+
+- Compress: `zip -r filename.zip folder`.
+- Extract:  `unzip filename.zip`.
+
 <br>
 
 ---
