@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-10-24T20:25:01+07:00</updated><id>/feed.xml</id><title type="html">mtSiniChi</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Làm việc với InfluxDB trên Docker</title><link href="/docker/2019/09/26/lam-viec-voi-influxdb-tren-docker.html" rel="alternate" type="text/html" title="Làm việc với InfluxDB trên Docker" /><published>2019-09-26T12:38:27+07:00</published><updated>2019-09-26T12:38:27+07:00</updated><id>/docker/2019/09/26/lam-viec-voi-influxdb-tren-docker</id><content type="html" xml:base="/docker/2019/09/26/lam-viec-voi-influxdb-tren-docker.html">&lt;h2 id=&quot;cài-đặt&quot;&gt;Cài đặt&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-11-09T14:57:51+07:00</updated><id>/feed.xml</id><title type="html">mtSiniChi</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Làm việc với InfluxDB trên Docker</title><link href="/docker/2019/09/26/lam-viec-voi-influxdb-tren-docker.html" rel="alternate" type="text/html" title="Làm việc với InfluxDB trên Docker" /><published>2019-09-26T12:38:27+07:00</published><updated>2019-09-26T12:38:27+07:00</updated><id>/docker/2019/09/26/lam-viec-voi-influxdb-tren-docker</id><content type="html" xml:base="/docker/2019/09/26/lam-viec-voi-influxdb-tren-docker.html">&lt;h2 id=&quot;cài-đặt&quot;&gt;Cài đặt&lt;/h2&gt;
 
 &lt;p&gt;Chạy container, nếu chưa có sẽ tự pull trên hub.&lt;/p&gt;
 
@@ -466,6 +466,13 @@ show &lt;span class=&quot;nb&quot;&gt;users
 &lt;ul&gt;
   &lt;li&gt;Edit cron: &lt;code class=&quot;highlighter-rouge&quot;&gt;crontab -e&lt;/code&gt;, content example: &lt;code class=&quot;highlighter-rouge&quot;&gt;* 2 * * * ~/script/up-report.sh &amp;gt;&amp;gt; ~/cronlog.log&lt;/code&gt;.&lt;/li&gt;
   &lt;li&gt;Restart cron: &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/init.d/cron restart&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;zip&quot;&gt;Zip&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Compress: &lt;code class=&quot;highlighter-rouge&quot;&gt;zip -r filename.zip folder&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Extract:  &lt;code class=&quot;highlighter-rouge&quot;&gt;unzip filename.zip&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
