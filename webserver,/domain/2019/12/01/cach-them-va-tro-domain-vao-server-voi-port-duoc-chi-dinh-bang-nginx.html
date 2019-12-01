@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Cách thêm và trỏ domain vào server với port được chỉ định bằng Nginx | mtSiniChi</title>
+<meta name="generator" content="Jekyll v3.8.6" />
+<meta property="og:title" content="Cách thêm và trỏ domain vào server với port được chỉ định bằng Nginx" />
+<meta name="author" content="mtSiniChi" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Tổng quan" />
+<meta property="og:description" content="Tổng quan" />
+<link rel="canonical" href="/webserver,/domain/2019/12/01/cach-them-va-tro-domain-vao-server-voi-port-duoc-chi-dinh-bang-nginx.html" />
+<meta property="og:url" content="/webserver,/domain/2019/12/01/cach-them-va-tro-domain-vao-server-voi-port-duoc-chi-dinh-bang-nginx.html" />
+<meta property="og:site_name" content="mtSiniChi" />
+<meta property="og:image" content="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-12-01T12:38:27+07:00" />
+<script type="application/ld+json">
+{"description":"Tổng quan","headline":"Cách thêm và trỏ domain vào server với port được chỉ định bằng Nginx","dateModified":"2019-12-01T12:38:27+07:00","datePublished":"2019-12-01T12:38:27+07:00","@type":"BlogPosting","image":"/assets/images/via-verde-crm-increases-customer-adoption-hero.png","mainEntityOfPage":{"@type":"WebPage","@id":"/webserver,/domain/2019/12/01/cach-them-va-tro-domain-vao-server-voi-port-duoc-chi-dinh-bang-nginx.html"},"url":"/webserver,/domain/2019/12/01/cach-them-va-tro-domain-vao-server-voi-port-duoc-chi-dinh-bang-nginx.html","author":{"@type":"Person","name":"mtSiniChi"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="mtSiniChi" /><script src="/assets/js/anchor.js"></script>
+  <script src="/assets/js/jquery-3.1.1.min.js"></script>
+  <script src="/assets/js/jquery.toc.min.js"></script>
+
+</head><body><header class="site-header" role="banner">
+
+  <div class="container"><a class="site-title" rel="author" href="/">mtSiniChi</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/page-test.html">Page Test</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <!-- <div class="wrapper"> -->
+        <header class="post-header post-featured hero" style="
+    background-image: url(/assets/images/via-verde-crm-increases-customer-adoption-hero.png);
+  ">
+  <div class="wrapper">
+
+    <h1 class="post-title p-name" itemprop="name headline">Cách thêm và trỏ domain vào server với port được chỉ định bằng Nginx</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2019-12-01T12:38:27+07:00" itemprop="datePublished">Dec 1, 2019
+      </time>
+      <!--• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card"
+          itemprop="name">mtSiniChi </span></span>-->
+
+      • <span>560 words </span>
+      • <span class="reading-time" title="Estimated read time">
+        
+        3 min
+      </span>
+    </p>
+
+    <p class="excerpt">
+      Thêm domain vào server, trỏ domain hoặc subdomain vào một port đang chạy trên server bằng Nginx.
+
+    </p>
+  </div>
+</header>
+
+<div class="wrapper">
+  <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <!-- <ul data-toc></ul> -->
+
+    <div class="table-content">
+      <p class="toc-title">Nội dung</p>
+      <!-- <p>Table of contents, auto-generated from the content on this page:</p> -->
+      <!-- <p>Mục lục, được tạo tự động từ nội dung trên trang này:</p> -->
+      <ul data-toc data-toc-headings="h2,h3,h4"></ul>
+    </div>
+
+    <div class="post-content e-content" itemprop="articleBody">
+      <h2 id="tổng-quan">Tổng quan</h2>
+
+<p>Nếu bạn đã từng vọc vạch mua một domain và shared hosting để chạy demo một trang web, khi đó bạn có thể dễ dàng để trỏ một domain vào hosting hoặc thêm nhiều domain (addon domain) vào hosting hoặc thêm tên miền con (sub domain) vào hosting đó. Và đương nhiện mỗi domain, sub domain, addon domain mà bạn thêm vào cũng dễ dàng chỉ định khớp với thư mục lưu trữ source code thực thi tương ứng. Có được sự dễ dàng này là do shared hosting bạn sử dụng đã tích hợp hệ thống quản trị <em>control panel server</em> nổi tiếng với mấy cái tên Cpanel 11, Sentora, VistaCP.</p>
+
+<p>Mà shared hosting lại có sự giới hạn riêng của nó và bạn bắt buộc chuyển sang chạy trên server, có thể xem như <em>một bầu trời to lớn dành cho một cao nhận vĩ đại</em>. Trên thực tế server của chúng ta đang chạy ở rất nhiều port mà mỗi port đại diện cho một service riêng, để giảm sự lằn nhằn nhớ số ip, port hoặc tạo sự dễ dàng một khi ip server thay đổi và cuối cùng phương án sử dụng domain là điều cần thiết. Tới lúc này, vấn đề thật sự được đặt ra là làm thế nào để trỏ domain, sub domain, addon domain vào các port tương ứng đang chạy trên server.</p>
+
+<p>Bài viết sau sẽ hướng dẫn các bạn trỏ domain vào port đang chạy trên server bằng việc sử dụng Ngnix và cách cấu hình DNS domain.</p>
+
+<h2 id="các-bước-thực-hiện">Các bước thực hiện</h2>
+
+<p>Lấy một ví dụ, chúng ta muốn thêm một domain <em>minhtan.me</em> vào server Ubuntu 16.4 có IP là <em>45.252.121.7</em>, và đây là kết quả chi tiết cho ví dụ trong bài viết này:</p>
+
+<ul>
+  <li>Nhập <em>minhtan.me</em> trỏ đến  <em>45.252.121.7:80</em>. (service Welcome)</li>
+  <li>Nhập <em>dashboard.minhtan.me</em> trỏ đến <em>45.252.121.7:3000</em>. (service Grafana)</li>
+  <li>Nhập <em>dev.minhtan.me</em> trỏ đến <em>45.252.121.7:9090</em>. (service Java web)</li>
+</ul>
+
+<p>Các bước thực hiện như sau:</p>
+
+<ul>
+  <li>Đầu tiên, cấu hình DNS cho domain với trường như bên dưới:</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Name</th>
+      <th>Content</th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>A</td>
+      <td>minhtan.me</td>
+      <td>45.252.121.7</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>A</td>
+      <td>dashboard</td>
+      <td>45.252.121.7</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>A</td>
+      <td>dev</td>
+      <td>45.252.121.7</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>Cài đặt Nginx.</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>apt-get update
+<span class="nv">$ </span><span class="nb">sudo </span>apt-get <span class="nb">install </span>nginx
+<span class="nv">$ </span><span class="nb">sudo </span>nginx <span class="nt">-v</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Cấu hình Nginx, tạo một tập tin cấu hình <em>domain.config</em> trong <em>/etc/nginx/sites-available/domain.config</em> có nội dung như sau:</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">server</span> <span class="o">{</span>
+    <span class="n">listen</span> <span class="mi">80</span><span class="o">;</span>
+    <span class="n">server_name</span> <span class="n">minhtan</span><span class="o">.</span><span class="na">me</span><span class="o">;</span>
+
+    <span class="n">location</span> <span class="o">/</span> <span class="o">{</span>
+        <span class="n">proxy_pass</span> <span class="nl">http:</span><span class="c1">//localhost;</span>
+        <span class="n">proxy_set_header</span> <span class="nc">Host</span> <span class="n">$host</span><span class="o">;</span>
+        <span class="n">proxy_set_header</span> <span class="no">X</span><span class="o">-</span><span class="nc">Real</span><span class="o">-</span><span class="no">IP</span> <span class="n">$remote_addr</span><span class="o">;</span>
+        <span class="n">proxy_set_header</span> <span class="no">X</span><span class="o">-</span><span class="nc">Forwarded</span><span class="o">-</span><span class="nc">For</span> <span class="n">$proxy_add_x_forwarded_for</span><span class="o">;</span>
+        <span class="n">proxy_set_header</span> <span class="no">X</span><span class="o">-</span><span class="nc">Forwarded</span><span class="o">-</span><span class="nc">Proto</span> <span class="n">$scheme</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="n">server</span> <span class="o">{</span>
+    <span class="n">listen</span> <span class="mi">80</span><span class="o">;</span>
+    <span class="n">server_name</span> <span class="n">dashboard</span><span class="o">.</span><span class="na">minhtan</span><span class="o">.</span><span class="na">me</span><span class="o">;</span>
+
+    <span class="n">location</span> <span class="o">/</span> <span class="o">{</span>
+        <span class="n">proxy_pass</span> <span class="nl">http:</span><span class="c1">//localhost:3000;</span>
+        <span class="n">proxy_set_header</span> <span class="nc">Host</span> <span class="n">$host</span><span class="o">;</span>
+        <span class="n">proxy_set_header</span> <span class="no">X</span><span class="o">-</span><span class="nc">Real</span><span class="o">-</span><span class="no">IP</span> <span class="n">$remote_addr</span><span class="o">;</span>
+        <span class="n">proxy_set_header</span> <span class="no">X</span><span class="o">-</span><span class="nc">Forwarded</span><span class="o">-</span><span class="nc">For</span> <span class="n">$proxy_add_x_forwarded_for</span><span class="o">;</span>
+        <span class="n">proxy_set_header</span> <span class="no">X</span><span class="o">-</span><span class="nc">Forwarded</span><span class="o">-</span><span class="nc">Proto</span> <span class="n">$scheme</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="n">server</span> <span class="o">{</span>
+    <span class="n">listen</span> <span class="mi">80</span><span class="o">;</span>
+    <span class="n">server_name</span> <span class="n">dev</span><span class="o">.</span><span class="na">minhtan</span><span class="o">.</span><span class="na">me</span><span class="o">;</span>
+
+    <span class="n">location</span> <span class="o">/</span> <span class="o">{</span>
+        <span class="n">proxy_pass</span> <span class="nl">http:</span><span class="c1">//localhost:9090;</span>
+        <span class="n">proxy_set_header</span> <span class="nc">Host</span> <span class="n">$host</span><span class="o">;</span>
+        <span class="n">proxy_set_header</span> <span class="no">X</span><span class="o">-</span><span class="nc">Real</span><span class="o">-</span><span class="no">IP</span> <span class="n">$remote_addr</span><span class="o">;</span>
+        <span class="n">proxy_set_header</span> <span class="no">X</span><span class="o">-</span><span class="nc">Forwarded</span><span class="o">-</span><span class="nc">For</span> <span class="n">$proxy_add_x_forwarded_for</span><span class="o">;</span>
+        <span class="n">proxy_set_header</span> <span class="no">X</span><span class="o">-</span><span class="nc">Forwarded</span><span class="o">-</span><span class="nc">Proto</span> <span class="n">$scheme</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Thực hiện restart lại Nginx bằng câu lệnh:</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo ln</span> <span class="nt">-s</span> /etc/nginx/sites-available/domain.config /etc/nginx/sites-enabled/domain.config <span class="c"># link to sites-enabled/</span>
+<span class="nb">sudo </span>service nginx configtest <span class="c"># test config but dont kill current state</span>
+<span class="nb">sudo </span>service nginx restart
+</code></pre></div></div>
+
+<ul>
+  <li>Thưởng thức thành quả, vào <em>dashboard.minhtan.me</em> thấy ngay trang Grafana, vào <em>dev.minhtan.me</em> thấy website java đang chạy, cuối cùng vào <em>minhtan.me</em> thấy chữ <strong>Welcome to mtSiniChi</strong> to đùng hiện ra.</li>
+</ul>
+
+<p>Mách nhỏ, bạn có thể sử dụng combo là <em>Vultr, NameCheap/Freenom, Cloudflare, Nginx</em>. Vậy là kể từ đây tha hồ cấu hình domain rồi. Happily!</p>
+
+<h2 id="tham-khảo">Tham khảo</h2>
+
+<ul>
+  <li>https://askubuntu.com/a/69751</li>
+  <li>https://serverfault.com/a/187026</li>
+  <li>https://www.digitalocean.com/community/questions/how-do-i-point-my-custom-domain-to-my-ip-port-41-111-20-36-8080</li>
+  <li>http://nginx.org/en/docs/http/server_names.html</li>
+</ul>
+
+    </div><a class="u-url" href="/webserver,/domain/2019/12/01/cach-them-va-tro-domain-vao-server-voi-port-duoc-chi-dinh-bang-nginx.html" hidden></a>
+  </article>
+</div>
+      <!-- </div> -->
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <!-- <h2 class="footer-heading">mtSiniChi</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">mtSiniChi</li><li><a class="u-email" href="mailto:your-email@example.com">your-email@example.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a target="_blank" tooltip="fb.com/mtsinichi"
+      href="https://www.facebook.com/mtsinichi"><svg class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#facebook"></use>
+      </svg> <span class="username"></span></a></li><li><a target="_blank" tooltip="github.com/huynhminhtan" href="https://github.com/huynhminhtan"><svg
+        class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#github"></use>
+      </svg> <span class="username"></span></a></li><li><a target="_blank" tooltip="instagram.com/mtsinichi"
+      href="https://instagram.com/mtsinichi"><svg class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#instagram"></use>
+      </svg> <span class="username"></span></a></li><li><a  target="_blank" tooltip="linkedin.com/in/huynhminhtan"
+      href="https://www.linkedin.com/in/huynhminhtan"><svg class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#linkedin"></use>
+      </svg> <span tooltip="sdsdsd"></span></a></li><li><a target="_blank" tooltip="twitter.com/mtsinichi"" 
+      href="https://www.twitter.com/mtsinichi"><svg class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#twitter"></use>
+      </svg> <span class="username"></span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</p>
+      </div>
+    </div> -->
+
+
+    <p>
+      <ul class="social-media-list"><li><a target="_blank" tooltip="fb.com/mtsinichi"
+      href="https://www.facebook.com/mtsinichi"><svg class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#facebook"></use>
+      </svg> <span class="username"></span></a></li><li><a target="_blank" tooltip="github.com/huynhminhtan" href="https://github.com/huynhminhtan"><svg
+        class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#github"></use>
+      </svg> <span class="username"></span></a></li><li><a target="_blank" tooltip="instagram.com/mtsinichi"
+      href="https://instagram.com/mtsinichi"><svg class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#instagram"></use>
+      </svg> <span class="username"></span></a></li><li><a  target="_blank" tooltip="linkedin.com/in/huynhminhtan"
+      href="https://www.linkedin.com/in/huynhminhtan"><svg class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#linkedin"></use>
+      </svg> <span tooltip="sdsdsd"></span></a></li><li><a target="_blank" tooltip="twitter.com/mtsinichi"" 
+      href="https://www.twitter.com/mtsinichi"><svg class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#twitter"></use>
+      </svg> <span class="username"></span></a></li></ul>
+
+    </p>
+
+    <span>© 2017 mtSiniChi, powered by
+      <a href="http://jekyllrb.com">jekyll</a>.
+      <span class="rss-subscribe">Subscribe <a href="/feed.xml">via RSS</a>.</span>
+      
+
+    </span>
+
+
+  </div>
+
+</footer>
+
+<script>
+	$(function() {
+		// anchors.options.visible = 'always'; 
+		anchors.add('.post-content > h1, .post-content > h2, .post-content > h3, .post-content > h4, .post-content > h5, .post-content > h6');
+	});
+</script></body>
+
+</html>

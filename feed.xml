@@ -1,4 +1,138 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-12-02T00:02:52+07:00</updated><id>/feed.xml</id><title type="html">mtSiniChi</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Làm việc với InfluxDB trên Docker</title><link href="/docker/2019/09/26/lam-viec-voi-influxdb-tren-docker.html" rel="alternate" type="text/html" title="Làm việc với InfluxDB trên Docker" /><published>2019-09-26T12:38:27+07:00</published><updated>2019-09-26T12:38:27+07:00</updated><id>/docker/2019/09/26/lam-viec-voi-influxdb-tren-docker</id><content type="html" xml:base="/docker/2019/09/26/lam-viec-voi-influxdb-tren-docker.html">&lt;h2 id=&quot;cài-đặt&quot;&gt;Cài đặt&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-12-02T00:03:44+07:00</updated><id>/feed.xml</id><title type="html">mtSiniChi</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Cách thêm và trỏ domain vào server với port được chỉ định bằng Nginx</title><link href="/webserver,/domain/2019/12/01/cach-them-va-tro-domain-vao-server-voi-port-duoc-chi-dinh-bang-nginx.html" rel="alternate" type="text/html" title="Cách thêm và trỏ domain vào server với port được chỉ định bằng Nginx" /><published>2019-12-01T12:38:27+07:00</published><updated>2019-12-01T12:38:27+07:00</updated><id>/webserver,/domain/2019/12/01/cach-them-va-tro-domain-vao-server-voi-port-duoc-chi-dinh-bang-nginx</id><content type="html" xml:base="/webserver,/domain/2019/12/01/cach-them-va-tro-domain-vao-server-voi-port-duoc-chi-dinh-bang-nginx.html">&lt;h2 id=&quot;tổng-quan&quot;&gt;Tổng quan&lt;/h2&gt;
+
+&lt;p&gt;Nếu bạn đã từng vọc vạch mua một domain và shared hosting để chạy demo một trang web, khi đó bạn có thể dễ dàng để trỏ một domain vào hosting hoặc thêm nhiều domain (addon domain) vào hosting hoặc thêm tên miền con (sub domain) vào hosting đó. Và đương nhiện mỗi domain, sub domain, addon domain mà bạn thêm vào cũng dễ dàng chỉ định khớp với thư mục lưu trữ source code thực thi tương ứng. Có được sự dễ dàng này là do shared hosting bạn sử dụng đã tích hợp hệ thống quản trị &lt;em&gt;control panel server&lt;/em&gt; nổi tiếng với mấy cái tên Cpanel 11, Sentora, VistaCP.&lt;/p&gt;
+
+&lt;p&gt;Mà shared hosting lại có sự giới hạn riêng của nó và bạn bắt buộc chuyển sang chạy trên server, có thể xem như &lt;em&gt;một bầu trời to lớn dành cho một cao nhận vĩ đại&lt;/em&gt;. Trên thực tế server của chúng ta đang chạy ở rất nhiều port mà mỗi port đại diện cho một service riêng, để giảm sự lằn nhằn nhớ số ip, port hoặc tạo sự dễ dàng một khi ip server thay đổi và cuối cùng phương án sử dụng domain là điều cần thiết. Tới lúc này, vấn đề thật sự được đặt ra là làm thế nào để trỏ domain, sub domain, addon domain vào các port tương ứng đang chạy trên server.&lt;/p&gt;
+
+&lt;p&gt;Bài viết sau sẽ hướng dẫn các bạn trỏ domain vào port đang chạy trên server bằng việc sử dụng Ngnix và cách cấu hình DNS domain.&lt;/p&gt;
+
+&lt;h2 id=&quot;các-bước-thực-hiện&quot;&gt;Các bước thực hiện&lt;/h2&gt;
+
+&lt;p&gt;Lấy một ví dụ, chúng ta muốn thêm một domain &lt;em&gt;minhtan.me&lt;/em&gt; vào server Ubuntu 16.4 có IP là &lt;em&gt;45.252.121.7&lt;/em&gt;, và đây là kết quả chi tiết cho ví dụ trong bài viết này:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Nhập &lt;em&gt;minhtan.me&lt;/em&gt; trỏ đến  &lt;em&gt;45.252.121.7:80&lt;/em&gt;. (service Welcome)&lt;/li&gt;
+  &lt;li&gt;Nhập &lt;em&gt;dashboard.minhtan.me&lt;/em&gt; trỏ đến &lt;em&gt;45.252.121.7:3000&lt;/em&gt;. (service Grafana)&lt;/li&gt;
+  &lt;li&gt;Nhập &lt;em&gt;dev.minhtan.me&lt;/em&gt; trỏ đến &lt;em&gt;45.252.121.7:9090&lt;/em&gt;. (service Java web)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Các bước thực hiện như sau:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Đầu tiên, cấu hình DNS cho domain với trường như bên dưới:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Type&lt;/th&gt;
+      &lt;th&gt;Name&lt;/th&gt;
+      &lt;th&gt;Content&lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;A&lt;/td&gt;
+      &lt;td&gt;minhtan.me&lt;/td&gt;
+      &lt;td&gt;45.252.121.7&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;A&lt;/td&gt;
+      &lt;td&gt;dashboard&lt;/td&gt;
+      &lt;td&gt;45.252.121.7&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;A&lt;/td&gt;
+      &lt;td&gt;dev&lt;/td&gt;
+      &lt;td&gt;45.252.121.7&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Cài đặt Nginx.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get update
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;nginx
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;nginx &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Cấu hình Nginx, tạo một tập tin cấu hình &lt;em&gt;domain.config&lt;/em&gt; trong &lt;em&gt;/etc/nginx/sites-available/domain.config&lt;/em&gt; có nội dung như sau:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;server&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;listen&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;80&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;server_name&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;minhtan&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;me&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;proxy_pass&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;http:&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//localhost;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;proxy_set_header&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Host&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;$host&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;proxy_set_header&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Real&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;IP&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;$remote_addr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;proxy_set_header&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Forwarded&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;For&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;$proxy_add_x_forwarded_for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;proxy_set_header&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Forwarded&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Proto&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;$scheme&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;server&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;listen&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;80&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;server_name&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dashboard&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;minhtan&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;me&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;proxy_pass&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;http:&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//localhost:3000;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;proxy_set_header&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Host&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;$host&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;proxy_set_header&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Real&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;IP&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;$remote_addr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;proxy_set_header&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Forwarded&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;For&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;$proxy_add_x_forwarded_for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;proxy_set_header&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Forwarded&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Proto&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;$scheme&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;server&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;listen&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;80&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;server_name&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dev&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;minhtan&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;me&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;proxy_pass&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;http:&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;//localhost:9090;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;proxy_set_header&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Host&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;$host&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;proxy_set_header&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Real&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;IP&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;$remote_addr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;proxy_set_header&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Forwarded&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;For&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;$proxy_add_x_forwarded_for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;proxy_set_header&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Forwarded&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Proto&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;$scheme&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Thực hiện restart lại Nginx bằng câu lệnh:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo ln&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; /etc/nginx/sites-available/domain.config /etc/nginx/sites-enabled/domain.config &lt;span class=&quot;c&quot;&gt;# link to sites-enabled/&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;service nginx configtest &lt;span class=&quot;c&quot;&gt;# test config but dont kill current state&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;service nginx restart
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Thưởng thức thành quả, vào &lt;em&gt;dashboard.minhtan.me&lt;/em&gt; thấy ngay trang Grafana, vào &lt;em&gt;dev.minhtan.me&lt;/em&gt; thấy website java đang chạy, cuối cùng vào &lt;em&gt;minhtan.me&lt;/em&gt; thấy chữ &lt;strong&gt;Welcome to mtSiniChi&lt;/strong&gt; to đùng hiện ra.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Mách nhỏ, bạn có thể sử dụng combo là &lt;em&gt;Vultr, NameCheap/Freenom, Cloudflare, Nginx&lt;/em&gt;. Vậy là kể từ đây tha hồ cấu hình domain rồi. Happily!&lt;/p&gt;
+
+&lt;h2 id=&quot;tham-khảo&quot;&gt;Tham khảo&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;https://askubuntu.com/a/69751&lt;/li&gt;
+  &lt;li&gt;https://serverfault.com/a/187026&lt;/li&gt;
+  &lt;li&gt;https://www.digitalocean.com/community/questions/how-do-i-point-my-custom-domain-to-my-ip-port-41-111-20-36-8080&lt;/li&gt;
+  &lt;li&gt;http://nginx.org/en/docs/http/server_names.html&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Tổng quan</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" /></entry><entry><title type="html">Làm việc với InfluxDB trên Docker</title><link href="/docker/2019/09/26/lam-viec-voi-influxdb-tren-docker.html" rel="alternate" type="text/html" title="Làm việc với InfluxDB trên Docker" /><published>2019-09-26T12:38:27+07:00</published><updated>2019-09-26T12:38:27+07:00</updated><id>/docker/2019/09/26/lam-viec-voi-influxdb-tren-docker</id><content type="html" xml:base="/docker/2019/09/26/lam-viec-voi-influxdb-tren-docker.html">&lt;h2 id=&quot;cài-đặt&quot;&gt;Cài đặt&lt;/h2&gt;
 
 &lt;p&gt;Chạy container, nếu chưa có sẽ tự pull trên hub.&lt;/p&gt;
 
@@ -784,89 +918,4 @@ docker-compose up
 &lt;ul&gt;
   &lt;li&gt;https://vsupalov.com/docker-compose-runs-old-containers/&lt;/li&gt;
   &lt;li&gt;https://stackoverflow.com/questions/44705455/after-docker-compose-build-the-docker-compose-up-run-old-not-updated-containers&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Bài viết sẽ mô tả cách mà các container giao tiếp với nhau thông qua network docker cùng với ví dụ cụ thể, cũng như các bước có thể chạy một Maven project trên Docker.</summary></entry><entry><title type="html">Thực Thi Project Java Sử Dụng Docker</title><link href="/java/docker/2019/03/26/thuc-thi-project-java-su-dung-docker.html" rel="alternate" type="text/html" title="Thực Thi Project Java Sử Dụng Docker" /><published>2019-03-26T00:25:35+07:00</published><updated>2019-03-26T00:25:35+07:00</updated><id>/java/docker/2019/03/26/thuc-thi-project-java-su-dung-docker</id><content type="html" xml:base="/java/docker/2019/03/26/thuc-thi-project-java-su-dung-docker.html">&lt;p&gt;Để thực thi project Java thông qua Docker có nhiều cách, trong đó sử dụng file Fat Jar là một cách đơn giản.&lt;/p&gt;
-
-&lt;p&gt;Từ project ban đầu, các bạn phải tạo ra file Fat Jar, xem thêm cách tạo ra file Jar: &lt;a href=&quot;/java/maven/2019/03/25/tao-file-fat-jar-tu-project-maven.html&quot;&gt;Tạo Tập Tin Fat Jar Từ Project Maven&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;cấu-trúc-thư-mục&quot;&gt;Cấu trúc thư mục&lt;/h1&gt;
-
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.
-├── dependency-reduced-pom.xml
-├── deploymavendocker.iml
-├── Dockerfile
-├── pom.xml
-├── src
-│   ├── main
-│   │   ├── java
-│   │   │   └── com
-│   │   │       └── minhtan
-│   │   │           └── core
-│   │   │               └── OrderVerticle.java
-│   │   └── resources
-│   └── test
-│       └── java
-└── target
-    ├── classes
-    │   └── com
-    │       └── minhtan
-    │           └── core
-    │               └── OrderVerticle.class
-    ├── generated-sources
-    │   └── annotations
-    ├── maven.-1.0-SNAPSHOT.jar
-    ├── maven-archiver
-    │   └── pom.properties
-    ├── maven-status
-    │   └── maven-compiler-plugin
-    │       ├── compile
-    │       │   └── default-compile
-    │       │       ├── createdFiles.lst
-    │       │       └── inputFiles.lst
-    │       └── testCompile
-    │           └── default-testCompile
-    │               └── inputFiles.lst
-    └── original-maven.-1.0-SNAPSHOT.jar
-
-23 directories, 12 files
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h1 id=&quot;xây-dựng-dockerfile&quot;&gt;Xây dựng Dockerfile&lt;/h1&gt;
-
-&lt;div class=&quot;language-dockerfile highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; openjdk:8-jre-alpine&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# Set file Jar need execute&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;ENV&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; VERTICLE_FILE maven.-1.0-SNAPSHOT.jar&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# Set the location of the verticles&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;ENV&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; VERTICLE_HOME /usr/verticles&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;EXPOSE&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; 8080&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# Copy your fat jar to the container&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;COPY&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; target/$VERTICLE_FILE $VERTICLE_HOME/&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# Launch the verticle&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;WORKDIR&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; $VERTICLE_HOME&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;ENTRYPOINT&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; [&quot;sh&quot;, &quot;-c&quot;]&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;CMD&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; [&quot;exec java -jar $VERTICLE_FILE&quot;]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h1 id=&quot;build-và-run-container&quot;&gt;Build và Run container&lt;/h1&gt;
-
-&lt;p&gt;Build với tên &lt;em&gt;sample/deploy-java-fat&lt;/em&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker build &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; sample/deploy-java-fat &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Run container, chiêm ngưỡng thành quả:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker run &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; 8080:8080 sample/deploy-java-fat
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h1 id=&quot;source-code&quot;&gt;Source code&lt;/h1&gt;
-
-&lt;p&gt;Tải source code: &lt;a href=&quot;/materials/deploy-maven-vertx-docker.zip&quot;&gt;deploy-maven-vertx-docker.zip&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;tham-khảo&quot;&gt;Tham khảo&lt;/h1&gt;
-
-&lt;p&gt;https://vertx.io/docs/vertx-docker/#_deploying_a_fat_jar&lt;/p&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Để thực thi project Java thông qua Docker có nhiều cách, trong đó sử dụng file Fat Jar là một cách đơn giản.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Bài viết sẽ mô tả cách mà các container giao tiếp với nhau thông qua network docker cùng với ví dụ cụ thể, cũng như các bước có thể chạy một Maven project trên Docker.</summary></entry></feed>
