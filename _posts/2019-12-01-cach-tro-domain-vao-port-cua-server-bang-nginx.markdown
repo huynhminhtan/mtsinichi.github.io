@@ -2,7 +2,7 @@
 layout: post-featured
 title: "Cách trỏ domain vào port của trên server bằng Nginx"
 date:   2019-12-01 12:38:27 +0700 
-categories: webserver, domain
+categories: webserver
 author: mtSiniChi
 
 image: /assets/images/via-verde-crm-increases-customer-adoption-hero.png
