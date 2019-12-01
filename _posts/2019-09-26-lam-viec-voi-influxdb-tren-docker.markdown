@@ -5,7 +5,7 @@ date:   2019-09-26 12:38:27 +0700
 categories: docker
 author: mtSiniChi
 
-image: https://www.outsystems.com/-/media/images/case-studies/via-verde-crm-increases-customer-adoption/via-verde-crm-increases-customer-adoption-hero.png
+image: /assets/images/via-verde-crm-increases-customer-adoption-hero.png
 article_description: Làm việc nhanh với InfluxDB theo phong cách implement.
 ---
 
