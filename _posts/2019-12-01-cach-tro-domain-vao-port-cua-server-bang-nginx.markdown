@@ -90,9 +90,9 @@ server {
 - Thực hiện restart lại Nginx bằng câu lệnh:
 
 ```bash
-sudo ln -s /etc/nginx/sites-available/domain.config /etc/nginx/sites-enabled/domain.config # link to sites-enabled/
-sudo service nginx configtest # test config but dont kill current state
-sudo service nginx restart
+$ sudo ln -s /etc/nginx/sites-available/domain.config /etc/nginx/sites-enabled/domain.config # link to sites-enabled/
+$ sudo service nginx configtest # test config but dont kill current state
+$ sudo service nginx restart
 ```
 
 - Thưởng thức thành quả, vào *dashboard.minhtan.me* thấy ngay trang Grafana, vào *dev.minhtan.me* thấy website java đang chạy, cuối cùng vào *minhtan.me* thấy chữ **Welcome to mtSiniChi** to đùng hiện ra.
