@@ -68,13 +68,13 @@ curl -G 'http://localhost:8086/query?pretty=true' --data-urlencode "q=SHOW USERS
 
 ## Time Series Admin
 
-Administration and querying interface for InfluxDB databases, run docker:
+Giao diện quản trị và thực hiện truy vấn cho InfluxDB databases, chạy thông qua docker:
 
 ```bash
 docker run -p 8085:80 -it timeseriesadmin/timeseriesadmin:0.1.4
 ```
 
-Default, don't have supports for credentials, database url: *http://localhost:8086*, user: *admin*, password: *123456* (option), database: *mydb1*.
+Mặc định, không có chứng thực truy cập: *http://localhost:8086*, user: *admin*, password: *123456* (tuỳ chọn), database: *mydb1*.
 
 ## Tham khảo
 
