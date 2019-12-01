@@ -1,8 +1,8 @@
 ---
 layout: post-featured
 title: "Cách thêm và trỏ domain vào server với port được chỉ định bằng Nginx"
-date:   2019-12-02 12:38:27 +0700 
-categories: webserver
+date:   2019-12-01 12:38:27 +0700 
+categories: webserver, domain
 author: mtSiniChi
 
 image: /assets/images/via-verde-crm-increases-customer-adoption-hero.png
