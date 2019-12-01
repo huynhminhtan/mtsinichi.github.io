@@ -45,7 +45,8 @@ $ sudo nginx -v
 
 - Cấu hình Nginx, tạo một tập tin cấu hình *domain.config* trong */etc/nginx/sites-available/domain.config* có nội dung như sau:
 
-```java
+```text
+# /etc/nginx/sites-available/domain.config
 server {
     listen 80;
     server_name minhtan.me;
