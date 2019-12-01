@@ -1,6 +1,6 @@
 ---
 layout: post-featured
-title: "Làm việc với InfluxDB trên Docker"
+title: "Cách thêm và trỏ domain vào server với port được chỉ định bằng Nginx"
 date:   2019-12-02 12:38:27 +0700 
 categories: webserver
 author: mtSiniChi
