@@ -52,7 +52,7 @@
       <!--• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card"
           itemprop="name">mtSiniChi </span></span>-->
 
-      • <span>554 words </span>
+      • <span>556 words </span>
       • <span class="reading-time" title="Estimated read time">
         
         3 min
@@ -143,44 +143,45 @@
   <li>Cấu hình Nginx, tạo một tập tin cấu hình <em>domain.config</em> trong <em>/etc/nginx/sites-available/domain.config</em> có nội dung như sau:</li>
 </ul>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">server</span> <span class="o">{</span>
-    <span class="n">listen</span> <span class="mi">80</span><span class="o">;</span>
-    <span class="n">server_name</span> <span class="n">minhtan</span><span class="o">.</span><span class="na">me</span><span class="o">;</span>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code># /etc/nginx/sites-available/domain.config
+server {
+    listen 80;
+    server_name minhtan.me;
 
-    <span class="n">location</span> <span class="o">/</span> <span class="o">{</span>
-        <span class="n">proxy_pass</span> <span class="nl">http:</span><span class="c1">//localhost;</span>
-        <span class="n">proxy_set_header</span> <span class="nc">Host</span> <span class="n">$host</span><span class="o">;</span>
-        <span class="n">proxy_set_header</span> <span class="no">X</span><span class="o">-</span><span class="nc">Real</span><span class="o">-</span><span class="no">IP</span> <span class="n">$remote_addr</span><span class="o">;</span>
-        <span class="n">proxy_set_header</span> <span class="no">X</span><span class="o">-</span><span class="nc">Forwarded</span><span class="o">-</span><span class="nc">For</span> <span class="n">$proxy_add_x_forwarded_for</span><span class="o">;</span>
-        <span class="n">proxy_set_header</span> <span class="no">X</span><span class="o">-</span><span class="nc">Forwarded</span><span class="o">-</span><span class="nc">Proto</span> <span class="n">$scheme</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
+    location / {
+        proxy_pass http://localhost;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
 
-<span class="n">server</span> <span class="o">{</span>
-    <span class="n">listen</span> <span class="mi">80</span><span class="o">;</span>
-    <span class="n">server_name</span> <span class="n">dashboard</span><span class="o">.</span><span class="na">minhtan</span><span class="o">.</span><span class="na">me</span><span class="o">;</span>
+server {
+    listen 80;
+    server_name dashboard.minhtan.me;
 
-    <span class="n">location</span> <span class="o">/</span> <span class="o">{</span>
-        <span class="n">proxy_pass</span> <span class="nl">http:</span><span class="c1">//localhost:3000;</span>
-        <span class="n">proxy_set_header</span> <span class="nc">Host</span> <span class="n">$host</span><span class="o">;</span>
-        <span class="n">proxy_set_header</span> <span class="no">X</span><span class="o">-</span><span class="nc">Real</span><span class="o">-</span><span class="no">IP</span> <span class="n">$remote_addr</span><span class="o">;</span>
-        <span class="n">proxy_set_header</span> <span class="no">X</span><span class="o">-</span><span class="nc">Forwarded</span><span class="o">-</span><span class="nc">For</span> <span class="n">$proxy_add_x_forwarded_for</span><span class="o">;</span>
-        <span class="n">proxy_set_header</span> <span class="no">X</span><span class="o">-</span><span class="nc">Forwarded</span><span class="o">-</span><span class="nc">Proto</span> <span class="n">$scheme</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
+    location / {
+        proxy_pass http://localhost:3000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
 
-<span class="n">server</span> <span class="o">{</span>
-    <span class="n">listen</span> <span class="mi">80</span><span class="o">;</span>
-    <span class="n">server_name</span> <span class="n">dev</span><span class="o">.</span><span class="na">minhtan</span><span class="o">.</span><span class="na">me</span><span class="o">;</span>
+server {
+    listen 80;
+    server_name dev.minhtan.me;
 
-    <span class="n">location</span> <span class="o">/</span> <span class="o">{</span>
-        <span class="n">proxy_pass</span> <span class="nl">http:</span><span class="c1">//localhost:9090;</span>
-        <span class="n">proxy_set_header</span> <span class="nc">Host</span> <span class="n">$host</span><span class="o">;</span>
-        <span class="n">proxy_set_header</span> <span class="no">X</span><span class="o">-</span><span class="nc">Real</span><span class="o">-</span><span class="no">IP</span> <span class="n">$remote_addr</span><span class="o">;</span>
-        <span class="n">proxy_set_header</span> <span class="no">X</span><span class="o">-</span><span class="nc">Forwarded</span><span class="o">-</span><span class="nc">For</span> <span class="n">$proxy_add_x_forwarded_for</span><span class="o">;</span>
-        <span class="n">proxy_set_header</span> <span class="no">X</span><span class="o">-</span><span class="nc">Forwarded</span><span class="o">-</span><span class="nc">Proto</span> <span class="n">$scheme</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
+    location / {
+        proxy_pass http://localhost:9090;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
 </code></pre></div></div>
 
 <ul>
