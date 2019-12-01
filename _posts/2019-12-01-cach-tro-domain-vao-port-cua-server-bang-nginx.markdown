@@ -1,6 +1,6 @@
 ---
 layout: post-featured
-title: "Cách trỏ domain vào port của trên server bằng Nginx"
+title: "Cách trỏ domain vào port của server bằng Nginx"
 date:   2019-12-01 12:38:27 +0700 
 categories: webserver
 author: mtSiniChi
