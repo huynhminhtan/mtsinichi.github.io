@@ -1,19 +1,19 @@
 ---
 layout: post-featured
-title: "Cách thêm và trỏ domain vào server với port được chỉ định bằng Nginx"
+title: "Cách trỏ domain vào port của trên server bằng Nginx"
 date:   2019-12-01 12:38:27 +0700 
 categories: webserver, domain
 author: mtSiniChi
 
 image: /assets/images/via-verde-crm-increases-customer-adoption-hero.png
-article_description: Thêm domain vào server, trỏ domain hoặc subdomain vào một port đang chạy trên server bằng Nginx.
+article_description: Bài viết sẽ hướng dẫn các bạn trỏ domain vào port đang chạy trên server bằng việc sử dụng Ngnix và cách cấu hình DNS domain.
 ---
 
 ## Tổng quan
 
-Nếu bạn đã từng vọc vạch mua một domain và shared hosting để chạy demo một trang web, khi đó bạn có thể dễ dàng để trỏ một domain vào hosting hoặc thêm nhiều domain (addon domain) vào hosting hoặc thêm tên miền con (sub domain) vào hosting đó. Và đương nhiện mỗi domain, sub domain, addon domain mà bạn thêm vào cũng dễ dàng chỉ định khớp với thư mục lưu trữ source code thực thi tương ứng. Có được sự dễ dàng này là do shared hosting bạn sử dụng đã tích hợp hệ thống quản trị *control panel server* nổi tiếng với mấy cái tên Cpanel 11, Sentora, VistaCP.
+Nếu bạn đã từng vọc vạch mua một domain và shared hosting để chạy demo một trang web, khi đó bạn có thể dễ dàng trỏ một domain vào hosting hoặc thêm nhiều domain (addon domain) vào hosting hoặc thêm tên miền con (sub domain) vào hosting đó. Và đương nhiên mỗi domain, sub domain, addon domain mà bạn thêm vào cũng dễ dàng chỉ định cho khớp với thư mục lưu trữ source code thực thi tương ứng. Có được điều này là do shared hosting bạn sử dụng đã tích hợp hệ thống quản trị *Control Panel Server* nổi tiếng với mấy cái tên quen thuộc Cpanel 11, Sentora, VistaCP.
 
-Mà shared hosting lại có sự giới hạn riêng của nó và bạn bắt buộc chuyển sang chạy trên server, có thể xem như *một bầu trời to lớn dành cho một cao nhận vĩ đại*. Trên thực tế server của chúng ta đang chạy ở rất nhiều port mà mỗi port đại diện cho một service riêng, để giảm sự lằn nhằn nhớ số ip, port hoặc tạo sự dễ dàng một khi ip server thay đổi và cuối cùng phương án sử dụng domain là điều cần thiết. Tới lúc này, vấn đề thật sự được đặt ra là làm thế nào để trỏ domain, sub domain, addon domain vào các port tương ứng đang chạy trên server.
+Mà shared hosting lại có sự giới hạn riêng của nó, một khi chạm tới ngưỡng bạn bắt buộc chuyển sang chạy trên server, có thể xem như *một bầu trời to lớn dành cho một cao nhận vĩ đại*. Trên thực tế server sẽ chạy ở rất nhiều port mà mỗi port đại diện cho một service riêng, để giảm sự lằn nhằn nhớ số ip, port hoặc tạo sự dễ dàng một khi ip server thay đổi và cuối cùng phương án sử dụng domain là điều rất cần thiết. Tới lúc này, vấn đề thật sự được đặt ra là làm thế nào để trỏ domain, sub domain, addon domain vào các port tương ứng đang chạy trên server.
 
 Bài viết sau sẽ hướng dẫn các bạn trỏ domain vào port đang chạy trên server bằng việc sử dụng Ngnix và cách cấu hình DNS domain.
 
@@ -21,7 +21,7 @@ Bài viết sau sẽ hướng dẫn các bạn trỏ domain vào port đang ch�
 
 Lấy một ví dụ, chúng ta muốn thêm một domain *minhtan.me* vào server Ubuntu 16.4 có IP là *45.252.121.7*, và đây là kết quả chi tiết cho ví dụ trong bài viết này:
 
-- Nhập *minhtan.me* trỏ đến  *45.252.121.7:80*. (service Welcome)
+- Nhập *minhtan.me* trỏ đến *45.252.121.7:80*. (service Welcome)
 - Nhập *dashboard.minhtan.me* trỏ đến *45.252.121.7:3000*. (service Grafana)
 - Nhập *dev.minhtan.me* trỏ đến *45.252.121.7:9090*. (service Java web)
 
@@ -29,11 +29,11 @@ Các bước thực hiện như sau:
 
 - Đầu tiên, cấu hình DNS cho domain với trường như bên dưới:
 
-| Type 	| Name       	| Content      	|   	|   	|
-|------	|------------	|--------------	|---	|---	|
-| A    	| minhtan.me 	| 45.252.121.7 	|   	|   	|
-| A    	| dashboard  	| 45.252.121.7 	|   	|   	|
-| A    	| dev        	| 45.252.121.7 	|   	|   	|
+| Type 	| Name       	| Content      	|
+|------	|------------	|--------------	|
+| A    	| minhtan.me 	| 45.252.121.7 	|  
+| A    	| dashboard  	| 45.252.121.7 	|
+| A    	| dev        	| 45.252.121.7 	|
 
 - Cài đặt Nginx.
 
