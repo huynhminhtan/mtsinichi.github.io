@@ -76,6 +76,7 @@ article_description: Collection of commands.
 
 - Create the RSA key: `ssh-keygen`.
 - Show the RSA public key: `cat ~/.ssh/id_rsa.pub`.
+- Run local bash script remote to server: `ssh root@45.69.251.209 'bash -s' < bash-script-file.sh`.
 
 ## Cron
 
