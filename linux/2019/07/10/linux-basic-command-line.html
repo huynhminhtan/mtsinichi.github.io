@@ -52,7 +52,7 @@
       <!--• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card"
           itemprop="name">mtSiniChi </span></span>-->
 
-      • <span>345 words </span>
+      • <span>373 words </span>
       • <span class="reading-time" title="Estimated read time">
         
         2 min
@@ -152,6 +152,19 @@
 <ul>
   <li>Login redis cli cluster: <code class="highlighter-rouge">redis-cli -c -p 7000</code>.</li>
   <li>Get all key: <code class="highlighter-rouge">KEYS *</code>.</li>
+</ul>
+
+<h2 id="mysql">MySQL</h2>
+
+<ul>
+  <li>Reset password root:
+    <ul>
+      <li>Stop mysql-server</li>
+      <li>Create script: <code class="highlighter-rouge">ALTER USER 'root'@'localhost' IDENTIFIED BY '12345678';</code> save ~/Desktop/init.txt</li>
+      <li>Run: <code class="highlighter-rouge">mysqld --init-file=~/Desktop/init.txt &amp;</code></li>
+      <li>Login with new pass: <code class="highlighter-rouge">mysql -u root -p</code></li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="maven">Maven</h2>

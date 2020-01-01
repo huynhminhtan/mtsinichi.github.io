@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2019-12-04T12:11:53+07:00</updated><id>/feed.xml</id><title type="html">mtSiniChi</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Cách trỏ domain vào port của server bằng Nginx</title><link href="/webserver/2019/12/01/cach-tro-domain-vao-port-cua-server-bang-nginx.html" rel="alternate" type="text/html" title="Cách trỏ domain vào port của server bằng Nginx" /><published>2019-12-01T12:38:27+07:00</published><updated>2019-12-01T12:38:27+07:00</updated><id>/webserver/2019/12/01/cach-tro-domain-vao-port-cua-server-bang-nginx</id><content type="html" xml:base="/webserver/2019/12/01/cach-tro-domain-vao-port-cua-server-bang-nginx.html">&lt;h2 id=&quot;tổng-quan&quot;&gt;Tổng quan&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2020-01-01T14:41:39+07:00</updated><id>/feed.xml</id><title type="html">mtSiniChi</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Cách trỏ domain vào port của server bằng Nginx</title><link href="/webserver/2019/12/01/cach-tro-domain-vao-port-cua-server-bang-nginx.html" rel="alternate" type="text/html" title="Cách trỏ domain vào port của server bằng Nginx" /><published>2019-12-01T12:38:27+07:00</published><updated>2019-12-01T12:38:27+07:00</updated><id>/webserver/2019/12/01/cach-tro-domain-vao-port-cua-server-bang-nginx</id><content type="html" xml:base="/webserver/2019/12/01/cach-tro-domain-vao-port-cua-server-bang-nginx.html">&lt;h2 id=&quot;tổng-quan&quot;&gt;Tổng quan&lt;/h2&gt;
 
 &lt;p&gt;Nếu bạn đã từng vọc vạch mua một domain và shared hosting để chạy demo một trang web, khi đó bạn có thể dễ dàng trỏ một domain vào hosting hoặc thêm nhiều domain (addon domain) vào hosting hoặc thêm tên miền con (sub domain) vào hosting đó. Và đương nhiên mỗi domain, sub domain, addon domain mà bạn thêm vào cũng dễ dàng chỉ định cho khớp với thư mục lưu trữ source code thực thi tương ứng. Có được điều này là do shared hosting bạn sử dụng đã tích hợp hệ thống quản trị &lt;em&gt;Control Panel Server&lt;/em&gt; nổi tiếng với mấy cái tên quen thuộc Cpanel 11, Sentora, VistaCP.&lt;/p&gt;
 
@@ -571,6 +571,19 @@ show &lt;span class=&quot;nb&quot;&gt;users
 &lt;ul&gt;
   &lt;li&gt;Login redis cli cluster: &lt;code class=&quot;highlighter-rouge&quot;&gt;redis-cli -c -p 7000&lt;/code&gt;.&lt;/li&gt;
   &lt;li&gt;Get all key: &lt;code class=&quot;highlighter-rouge&quot;&gt;KEYS *&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;mysql&quot;&gt;MySQL&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Reset password root:
+    &lt;ul&gt;
+      &lt;li&gt;Stop mysql-server&lt;/li&gt;
+      &lt;li&gt;Create script: &lt;code class=&quot;highlighter-rouge&quot;&gt;ALTER USER 'root'@'localhost' IDENTIFIED BY '12345678';&lt;/code&gt; save ~/Desktop/init.txt&lt;/li&gt;
+      &lt;li&gt;Run: &lt;code class=&quot;highlighter-rouge&quot;&gt;mysqld --init-file=~/Desktop/init.txt &amp;amp;&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;Login with new pass: &lt;code class=&quot;highlighter-rouge&quot;&gt;mysql -u root -p&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;maven&quot;&gt;Maven&lt;/h2&gt;
