@@ -73,6 +73,7 @@ article_description: Collection of commands.
   - Create script: `ALTER USER 'root'@'localhost' IDENTIFIED BY '12345678';` save ~/Desktop/init.txt
   - Run: `mysqld --init-file=~/Desktop/init.txt &`
   - Login with new pass: `mysql -u root -p`
+- Error: *Connecting to MySQL server ... Authentication plugin 'caching_sha2_password' cannot be loaded: dlopen(/usr/local/mysql/lib/plugin/caching_sha2_password.so, 2): image not found*, login mysql run: `ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456';`
 
 ## Maven
 
