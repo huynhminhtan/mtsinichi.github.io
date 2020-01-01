@@ -117,3 +117,5 @@ article_description: Collection of commands.
   - https://rogerdudler.github.io/git-guide/
 - Scp
   - https://kb.iweb.com/hc/en-us/articles/230241568-Copying-a-file-to-another-server-through-SSH
+- MySQL
+  - https://dev.mysql.com/doc/refman/8.0/en/resetting-permissions.html
