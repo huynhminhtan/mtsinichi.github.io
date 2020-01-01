@@ -66,6 +66,14 @@ article_description: Collection of commands.
 - Login redis cli cluster: `redis-cli -c -p 7000`.
 - Get all key: `KEYS *`.
 
+## MySQL
+
+- Reset password root:
+  - Stop mysql-server
+  - Create script: `ALTER USER 'root'@'localhost' IDENTIFIED BY '12345678';` save ~/Desktop/init.txt
+  - Run: `mysqld --init-file=~/Desktop/init.txt &`
+  - Login with new pass: `mysql -u root -p`
+
 ## Maven
 
 - Spring Boot run app: `mvn spring-boot:run`.
