@@ -1,4 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2020-01-01T15:00:33+07:00</updated><id>/feed.xml</id><title type="html">mtSiniChi</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Cách trỏ domain vào port của server bằng Nginx</title><link href="/webserver/2019/12/01/cach-tro-domain-vao-port-cua-server-bang-nginx.html" rel="alternate" type="text/html" title="Cách trỏ domain vào port của server bằng Nginx" /><published>2019-12-01T12:38:27+07:00</published><updated>2019-12-01T12:38:27+07:00</updated><id>/webserver/2019/12/01/cach-tro-domain-vao-port-cua-server-bang-nginx</id><content type="html" xml:base="/webserver/2019/12/01/cach-tro-domain-vao-port-cua-server-bang-nginx.html">&lt;h2 id=&quot;tổng-quan&quot;&gt;Tổng quan&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2020-01-26T22:22:23+07:00</updated><id>/feed.xml</id><title type="html">mtSiniChi</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Cài Nodejs theo version</title><link href="/nodejs/2020/01/26/cai-nodejs-theo-version.html" rel="alternate" type="text/html" title="Cài Nodejs theo version" /><published>2020-01-26T12:38:27+07:00</published><updated>2020-01-26T12:38:27+07:00</updated><id>/nodejs/2020/01/26/cai-nodejs-theo-version</id><content type="html" xml:base="/nodejs/2020/01/26/cai-nodejs-theo-version.html">&lt;h2 id=&quot;hướng-dẫn&quot;&gt;Hướng dẫn&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Cài đặt NVM: &lt;code class=&quot;highlighter-rouge&quot;&gt;curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Cài Nodejs theo version mong muốn: &lt;code class=&quot;highlighter-rouge&quot;&gt;nvm install 8.9.0&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Kiểm tra: &lt;code class=&quot;highlighter-rouge&quot;&gt;node -v&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Trang xem version Nodejs: https://nodejs.org/dist/&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;tham-khảo&quot;&gt;Tham khảo&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;https://nodejs.org/dist/&lt;/li&gt;
+  &lt;li&gt;https://stackoverflow.com/a/7718438&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Hướng dẫn</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" /></entry><entry><title type="html">Cách trỏ domain vào port của server bằng Nginx</title><link href="/webserver/2019/12/01/cach-tro-domain-vao-port-cua-server-bang-nginx.html" rel="alternate" type="text/html" title="Cách trỏ domain vào port của server bằng Nginx" /><published>2019-12-01T12:38:27+07:00</published><updated>2019-12-01T12:38:27+07:00</updated><id>/webserver/2019/12/01/cach-tro-domain-vao-port-cua-server-bang-nginx</id><content type="html" xml:base="/webserver/2019/12/01/cach-tro-domain-vao-port-cua-server-bang-nginx.html">&lt;h2 id=&quot;tổng-quan&quot;&gt;Tổng quan&lt;/h2&gt;
 
 &lt;p&gt;Nếu bạn đã từng vọc vạch mua một domain và shared hosting để chạy demo một trang web, khi đó bạn có thể dễ dàng trỏ một domain vào hosting hoặc thêm nhiều domain (addon domain) vào hosting hoặc thêm tên miền con (sub domain) vào hosting đó. Và đương nhiên mỗi domain, sub domain, addon domain mà bạn thêm vào cũng dễ dàng chỉ định cho khớp với thư mục lưu trữ source code thực thi tương ứng. Có được điều này là do shared hosting bạn sử dụng đã tích hợp hệ thống quản trị &lt;em&gt;Control Panel Server&lt;/em&gt; nổi tiếng với mấy cái tên quen thuộc Cpanel 11, Sentora, VistaCP.&lt;/p&gt;
 
@@ -212,97 +226,12 @@ show &lt;span class=&quot;nb&quot;&gt;users
   &lt;li&gt;https://www.youtube.com/watch?v=OG4deLa_vK8&lt;/li&gt;
   &lt;li&gt;https://askubuntu.com/questions/223501/ubuntu-gets-stuck-in-a-login-loop&lt;/li&gt;
   &lt;li&gt;https://www.maketecheasier.com/fix-ubuntu-login-loop/&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Ubuntu Loop Loging</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.outsystems.com/-/media/images/case-studies/via-verde-crm-increases-customer-adoption/via-verde-crm-increases-customer-adoption-hero.png" /></entry><entry><title type="html">Implement Log4j2 with Java</title><link href="/linux/2019/07/10/log4j-with-java-example.html" rel="alternate" type="text/html" title="Implement Log4j2 with Java" /><published>2019-07-10T13:38:27+07:00</published><updated>2019-07-10T13:38:27+07:00</updated><id>/linux/2019/07/10/log4j-with-java-example</id><content type="html" xml:base="/linux/2019/07/10/log4j-with-java-example.html">&lt;p&gt;Hiện thực Log4j2 trong project Maven, gói ghém chỉ qua 3 bước như bên dưới.&lt;/p&gt;
-
-&lt;p&gt;Step1: Thêm dependencies vào &lt;em&gt;pom.xml&lt;/em&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.apache.logging.log4j&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;log4j-api&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;2.6.1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.apache.logging.log4j&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;log4j-core&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;2.6.1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Step2: Tạo tập tin cấu hình &lt;em&gt;resources/log4j2.xml&lt;/em&gt;, nếu tập tin cấu hình không ở &lt;em&gt;resources/&lt;/em&gt; cần xác định đường dẫn tập tin cấu hình trong IntellIJ tại &lt;strong&gt;Edit Configurations…&lt;/strong&gt; -&amp;gt; &lt;strong&gt;VM Options&lt;/strong&gt; nhập &lt;code class=&quot;highlighter-rouge&quot;&gt;-Dlog4j.configurationFile=your-path/log4j2.xml&lt;/code&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;Configuration&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;systemConfiguration&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;schema=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://jakarta.apache.org/log4j2/&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;Properties&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;Property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;log-path&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;log&lt;span class=&quot;nt&quot;&gt;&amp;lt;/Property&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;Property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;log-name&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;conv&lt;span class=&quot;nt&quot;&gt;&amp;lt;/Property&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/Properties&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;Appenders&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;Console&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;console-appender&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;target=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;STDOUT&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;PatternLayout&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;pattern&amp;gt;&lt;/span&gt;
-                    &lt;span class=&quot;c&quot;&gt;&amp;lt;!--%highlight{[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} -
-                     %msg%n}--&amp;gt;&lt;/span&gt;
-                    &lt;span class=&quot;c&quot;&gt;&amp;lt;!--[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n--&amp;gt;&lt;/span&gt;
-                    %highlight{%d{HH:mm:ss.SSS} %-5level %logger{36}.%M() @%L - %msg%n}
-                    {FATAL=red, ERROR=red, WARN=yellow, INFO=black, DEBUG=green, 
-                    TRACE=blue}
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/pattern&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/PatternLayout&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/Console&amp;gt;&lt;/span&gt;
-
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;RollingFile&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;file-logger&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;fileName=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;${log-path}/${log-name}.log&quot;&lt;/span&gt;
-                     &lt;span class=&quot;na&quot;&gt;filePattern=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;${log-path}/${log-name}-%d{yyyy-MM-dd}.log&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;PatternLayout&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;pattern&amp;gt;&lt;/span&gt;[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} 
-                [%t] %c{1} - %msg%n&lt;span class=&quot;nt&quot;&gt;&amp;lt;/pattern&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/PatternLayout&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;Policies&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;TimeBasedTriggeringPolicy&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;interval=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;modulate=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;true&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/Policies&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/RollingFile&amp;gt;&lt;/span&gt;
-
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/Appenders&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;Loggers&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;Root&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;level=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;INFO&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;AppenderRef&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ref=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;console-appender&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;level=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;INFO&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;AppenderRef&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ref=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;file-logger&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;level=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;INFO&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/Root&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/Loggers&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/Configuration&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Step3: Ghi log bằng code Java:&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.apache.logging.log4j.LogManager&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.apache.logging.log4j.Logger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Application&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Logger&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;logger&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LogManager&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getLogger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Application&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello log quickly.&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;warn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello log quickly again.&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Thêm: Loggin Level&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/logs.jpeg&quot; alt=&quot;logs-level&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Refers&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Ubuntu Loop Loging</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.outsystems.com/-/media/images/case-studies/via-verde-crm-increases-customer-adoption/via-verde-crm-increases-customer-adoption-hero.png" /></entry><entry><title type="html">Bookmarks</title><link href="/linux/2019/07/10/bookmarks.html" rel="alternate" type="text/html" title="Bookmarks" /><published>2019-07-10T13:38:27+07:00</published><updated>2019-07-10T13:38:27+07:00</updated><id>/linux/2019/07/10/bookmarks</id><content type="html" xml:base="/linux/2019/07/10/bookmarks.html">&lt;h2 id=&quot;-take-a-screenshot-of-your-code&quot;&gt;# Take A Screenshot of your Code&lt;/h2&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;https://stackoverflow.com/q/21979699/9488752 :: add color to log console&lt;/li&gt;
-  &lt;li&gt;https://stackoverflow.com/questions/21206993/very-simple-log4j2-xml-configuration-file-using-console-and-file-appender&lt;/li&gt;
-  &lt;li&gt;https://howtodoinjava.com/log4j2/log4j-2-xml-configuration-example/&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Hiện thực Log4j2 trong project Maven, gói ghém chỉ qua 3 bước như bên dưới.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" /></entry><entry><title type="html">Sử dụng Post Processer trong Jmeter</title><link href="/linux/2019/07/10/post-processor-trong-jmeter.html" rel="alternate" type="text/html" title="Sử dụng Post Processer trong Jmeter" /><published>2019-07-10T13:38:27+07:00</published><updated>2019-07-10T13:38:27+07:00</updated><id>/linux/2019/07/10/post-processor-trong-jmeter</id><content type="html" xml:base="/linux/2019/07/10/post-processor-trong-jmeter.html">&lt;p&gt;Jmeter Post processor giúp lấy những dữ liệu sau khi thực thi xong một api trong testcript, lưu dữ liệu trả về vào biến, rồi có thể dùng biến đó cung cấp dữ liệu cho những lần thực thi api sau.&lt;/p&gt;
+  &lt;li&gt;https://scotch.io/bar-talk/6-awesome-ways-to-take-a-screenshot-of-your-code&lt;/li&gt;
+  &lt;li&gt;https://marketplace.visualstudio.com/items?itemName=pnp.polacode&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>mtSiniChi</name></author><summary type="html"># Take A Screenshot of your Code</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" /></entry><entry><title type="html">Sử dụng Post Processer trong Jmeter</title><link href="/linux/2019/07/10/post-processor-trong-jmeter.html" rel="alternate" type="text/html" title="Sử dụng Post Processer trong Jmeter" /><published>2019-07-10T13:38:27+07:00</published><updated>2019-07-10T13:38:27+07:00</updated><id>/linux/2019/07/10/post-processor-trong-jmeter</id><content type="html" xml:base="/linux/2019/07/10/post-processor-trong-jmeter.html">&lt;p&gt;Jmeter Post processor giúp lấy những dữ liệu sau khi thực thi xong một api trong testcript, lưu dữ liệu trả về vào biến, rồi có thể dùng biến đó cung cấp dữ liệu cho những lần thực thi api sau.&lt;/p&gt;
 
 &lt;p&gt;Thêm bằng cách, &lt;strong&gt;click chuột phải vào api cần tạo Post processor -&amp;gt; Add -&amp;gt; Post processors -&amp;gt; JSON Extractor&lt;/strong&gt;.&lt;/p&gt;
 
@@ -493,12 +422,97 @@ show &lt;span class=&quot;nb&quot;&gt;users
 &lt;ul&gt;
   &lt;li&gt;https://maven.apache.org/scm/maven-scm-plugin/plugin-info.html&lt;/li&gt;
   &lt;li&gt;https://stackoverflow.com/a/10147826/9488752&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Bài viết sẽ trả lời câu hỏi: Tôi muốn sử dụng lệnh maven để pull và push source code lên repository git.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" /></entry><entry><title type="html">Bookmarks</title><link href="/linux/2019/07/10/bookmarks.html" rel="alternate" type="text/html" title="Bookmarks" /><published>2019-07-10T13:38:27+07:00</published><updated>2019-07-10T13:38:27+07:00</updated><id>/linux/2019/07/10/bookmarks</id><content type="html" xml:base="/linux/2019/07/10/bookmarks.html">&lt;h2 id=&quot;-take-a-screenshot-of-your-code&quot;&gt;# Take A Screenshot of your Code&lt;/h2&gt;
+&lt;/ul&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Bài viết sẽ trả lời câu hỏi: Tôi muốn sử dụng lệnh maven để pull và push source code lên repository git.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" /></entry><entry><title type="html">Implement Log4j2 with Java</title><link href="/linux/2019/07/10/log4j-with-java-example.html" rel="alternate" type="text/html" title="Implement Log4j2 with Java" /><published>2019-07-10T13:38:27+07:00</published><updated>2019-07-10T13:38:27+07:00</updated><id>/linux/2019/07/10/log4j-with-java-example</id><content type="html" xml:base="/linux/2019/07/10/log4j-with-java-example.html">&lt;p&gt;Hiện thực Log4j2 trong project Maven, gói ghém chỉ qua 3 bước như bên dưới.&lt;/p&gt;
+
+&lt;p&gt;Step1: Thêm dependencies vào &lt;em&gt;pom.xml&lt;/em&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.apache.logging.log4j&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;log4j-api&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;2.6.1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.apache.logging.log4j&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;log4j-core&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;2.6.1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Step2: Tạo tập tin cấu hình &lt;em&gt;resources/log4j2.xml&lt;/em&gt;, nếu tập tin cấu hình không ở &lt;em&gt;resources/&lt;/em&gt; cần xác định đường dẫn tập tin cấu hình trong IntellIJ tại &lt;strong&gt;Edit Configurations…&lt;/strong&gt; -&amp;gt; &lt;strong&gt;VM Options&lt;/strong&gt; nhập &lt;code class=&quot;highlighter-rouge&quot;&gt;-Dlog4j.configurationFile=your-path/log4j2.xml&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;Configuration&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;systemConfiguration&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;schema=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://jakarta.apache.org/log4j2/&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;Properties&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;Property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;log-path&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;log&lt;span class=&quot;nt&quot;&gt;&amp;lt;/Property&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;Property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;log-name&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;conv&lt;span class=&quot;nt&quot;&gt;&amp;lt;/Property&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/Properties&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;Appenders&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;Console&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;console-appender&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;target=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;STDOUT&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;PatternLayout&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;pattern&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;c&quot;&gt;&amp;lt;!--%highlight{[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} -
+                     %msg%n}--&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;c&quot;&gt;&amp;lt;!--[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n--&amp;gt;&lt;/span&gt;
+                    %highlight{%d{HH:mm:ss.SSS} %-5level %logger{36}.%M() @%L - %msg%n}
+                    {FATAL=red, ERROR=red, WARN=yellow, INFO=black, DEBUG=green, 
+                    TRACE=blue}
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/pattern&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/PatternLayout&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/Console&amp;gt;&lt;/span&gt;
+
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;RollingFile&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;file-logger&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;fileName=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;${log-path}/${log-name}.log&quot;&lt;/span&gt;
+                     &lt;span class=&quot;na&quot;&gt;filePattern=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;${log-path}/${log-name}-%d{yyyy-MM-dd}.log&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;PatternLayout&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;pattern&amp;gt;&lt;/span&gt;[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} 
+                [%t] %c{1} - %msg%n&lt;span class=&quot;nt&quot;&gt;&amp;lt;/pattern&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/PatternLayout&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;Policies&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;TimeBasedTriggeringPolicy&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;interval=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;modulate=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;true&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/Policies&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/RollingFile&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/Appenders&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;Loggers&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;Root&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;level=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;INFO&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;AppenderRef&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ref=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;console-appender&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;level=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;INFO&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;AppenderRef&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ref=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;file-logger&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;level=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;INFO&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/Root&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/Loggers&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/Configuration&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Step3: Ghi log bằng code Java:&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.apache.logging.log4j.LogManager&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.apache.logging.log4j.Logger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Application&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Logger&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;logger&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LogManager&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getLogger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Application&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello log quickly.&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;warn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello log quickly again.&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Thêm: Loggin Level&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/logs.jpeg&quot; alt=&quot;logs-level&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Refers&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;https://scotch.io/bar-talk/6-awesome-ways-to-take-a-screenshot-of-your-code&lt;/li&gt;
-  &lt;li&gt;https://marketplace.visualstudio.com/items?itemName=pnp.polacode&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>mtSiniChi</name></author><summary type="html"># Take A Screenshot of your Code</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" /></entry><entry><title type="html">Linux basic command line</title><link href="/linux/2019/07/10/linux-basic-command-line.html" rel="alternate" type="text/html" title="Linux basic command line" /><published>2019-07-10T13:38:27+07:00</published><updated>2019-07-10T13:38:27+07:00</updated><id>/linux/2019/07/10/linux-basic-command-line</id><content type="html" xml:base="/linux/2019/07/10/linux-basic-command-line.html">&lt;h2 id=&quot;alias&quot;&gt;Alias&lt;/h2&gt;
+  &lt;li&gt;https://stackoverflow.com/q/21979699/9488752 :: add color to log console&lt;/li&gt;
+  &lt;li&gt;https://stackoverflow.com/questions/21206993/very-simple-log4j2-xml-configuration-file-using-console-and-file-appender&lt;/li&gt;
+  &lt;li&gt;https://howtodoinjava.com/log4j2/log4j-2-xml-configuration-example/&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Hiện thực Log4j2 trong project Maven, gói ghém chỉ qua 3 bước như bên dưới.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" /></entry><entry><title type="html">Linux basic command line</title><link href="/linux/2019/07/10/linux-basic-command-line.html" rel="alternate" type="text/html" title="Linux basic command line" /><published>2019-07-10T13:38:27+07:00</published><updated>2019-07-10T13:38:27+07:00</updated><id>/linux/2019/07/10/linux-basic-command-line</id><content type="html" xml:base="/linux/2019/07/10/linux-basic-command-line.html">&lt;h2 id=&quot;alias&quot;&gt;Alias&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Add alias: &lt;code class=&quot;highlighter-rouge&quot;&gt;alias jmeter=apache-jmeter-5.1.1/bin/jmeter&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;vim ~/.bashrc&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;vim ~/.zshrc&lt;/code&gt; then run &lt;code class=&quot;highlighter-rouge&quot;&gt;source ~/.bashrc&lt;/code&gt;.&lt;/li&gt;
@@ -663,273 +677,4 @@ show &lt;span class=&quot;nb&quot;&gt;users
       &lt;li&gt;https://stackoverflow.com/a/50130875&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Alias</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" /></entry><entry><title type="html">Sử Dụng Network Trong Docker Compose</title><link href="/java/docker/2019/03/28/su-dung-network-trong-docker-compose.html" rel="alternate" type="text/html" title="Sử Dụng Network Trong Docker Compose" /><published>2019-03-28T10:08:35+07:00</published><updated>2019-03-28T10:08:35+07:00</updated><id>/java/docker/2019/03/28/su-dung-network-trong-docker-compose</id><content type="html" xml:base="/java/docker/2019/03/28/su-dung-network-trong-docker-compose.html">&lt;p&gt;Bài viết sẽ mô tả cách mà các container giao tiếp với nhau thông qua network docker cùng với ví dụ cụ thể, cũng như các bước có thể chạy một Maven project trên Docker.&lt;/p&gt;
-
-&lt;p&gt;Ví dụ, tạo một ứng dụng hiện thực việc thêm và lấy dữ liệu từ Redis, trong dự án có sử dụng VertX mục đích là thêm một dependency cho project nó bự bự ra ấy mà.&lt;/p&gt;
-
-&lt;p&gt;Để project có thể thực thi trên Docker, tức là cả source code và Redis đều chạy trên Docker. Redis ta tận dụng image có sẵn trên Docker Hub, còn source code sẽ tự tạo ra container chứa nó bằng Dockerfile vì sẽ thuận tiện sau này muốn deploy chỉ cần một dòng lệnh &lt;em&gt;docker-compose up&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;Từ Maven project muốn chạy trên Docker, ta sẽ tiến hành các bước sau:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Build project Maven thành tập tin Fat Jar.&lt;/li&gt;
-  &lt;li&gt;Xây dựng Dockerfile dựa trên Fat Jar để tạo container thực thi phần source code.&lt;/li&gt;
-  &lt;li&gt;Viết &lt;em&gt;docker-compose.yml&lt;/em&gt; để kết nối các container lại với nhau.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Trong phạm vi bài này, mình chỉ đề cập đến Dockerfile và docker-compose sử dụng docker network để các containers/ services tương tác qua lại. Xem thêm &lt;a href=&quot;/java/maven/2019/03/25/tao-file-fat-jar-tu-project-maven.html&quot;&gt;Tạo Tập Tin Fat Jar Từ Project Maven&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;tạo-dockerfile-từ-fat-jar-có-sẵn&quot;&gt;Tạo Dockerfile từ Fat Jar có sẵn&lt;/h1&gt;
-
-&lt;div class=&quot;language-dockerfile highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# Dockerfile&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; openjdk:8-jre-alpine&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;ENV&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; VERTICLE_FILE maven.-1.0-SNAPSHOT.jar&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# Set the location of the verticles&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;ENV&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; VERTICLE_HOME /usr/verticles&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;EXPOSE&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; 8080&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# Copy your fat jar to the container&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;COPY&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; ./target/$VERTICLE_FILE $VERTICLE_HOME/&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# Launch the verticle&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;WORKDIR&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; $VERTICLE_HOME&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;ENTRYPOINT&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; [&quot;sh&quot;, &quot;-c&quot;]&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;CMD&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; [&quot;exec java -jar $VERTICLE_FILE&quot;]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h1 id=&quot;viết-docker-compose-để-kết-nối-các-container&quot;&gt;Viết Docker Compose để kết nối các container&lt;/h1&gt;
-
-&lt;h2 id=&quot;không-định-nghĩa-network&quot;&gt;Không định nghĩa network&lt;/h2&gt;
-
-&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# docker-compose.yml&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;3'&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;services&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;.&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;ports&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;8080:8080&quot;&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;depends_on&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;redis_db&lt;/span&gt;
-
-  &lt;span class=&quot;na&quot;&gt;redis_db&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;redis:alpine&quot;&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;ports&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;6381:6379&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Nếu không định nghĩa network, khi chạy lệnh &lt;code class=&quot;highlighter-rouge&quot;&gt;docker-compose up&lt;/code&gt; Docker sẽ tự động tạo ra một network có tên là &lt;em&gt;[tên-thư-mục]_default&lt;/em&gt;, để kiểm tra mình chạy lệnh &lt;code class=&quot;highlighter-rouge&quot;&gt;docker network ls&lt;/code&gt;, vì project mình nằm trong thư mục có tên là &lt;em&gt;maven-docker-network&lt;/em&gt; nên dòng thứ 5 một network mới có thêm &lt;em&gt;_default&lt;/em&gt; được tạo ra:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;➜ maven-docker-network:✗ docker network &lt;span class=&quot;nb&quot;&gt;ls
-
-&lt;/span&gt;NETWORK ID          NAME                           DRIVER              SCOPE
-8941d3b2ef59        bridge                         bridge              &lt;span class=&quot;nb&quot;&gt;local
-&lt;/span&gt;3a5d1ba57867        composetest_default            bridge              &lt;span class=&quot;nb&quot;&gt;local
-&lt;/span&gt;727484192e4c        host                           host                &lt;span class=&quot;nb&quot;&gt;local
-&lt;/span&gt;062bd6240da9        kafka-net                      bridge              &lt;span class=&quot;nb&quot;&gt;local
-&lt;/span&gt;8b90584145d2        maven-docker-network_default   bridge              &lt;span class=&quot;nb&quot;&gt;local
-&lt;/span&gt;cfd4ef8c1000        none                           null                &lt;span class=&quot;nb&quot;&gt;local&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Sẽ tiến hành kiểm tra network này bằng lệnh &lt;code class=&quot;highlighter-rouge&quot;&gt;docker network inspect [NETWORK-ID]/[NAME]&lt;/code&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;➜ maven-docker-network:✗ docker network inspect 8b90584145d2
-&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;s2&quot;&gt;&quot;Name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;maven-docker-network_default&quot;&lt;/span&gt;,
-        &lt;span class=&quot;s2&quot;&gt;&quot;Id&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;8b90584145d2ba53a842e26eb490ef49ab50cee63e970e884e152a735e90697c&quot;&lt;/span&gt;,
-        &lt;span class=&quot;s2&quot;&gt;&quot;Created&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;2019-03-27T13:23:58.554917217+07:00&quot;&lt;/span&gt;,
-        &lt;span class=&quot;s2&quot;&gt;&quot;Scope&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;local&quot;&lt;/span&gt;,
-        &lt;span class=&quot;s2&quot;&gt;&quot;Driver&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;bridge&quot;&lt;/span&gt;,
-        &lt;span class=&quot;s2&quot;&gt;&quot;EnableIPv6&quot;&lt;/span&gt;: &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;,
-        &lt;span class=&quot;s2&quot;&gt;&quot;IPAM&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;s2&quot;&gt;&quot;Driver&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;default&quot;&lt;/span&gt;,
-            &lt;span class=&quot;s2&quot;&gt;&quot;Options&quot;&lt;/span&gt;: null,
-            &lt;span class=&quot;s2&quot;&gt;&quot;Config&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;
-                &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                    &lt;span class=&quot;s2&quot;&gt;&quot;Subnet&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;172.20.0.0/16&quot;&lt;/span&gt;,
-                    &lt;span class=&quot;s2&quot;&gt;&quot;Gateway&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;172.20.0.1&quot;&lt;/span&gt;
-                &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-            &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
-        &lt;span class=&quot;s2&quot;&gt;&quot;Internal&quot;&lt;/span&gt;: &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;,
-        &lt;span class=&quot;s2&quot;&gt;&quot;Attachable&quot;&lt;/span&gt;: &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;,
-        &lt;span class=&quot;s2&quot;&gt;&quot;Ingress&quot;&lt;/span&gt;: &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;,
-        &lt;span class=&quot;s2&quot;&gt;&quot;ConfigFrom&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;s2&quot;&gt;&quot;Network&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
-        &lt;span class=&quot;s2&quot;&gt;&quot;ConfigOnly&quot;&lt;/span&gt;: &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;,
-        &lt;span class=&quot;s2&quot;&gt;&quot;Containers&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;s2&quot;&gt;&quot;8123500b8cbceb75c4849278418be2cddd5d5aca319401b893ff19071099efec&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;s2&quot;&gt;&quot;Name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;maven-docker-network_app_1&quot;&lt;/span&gt;,
-                &lt;span class=&quot;s2&quot;&gt;&quot;EndpointID&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;41377dc0811b2a2f55c745518267562d14dec2f58bc4c60722a1cd6a06c51218&quot;&lt;/span&gt;,
-                &lt;span class=&quot;s2&quot;&gt;&quot;MacAddress&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;02:42:ac:14:00:03&quot;&lt;/span&gt;,
-                &lt;span class=&quot;s2&quot;&gt;&quot;IPv4Address&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;172.20.0.3/16&quot;&lt;/span&gt;,
-                &lt;span class=&quot;s2&quot;&gt;&quot;IPv6Address&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;
-            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
-            &lt;span class=&quot;s2&quot;&gt;&quot;cf38661571216d9f19d50473bf7e44a167be159ff198213801fe505c94a74701&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;s2&quot;&gt;&quot;Name&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;maven-docker-network_redis_db_1&quot;&lt;/span&gt;,
-                &lt;span class=&quot;s2&quot;&gt;&quot;EndpointID&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;5502446b77efb64587f0618f0701d8a4f5e7ff7c0de07ed16da3e543a9d407f0&quot;&lt;/span&gt;,
-                &lt;span class=&quot;s2&quot;&gt;&quot;MacAddress&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;02:42:ac:14:00:02&quot;&lt;/span&gt;,
-                &lt;span class=&quot;s2&quot;&gt;&quot;IPv4Address&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;172.20.0.2/16&quot;&lt;/span&gt;,
-                &lt;span class=&quot;s2&quot;&gt;&quot;IPv6Address&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;
-            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;,
-        &lt;span class=&quot;s2&quot;&gt;&quot;Options&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;{}&lt;/span&gt;,
-        &lt;span class=&quot;s2&quot;&gt;&quot;Labels&quot;&lt;/span&gt;: &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;s2&quot;&gt;&quot;com.docker.compose.network&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;default&quot;&lt;/span&gt;,
-            &lt;span class=&quot;s2&quot;&gt;&quot;com.docker.compose.project&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;maven-docker-network&quot;&lt;/span&gt;,
-            &lt;span class=&quot;s2&quot;&gt;&quot;com.docker.compose.version&quot;&lt;/span&gt;: &lt;span class=&quot;s2&quot;&gt;&quot;1.23.2&quot;&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Ở trên có 2 container &lt;em&gt;maven-docker-network_app_1&lt;/em&gt; và &lt;em&gt;maven-docker-network_redis_db_1&lt;/em&gt; nằm trong network này khi chạy &lt;code class=&quot;highlighter-rouge&quot;&gt;docker-compose up&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Còn ở phần code, để có thể kết nối với Redis ta sẽ sử dụng chuỗi kết nối là &lt;em&gt;redis://redis_db:6379&lt;/em&gt;, với &lt;em&gt;redis_db&lt;/em&gt; là tên kết nối giống với tên của container định nghĩa ở &lt;em&gt;docker-compose.yml&lt;/em&gt; và sử dụng CONTAINER_PORT mặc định của Redis là 6379.&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// OrderVerticle.java&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;minhtan&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;core&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;io.vertx.core.AbstractVerticle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;io.vertx.core.Vertx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.redisson.Redisson&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.redisson.api.RList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.redisson.api.RedissonClient&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.redisson.config.Config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;OrderVerticle&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AbstractVerticle&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Vertx&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vertx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Vertx&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getInstanceVertX&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vertx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;vertx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Vertx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;vertx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;vertx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;deployVerticle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;OrderVerticle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vertx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nc&quot;&gt;Vertx&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vertx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getInstanceVertX&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;vertx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;deployVerticle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;OrderVerticle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
-
-        &lt;span class=&quot;nc&quot;&gt;Config&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;config&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;// connect to Redis&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;useSingleServer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setAddress&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;redis://redis_db:6379&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;nc&quot;&gt;RedissonClient&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;redisson&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Redisson&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-
-        &lt;span class=&quot;nc&quot;&gt;RList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;redisson&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;mylist&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-
-        &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;aaaaaaaaaa&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Add 'aaaaaaaaaa' to Redis&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;bbbbbbbbbb&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Add 'bbbbbbbbbb' to Redis&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;cccccccccc&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Add 'cccccccccc' to Redis&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-
-        &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Get list[0],[1],[2],[3] from Redis: &quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
-        &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
-        &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
-        &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
-        &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Get done!&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Mình có viết &lt;em&gt;auto.sh&lt;/em&gt; để tổng hợp các script, kết quả cuối cùng:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;➜ maven-docker-network:✗ ./auto.sh
-
-...
-redis_db_1  | 1:M 28 Mar 2019 02:31:48.307 &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; Ready to accept connections
-app_1       | log4j:WARN No appenders could be found &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;logger &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;io.netty.util.internal.logging.InternalLoggerFactory&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
-app_1       | log4j:WARN Please initialize the log4j system properly.
-app_1       | log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;more info.
-app_1       | Add &lt;span class=&quot;s1&quot;&gt;'aaaaaaaaaa'&lt;/span&gt; to Redis
-app_1       | Add &lt;span class=&quot;s1&quot;&gt;'bbbbbbbbbb'&lt;/span&gt; to Redis
-app_1       | Add &lt;span class=&quot;s1&quot;&gt;'cccccccccc'&lt;/span&gt; to Redis
-app_1       | Get list[0],[1],[2],[3] from Redis:
-app_1       | aaaaaaaaaa
-app_1       | bbbbbbbbbb
-app_1       | cccccccccc
-app_1       | null
-app_1       | Get &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;định-nghĩa-network&quot;&gt;Định nghĩa network&lt;/h2&gt;
-
-&lt;p&gt;Mình có tạo ra một network tên là &lt;em&gt;app-net&lt;/em&gt; khi thực thi các container &lt;em&gt;app&lt;/em&gt; và &lt;em&gt;redis_db&lt;/em&gt; sẽ được nằm trong network này.&lt;/p&gt;
-
-&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;3'&lt;/span&gt;
-
-&lt;span class=&quot;na&quot;&gt;networks&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;app-net&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;driver&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;bridge&lt;/span&gt;
-
-&lt;span class=&quot;na&quot;&gt;services&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;.&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;ports&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;8080:8080&quot;&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;depends_on&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;redis_db&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;networks&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;app-net&lt;/span&gt;
-
-  &lt;span class=&quot;na&quot;&gt;redis_db&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;redis:alpine&quot;&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;ports&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;6381:6379&quot;&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;networks&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;app-net&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Tên của network thay vì có &lt;em&gt;_default&lt;/em&gt; thì sẽ thay bằng &lt;em&gt;_app-net&lt;/em&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;➜  maven-docker-network:✗ docker network &lt;span class=&quot;nb&quot;&gt;ls
-
-&lt;/span&gt;NETWORK ID          NAME                           DRIVER              SCOPE
-8941d3b2ef59        bridge                         bridge              &lt;span class=&quot;nb&quot;&gt;local
-&lt;/span&gt;3a5d1ba57867        composetest_default            bridge              &lt;span class=&quot;nb&quot;&gt;local
-&lt;/span&gt;727484192e4c        host                           host                &lt;span class=&quot;nb&quot;&gt;local
-&lt;/span&gt;062bd6240da9        kafka-net                      bridge              &lt;span class=&quot;nb&quot;&gt;local
-&lt;/span&gt;e5173c05ca34        maven-docker-network_app-net   bridge              &lt;span class=&quot;nb&quot;&gt;local
-&lt;/span&gt;8b90584145d2        maven-docker-network_default   bridge              &lt;span class=&quot;nb&quot;&gt;local
-&lt;/span&gt;cfd4ef8c1000        none                           null                &lt;span class=&quot;nb&quot;&gt;local&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Chuỗi kết nối đến Redis cũng không thay đổi, vẫn là &lt;em&gt;redis://redis_db:6379&lt;/em&gt;.&lt;/p&gt;
-
-&lt;h1 id=&quot;tài-nguyên&quot;&gt;Tài nguyên&lt;/h1&gt;
-
-&lt;p&gt;Tải source cho toàn bộ từ project Java Maven, Dockerfile và Docker Compose: &lt;a href=&quot;/materials/maven-docker-network.zip&quot;&gt;maven-docker-network.zip&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Chạy bằng lệnh &lt;code class=&quot;highlighter-rouge&quot;&gt;./auto.sh&lt;/code&gt;, mình viết nó để chạy một lệnh cho tất cả các công việc:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# auto.sh&lt;/span&gt;
-mvn clean
-mvn package
-docker &lt;span class=&quot;nb&quot;&gt;rm&lt;/span&gt; &lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;docker ps &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-q&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# docker-compose build --no-cache&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# docker-compose up --force-recreate&lt;/span&gt;
-docker-compose build
-docker-compose stop
-docker-compose &lt;span class=&quot;nb&quot;&gt;rm&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt;
-docker-compose up
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h1 id=&quot;thanks-a-million-for&quot;&gt;Thanks a million for&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;https://vsupalov.com/docker-compose-runs-old-containers/&lt;/li&gt;
-  &lt;li&gt;https://stackoverflow.com/questions/44705455/after-docker-compose-build-the-docker-compose-up-run-old-not-updated-containers&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Bài viết sẽ mô tả cách mà các container giao tiếp với nhau thông qua network docker cùng với ví dụ cụ thể, cũng như các bước có thể chạy một Maven project trên Docker.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Alias</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" /></entry></feed>
