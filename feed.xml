@@ -1,4 +1,79 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2020-01-26T22:22:23+07:00</updated><id>/feed.xml</id><title type="html">mtSiniChi</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Cài Nodejs theo version</title><link href="/nodejs/2020/01/26/cai-nodejs-theo-version.html" rel="alternate" type="text/html" title="Cài Nodejs theo version" /><published>2020-01-26T12:38:27+07:00</published><updated>2020-01-26T12:38:27+07:00</updated><id>/nodejs/2020/01/26/cai-nodejs-theo-version</id><content type="html" xml:base="/nodejs/2020/01/26/cai-nodejs-theo-version.html">&lt;h2 id=&quot;hướng-dẫn&quot;&gt;Hướng dẫn&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2020-02-13T16:02:23+07:00</updated><id>/feed.xml</id><title type="html">mtSiniChi</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Cấu hình HTTPS/SSL cho server bằng Nginx và Certbot</title><link href="/server/2020/02/13/cai-nodejs-theo-version-copy.html" rel="alternate" type="text/html" title="Cấu hình HTTPS/SSL cho server bằng Nginx và Certbot" /><published>2020-02-13T12:38:27+07:00</published><updated>2020-02-13T12:38:27+07:00</updated><id>/server/2020/02/13/cai-nodejs-theo-version%20copy</id><content type="html" xml:base="/server/2020/02/13/cai-nodejs-theo-version-copy.html">&lt;p&gt;Bài toán được đưa ra, chúng ta sẽ cấu hình server Linux sử dụng HTTPS/SSL và trỏ tên miền &lt;em&gt;cbsys.ga&lt;/em&gt; vào port &lt;em&gt;3000&lt;/em&gt; đang chạy trên server.&lt;/p&gt;
+
+&lt;h2 id=&quot;hướng-dẫn&quot;&gt;Hướng dẫn&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Cài Nginx:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get update
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;nginx
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;nginx &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;service nginx status
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Cài Cerbot&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;add-apt-repository ppa:certbot/certbot
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get update
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;python-certbot-nginx
+
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;python3-pyasn1
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;certbot &lt;span class=&quot;nt&quot;&gt;--version&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Enable tường lửa để cài đặt rồi tắt liền: &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo ufw status&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo ufw enable&lt;/code&gt;, nếu không sẽ không truy cập được SSH&lt;/li&gt;
+  &lt;li&gt;Cấu hình DNS Domain, trỏ domain &lt;em&gt;cbsys.ga&lt;/em&gt; sang host đang cài đặt Nginx với &lt;code class=&quot;highlighter-rouge&quot;&gt;Type:A, Name: cbsys.ga&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Cài SSL với Nginx &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo certbot --nginx -d cbsys.ga&lt;/code&gt;, xem cấu hình khi cài đặt thành công ở &lt;em&gt;/etc/nginx/sites-enabled/default&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;Sau đó tắt tường lửa, để truy cập lại được SSH nếu thoát ra &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo ufw disable&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Vào đường dẫn &lt;em&gt;/etc/nginx/sites-enabled&lt;/em&gt; tạo một file &lt;em&gt;cbsys.ga&lt;/em&gt; để cấu hình reverse proxy thực hiện mapping tới port &lt;em&gt;3000&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;server {
+
+    	listen 443 ssl;
+	    listen [::]:443 ssl;
+
+        ssl_certificate /etc/letsencrypt/live/cbsys.ga/fullchain.pem; # managed by Certbot
+    	ssl_certificate_key /etc/letsencrypt/live/cbsys.ga/privkey.pem; # managed by Certbot
+    	include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    	ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+        server_name cbsys.ga;
+
+        location / {
+
+            proxy_set_header        Host $host;
+                proxy_set_header        X-Real-IP $remote_addr;
+                proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header        X-Forwarded-Proto $scheme;
+
+                # Fix the “It appears that your reverse proxy set up is broken&quot; error.
+                proxy_pass          http://localhost:3000;
+                proxy_read_timeout  90;
+
+                proxy_redirect      http://localhost:3000 https://cbsys.ga;
+
+        }
+
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Sau đó restart lại Nginx để thấy thay đổi: &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo service nginx restart&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;tham-khảo&quot;&gt;Tham khảo&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;https://www.linode.com/docs/web-servers/nginx/use-nginx-reverse-proxy/#configure-https-with-certbot&lt;/li&gt;
+  &lt;li&gt;https://www.digitalocean.com/community/tutorials/how-to-set-up-let-s-encrypt-with-nginx-server-blocks-on-ubuntu-16-04&lt;/li&gt;
+  &lt;li&gt;https://www.godaddy.com/garage/how-to-install-an-ssl-certificate-on-ubuntu-for-nginx/&lt;/li&gt;
+  &lt;li&gt;https://dzone.com/articles/how-to-install-lets-encrypt-with-nginx-on-ubuntu-1&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Bài toán được đưa ra, chúng ta sẽ cấu hình server Linux sử dụng HTTPS/SSL và trỏ tên miền cbsys.ga vào port 3000 đang chạy trên server.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" /></entry><entry><title type="html">Cài Nodejs theo version</title><link href="/nodejs/2020/01/26/cai-nodejs-theo-version.html" rel="alternate" type="text/html" title="Cài Nodejs theo version" /><published>2020-01-26T12:38:27+07:00</published><updated>2020-01-26T12:38:27+07:00</updated><id>/nodejs/2020/01/26/cai-nodejs-theo-version</id><content type="html" xml:base="/nodejs/2020/01/26/cai-nodejs-theo-version.html">&lt;h2 id=&quot;hướng-dẫn&quot;&gt;Hướng dẫn&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Cài đặt NVM: &lt;code class=&quot;highlighter-rouge&quot;&gt;curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash&lt;/code&gt;&lt;/li&gt;
@@ -512,169 +587,4 @@ show &lt;span class=&quot;nb&quot;&gt;users
   &lt;li&gt;https://stackoverflow.com/q/21979699/9488752 :: add color to log console&lt;/li&gt;
   &lt;li&gt;https://stackoverflow.com/questions/21206993/very-simple-log4j2-xml-configuration-file-using-console-and-file-appender&lt;/li&gt;
   &lt;li&gt;https://howtodoinjava.com/log4j2/log4j-2-xml-configuration-example/&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Hiện thực Log4j2 trong project Maven, gói ghém chỉ qua 3 bước như bên dưới.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" /></entry><entry><title type="html">Linux basic command line</title><link href="/linux/2019/07/10/linux-basic-command-line.html" rel="alternate" type="text/html" title="Linux basic command line" /><published>2019-07-10T13:38:27+07:00</published><updated>2019-07-10T13:38:27+07:00</updated><id>/linux/2019/07/10/linux-basic-command-line</id><content type="html" xml:base="/linux/2019/07/10/linux-basic-command-line.html">&lt;h2 id=&quot;alias&quot;&gt;Alias&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Add alias: &lt;code class=&quot;highlighter-rouge&quot;&gt;alias jmeter=apache-jmeter-5.1.1/bin/jmeter&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;vim ~/.bashrc&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;vim ~/.zshrc&lt;/code&gt; then run &lt;code class=&quot;highlighter-rouge&quot;&gt;source ~/.bashrc&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;path&quot;&gt;Path&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Add path: &lt;code class=&quot;highlighter-rouge&quot;&gt;echo 'export PATH=&quot;/usr/local/opt/ruby/bin:$PATH&quot;' &amp;gt;&amp;gt; ~/.zshrc&lt;/code&gt; then &lt;code class=&quot;highlighter-rouge&quot;&gt;source ~/.zshrc&lt;/code&gt; or reopen terminal to take affect.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;user&quot;&gt;User&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Create user: &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo useradd &amp;lt;user-name&amp;gt;&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Change pass: &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo passwd &amp;lt;user-name&amp;gt;&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Login user: &lt;code class=&quot;highlighter-rouge&quot;&gt;su &amp;lt;user-name&amp;gt;&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Change owner and group of file/folder: &lt;code class=&quot;highlighter-rouge&quot;&gt;chown [-R] &amp;lt;user-name&amp;gt;:&amp;lt;group&amp;gt; [directory]/&amp;lt;file-name&amp;gt;&lt;/code&gt;. Ex: &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo chown -R  mtuser:www-data ./apache-activemq-5.15.0&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;List all users: &lt;code class=&quot;highlighter-rouge&quot;&gt;cat /etc/passwd&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;List all group: &lt;code class=&quot;highlighter-rouge&quot;&gt;cat /etc/group&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;git&quot;&gt;Git&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Discard change: &lt;code class=&quot;highlighter-rouge&quot;&gt;git checkout -- env.development.config.ini&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Drop all local changes and commits: &lt;code class=&quot;highlighter-rouge&quot;&gt;git fetch origin&lt;/code&gt; then &lt;code class=&quot;highlighter-rouge&quot;&gt;git reset --hard origin/master&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Add to .gitignore: &lt;code class=&quot;highlighter-rouge&quot;&gt;git rm --cached -r ./site/&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Store account git: &lt;code class=&quot;highlighter-rouge&quot;&gt;git config credential.helper store&lt;/code&gt; then &lt;code class=&quot;highlighter-rouge&quot;&gt;git pull&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Where credential store: &lt;code class=&quot;highlighter-rouge&quot;&gt;vi ~/.git-credentials&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Verify that the remote URL: &lt;code class=&quot;highlighter-rouge&quot;&gt;git remote -v&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Change your remote’s URL: &lt;code class=&quot;highlighter-rouge&quot;&gt;git remote set-url origin https://github.com/huynhminhtan/repo.git&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Show all branch: &lt;code class=&quot;highlighter-rouge&quot;&gt;git branch -a&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Edit config: &lt;code class=&quot;highlighter-rouge&quot;&gt;git config --edit&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;sort&quot;&gt;Sort&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Sort by name full info: &lt;code class=&quot;highlighter-rouge&quot;&gt;ls -l&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Sort by last modified: &lt;code class=&quot;highlighter-rouge&quot;&gt;ls -t&lt;/code&gt;, reverise: &lt;code class=&quot;highlighter-rouge&quot;&gt;ls -tlr&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Sort by file size: &lt;code class=&quot;highlighter-rouge&quot;&gt;ls -S&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;scp&quot;&gt;Scp&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Upload file from local to server: &lt;code class=&quot;highlighter-rouge&quot;&gt;scp ~/assets/foodorder.json root@45.77.174.39:/root/foodorder.json&lt;/code&gt; then press password.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;find&quot;&gt;Find&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Find by port: &lt;code class=&quot;highlighter-rouge&quot;&gt;lsof -i :8080&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Find by port: &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo netstat -lpn | grep :8080&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Find by name: &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo ps aux | grep 'firefox'&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Find name file: &lt;code class=&quot;highlighter-rouge&quot;&gt;find . -iname &quot;ApacheJMeter*&quot;&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;ping&quot;&gt;Ping&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Ping connect by ip and port: &lt;code class=&quot;highlighter-rouge&quot;&gt;nc -vz localhost 80&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Ping connect by ip and port: &lt;code class=&quot;highlighter-rouge&quot;&gt;telnet localhost 80&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Journey package destination: &lt;code class=&quot;highlighter-rouge&quot;&gt;traceroute localhost 80&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;redis&quot;&gt;Redis&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Login redis cli cluster: &lt;code class=&quot;highlighter-rouge&quot;&gt;redis-cli -c -p 7000&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Get all key: &lt;code class=&quot;highlighter-rouge&quot;&gt;KEYS *&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;mysql&quot;&gt;MySQL&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Reset password root:
-    &lt;ul&gt;
-      &lt;li&gt;Stop mysql-server&lt;/li&gt;
-      &lt;li&gt;Create script: &lt;code class=&quot;highlighter-rouge&quot;&gt;ALTER USER 'root'@'localhost' IDENTIFIED BY '12345678';&lt;/code&gt; save ~/Desktop/init.txt&lt;/li&gt;
-      &lt;li&gt;Run: &lt;code class=&quot;highlighter-rouge&quot;&gt;mysqld --init-file=~/Desktop/init.txt &amp;amp;&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;Login with new pass: &lt;code class=&quot;highlighter-rouge&quot;&gt;mysql -u root -p&lt;/code&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Error: &lt;em&gt;Connecting to MySQL server … Authentication plugin ‘caching_sha2_password’ cannot be loaded: dlopen(/usr/local/mysql/lib/plugin/caching_sha2_password.so, 2): image not found&lt;/em&gt;, login mysql run: &lt;code class=&quot;highlighter-rouge&quot;&gt;ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456';&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;maven&quot;&gt;Maven&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Spring Boot run app: &lt;code class=&quot;highlighter-rouge&quot;&gt;mvn spring-boot:run&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Clean target folder and build: &lt;code class=&quot;highlighter-rouge&quot;&gt;mvn clean install&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Set JAVA_HOME: execute command &lt;code class=&quot;highlighter-rouge&quot;&gt;export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;export PATH=$PATH:$JAVA_HOME/bin&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;ssh&quot;&gt;SSH&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Create the RSA key: &lt;code class=&quot;highlighter-rouge&quot;&gt;ssh-keygen&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Show the RSA public key: &lt;code class=&quot;highlighter-rouge&quot;&gt;cat ~/.ssh/id_rsa.pub&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Run local bash script remote to server: &lt;code class=&quot;highlighter-rouge&quot;&gt;ssh root@45.69.251.209 'bash -s' &amp;lt; bash-script-file.sh&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;cron&quot;&gt;Cron&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Edit cron: &lt;code class=&quot;highlighter-rouge&quot;&gt;crontab -e&lt;/code&gt;, content example: &lt;code class=&quot;highlighter-rouge&quot;&gt;* 2 * * * ~/script/up-report.sh &amp;gt;&amp;gt; ~/cronlog.log&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Restart cron: &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/init.d/cron restart&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;zip&quot;&gt;Zip&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Compress: &lt;code class=&quot;highlighter-rouge&quot;&gt;zip -r filename.zip folder&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Extract:  &lt;code class=&quot;highlighter-rouge&quot;&gt;unzip filename.zip&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;refers&quot;&gt;Refers&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;User
-    &lt;ul&gt;
-      &lt;li&gt;https://www.hostingadvice.com/how-to/change-file-ownershipgroups-linux/&lt;/li&gt;
-      &lt;li&gt;http://xahlee.info/linux/linux_users_groups_admin.html&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Sort
-    &lt;ul&gt;
-      &lt;li&gt;https://www.lostsaloon.com/technology/how-to-sort-the-output-of-ls-in-linux/&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Alias
-    &lt;ul&gt;
-      &lt;li&gt;https://www.tecmint.com/create-alias-in-linux/&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Maven
-    &lt;ul&gt;
-      &lt;li&gt;https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Git
-    &lt;ul&gt;
-      &lt;li&gt;https://rogerdudler.github.io/git-guide/&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Scp
-    &lt;ul&gt;
-      &lt;li&gt;https://kb.iweb.com/hc/en-us/articles/230241568-Copying-a-file-to-another-server-through-SSH&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;MySQL
-    &lt;ul&gt;
-      &lt;li&gt;https://dev.mysql.com/doc/refman/8.0/en/resetting-permissions.html&lt;/li&gt;
-      &lt;li&gt;https://stackoverflow.com/a/50130875&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Alias</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" /></entry></feed>
+&lt;/ul&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Hiện thực Log4j2 trong project Maven, gói ghém chỉ qua 3 bước như bên dưới.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" /></entry></feed>
