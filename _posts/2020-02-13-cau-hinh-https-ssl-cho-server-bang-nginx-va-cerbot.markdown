@@ -6,7 +6,7 @@ categories: server
 author: mtSiniChi
 
 image: /assets/images/via-verde-crm-increases-customer-adoption-hero.png
-article_description: Hướng dẫn cấu hình HTTPS/SSL cho server bằng Nginx và Certbot và trỏ tên miền đến server.
+article_description: Hướng dẫn cấu hình HTTPS/SSL và trỏ tên miền đến server bằng Nginx và Certbot.
 ---
 
 Bài toán được đưa ra, chúng ta sẽ cấu hình server Linux sử dụng HTTPS/SSL và trỏ tên miền *cbsys.ga* vào port *3000* đang chạy trên server.
