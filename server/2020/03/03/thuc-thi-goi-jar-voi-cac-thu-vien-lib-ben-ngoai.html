@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Thực thi gói jar với các thư viện lib bên ngoài | mtSiniChi</title>
+<meta name="generator" content="Jekyll v3.8.6" />
+<meta property="og:title" content="Thực thi gói jar với các thư viện lib bên ngoài" />
+<meta name="author" content="mtSiniChi" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Trình IDEA giúp chúng ta rất nhiều khi muốn chạy project Maven hoặc Spring Boot trong quá trình phát triển, nhưng thực tế khi deploy lên môi trường server hay docker project khi đó phải thực thi câu lệnh command line mà không thông qua trình biên dịch. Bài viết sẽ hướng dẫn thực thi tập tin jar bằng command line thông qua 2 cách." />
+<meta property="og:description" content="Trình IDEA giúp chúng ta rất nhiều khi muốn chạy project Maven hoặc Spring Boot trong quá trình phát triển, nhưng thực tế khi deploy lên môi trường server hay docker project khi đó phải thực thi câu lệnh command line mà không thông qua trình biên dịch. Bài viết sẽ hướng dẫn thực thi tập tin jar bằng command line thông qua 2 cách." />
+<link rel="canonical" href="/server/2020/03/03/thuc-thi-goi-jar-voi-cac-thu-vien-lib-ben-ngoai.html" />
+<meta property="og:url" content="/server/2020/03/03/thuc-thi-goi-jar-voi-cac-thu-vien-lib-ben-ngoai.html" />
+<meta property="og:site_name" content="mtSiniChi" />
+<meta property="og:image" content="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-03-03T12:38:27+07:00" />
+<script type="application/ld+json">
+{"description":"Trình IDEA giúp chúng ta rất nhiều khi muốn chạy project Maven hoặc Spring Boot trong quá trình phát triển, nhưng thực tế khi deploy lên môi trường server hay docker project khi đó phải thực thi câu lệnh command line mà không thông qua trình biên dịch. Bài viết sẽ hướng dẫn thực thi tập tin jar bằng command line thông qua 2 cách.","headline":"Thực thi gói jar với các thư viện lib bên ngoài","dateModified":"2020-03-03T12:38:27+07:00","datePublished":"2020-03-03T12:38:27+07:00","@type":"BlogPosting","image":"/assets/images/via-verde-crm-increases-customer-adoption-hero.png","mainEntityOfPage":{"@type":"WebPage","@id":"/server/2020/03/03/thuc-thi-goi-jar-voi-cac-thu-vien-lib-ben-ngoai.html"},"url":"/server/2020/03/03/thuc-thi-goi-jar-voi-cac-thu-vien-lib-ben-ngoai.html","author":{"@type":"Person","name":"mtSiniChi"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="mtSiniChi" /><script src="/assets/js/anchor.js"></script>
+  <script src="/assets/js/jquery-3.1.1.min.js"></script>
+  <script src="/assets/js/jquery.toc.min.js"></script>
+
+</head><body><header class="site-header" role="banner">
+
+  <div class="container"><a class="site-title" rel="author" href="/">mtSiniChi</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/page-test.html">Page Test</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <!-- <div class="wrapper"> -->
+        <header class="post-header post-featured hero" style="
+    background-image: url(/assets/images/via-verde-crm-increases-customer-adoption-hero.png);
+  ">
+  <div class="wrapper">
+
+    <h1 class="post-title p-name" itemprop="name headline">Thực thi gói jar với các thư viện lib bên ngoài</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2020-03-03T12:38:27+07:00" itemprop="datePublished">Mar 3, 2020
+      </time>
+      <!--• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card"
+          itemprop="name">mtSiniChi </span></span>-->
+
+      • <span>241 words </span>
+      • <span class="reading-time" title="Estimated read time">
+        
+        2 min
+      </span>
+    </p>
+
+    <p class="excerpt">
+      Trình IDEA giúp chúng ta rất nhiều khi muốn chạy project Maven hoặc Spring Boot trong quá trình phát triển, nhưng thực tế khi deploy lên môi trường server hay docker project khi đó phải thực thi câu lệnh command line mà không thông qua trình biên dịch. Bài viết sẽ hướng dẫn thực thi tập tin jar bằng command line thông qua 2 cách.
+
+    </p>
+  </div>
+</header>
+
+<div class="wrapper">
+  <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <!-- <ul data-toc></ul> -->
+
+    <div class="table-content">
+      <p class="toc-title">Nội dung</p>
+      <!-- <p>Table of contents, auto-generated from the content on this page:</p> -->
+      <!-- <p>Mục lục, được tạo tự động từ nội dung trên trang này:</p> -->
+      <ul data-toc data-toc-headings="h2,h3,h4"></ul>
+    </div>
+
+    <div class="post-content e-content" itemprop="articleBody">
+      <p>Trình IDEA giúp chúng ta rất nhiều khi muốn chạy project Maven hoặc Spring Boot trong quá trình phát triển, nhưng thực tế khi deploy lên môi trường server hay docker project khi đó phải thực thi câu lệnh command line mà không thông qua trình biên dịch. Bài viết sẽ hướng dẫn thực thi tập tin jar bằng command line thông qua 2 cách.</p>
+
+<p>Các bạn có thể xem thêm cách tạo ra file Jar ở bài <a href="/java/maven/2019/03/25/tao-file-fat-jar-tu-project-maven.html">Tạo Tập Tin Fat Jar Từ Project Maven</a></p>
+
+<h2 id="câu-lệnh">Câu lệnh</h2>
+
+<p>Có 2 cách chạy gói jar:</p>
+
+<ul>
+  <li>Gói jar có cả các thư viện: <code class="highlighter-rouge">java -Dappenv=local -jar xyz.jar</code></li>
+  <li>Gói jar với thư viện bên ngoài: <code class="highlighter-rouge">java -cp "./xyz.jar:lib/*" -Dappenv=local vn.com.a.b.Main</code></li>
+</ul>
+
+<h2 id="xem-thêm">Xem thêm</h2>
+
+<p>Gói jar bao gồm các thư viện trong Spring Boot sẽ sử dụng <code class="highlighter-rouge">spring-boot-maven-plugin</code>:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>...
+ <span class="nt">&lt;build&gt;</span>
+        <span class="nt">&lt;resources&gt;</span>
+            <span class="nt">&lt;resource&gt;</span>
+                <span class="nt">&lt;directory&gt;</span>conf<span class="nt">&lt;/directory&gt;</span> <span class="c">&lt;!-- (option) file config --&gt;</span>
+            <span class="nt">&lt;/resource&gt;</span>
+        <span class="nt">&lt;/resources&gt;</span>
+
+        <span class="nt">&lt;plugins&gt;</span>
+            <span class="nt">&lt;plugin&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>spring-boot-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;executions&gt;</span>
+                    <span class="nt">&lt;execution&gt;</span>
+                        <span class="nt">&lt;goals&gt;</span>
+                            <span class="nt">&lt;goal&gt;</span>repackage<span class="nt">&lt;/goal&gt;</span>
+                        <span class="nt">&lt;/goals&gt;</span>
+                        <span class="nt">&lt;configuration&gt;</span>
+                            <span class="nt">&lt;classifier&gt;</span>spring-boot<span class="nt">&lt;/classifier&gt;</span>
+                            <span class="nt">&lt;mainClass&gt;</span>${start-class}<span class="nt">&lt;/mainClass&gt;</span>
+                        <span class="nt">&lt;/configuration&gt;</span>
+                    <span class="nt">&lt;/execution&gt;</span>
+                <span class="nt">&lt;/executions&gt;</span>
+            <span class="nt">&lt;/plugin&gt;</span>
+        <span class="nt">&lt;/plugins&gt;</span>
+    <span class="nt">&lt;/build&gt;</span>
+</code></pre></div></div>
+
+<p>Gói jar không bao gồm các thư viện trong nó, mà có thư viện jar nằm trong thư mục <em>build</em> sẽ sử dụng thư viện <code class="highlighter-rouge">maven-dependency-plugin</code>:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>...
+<span class="nt">&lt;build&gt;</span>
+        <span class="nt">&lt;resources&gt;</span>
+            <span class="nt">&lt;resource&gt;</span>
+                <span class="nt">&lt;directory&gt;</span>conf<span class="nt">&lt;/directory&gt;</span> <span class="c">&lt;!-- (option) file config --&gt;</span>
+            <span class="nt">&lt;/resource&gt;</span>
+        <span class="nt">&lt;/resources&gt;</span>
+        <span class="nt">&lt;plugins&gt;</span>
+            <span class="nt">&lt;plugin&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>maven-surefire-plugin<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>2.22.1<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;/plugin&gt;</span>
+
+            <span class="nt">&lt;plugin&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>maven-jar-plugin<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>3.0.2<span class="nt">&lt;/version&gt;</span>
+                <span class="nt">&lt;configuration&gt;</span>
+                    <span class="nt">&lt;archive&gt;</span>
+                        <span class="nt">&lt;manifest&gt;</span>
+                            <span class="nt">&lt;mainClass&gt;</span>vn.com.a.b.Main<span class="nt">&lt;/mainClass&gt;</span>
+                        <span class="nt">&lt;/manifest&gt;</span>
+                    <span class="nt">&lt;/archive&gt;</span>
+                    <span class="nt">&lt;outputDirectory&gt;</span>${project.build.directory}/dist<span class="nt">&lt;/outputDirectory&gt;</span>
+                <span class="nt">&lt;/configuration&gt;</span>
+            <span class="nt">&lt;/plugin&gt;</span>
+            <span class="nt">&lt;plugin&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>maven-dependency-plugin<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>3.0.2<span class="nt">&lt;/version&gt;</span>
+                <span class="nt">&lt;executions&gt;</span>
+                    <span class="nt">&lt;execution&gt;</span>
+                        <span class="nt">&lt;phase&gt;</span>package<span class="nt">&lt;/phase&gt;</span>
+                        <span class="nt">&lt;goals&gt;</span>
+                            <span class="nt">&lt;goal&gt;</span>copy-dependencies<span class="nt">&lt;/goal&gt;</span>
+                        <span class="nt">&lt;/goals&gt;</span>
+                        <span class="nt">&lt;configuration&gt;</span>
+                            <span class="nt">&lt;outputDirectory&gt;</span>${project.build.directory}/dist/lib<span class="nt">&lt;/outputDirectory&gt;</span>
+                        <span class="nt">&lt;/configuration&gt;</span>
+                    <span class="nt">&lt;/execution&gt;</span>
+                <span class="nt">&lt;/executions&gt;</span>
+            <span class="nt">&lt;/plugin&gt;</span>
+        <span class="nt">&lt;/plugins&gt;</span>
+    <span class="nt">&lt;/build&gt;</span>
+</code></pre></div></div>
+
+<h2 id="tham-khảo">Tham khảo</h2>
+
+<ul>
+  <li>https://stackoverflow.com/a/1275467</li>
+</ul>
+
+    </div><a class="u-url" href="/server/2020/03/03/thuc-thi-goi-jar-voi-cac-thu-vien-lib-ben-ngoai.html" hidden></a>
+  </article>
+</div>
+      <!-- </div> -->
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <!-- <h2 class="footer-heading">mtSiniChi</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">mtSiniChi</li><li><a class="u-email" href="mailto:your-email@example.com">your-email@example.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a target="_blank" tooltip="fb.com/mtsinichi"
+      href="https://www.facebook.com/mtsinichi"><svg class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#facebook"></use>
+      </svg> <span class="username"></span></a></li><li><a target="_blank" tooltip="github.com/huynhminhtan" href="https://github.com/huynhminhtan"><svg
+        class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#github"></use>
+      </svg> <span class="username"></span></a></li><li><a target="_blank" tooltip="instagram.com/mtsinichi"
+      href="https://instagram.com/mtsinichi"><svg class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#instagram"></use>
+      </svg> <span class="username"></span></a></li><li><a  target="_blank" tooltip="linkedin.com/in/huynhminhtan"
+      href="https://www.linkedin.com/in/huynhminhtan"><svg class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#linkedin"></use>
+      </svg> <span tooltip="sdsdsd"></span></a></li><li><a target="_blank" tooltip="twitter.com/mtsinichi"" 
+      href="https://www.twitter.com/mtsinichi"><svg class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#twitter"></use>
+      </svg> <span class="username"></span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</p>
+      </div>
+    </div> -->
+
+
+    <p>
+      <ul class="social-media-list"><li><a target="_blank" tooltip="fb.com/mtsinichi"
+      href="https://www.facebook.com/mtsinichi"><svg class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#facebook"></use>
+      </svg> <span class="username"></span></a></li><li><a target="_blank" tooltip="github.com/huynhminhtan" href="https://github.com/huynhminhtan"><svg
+        class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#github"></use>
+      </svg> <span class="username"></span></a></li><li><a target="_blank" tooltip="instagram.com/mtsinichi"
+      href="https://instagram.com/mtsinichi"><svg class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#instagram"></use>
+      </svg> <span class="username"></span></a></li><li><a  target="_blank" tooltip="linkedin.com/in/huynhminhtan"
+      href="https://www.linkedin.com/in/huynhminhtan"><svg class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#linkedin"></use>
+      </svg> <span tooltip="sdsdsd"></span></a></li><li><a target="_blank" tooltip="twitter.com/mtsinichi"" 
+      href="https://www.twitter.com/mtsinichi"><svg class="svg-icon">
+        <use xlink:href="/assets/minima-social-icons.svg#twitter"></use>
+      </svg> <span class="username"></span></a></li></ul>
+
+    </p>
+
+    <span>© 2017 mtSiniChi, powered by
+      <a href="http://jekyllrb.com">jekyll</a>.
+      <span class="rss-subscribe">Subscribe <a href="/feed.xml">via RSS</a>.</span>
+      
+
+    </span>
+
+
+  </div>
+
+</footer>
+
+<script>
+	$(function() {
+		// anchors.options.visible = 'always'; 
+		anchors.add('.post-content > h1, .post-content > h2, .post-content > h3, .post-content > h4, .post-content > h5, .post-content > h6');
+	});
+</script></body>
+
+</html>
