@@ -1,136 +1,136 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2020-03-03T16:09:28+07:00</updated><id>/feed.xml</id><title type="html">mtSiniChi</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Thực thi gói jar với các thư viện lib bên ngoài</title><link href="/server/2020/03/03/thuc-thi-goi-jar-voi-cac-thu-vien-lib-ben-ngoai.html" rel="alternate" type="text/html" title="Thực thi gói jar với các thư viện lib bên ngoài" /><published>2020-03-03T12:38:27+07:00</published><updated>2020-03-03T12:38:27+07:00</updated><id>/server/2020/03/03/thuc-thi-goi-jar-voi-cac-thu-vien-lib-ben-ngoai</id><content type="html" xml:base="/server/2020/03/03/thuc-thi-goi-jar-voi-cac-thu-vien-lib-ben-ngoai.html">&lt;p&gt;Trình IDEA giúp chúng ta rất nhiều khi muốn chạy project Maven hoặc Spring Boot trong quá trình phát triển, nhưng thực tế khi deploy lên môi trường server hay docker project khi đó phải thực thi câu lệnh command line mà không thông qua trình biên dịch. Bài viết sẽ hướng dẫn thực thi tập tin jar bằng command line thông qua 2 cách.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2022-04-14T00:40:52+07:00</updated><id>/feed.xml</id><title type="html">mtSiniChi</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Thực thi gói jar với các thư viện lib bên ngoài</title><link href="/server/2020/03/03/thuc-thi-goi-jar-voi-cac-thu-vien-lib-ben-ngoai.html" rel="alternate" type="text/html" title="Thực thi gói jar với các thư viện lib bên ngoài" /><published>2020-03-03T12:38:27+07:00</published><updated>2020-03-03T12:38:27+07:00</updated><id>/server/2020/03/03/thuc-thi-goi-jar-voi-cac-thu-vien-lib-ben-ngoai</id><content type="html" xml:base="/server/2020/03/03/thuc-thi-goi-jar-voi-cac-thu-vien-lib-ben-ngoai.html"><![CDATA[<p>Trình IDEA giúp chúng ta rất nhiều khi muốn chạy project Maven hoặc Spring Boot trong quá trình phát triển, nhưng thực tế khi deploy lên môi trường server hay docker project khi đó phải thực thi câu lệnh command line mà không thông qua trình biên dịch. Bài viết sẽ hướng dẫn thực thi tập tin jar bằng command line thông qua 2 cách.</p>
 
-&lt;p&gt;Các bạn có thể xem thêm cách tạo ra file Jar ở bài &lt;a href=&quot;/java/maven/2019/03/25/tao-file-fat-jar-tu-project-maven.html&quot;&gt;Tạo Tập Tin Fat Jar Từ Project Maven&lt;/a&gt;&lt;/p&gt;
+<p>Các bạn có thể xem thêm cách tạo ra file Jar ở bài <a href="/java/maven/2019/03/25/tao-file-fat-jar-tu-project-maven.html">Tạo Tập Tin Fat Jar Từ Project Maven</a></p>
 
-&lt;h2 id=&quot;câu-lệnh&quot;&gt;Câu lệnh&lt;/h2&gt;
+<h2 id="câu-lệnh">Câu lệnh</h2>
 
-&lt;p&gt;Có 2 cách chạy gói jar:&lt;/p&gt;
+<p>Có 2 cách chạy gói jar:</p>
 
-&lt;ul&gt;
-  &lt;li&gt;Gói jar có cả các thư viện: &lt;code class=&quot;highlighter-rouge&quot;&gt;java -Dappenv=local -jar xyz.jar&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Gói jar với thư viện bên ngoài: &lt;code class=&quot;highlighter-rouge&quot;&gt;java -cp &quot;./xyz.jar:lib/*&quot; -Dappenv=local vn.com.a.b.Main&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Gói jar có cả các thư viện: <code class="language-plaintext highlighter-rouge">java -Dappenv=local -jar xyz.jar</code></li>
+  <li>Gói jar với thư viện bên ngoài: <code class="language-plaintext highlighter-rouge">java -cp "./xyz.jar:lib/*" -Dappenv=local vn.com.a.b.Main</code></li>
+</ul>
 
-&lt;h2 id=&quot;xem-thêm&quot;&gt;Xem thêm&lt;/h2&gt;
+<h2 id="xem-thêm">Xem thêm</h2>
 
-&lt;p&gt;Gói jar bao gồm các thư viện trong Spring Boot sẽ sử dụng &lt;code class=&quot;highlighter-rouge&quot;&gt;spring-boot-maven-plugin&lt;/code&gt;:&lt;/p&gt;
+<p>Gói jar bao gồm các thư viện trong Spring Boot sẽ sử dụng <code class="language-plaintext highlighter-rouge">spring-boot-maven-plugin</code>:</p>
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;...
- &lt;span class=&quot;nt&quot;&gt;&amp;lt;build&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;resources&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;resource&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;directory&amp;gt;&lt;/span&gt;conf&lt;span class=&quot;nt&quot;&gt;&amp;lt;/directory&amp;gt;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- (option) file config --&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/resource&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/resources&amp;gt;&lt;/span&gt;
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>...
+ <span class="nt">&lt;build&gt;</span>
+        <span class="nt">&lt;resources&gt;</span>
+            <span class="nt">&lt;resource&gt;</span>
+                <span class="nt">&lt;directory&gt;</span>conf<span class="nt">&lt;/directory&gt;</span> <span class="c">&lt;!-- (option) file config --&gt;</span>
+            <span class="nt">&lt;/resource&gt;</span>
+        <span class="nt">&lt;/resources&gt;</span>
 
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;plugins&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;plugin&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework.boot&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-boot-maven-plugin&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;executions&amp;gt;&lt;/span&gt;
-                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;execution&amp;gt;&lt;/span&gt;
-                        &lt;span class=&quot;nt&quot;&gt;&amp;lt;goals&amp;gt;&lt;/span&gt;
-                            &lt;span class=&quot;nt&quot;&gt;&amp;lt;goal&amp;gt;&lt;/span&gt;repackage&lt;span class=&quot;nt&quot;&gt;&amp;lt;/goal&amp;gt;&lt;/span&gt;
-                        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/goals&amp;gt;&lt;/span&gt;
-                        &lt;span class=&quot;nt&quot;&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
-                            &lt;span class=&quot;nt&quot;&gt;&amp;lt;classifier&amp;gt;&lt;/span&gt;spring-boot&lt;span class=&quot;nt&quot;&gt;&amp;lt;/classifier&amp;gt;&lt;/span&gt;
-                            &lt;span class=&quot;nt&quot;&gt;&amp;lt;mainClass&amp;gt;&lt;/span&gt;${start-class}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/mainClass&amp;gt;&lt;/span&gt;
-                        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/configuration&amp;gt;&lt;/span&gt;
-                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/execution&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/executions&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/plugin&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/plugins&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/build&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+        <span class="nt">&lt;plugins&gt;</span>
+            <span class="nt">&lt;plugin&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>spring-boot-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;executions&gt;</span>
+                    <span class="nt">&lt;execution&gt;</span>
+                        <span class="nt">&lt;goals&gt;</span>
+                            <span class="nt">&lt;goal&gt;</span>repackage<span class="nt">&lt;/goal&gt;</span>
+                        <span class="nt">&lt;/goals&gt;</span>
+                        <span class="nt">&lt;configuration&gt;</span>
+                            <span class="nt">&lt;classifier&gt;</span>spring-boot<span class="nt">&lt;/classifier&gt;</span>
+                            <span class="nt">&lt;mainClass&gt;</span>${start-class}<span class="nt">&lt;/mainClass&gt;</span>
+                        <span class="nt">&lt;/configuration&gt;</span>
+                    <span class="nt">&lt;/execution&gt;</span>
+                <span class="nt">&lt;/executions&gt;</span>
+            <span class="nt">&lt;/plugin&gt;</span>
+        <span class="nt">&lt;/plugins&gt;</span>
+    <span class="nt">&lt;/build&gt;</span>
+</code></pre></div></div>
 
-&lt;p&gt;Gói jar không bao gồm các thư viện trong nó, mà có thư viện jar nằm trong thư mục &lt;em&gt;build&lt;/em&gt; sẽ sử dụng thư viện &lt;code class=&quot;highlighter-rouge&quot;&gt;maven-dependency-plugin&lt;/code&gt;:&lt;/p&gt;
+<p>Gói jar không bao gồm các thư viện trong nó, mà có thư viện jar nằm trong thư mục <em>build</em> sẽ sử dụng thư viện <code class="language-plaintext highlighter-rouge">maven-dependency-plugin</code>:</p>
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;...
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;build&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;resources&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;resource&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;directory&amp;gt;&lt;/span&gt;conf&lt;span class=&quot;nt&quot;&gt;&amp;lt;/directory&amp;gt;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- (option) file config --&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/resource&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/resources&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;plugins&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;plugin&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.apache.maven.plugins&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;maven-surefire-plugin&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;2.22.1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/plugin&amp;gt;&lt;/span&gt;
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>...
+<span class="nt">&lt;build&gt;</span>
+        <span class="nt">&lt;resources&gt;</span>
+            <span class="nt">&lt;resource&gt;</span>
+                <span class="nt">&lt;directory&gt;</span>conf<span class="nt">&lt;/directory&gt;</span> <span class="c">&lt;!-- (option) file config --&gt;</span>
+            <span class="nt">&lt;/resource&gt;</span>
+        <span class="nt">&lt;/resources&gt;</span>
+        <span class="nt">&lt;plugins&gt;</span>
+            <span class="nt">&lt;plugin&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>maven-surefire-plugin<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>2.22.1<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;/plugin&gt;</span>
 
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;plugin&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.apache.maven.plugins&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;maven-jar-plugin&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;3.0.2&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
-                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;archive&amp;gt;&lt;/span&gt;
-                        &lt;span class=&quot;nt&quot;&gt;&amp;lt;manifest&amp;gt;&lt;/span&gt;
-                            &lt;span class=&quot;nt&quot;&gt;&amp;lt;mainClass&amp;gt;&lt;/span&gt;vn.com.a.b.Main&lt;span class=&quot;nt&quot;&gt;&amp;lt;/mainClass&amp;gt;&lt;/span&gt;
-                        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/manifest&amp;gt;&lt;/span&gt;
-                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/archive&amp;gt;&lt;/span&gt;
-                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;outputDirectory&amp;gt;&lt;/span&gt;${project.build.directory}/dist&lt;span class=&quot;nt&quot;&gt;&amp;lt;/outputDirectory&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/configuration&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/plugin&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;plugin&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.apache.maven.plugins&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;maven-dependency-plugin&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;3.0.2&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;executions&amp;gt;&lt;/span&gt;
-                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;execution&amp;gt;&lt;/span&gt;
-                        &lt;span class=&quot;nt&quot;&gt;&amp;lt;phase&amp;gt;&lt;/span&gt;package&lt;span class=&quot;nt&quot;&gt;&amp;lt;/phase&amp;gt;&lt;/span&gt;
-                        &lt;span class=&quot;nt&quot;&gt;&amp;lt;goals&amp;gt;&lt;/span&gt;
-                            &lt;span class=&quot;nt&quot;&gt;&amp;lt;goal&amp;gt;&lt;/span&gt;copy-dependencies&lt;span class=&quot;nt&quot;&gt;&amp;lt;/goal&amp;gt;&lt;/span&gt;
-                        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/goals&amp;gt;&lt;/span&gt;
-                        &lt;span class=&quot;nt&quot;&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
-                            &lt;span class=&quot;nt&quot;&gt;&amp;lt;outputDirectory&amp;gt;&lt;/span&gt;${project.build.directory}/dist/lib&lt;span class=&quot;nt&quot;&gt;&amp;lt;/outputDirectory&amp;gt;&lt;/span&gt;
-                        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/configuration&amp;gt;&lt;/span&gt;
-                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/execution&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/executions&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/plugin&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/plugins&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/build&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+            <span class="nt">&lt;plugin&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>maven-jar-plugin<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>3.0.2<span class="nt">&lt;/version&gt;</span>
+                <span class="nt">&lt;configuration&gt;</span>
+                    <span class="nt">&lt;archive&gt;</span>
+                        <span class="nt">&lt;manifest&gt;</span>
+                            <span class="nt">&lt;mainClass&gt;</span>vn.com.a.b.Main<span class="nt">&lt;/mainClass&gt;</span>
+                        <span class="nt">&lt;/manifest&gt;</span>
+                    <span class="nt">&lt;/archive&gt;</span>
+                    <span class="nt">&lt;outputDirectory&gt;</span>${project.build.directory}/dist<span class="nt">&lt;/outputDirectory&gt;</span>
+                <span class="nt">&lt;/configuration&gt;</span>
+            <span class="nt">&lt;/plugin&gt;</span>
+            <span class="nt">&lt;plugin&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>maven-dependency-plugin<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>3.0.2<span class="nt">&lt;/version&gt;</span>
+                <span class="nt">&lt;executions&gt;</span>
+                    <span class="nt">&lt;execution&gt;</span>
+                        <span class="nt">&lt;phase&gt;</span>package<span class="nt">&lt;/phase&gt;</span>
+                        <span class="nt">&lt;goals&gt;</span>
+                            <span class="nt">&lt;goal&gt;</span>copy-dependencies<span class="nt">&lt;/goal&gt;</span>
+                        <span class="nt">&lt;/goals&gt;</span>
+                        <span class="nt">&lt;configuration&gt;</span>
+                            <span class="nt">&lt;outputDirectory&gt;</span>${project.build.directory}/dist/lib<span class="nt">&lt;/outputDirectory&gt;</span>
+                        <span class="nt">&lt;/configuration&gt;</span>
+                    <span class="nt">&lt;/execution&gt;</span>
+                <span class="nt">&lt;/executions&gt;</span>
+            <span class="nt">&lt;/plugin&gt;</span>
+        <span class="nt">&lt;/plugins&gt;</span>
+    <span class="nt">&lt;/build&gt;</span>
+</code></pre></div></div>
 
-&lt;h2 id=&quot;tham-khảo&quot;&gt;Tham khảo&lt;/h2&gt;
+<h2 id="tham-khảo">Tham khảo</h2>
 
-&lt;ul&gt;
-  &lt;li&gt;https://stackoverflow.com/a/1275467&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Trình IDEA giúp chúng ta rất nhiều khi muốn chạy project Maven hoặc Spring Boot trong quá trình phát triển, nhưng thực tế khi deploy lên môi trường server hay docker project khi đó phải thực thi câu lệnh command line mà không thông qua trình biên dịch. Bài viết sẽ hướng dẫn thực thi tập tin jar bằng command line thông qua 2 cách.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" /></entry><entry><title type="html">Cấu hình HTTPS/SSL cho server bằng Nginx và Certbot</title><link href="/server/2020/02/13/cau-hinh-https-ssl-cho-server-bang-nginx-va-cerbot.html" rel="alternate" type="text/html" title="Cấu hình HTTPS/SSL cho server bằng Nginx và Certbot" /><published>2020-02-13T12:38:27+07:00</published><updated>2020-02-13T12:38:27+07:00</updated><id>/server/2020/02/13/cau-hinh-https-ssl-cho-server-bang-nginx-va-cerbot</id><content type="html" xml:base="/server/2020/02/13/cau-hinh-https-ssl-cho-server-bang-nginx-va-cerbot.html">&lt;p&gt;Bài toán được đưa ra, chúng ta sẽ cấu hình server Linux sử dụng HTTPS/SSL và trỏ tên miền &lt;em&gt;cbsys.ga&lt;/em&gt; vào port &lt;em&gt;3000&lt;/em&gt; đang chạy trên server.&lt;/p&gt;
+<ul>
+  <li>https://stackoverflow.com/a/1275467</li>
+</ul>]]></content><author><name>mtSiniChi</name></author><category term="server" /><summary type="html"><![CDATA[Trình IDEA giúp chúng ta rất nhiều khi muốn chạy project Maven hoặc Spring Boot trong quá trình phát triển, nhưng thực tế khi deploy lên môi trường server hay docker project khi đó phải thực thi câu lệnh command line mà không thông qua trình biên dịch. Bài viết sẽ hướng dẫn thực thi tập tin jar bằng command line thông qua 2 cách.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" /><media:content medium="image" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Cấu hình HTTPS/SSL cho server bằng Nginx và Certbot</title><link href="/server/2020/02/13/cau-hinh-https-ssl-cho-server-bang-nginx-va-cerbot.html" rel="alternate" type="text/html" title="Cấu hình HTTPS/SSL cho server bằng Nginx và Certbot" /><published>2020-02-13T12:38:27+07:00</published><updated>2020-02-13T12:38:27+07:00</updated><id>/server/2020/02/13/cau-hinh-https-ssl-cho-server-bang-nginx-va-cerbot</id><content type="html" xml:base="/server/2020/02/13/cau-hinh-https-ssl-cho-server-bang-nginx-va-cerbot.html"><![CDATA[<p>Bài toán được đưa ra, chúng ta sẽ cấu hình server Linux sử dụng HTTPS/SSL và trỏ tên miền <em>cbsys.ga</em> vào port <em>3000</em> đang chạy trên server.</p>
 
-&lt;h2 id=&quot;hướng-dẫn&quot;&gt;Hướng dẫn&lt;/h2&gt;
+<h2 id="hướng-dẫn">Hướng dẫn</h2>
 
-&lt;ul&gt;
-  &lt;li&gt;Cài Nginx:&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Cài Nginx:</li>
+</ul>
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get update
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;nginx
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;nginx &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;service nginx status
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>apt-get update
+<span class="nv">$ </span><span class="nb">sudo </span>apt-get <span class="nb">install </span>nginx
+<span class="nv">$ </span><span class="nb">sudo </span>nginx <span class="nt">-v</span>
+<span class="nv">$ </span><span class="nb">sudo </span>service nginx status
+</code></pre></div></div>
 
-&lt;ul&gt;
-  &lt;li&gt;Cài Cerbot&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Cài Cerbot</li>
+</ul>
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;add-apt-repository ppa:certbot/certbot
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get update
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;python-certbot-nginx
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>add-apt-repository ppa:certbot/certbot
+<span class="nv">$ </span><span class="nb">sudo </span>apt-get update
+<span class="nv">$ </span><span class="nb">sudo </span>apt-get <span class="nb">install </span>python-certbot-nginx
 
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;python3-pyasn1
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;certbot &lt;span class=&quot;nt&quot;&gt;--version&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<span class="nv">$ </span>apt-get <span class="nb">install </span>python3-pyasn1
+<span class="nv">$ </span>certbot <span class="nt">--version</span>
+</code></pre></div></div>
 
-&lt;ul&gt;
-  &lt;li&gt;Enable tường lửa để cài đặt rồi tắt liền: &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo ufw status&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo ufw enable&lt;/code&gt;, nếu không sẽ không truy cập được SSH&lt;/li&gt;
-  &lt;li&gt;Cấu hình DNS Domain, trỏ domain &lt;em&gt;cbsys.ga&lt;/em&gt; sang host đang cài đặt Nginx với &lt;code class=&quot;highlighter-rouge&quot;&gt;Type:A, Name: cbsys.ga&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Cài SSL với Nginx &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo certbot --nginx -d cbsys.ga&lt;/code&gt;, xem cấu hình khi cài đặt thành công ở &lt;em&gt;/etc/nginx/sites-enabled/default&lt;/em&gt;&lt;/li&gt;
-  &lt;li&gt;Sau đó tắt tường lửa, để truy cập lại được SSH nếu thoát ra &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo ufw disable&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Vào đường dẫn &lt;em&gt;/etc/nginx/sites-enabled&lt;/em&gt; tạo một file &lt;em&gt;cbsys.ga&lt;/em&gt; để cấu hình reverse proxy thực hiện mapping tới port &lt;em&gt;3000&lt;/em&gt;&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Enable tường lửa để cài đặt rồi tắt liền: <code class="language-plaintext highlighter-rouge">sudo ufw status</code>, <code class="language-plaintext highlighter-rouge">sudo ufw enable</code>, nếu không sẽ không truy cập được SSH</li>
+  <li>Cấu hình DNS Domain, trỏ domain <em>cbsys.ga</em> sang host đang cài đặt Nginx với <code class="language-plaintext highlighter-rouge">Type:A, Name: cbsys.ga</code></li>
+  <li>Cài SSL với Nginx <code class="language-plaintext highlighter-rouge">sudo certbot --nginx -d cbsys.ga</code>, xem cấu hình khi cài đặt thành công ở <em>/etc/nginx/sites-enabled/default</em></li>
+  <li>Sau đó tắt tường lửa, để truy cập lại được SSH nếu thoát ra <code class="language-plaintext highlighter-rouge">sudo ufw disable</code></li>
+  <li>Vào đường dẫn <em>/etc/nginx/sites-enabled</em> tạo một file <em>cbsys.ga</em> để cấu hình reverse proxy thực hiện mapping tới port <em>3000</em></li>
+</ul>
 
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;server {
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server {
 
     	listen 443 ssl;
 	    listen [::]:443 ssl;
@@ -149,7 +149,7 @@
                 proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
                 proxy_set_header        X-Forwarded-Proto $scheme;
 
-                # Fix the “It appears that your reverse proxy set up is broken&quot; error.
+                # Fix the “It appears that your reverse proxy set up is broken" error.
                 proxy_pass          http://localhost:3000;
                 proxy_read_timeout  90;
 
@@ -158,98 +158,98 @@
         }
 
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</code></pre></div></div>
 
-&lt;ul&gt;
-  &lt;li&gt;Sau đó restart lại Nginx để thấy thay đổi: &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo service nginx restart&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Sau đó restart lại Nginx để thấy thay đổi: <code class="language-plaintext highlighter-rouge">sudo service nginx restart</code></li>
+</ul>
 
-&lt;h2 id=&quot;tham-khảo&quot;&gt;Tham khảo&lt;/h2&gt;
+<h2 id="tham-khảo">Tham khảo</h2>
 
-&lt;ul&gt;
-  &lt;li&gt;https://www.linode.com/docs/web-servers/nginx/use-nginx-reverse-proxy/#configure-https-with-certbot&lt;/li&gt;
-  &lt;li&gt;https://www.digitalocean.com/community/tutorials/how-to-set-up-let-s-encrypt-with-nginx-server-blocks-on-ubuntu-16-04&lt;/li&gt;
-  &lt;li&gt;https://www.godaddy.com/garage/how-to-install-an-ssl-certificate-on-ubuntu-for-nginx/&lt;/li&gt;
-  &lt;li&gt;https://dzone.com/articles/how-to-install-lets-encrypt-with-nginx-on-ubuntu-1&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Bài toán được đưa ra, chúng ta sẽ cấu hình server Linux sử dụng HTTPS/SSL và trỏ tên miền cbsys.ga vào port 3000 đang chạy trên server.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" /></entry><entry><title type="html">Cài Nodejs theo version</title><link href="/nodejs/2020/01/26/cai-nodejs-theo-version.html" rel="alternate" type="text/html" title="Cài Nodejs theo version" /><published>2020-01-26T12:38:27+07:00</published><updated>2020-01-26T12:38:27+07:00</updated><id>/nodejs/2020/01/26/cai-nodejs-theo-version</id><content type="html" xml:base="/nodejs/2020/01/26/cai-nodejs-theo-version.html">&lt;h2 id=&quot;hướng-dẫn&quot;&gt;Hướng dẫn&lt;/h2&gt;
+<ul>
+  <li>https://www.linode.com/docs/web-servers/nginx/use-nginx-reverse-proxy/#configure-https-with-certbot</li>
+  <li>https://www.digitalocean.com/community/tutorials/how-to-set-up-let-s-encrypt-with-nginx-server-blocks-on-ubuntu-16-04</li>
+  <li>https://www.godaddy.com/garage/how-to-install-an-ssl-certificate-on-ubuntu-for-nginx/</li>
+  <li>https://dzone.com/articles/how-to-install-lets-encrypt-with-nginx-on-ubuntu-1</li>
+</ul>]]></content><author><name>mtSiniChi</name></author><category term="server" /><summary type="html"><![CDATA[Bài toán được đưa ra, chúng ta sẽ cấu hình server Linux sử dụng HTTPS/SSL và trỏ tên miền cbsys.ga vào port 3000 đang chạy trên server.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" /><media:content medium="image" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Cài Nodejs theo version</title><link href="/nodejs/2020/01/26/cai-nodejs-theo-version.html" rel="alternate" type="text/html" title="Cài Nodejs theo version" /><published>2020-01-26T12:38:27+07:00</published><updated>2020-01-26T12:38:27+07:00</updated><id>/nodejs/2020/01/26/cai-nodejs-theo-version</id><content type="html" xml:base="/nodejs/2020/01/26/cai-nodejs-theo-version.html"><![CDATA[<h2 id="hướng-dẫn">Hướng dẫn</h2>
 
-&lt;ul&gt;
-  &lt;li&gt;Cài đặt NVM: &lt;code class=&quot;highlighter-rouge&quot;&gt;curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Cài Nodejs theo version mong muốn: &lt;code class=&quot;highlighter-rouge&quot;&gt;nvm install 8.9.0&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Kiểm tra: &lt;code class=&quot;highlighter-rouge&quot;&gt;node -v&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Trang xem version Nodejs: https://nodejs.org/dist/&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Cài đặt NVM: <code class="language-plaintext highlighter-rouge">curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash</code></li>
+  <li>Cài Nodejs theo version mong muốn: <code class="language-plaintext highlighter-rouge">nvm install 8.9.0</code></li>
+  <li>Kiểm tra: <code class="language-plaintext highlighter-rouge">node -v</code></li>
+  <li>Trang xem version Nodejs: https://nodejs.org/dist/</li>
+</ul>
 
-&lt;h2 id=&quot;tham-khảo&quot;&gt;Tham khảo&lt;/h2&gt;
+<h2 id="tham-khảo">Tham khảo</h2>
 
-&lt;ul&gt;
-  &lt;li&gt;https://nodejs.org/dist/&lt;/li&gt;
-  &lt;li&gt;https://stackoverflow.com/a/7718438&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Hướng dẫn</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" /></entry><entry><title type="html">Cách trỏ domain vào port của server bằng Nginx</title><link href="/webserver/2019/12/01/cach-tro-domain-vao-port-cua-server-bang-nginx.html" rel="alternate" type="text/html" title="Cách trỏ domain vào port của server bằng Nginx" /><published>2019-12-01T12:38:27+07:00</published><updated>2019-12-01T12:38:27+07:00</updated><id>/webserver/2019/12/01/cach-tro-domain-vao-port-cua-server-bang-nginx</id><content type="html" xml:base="/webserver/2019/12/01/cach-tro-domain-vao-port-cua-server-bang-nginx.html">&lt;h2 id=&quot;tổng-quan&quot;&gt;Tổng quan&lt;/h2&gt;
+<ul>
+  <li>https://nodejs.org/dist/</li>
+  <li>https://stackoverflow.com/a/7718438</li>
+</ul>]]></content><author><name>mtSiniChi</name></author><category term="nodejs" /><summary type="html"><![CDATA[Hướng dẫn]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" /><media:content medium="image" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Cách trỏ domain vào port của server bằng Nginx</title><link href="/webserver/2019/12/01/cach-tro-domain-vao-port-cua-server-bang-nginx.html" rel="alternate" type="text/html" title="Cách trỏ domain vào port của server bằng Nginx" /><published>2019-12-01T12:38:27+07:00</published><updated>2019-12-01T12:38:27+07:00</updated><id>/webserver/2019/12/01/cach-tro-domain-vao-port-cua-server-bang-nginx</id><content type="html" xml:base="/webserver/2019/12/01/cach-tro-domain-vao-port-cua-server-bang-nginx.html"><![CDATA[<h2 id="tổng-quan">Tổng quan</h2>
 
-&lt;p&gt;Nếu bạn đã từng vọc vạch mua một domain và shared hosting để chạy demo một trang web, khi đó bạn có thể dễ dàng trỏ một domain vào hosting hoặc thêm nhiều domain (addon domain) vào hosting hoặc thêm tên miền con (sub domain) vào hosting đó. Và đương nhiên mỗi domain, sub domain, addon domain mà bạn thêm vào cũng dễ dàng chỉ định cho khớp với thư mục lưu trữ source code thực thi tương ứng. Có được điều này là do shared hosting bạn sử dụng đã tích hợp hệ thống quản trị &lt;em&gt;Control Panel Server&lt;/em&gt; nổi tiếng với mấy cái tên quen thuộc Cpanel 11, Sentora, VistaCP.&lt;/p&gt;
+<p>Nếu bạn đã từng vọc vạch mua một domain và shared hosting để chạy demo một trang web, khi đó bạn có thể dễ dàng trỏ một domain vào hosting hoặc thêm nhiều domain (addon domain) vào hosting hoặc thêm tên miền con (sub domain) vào hosting đó. Và đương nhiên mỗi domain, sub domain, addon domain mà bạn thêm vào cũng dễ dàng chỉ định cho khớp với thư mục lưu trữ source code thực thi tương ứng. Có được điều này là do shared hosting bạn sử dụng đã tích hợp hệ thống quản trị <em>Control Panel Server</em> nổi tiếng với mấy cái tên quen thuộc Cpanel 11, Sentora, VistaCP.</p>
 
-&lt;p&gt;Mà shared hosting lại có sự giới hạn riêng của nó, một khi chạm tới ngưỡng bạn bắt buộc chuyển sang chạy trên server, có thể xem như &lt;em&gt;một bầu trời to lớn dành cho một cao nhận vĩ đại&lt;/em&gt;. Trên thực tế server sẽ chạy ở rất nhiều port mà mỗi port đại diện cho một service riêng, để giảm sự nhập nhằng nhớ số IP số port hoặc tạo sự dễ dàng một khi IP server thay đổi và cuối cùng phương án sử dụng domain là điều rất cần thiết. Tới lúc này, vấn đề thật sự được đặt ra là làm thế nào để trỏ domain, sub domain, addon domain vào các port tương ứng đang chạy trên server.&lt;/p&gt;
+<p>Mà shared hosting lại có sự giới hạn riêng của nó, một khi chạm tới ngưỡng bạn bắt buộc chuyển sang chạy trên server, có thể xem như <em>một bầu trời to lớn dành cho một cao nhận vĩ đại</em>. Trên thực tế server sẽ chạy ở rất nhiều port mà mỗi port đại diện cho một service riêng, để giảm sự nhập nhằng nhớ số IP số port hoặc tạo sự dễ dàng một khi IP server thay đổi và cuối cùng phương án sử dụng domain là điều rất cần thiết. Tới lúc này, vấn đề thật sự được đặt ra là làm thế nào để trỏ domain, sub domain, addon domain vào các port tương ứng đang chạy trên server.</p>
 
-&lt;p&gt;Bài viết sau sẽ hướng dẫn các bạn trỏ domain vào port đang chạy trên server bằng việc sử dụng Ngnix và cách cấu hình DNS domain.&lt;/p&gt;
+<p>Bài viết sau sẽ hướng dẫn các bạn trỏ domain vào port đang chạy trên server bằng việc sử dụng Ngnix và cách cấu hình DNS domain.</p>
 
-&lt;h2 id=&quot;các-bước-thực-hiện&quot;&gt;Các bước thực hiện&lt;/h2&gt;
+<h2 id="các-bước-thực-hiện">Các bước thực hiện</h2>
 
-&lt;p&gt;Lấy một ví dụ, chúng ta muốn thêm một domain &lt;em&gt;minhtan.me&lt;/em&gt; vào server Ubuntu 16.4 có IP là &lt;em&gt;45.252.121.7&lt;/em&gt;, và đây là kết quả chi tiết cho ví dụ trong bài viết này:&lt;/p&gt;
+<p>Lấy một ví dụ, chúng ta muốn thêm một domain <em>minhtan.me</em> vào server Ubuntu 16.4 có IP là <em>45.252.121.7</em>, và đây là kết quả chi tiết cho ví dụ trong bài viết này:</p>
 
-&lt;ul&gt;
-  &lt;li&gt;Nhập &lt;em&gt;minhtan.me&lt;/em&gt; trỏ đến &lt;em&gt;45.252.121.7:80&lt;/em&gt;. (service Welcome)&lt;/li&gt;
-  &lt;li&gt;Nhập &lt;em&gt;dashboard.minhtan.me&lt;/em&gt; trỏ đến &lt;em&gt;45.252.121.7:3000&lt;/em&gt;. (service Grafana)&lt;/li&gt;
-  &lt;li&gt;Nhập &lt;em&gt;dev.minhtan.me&lt;/em&gt; trỏ đến &lt;em&gt;45.252.121.7:9090&lt;/em&gt;. (service Java web)&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Nhập <em>minhtan.me</em> trỏ đến <em>45.252.121.7:80</em>. (service Welcome)</li>
+  <li>Nhập <em>dashboard.minhtan.me</em> trỏ đến <em>45.252.121.7:3000</em>. (service Grafana)</li>
+  <li>Nhập <em>dev.minhtan.me</em> trỏ đến <em>45.252.121.7:9090</em>. (service Java web)</li>
+</ul>
 
-&lt;p&gt;Các bước thực hiện như sau:&lt;/p&gt;
+<p>Các bước thực hiện như sau:</p>
 
-&lt;ul&gt;
-  &lt;li&gt;Đầu tiên, cấu hình DNS cho domain với trường như bên dưới:&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Đầu tiên, cấu hình DNS cho domain với trường như bên dưới:</li>
+</ul>
 
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Type&lt;/th&gt;
-      &lt;th&gt;Name&lt;/th&gt;
-      &lt;th&gt;Content&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;A&lt;/td&gt;
-      &lt;td&gt;minhtan.me&lt;/td&gt;
-      &lt;td&gt;45.252.121.7&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;A&lt;/td&gt;
-      &lt;td&gt;dashboard&lt;/td&gt;
-      &lt;td&gt;45.252.121.7&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;A&lt;/td&gt;
-      &lt;td&gt;dev&lt;/td&gt;
-      &lt;td&gt;45.252.121.7&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Name</th>
+      <th>Content</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>A</td>
+      <td>minhtan.me</td>
+      <td>45.252.121.7</td>
+    </tr>
+    <tr>
+      <td>A</td>
+      <td>dashboard</td>
+      <td>45.252.121.7</td>
+    </tr>
+    <tr>
+      <td>A</td>
+      <td>dev</td>
+      <td>45.252.121.7</td>
+    </tr>
+  </tbody>
+</table>
 
-&lt;ul&gt;
-  &lt;li&gt;Cài đặt Nginx.&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Cài đặt Nginx.</li>
+</ul>
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get update
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;nginx
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;nginx &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>apt-get update
+<span class="nv">$ </span><span class="nb">sudo </span>apt-get <span class="nb">install </span>nginx
+<span class="nv">$ </span><span class="nb">sudo </span>nginx <span class="nt">-v</span>
+</code></pre></div></div>
 
-&lt;ul&gt;
-  &lt;li&gt;Cấu hình Nginx, tạo một tập tin cấu hình &lt;em&gt;domain.config&lt;/em&gt; trong &lt;em&gt;/etc/nginx/sites-available/domain.config&lt;/em&gt; có nội dung như sau:&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Cấu hình Nginx, tạo một tập tin cấu hình <em>domain.config</em> trong <em>/etc/nginx/sites-available/domain.config</em> có nội dung như sau:</li>
+</ul>
 
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# /etc/nginx/sites-available/domain.config
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code># /etc/nginx/sites-available/domain.config
 server {
     listen 80;
     server_name minhtan.me;
@@ -288,440 +288,440 @@ server {
         proxy_set_header X-Forwarded-Proto $scheme;
     }
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</code></pre></div></div>
 
-&lt;ul&gt;
-  &lt;li&gt;Thực hiện restart lại Nginx bằng câu lệnh:&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Thực hiện restart lại Nginx bằng câu lệnh:</li>
+</ul>
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo ln&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; /etc/nginx/sites-available/domain.config /etc/nginx/sites-enabled/domain.config &lt;span class=&quot;c&quot;&gt;# link to sites-enabled/&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;service nginx configtest &lt;span class=&quot;c&quot;&gt;# test config but dont kill current state&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;service nginx restart
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo ln</span> <span class="nt">-s</span> /etc/nginx/sites-available/domain.config /etc/nginx/sites-enabled/domain.config <span class="c"># link to sites-enabled/</span>
+<span class="nv">$ </span><span class="nb">sudo </span>service nginx configtest <span class="c"># test config but dont kill current state</span>
+<span class="nv">$ </span><span class="nb">sudo </span>service nginx restart
+</code></pre></div></div>
 
-&lt;ul&gt;
-  &lt;li&gt;Thưởng thức thành quả, vào &lt;em&gt;dashboard.minhtan.me&lt;/em&gt; thấy ngay trang Grafana, vào &lt;em&gt;dev.minhtan.me&lt;/em&gt; thấy website java đang chạy, cuối cùng vào &lt;em&gt;minhtan.me&lt;/em&gt; thấy chữ &lt;strong&gt;Welcome to mtSiniChi&lt;/strong&gt; to đùng hiện ra.&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Thưởng thức thành quả, vào <em>dashboard.minhtan.me</em> thấy ngay trang Grafana, vào <em>dev.minhtan.me</em> thấy website java đang chạy, cuối cùng vào <em>minhtan.me</em> thấy chữ <strong>Welcome to mtSiniChi</strong> to đùng hiện ra.</li>
+</ul>
 
-&lt;p&gt;Mách nhỏ, bạn có thể sử dụng combo là &lt;em&gt;Vultr, NameCheap/Freenom, Cloudflare, Nginx&lt;/em&gt;. Vậy là kể từ đây tha hồ cấu hình domain rồi. Happily!&lt;/p&gt;
+<p>Mách nhỏ, bạn có thể sử dụng combo là <em>Vultr, NameCheap/Freenom, Cloudflare, Nginx</em>. Vậy là kể từ đây tha hồ cấu hình domain rồi. Happily!</p>
 
-&lt;h2 id=&quot;tham-khảo&quot;&gt;Tham khảo&lt;/h2&gt;
+<h2 id="tham-khảo">Tham khảo</h2>
 
-&lt;ul&gt;
-  &lt;li&gt;https://askubuntu.com/a/69751&lt;/li&gt;
-  &lt;li&gt;https://serverfault.com/a/187026&lt;/li&gt;
-  &lt;li&gt;https://www.digitalocean.com/community/questions/how-do-i-point-my-custom-domain-to-my-ip-port-41-111-20-36-8080&lt;/li&gt;
-  &lt;li&gt;http://nginx.org/en/docs/http/server_names.html&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Tổng quan</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" /></entry><entry><title type="html">Làm việc với InfluxDB trên Docker</title><link href="/docker/2019/09/26/lam-viec-voi-influxdb-tren-docker.html" rel="alternate" type="text/html" title="Làm việc với InfluxDB trên Docker" /><published>2019-09-26T12:38:27+07:00</published><updated>2019-09-26T12:38:27+07:00</updated><id>/docker/2019/09/26/lam-viec-voi-influxdb-tren-docker</id><content type="html" xml:base="/docker/2019/09/26/lam-viec-voi-influxdb-tren-docker.html">&lt;h2 id=&quot;cài-đặt&quot;&gt;Cài đặt&lt;/h2&gt;
+<ul>
+  <li>https://askubuntu.com/a/69751</li>
+  <li>https://serverfault.com/a/187026</li>
+  <li>https://www.digitalocean.com/community/questions/how-do-i-point-my-custom-domain-to-my-ip-port-41-111-20-36-8080</li>
+  <li>http://nginx.org/en/docs/http/server_names.html</li>
+</ul>]]></content><author><name>mtSiniChi</name></author><category term="webserver" /><summary type="html"><![CDATA[Tổng quan]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" /><media:content medium="image" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Làm việc với InfluxDB trên Docker</title><link href="/docker/2019/09/26/lam-viec-voi-influxdb-tren-docker.html" rel="alternate" type="text/html" title="Làm việc với InfluxDB trên Docker" /><published>2019-09-26T12:38:27+07:00</published><updated>2019-09-26T12:38:27+07:00</updated><id>/docker/2019/09/26/lam-viec-voi-influxdb-tren-docker</id><content type="html" xml:base="/docker/2019/09/26/lam-viec-voi-influxdb-tren-docker.html"><![CDATA[<h2 id="cài-đặt">Cài đặt</h2>
 
-&lt;p&gt;Chạy container, nếu chưa có sẽ tự pull trên hub.&lt;/p&gt;
+<p>Chạy container, nếu chưa có sẽ tự pull trên hub.</p>
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker run &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; 8086:8086 &lt;span class=&quot;nt&quot;&gt;--name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;influxdb-master influxdb
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run <span class="nt">-p</span> 8086:8086 <span class="nt">--name</span><span class="o">=</span>influxdb-master influxdb
+</code></pre></div></div>
 
-&lt;p&gt;Truy cập vào terminal trong docker.&lt;/p&gt;
+<p>Truy cập vào terminal trong docker.</p>
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker &lt;span class=&quot;nb&quot;&gt;exec&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--user&lt;/span&gt; root &lt;span class=&quot;nt&quot;&gt;-it&lt;/span&gt; influxdb-master bash
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker <span class="nb">exec</span> <span class="nt">--user</span> root <span class="nt">-it</span> influxdb-master bash
+</code></pre></div></div>
 
-&lt;p&gt;Thao tác với InfluxDB.&lt;/p&gt;
+<p>Thao tác với InfluxDB.</p>
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;span class=&quot;c&quot;&gt;# Verify&lt;/span&gt;
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c"># Verify</span>
 influxd
 
-&lt;span class=&quot;c&quot;&gt;# Access CLI&lt;/span&gt;
+<span class="c"># Access CLI</span>
 influx
 
-&lt;span class=&quot;c&quot;&gt;# Create database&lt;/span&gt;
+<span class="c"># Create database</span>
 create database mydb
 
-&lt;span class=&quot;c&quot;&gt;# Show databases&lt;/span&gt;
+<span class="c"># Show databases</span>
 show databases
 
-&lt;span class=&quot;c&quot;&gt;# Using database&lt;/span&gt;
+<span class="c"># Using database</span>
 use mydb
 
-&lt;span class=&quot;c&quot;&gt;# Show tables&lt;/span&gt;
+<span class="c"># Show tables</span>
 show meaturements
 
-&lt;span class=&quot;c&quot;&gt;# Insert CLI&lt;/span&gt;
-insert cpu_load_short,host&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;server01,region&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;us-west &lt;span class=&quot;nv&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;0.7
+<span class="c"># Insert CLI</span>
+insert cpu_load_short,host<span class="o">=</span>server01,region<span class="o">=</span>us-west <span class="nv">value</span><span class="o">=</span>0.7
 
-&lt;span class=&quot;c&quot;&gt;# Insert HTTP&lt;/span&gt;
-curl &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-XPOST&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'http://localhost:8086/write?db=mydb1'&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;--data-binary&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'cpu_load_short,host=server01,region=us-west value=0.64 1434055562000000001'&lt;/span&gt;
-curl &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-XPOST&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'http://localhost:8086/write?db=mydb1'&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;--data-binary&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'cpu_load_short,host=server01,region=us-west value=0.46 1434055562000000002'&lt;/span&gt;
-curl &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-XPOST&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'http://localhost:8086/write?db=mydb1'&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;--data-binary&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'cpu_load_short,host=server01,region=us-west value=11i'&lt;/span&gt;
+<span class="c"># Insert HTTP</span>
+curl <span class="nt">-i</span> <span class="nt">-XPOST</span> <span class="s1">'http://localhost:8086/write?db=mydb1'</span> <span class="se">\</span>
+    <span class="nt">--data-binary</span> <span class="s1">'cpu_load_short,host=server01,region=us-west value=0.64 1434055562000000001'</span>
+curl <span class="nt">-i</span> <span class="nt">-XPOST</span> <span class="s1">'http://localhost:8086/write?db=mydb1'</span> <span class="se">\</span>
+    <span class="nt">--data-binary</span> <span class="s1">'cpu_load_short,host=server01,region=us-west value=0.46 1434055562000000002'</span>
+curl <span class="nt">-i</span> <span class="nt">-XPOST</span> <span class="s1">'http://localhost:8086/write?db=mydb1'</span> <span class="se">\</span>
+    <span class="nt">--data-binary</span> <span class="s1">'cpu_load_short,host=server01,region=us-west value=11i'</span>
 
-&lt;span class=&quot;c&quot;&gt;# Select&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; from cpu_load_short
-&lt;span class=&quot;k&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; from cpu_load_short where value &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; 1
-&lt;span class=&quot;k&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; from cpu_load_short group by region
+<span class="c"># Select</span>
+<span class="k">select</span> <span class="k">*</span> from cpu_load_short
+<span class="k">select</span> <span class="k">*</span> from cpu_load_short where value <span class="o">&gt;</span> 1
+<span class="k">select</span> <span class="k">*</span> from cpu_load_short group by region
 
-&lt;span class=&quot;c&quot;&gt;# Show user&lt;/span&gt;
-show &lt;span class=&quot;nb&quot;&gt;users
-&lt;/span&gt;curl &lt;span class=&quot;nt&quot;&gt;-G&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'http://localhost:8086/query?pretty=true'&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--data-urlencode&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;q=SHOW USERS&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<span class="c"># Show user</span>
+show <span class="nb">users
+</span>curl <span class="nt">-G</span> <span class="s1">'http://localhost:8086/query?pretty=true'</span> <span class="nt">--data-urlencode</span> <span class="s2">"q=SHOW USERS"</span>
+</code></pre></div></div>
 
-&lt;h2 id=&quot;time-series-admin&quot;&gt;Time Series Admin&lt;/h2&gt;
+<h2 id="time-series-admin">Time Series Admin</h2>
 
-&lt;p&gt;Giao diện quản trị và thực hiện truy vấn cho InfluxDB databases, chạy thông qua docker:&lt;/p&gt;
+<p>Giao diện quản trị và thực hiện truy vấn cho InfluxDB databases, chạy thông qua docker:</p>
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker run &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; 8085:80 &lt;span class=&quot;nt&quot;&gt;-it&lt;/span&gt; timeseriesadmin/timeseriesadmin:0.1.4
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run <span class="nt">-p</span> 8085:80 <span class="nt">-it</span> timeseriesadmin/timeseriesadmin:0.1.4
+</code></pre></div></div>
 
-&lt;p&gt;Mặc định, không có chứng thực truy cập: &lt;em&gt;http://localhost:8086&lt;/em&gt;, user: &lt;em&gt;admin&lt;/em&gt;, password: &lt;em&gt;123456&lt;/em&gt; (tuỳ chọn), database: &lt;em&gt;mydb1&lt;/em&gt;.&lt;/p&gt;
+<p>Mặc định, không có chứng thực truy cập: <em>http://localhost:8086</em>, user: <em>admin</em>, password: <em>123456</em> (tuỳ chọn), database: <em>mydb1</em>.</p>
 
-&lt;h2 id=&quot;tham-khảo&quot;&gt;Tham khảo&lt;/h2&gt;
+<h2 id="tham-khảo">Tham khảo</h2>
 
-&lt;ul&gt;
-  &lt;li&gt;https://docs.influxdata.com/influxdb/v1.7/query_language/data_exploration/&lt;/li&gt;
-  &lt;li&gt;https://hub.docker.com/_/influxdb&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Cài đặt</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" /></entry><entry><title type="html">Errors for Linux Ubuntu</title><link href="/linux/2019/08/13/errors-for-linux.html" rel="alternate" type="text/html" title="Errors for Linux Ubuntu" /><published>2019-08-13T12:38:27+07:00</published><updated>2019-08-13T12:38:27+07:00</updated><id>/linux/2019/08/13/errors-for-linux</id><content type="html" xml:base="/linux/2019/08/13/errors-for-linux.html">&lt;h2 id=&quot;ubuntu-loop-loging&quot;&gt;Ubuntu Loop Loging&lt;/h2&gt;
+<ul>
+  <li>https://docs.influxdata.com/influxdb/v1.7/query_language/data_exploration/</li>
+  <li>https://hub.docker.com/_/influxdb</li>
+</ul>]]></content><author><name>mtSiniChi</name></author><category term="docker" /><summary type="html"><![CDATA[Cài đặt]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" /><media:content medium="image" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Errors for Linux Ubuntu</title><link href="/linux/2019/08/13/errors-for-linux.html" rel="alternate" type="text/html" title="Errors for Linux Ubuntu" /><published>2019-08-13T12:38:27+07:00</published><updated>2019-08-13T12:38:27+07:00</updated><id>/linux/2019/08/13/errors-for-linux</id><content type="html" xml:base="/linux/2019/08/13/errors-for-linux.html"><![CDATA[<h2 id="ubuntu-loop-loging">Ubuntu Loop Loging</h2>
 
-&lt;p&gt;Ở màn hình đăng nhập, dù đã nhập đúng password nhưng không thể login vào “desktop”, nó lặp lại ở màn hình login.&lt;/p&gt;
+<p>Ở màn hình đăng nhập, dù đã nhập đúng password nhưng không thể login vào “desktop”, nó lặp lại ở màn hình login.</p>
 
-&lt;p&gt;Giải quyết:&lt;/p&gt;
+<p>Giải quyết:</p>
 
-&lt;ul&gt;
-  &lt;li&gt;Vào terminal từ màn hình login: &lt;code class=&quot;highlighter-rouge&quot;&gt;ctrl + alt + f1&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Login vào hệ thống.&lt;/li&gt;
-  &lt;li&gt;Thực hiện: &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo mv ~/.Xauthority ~/.Xauthority.bak&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Thực hiện: &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo service lightdm restart&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Vào terminal từ màn hình login: <code class="language-plaintext highlighter-rouge">ctrl + alt + f1</code>.</li>
+  <li>Login vào hệ thống.</li>
+  <li>Thực hiện: <code class="language-plaintext highlighter-rouge">sudo mv ~/.Xauthority ~/.Xauthority.bak</code>.</li>
+  <li>Thực hiện: <code class="language-plaintext highlighter-rouge">sudo service lightdm restart</code>.</li>
+</ul>
 
-&lt;p&gt;Các triệu chứng và điều trị:&lt;/p&gt;
+<p>Các triệu chứng và điều trị:</p>
 
-&lt;ul&gt;
-  &lt;li&gt;https://www.youtube.com/watch?v=OG4deLa_vK8&lt;/li&gt;
-  &lt;li&gt;https://askubuntu.com/questions/223501/ubuntu-gets-stuck-in-a-login-loop&lt;/li&gt;
-  &lt;li&gt;https://www.maketecheasier.com/fix-ubuntu-login-loop/&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Ubuntu Loop Loging</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.outsystems.com/-/media/images/case-studies/via-verde-crm-increases-customer-adoption/via-verde-crm-increases-customer-adoption-hero.png" /></entry><entry><title type="html">Linux basic command line</title><link href="/linux/2019/07/10/linux-basic-command-line.html" rel="alternate" type="text/html" title="Linux basic command line" /><published>2019-07-10T13:38:27+07:00</published><updated>2019-07-10T13:38:27+07:00</updated><id>/linux/2019/07/10/linux-basic-command-line</id><content type="html" xml:base="/linux/2019/07/10/linux-basic-command-line.html">&lt;h2 id=&quot;alias&quot;&gt;Alias&lt;/h2&gt;
+<ul>
+  <li>https://www.youtube.com/watch?v=OG4deLa_vK8</li>
+  <li>https://askubuntu.com/questions/223501/ubuntu-gets-stuck-in-a-login-loop</li>
+  <li>https://www.maketecheasier.com/fix-ubuntu-login-loop/</li>
+</ul>]]></content><author><name>mtSiniChi</name></author><category term="linux" /><summary type="html"><![CDATA[Ubuntu Loop Loging]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://www.outsystems.com/-/media/images/case-studies/via-verde-crm-increases-customer-adoption/via-verde-crm-increases-customer-adoption-hero.png" /><media:content medium="image" url="https://www.outsystems.com/-/media/images/case-studies/via-verde-crm-increases-customer-adoption/via-verde-crm-increases-customer-adoption-hero.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Linux basic command line</title><link href="/linux/2019/07/10/linux-basic-command-line.html" rel="alternate" type="text/html" title="Linux basic command line" /><published>2019-07-10T13:38:27+07:00</published><updated>2019-07-10T13:38:27+07:00</updated><id>/linux/2019/07/10/linux-basic-command-line</id><content type="html" xml:base="/linux/2019/07/10/linux-basic-command-line.html"><![CDATA[<h2 id="alias">Alias</h2>
 
-&lt;ul&gt;
-  &lt;li&gt;Add alias: &lt;code class=&quot;highlighter-rouge&quot;&gt;alias jmeter=apache-jmeter-5.1.1/bin/jmeter&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;vim ~/.bashrc&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;vim ~/.zshrc&lt;/code&gt; then run &lt;code class=&quot;highlighter-rouge&quot;&gt;source ~/.bashrc&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Add alias: <code class="language-plaintext highlighter-rouge">alias jmeter=apache-jmeter-5.1.1/bin/jmeter</code> to <code class="language-plaintext highlighter-rouge">vim ~/.bashrc</code> or <code class="language-plaintext highlighter-rouge">vim ~/.zshrc</code> then run <code class="language-plaintext highlighter-rouge">source ~/.bashrc</code>.</li>
+</ul>
 
-&lt;h2 id=&quot;path&quot;&gt;Path&lt;/h2&gt;
+<h2 id="path">Path</h2>
 
-&lt;ul&gt;
-  &lt;li&gt;Add path: &lt;code class=&quot;highlighter-rouge&quot;&gt;echo 'export PATH=&quot;/usr/local/opt/ruby/bin:$PATH&quot;' &amp;gt;&amp;gt; ~/.zshrc&lt;/code&gt; then &lt;code class=&quot;highlighter-rouge&quot;&gt;source ~/.zshrc&lt;/code&gt; or reopen terminal to take affect.&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Add path: <code class="language-plaintext highlighter-rouge">echo 'export PATH="/usr/local/opt/ruby/bin:$PATH"' &gt;&gt; ~/.zshrc</code> then <code class="language-plaintext highlighter-rouge">source ~/.zshrc</code> or reopen terminal to take affect.</li>
+</ul>
 
-&lt;h2 id=&quot;user&quot;&gt;User&lt;/h2&gt;
+<h2 id="user">User</h2>
 
-&lt;ul&gt;
-  &lt;li&gt;Create user: &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo useradd &amp;lt;user-name&amp;gt;&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Change pass: &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo passwd &amp;lt;user-name&amp;gt;&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Login user: &lt;code class=&quot;highlighter-rouge&quot;&gt;su &amp;lt;user-name&amp;gt;&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Change owner and group of file/folder: &lt;code class=&quot;highlighter-rouge&quot;&gt;chown [-R] &amp;lt;user-name&amp;gt;:&amp;lt;group&amp;gt; [directory]/&amp;lt;file-name&amp;gt;&lt;/code&gt;. Ex: &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo chown -R  mtuser:www-data ./apache-activemq-5.15.0&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;List all users: &lt;code class=&quot;highlighter-rouge&quot;&gt;cat /etc/passwd&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;List all group: &lt;code class=&quot;highlighter-rouge&quot;&gt;cat /etc/group&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Create user: <code class="language-plaintext highlighter-rouge">sudo useradd &lt;user-name&gt;</code>.</li>
+  <li>Change pass: <code class="language-plaintext highlighter-rouge">sudo passwd &lt;user-name&gt;</code>.</li>
+  <li>Login user: <code class="language-plaintext highlighter-rouge">su &lt;user-name&gt;</code>.</li>
+  <li>Change owner and group of file/folder: <code class="language-plaintext highlighter-rouge">chown [-R] &lt;user-name&gt;:&lt;group&gt; [directory]/&lt;file-name&gt;</code>. Ex: <code class="language-plaintext highlighter-rouge">sudo chown -R  mtuser:www-data ./apache-activemq-5.15.0</code>.</li>
+  <li>List all users: <code class="language-plaintext highlighter-rouge">cat /etc/passwd</code>.</li>
+  <li>List all group: <code class="language-plaintext highlighter-rouge">cat /etc/group</code>.</li>
+</ul>
 
-&lt;h2 id=&quot;git&quot;&gt;Git&lt;/h2&gt;
+<h2 id="git">Git</h2>
 
-&lt;ul&gt;
-  &lt;li&gt;Discard change: &lt;code class=&quot;highlighter-rouge&quot;&gt;git checkout -- env.development.config.ini&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Drop all local changes and commits: &lt;code class=&quot;highlighter-rouge&quot;&gt;git fetch origin&lt;/code&gt; then &lt;code class=&quot;highlighter-rouge&quot;&gt;git reset --hard origin/master&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Add to .gitignore: &lt;code class=&quot;highlighter-rouge&quot;&gt;git rm --cached -r ./site/&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Store account git: &lt;code class=&quot;highlighter-rouge&quot;&gt;git config credential.helper store&lt;/code&gt; then &lt;code class=&quot;highlighter-rouge&quot;&gt;git pull&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Where credential store: &lt;code class=&quot;highlighter-rouge&quot;&gt;vi ~/.git-credentials&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Verify that the remote URL: &lt;code class=&quot;highlighter-rouge&quot;&gt;git remote -v&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Change your remote’s URL: &lt;code class=&quot;highlighter-rouge&quot;&gt;git remote set-url origin https://github.com/huynhminhtan/repo.git&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Show all branch: &lt;code class=&quot;highlighter-rouge&quot;&gt;git branch -a&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Edit config: &lt;code class=&quot;highlighter-rouge&quot;&gt;git config --edit&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Discard change: <code class="language-plaintext highlighter-rouge">git checkout -- env.development.config.ini</code>.</li>
+  <li>Drop all local changes and commits: <code class="language-plaintext highlighter-rouge">git fetch origin</code> then <code class="language-plaintext highlighter-rouge">git reset --hard origin/master</code>.</li>
+  <li>Add to .gitignore: <code class="language-plaintext highlighter-rouge">git rm --cached -r ./site/</code>.</li>
+  <li>Store account git: <code class="language-plaintext highlighter-rouge">git config credential.helper store</code> then <code class="language-plaintext highlighter-rouge">git pull</code>.</li>
+  <li>Where credential store: <code class="language-plaintext highlighter-rouge">vi ~/.git-credentials</code>.</li>
+  <li>Verify that the remote URL: <code class="language-plaintext highlighter-rouge">git remote -v</code>.</li>
+  <li>Change your remote’s URL: <code class="language-plaintext highlighter-rouge">git remote set-url origin https://github.com/huynhminhtan/repo.git</code>.</li>
+  <li>Show all branch: <code class="language-plaintext highlighter-rouge">git branch -a</code>.</li>
+  <li>Edit config: <code class="language-plaintext highlighter-rouge">git config --edit</code>.</li>
+</ul>
 
-&lt;h2 id=&quot;sort&quot;&gt;Sort&lt;/h2&gt;
+<h2 id="sort">Sort</h2>
 
-&lt;ul&gt;
-  &lt;li&gt;Sort by name full info: &lt;code class=&quot;highlighter-rouge&quot;&gt;ls -l&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Sort by last modified: &lt;code class=&quot;highlighter-rouge&quot;&gt;ls -t&lt;/code&gt;, reverise: &lt;code class=&quot;highlighter-rouge&quot;&gt;ls -tlr&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Sort by file size: &lt;code class=&quot;highlighter-rouge&quot;&gt;ls -S&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Sort by name full info: <code class="language-plaintext highlighter-rouge">ls -l</code>.</li>
+  <li>Sort by last modified: <code class="language-plaintext highlighter-rouge">ls -t</code>, reverise: <code class="language-plaintext highlighter-rouge">ls -tlr</code>.</li>
+  <li>Sort by file size: <code class="language-plaintext highlighter-rouge">ls -S</code>.</li>
+</ul>
 
-&lt;h2 id=&quot;scp&quot;&gt;Scp&lt;/h2&gt;
+<h2 id="scp">Scp</h2>
 
-&lt;ul&gt;
-  &lt;li&gt;Upload file from local to server: &lt;code class=&quot;highlighter-rouge&quot;&gt;scp ~/assets/foodorder.json root@45.77.174.39:/root/foodorder.json&lt;/code&gt; then press password.&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Upload file from local to server: <code class="language-plaintext highlighter-rouge">scp ~/assets/foodorder.json root@45.77.174.39:/root/foodorder.json</code> then press password.</li>
+</ul>
 
-&lt;h2 id=&quot;find&quot;&gt;Find&lt;/h2&gt;
+<h2 id="find">Find</h2>
 
-&lt;ul&gt;
-  &lt;li&gt;Find by port: &lt;code class=&quot;highlighter-rouge&quot;&gt;lsof -i :8080&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Find by port: &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo netstat -lpn | grep :8080&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Find by name: &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo ps aux | grep 'firefox'&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Find name file: &lt;code class=&quot;highlighter-rouge&quot;&gt;find . -iname &quot;ApacheJMeter*&quot;&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Find by port: <code class="language-plaintext highlighter-rouge">lsof -i :8080</code>.</li>
+  <li>Find by port: <code class="language-plaintext highlighter-rouge">sudo netstat -lpn | grep :8080</code>.</li>
+  <li>Find by name: <code class="language-plaintext highlighter-rouge">sudo ps aux | grep 'firefox'</code>.</li>
+  <li>Find name file: <code class="language-plaintext highlighter-rouge">find . -iname "ApacheJMeter*"</code>.</li>
+</ul>
 
-&lt;h2 id=&quot;ping&quot;&gt;Ping&lt;/h2&gt;
+<h2 id="ping">Ping</h2>
 
-&lt;ul&gt;
-  &lt;li&gt;Ping connect by ip and port: &lt;code class=&quot;highlighter-rouge&quot;&gt;nc -vz localhost 80&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Ping connect by ip and port: &lt;code class=&quot;highlighter-rouge&quot;&gt;telnet localhost 80&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Journey package destination: &lt;code class=&quot;highlighter-rouge&quot;&gt;traceroute localhost 80&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Ping connect by ip and port: <code class="language-plaintext highlighter-rouge">nc -vz localhost 80</code>.</li>
+  <li>Ping connect by ip and port: <code class="language-plaintext highlighter-rouge">telnet localhost 80</code>.</li>
+  <li>Journey package destination: <code class="language-plaintext highlighter-rouge">traceroute localhost 80</code>.</li>
+</ul>
 
-&lt;h2 id=&quot;redis&quot;&gt;Redis&lt;/h2&gt;
+<h2 id="redis">Redis</h2>
 
-&lt;ul&gt;
-  &lt;li&gt;Login redis cli cluster: &lt;code class=&quot;highlighter-rouge&quot;&gt;redis-cli -c -p 7000&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Get all key: &lt;code class=&quot;highlighter-rouge&quot;&gt;KEYS *&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Login redis cli cluster: <code class="language-plaintext highlighter-rouge">redis-cli -c -p 7000</code>.</li>
+  <li>Get all key: <code class="language-plaintext highlighter-rouge">KEYS *</code>.</li>
+</ul>
 
-&lt;h2 id=&quot;mysql&quot;&gt;MySQL&lt;/h2&gt;
+<h2 id="mysql">MySQL</h2>
 
-&lt;ul&gt;
-  &lt;li&gt;Reset password root:
-    &lt;ul&gt;
-      &lt;li&gt;Stop mysql-server&lt;/li&gt;
-      &lt;li&gt;Create script: &lt;code class=&quot;highlighter-rouge&quot;&gt;ALTER USER 'root'@'localhost' IDENTIFIED BY '12345678';&lt;/code&gt; save ~/Desktop/init.txt&lt;/li&gt;
-      &lt;li&gt;Run: &lt;code class=&quot;highlighter-rouge&quot;&gt;mysqld --init-file=~/Desktop/init.txt &amp;amp;&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;Login with new pass: &lt;code class=&quot;highlighter-rouge&quot;&gt;mysql -u root -p&lt;/code&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Error: &lt;em&gt;Connecting to MySQL server … Authentication plugin ‘caching_sha2_password’ cannot be loaded: dlopen(/usr/local/mysql/lib/plugin/caching_sha2_password.so, 2): image not found&lt;/em&gt;, login mysql run: &lt;code class=&quot;highlighter-rouge&quot;&gt;ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456';&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Reset password root:
+    <ul>
+      <li>Stop mysql-server</li>
+      <li>Create script: <code class="language-plaintext highlighter-rouge">ALTER USER 'root'@'localhost' IDENTIFIED BY '12345678';</code> save ~/Desktop/init.txt</li>
+      <li>Run: <code class="language-plaintext highlighter-rouge">mysqld --init-file=~/Desktop/init.txt &amp;</code></li>
+      <li>Login with new pass: <code class="language-plaintext highlighter-rouge">mysql -u root -p</code></li>
+    </ul>
+  </li>
+  <li>Error: <em>Connecting to MySQL server … Authentication plugin ‘caching_sha2_password’ cannot be loaded: dlopen(/usr/local/mysql/lib/plugin/caching_sha2_password.so, 2): image not found</em>, login mysql run: <code class="language-plaintext highlighter-rouge">ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456';</code></li>
+</ul>
 
-&lt;h2 id=&quot;maven&quot;&gt;Maven&lt;/h2&gt;
+<h2 id="maven">Maven</h2>
 
-&lt;ul&gt;
-  &lt;li&gt;Spring Boot run app: &lt;code class=&quot;highlighter-rouge&quot;&gt;mvn spring-boot:run&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Clean target folder and build: &lt;code class=&quot;highlighter-rouge&quot;&gt;mvn clean install&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Set JAVA_HOME: execute command &lt;code class=&quot;highlighter-rouge&quot;&gt;export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;export PATH=$PATH:$JAVA_HOME/bin&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Spring Boot run app: <code class="language-plaintext highlighter-rouge">mvn spring-boot:run</code>.</li>
+  <li>Clean target folder and build: <code class="language-plaintext highlighter-rouge">mvn clean install</code>.</li>
+  <li>Set JAVA_HOME: execute command <code class="language-plaintext highlighter-rouge">export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64</code> and <code class="language-plaintext highlighter-rouge">export PATH=$PATH:$JAVA_HOME/bin</code>.</li>
+</ul>
 
-&lt;h2 id=&quot;ssh&quot;&gt;SSH&lt;/h2&gt;
+<h2 id="ssh">SSH</h2>
 
-&lt;ul&gt;
-  &lt;li&gt;Create the RSA key: &lt;code class=&quot;highlighter-rouge&quot;&gt;ssh-keygen&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Show the RSA public key: &lt;code class=&quot;highlighter-rouge&quot;&gt;cat ~/.ssh/id_rsa.pub&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Run local bash script remote to server: &lt;code class=&quot;highlighter-rouge&quot;&gt;ssh root@45.69.251.209 'bash -s' &amp;lt; bash-script-file.sh&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Create the RSA key: <code class="language-plaintext highlighter-rouge">ssh-keygen</code>.</li>
+  <li>Show the RSA public key: <code class="language-plaintext highlighter-rouge">cat ~/.ssh/id_rsa.pub</code>.</li>
+  <li>Run local bash script remote to server: <code class="language-plaintext highlighter-rouge">ssh root@45.69.251.209 'bash -s' &lt; bash-script-file.sh</code>.</li>
+</ul>
 
-&lt;h2 id=&quot;cron&quot;&gt;Cron&lt;/h2&gt;
+<h2 id="cron">Cron</h2>
 
-&lt;ul&gt;
-  &lt;li&gt;Edit cron: &lt;code class=&quot;highlighter-rouge&quot;&gt;crontab -e&lt;/code&gt;, content example: &lt;code class=&quot;highlighter-rouge&quot;&gt;* 2 * * * ~/script/up-report.sh &amp;gt;&amp;gt; ~/cronlog.log&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Restart cron: &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/init.d/cron restart&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Edit cron: <code class="language-plaintext highlighter-rouge">crontab -e</code>, content example: <code class="language-plaintext highlighter-rouge">* 2 * * * ~/script/up-report.sh &gt;&gt; ~/cronlog.log</code>.</li>
+  <li>Restart cron: <code class="language-plaintext highlighter-rouge">/etc/init.d/cron restart</code>.</li>
+</ul>
 
-&lt;h2 id=&quot;zip&quot;&gt;Zip&lt;/h2&gt;
+<h2 id="zip">Zip</h2>
 
-&lt;ul&gt;
-  &lt;li&gt;Compress: &lt;code class=&quot;highlighter-rouge&quot;&gt;zip -r filename.zip folder&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Extract:  &lt;code class=&quot;highlighter-rouge&quot;&gt;unzip filename.zip&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Compress: <code class="language-plaintext highlighter-rouge">zip -r filename.zip folder</code>.</li>
+  <li>Extract:  <code class="language-plaintext highlighter-rouge">unzip filename.zip</code>.</li>
+</ul>
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+<p><br /></p>
 
-&lt;hr /&gt;
+<hr />
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+<p><br /></p>
 
-&lt;h2 id=&quot;refers&quot;&gt;Refers&lt;/h2&gt;
+<h2 id="refers">Refers</h2>
 
-&lt;ul&gt;
-  &lt;li&gt;User
-    &lt;ul&gt;
-      &lt;li&gt;https://www.hostingadvice.com/how-to/change-file-ownershipgroups-linux/&lt;/li&gt;
-      &lt;li&gt;http://xahlee.info/linux/linux_users_groups_admin.html&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Sort
-    &lt;ul&gt;
-      &lt;li&gt;https://www.lostsaloon.com/technology/how-to-sort-the-output-of-ls-in-linux/&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Alias
-    &lt;ul&gt;
-      &lt;li&gt;https://www.tecmint.com/create-alias-in-linux/&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Maven
-    &lt;ul&gt;
-      &lt;li&gt;https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Git
-    &lt;ul&gt;
-      &lt;li&gt;https://rogerdudler.github.io/git-guide/&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Scp
-    &lt;ul&gt;
-      &lt;li&gt;https://kb.iweb.com/hc/en-us/articles/230241568-Copying-a-file-to-another-server-through-SSH&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;MySQL
-    &lt;ul&gt;
-      &lt;li&gt;https://dev.mysql.com/doc/refman/8.0/en/resetting-permissions.html&lt;/li&gt;
-      &lt;li&gt;https://stackoverflow.com/a/50130875&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Alias</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" /></entry><entry><title type="html">Bookmarks</title><link href="/linux/2019/07/10/bookmarks.html" rel="alternate" type="text/html" title="Bookmarks" /><published>2019-07-10T13:38:27+07:00</published><updated>2019-07-10T13:38:27+07:00</updated><id>/linux/2019/07/10/bookmarks</id><content type="html" xml:base="/linux/2019/07/10/bookmarks.html">&lt;h2 id=&quot;-take-a-screenshot-of-your-code&quot;&gt;# Take A Screenshot of your Code&lt;/h2&gt;
+<ul>
+  <li>User
+    <ul>
+      <li>https://www.hostingadvice.com/how-to/change-file-ownershipgroups-linux/</li>
+      <li>http://xahlee.info/linux/linux_users_groups_admin.html</li>
+    </ul>
+  </li>
+  <li>Sort
+    <ul>
+      <li>https://www.lostsaloon.com/technology/how-to-sort-the-output-of-ls-in-linux/</li>
+    </ul>
+  </li>
+  <li>Alias
+    <ul>
+      <li>https://www.tecmint.com/create-alias-in-linux/</li>
+    </ul>
+  </li>
+  <li>Maven
+    <ul>
+      <li>https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html</li>
+    </ul>
+  </li>
+  <li>Git
+    <ul>
+      <li>https://rogerdudler.github.io/git-guide/</li>
+    </ul>
+  </li>
+  <li>Scp
+    <ul>
+      <li>https://kb.iweb.com/hc/en-us/articles/230241568-Copying-a-file-to-another-server-through-SSH</li>
+    </ul>
+  </li>
+  <li>MySQL
+    <ul>
+      <li>https://dev.mysql.com/doc/refman/8.0/en/resetting-permissions.html</li>
+      <li>https://stackoverflow.com/a/50130875</li>
+    </ul>
+  </li>
+</ul>]]></content><author><name>mtSiniChi</name></author><category term="linux" /><summary type="html"><![CDATA[Alias]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" /><media:content medium="image" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Bookmarks</title><link href="/linux/2019/07/10/bookmarks.html" rel="alternate" type="text/html" title="Bookmarks" /><published>2019-07-10T13:38:27+07:00</published><updated>2019-07-10T13:38:27+07:00</updated><id>/linux/2019/07/10/bookmarks</id><content type="html" xml:base="/linux/2019/07/10/bookmarks.html"><![CDATA[<h2 id="-take-a-screenshot-of-your-code"># Take A Screenshot of your Code</h2>
 
-&lt;ul&gt;
-  &lt;li&gt;https://scotch.io/bar-talk/6-awesome-ways-to-take-a-screenshot-of-your-code&lt;/li&gt;
-  &lt;li&gt;https://marketplace.visualstudio.com/items?itemName=pnp.polacode&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>mtSiniChi</name></author><summary type="html"># Take A Screenshot of your Code</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" /></entry><entry><title type="html">Implement Log4j2 with Java</title><link href="/linux/2019/07/10/log4j-with-java-example.html" rel="alternate" type="text/html" title="Implement Log4j2 with Java" /><published>2019-07-10T13:38:27+07:00</published><updated>2019-07-10T13:38:27+07:00</updated><id>/linux/2019/07/10/log4j-with-java-example</id><content type="html" xml:base="/linux/2019/07/10/log4j-with-java-example.html">&lt;p&gt;Hiện thực Log4j2 trong project Maven, gói ghém chỉ qua 3 bước như bên dưới.&lt;/p&gt;
+<ul>
+  <li>https://scotch.io/bar-talk/6-awesome-ways-to-take-a-screenshot-of-your-code</li>
+  <li>https://marketplace.visualstudio.com/items?itemName=pnp.polacode</li>
+</ul>]]></content><author><name>mtSiniChi</name></author><category term="linux" /><summary type="html"><![CDATA[# Take A Screenshot of your Code]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" /><media:content medium="image" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Implement Log4j2 with Java</title><link href="/linux/2019/07/10/log4j-with-java-example.html" rel="alternate" type="text/html" title="Implement Log4j2 with Java" /><published>2019-07-10T13:38:27+07:00</published><updated>2019-07-10T13:38:27+07:00</updated><id>/linux/2019/07/10/log4j-with-java-example</id><content type="html" xml:base="/linux/2019/07/10/log4j-with-java-example.html"><![CDATA[<p>Hiện thực Log4j2 trong project Maven, gói ghém chỉ qua 3 bước như bên dưới.</p>
 
-&lt;p&gt;Step1: Thêm dependencies vào &lt;em&gt;pom.xml&lt;/em&gt;:&lt;/p&gt;
+<p>Step1: Thêm dependencies vào <em>pom.xml</em>:</p>
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.apache.logging.log4j&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;log4j-api&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;2.6.1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.apache.logging.log4j&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;log4j-core&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;2.6.1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.apache.logging.log4j<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>log4j-api<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>2.6.1<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.apache.logging.log4j<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>log4j-core<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>2.6.1<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div></div>
 
-&lt;p&gt;Step2: Tạo tập tin cấu hình &lt;em&gt;resources/log4j2.xml&lt;/em&gt;, nếu tập tin cấu hình không ở &lt;em&gt;resources/&lt;/em&gt; cần xác định đường dẫn tập tin cấu hình trong IntellIJ tại &lt;strong&gt;Edit Configurations…&lt;/strong&gt; -&amp;gt; &lt;strong&gt;VM Options&lt;/strong&gt; nhập &lt;code class=&quot;highlighter-rouge&quot;&gt;-Dlog4j.configurationFile=your-path/log4j2.xml&lt;/code&gt;:&lt;/p&gt;
+<p>Step2: Tạo tập tin cấu hình <em>resources/log4j2.xml</em>, nếu tập tin cấu hình không ở <em>resources/</em> cần xác định đường dẫn tập tin cấu hình trong IntellIJ tại <strong>Edit Configurations…</strong> -&gt; <strong>VM Options</strong> nhập <code class="language-plaintext highlighter-rouge">-Dlog4j.configurationFile=your-path/log4j2.xml</code>:</p>
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;Configuration&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;systemConfiguration&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;schema=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://jakarta.apache.org/log4j2/&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;Properties&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;Property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;log-path&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;log&lt;span class=&quot;nt&quot;&gt;&amp;lt;/Property&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;Property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;log-name&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;conv&lt;span class=&quot;nt&quot;&gt;&amp;lt;/Property&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/Properties&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;Appenders&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;Console&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;console-appender&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;target=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;STDOUT&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;PatternLayout&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;pattern&amp;gt;&lt;/span&gt;
-                    &lt;span class=&quot;c&quot;&gt;&amp;lt;!--%highlight{[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} -
-                     %msg%n}--&amp;gt;&lt;/span&gt;
-                    &lt;span class=&quot;c&quot;&gt;&amp;lt;!--[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n--&amp;gt;&lt;/span&gt;
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;Configuration</span> <span class="na">name=</span><span class="s">"systemConfiguration"</span> <span class="na">schema=</span><span class="s">"http://jakarta.apache.org/log4j2/"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Properties&gt;</span>
+        <span class="nt">&lt;Property</span> <span class="na">name=</span><span class="s">"log-path"</span><span class="nt">&gt;</span>log<span class="nt">&lt;/Property&gt;</span>
+        <span class="nt">&lt;Property</span> <span class="na">name=</span><span class="s">"log-name"</span><span class="nt">&gt;</span>conv<span class="nt">&lt;/Property&gt;</span>
+    <span class="nt">&lt;/Properties&gt;</span>
+    <span class="nt">&lt;Appenders&gt;</span>
+        <span class="nt">&lt;Console</span> <span class="na">name=</span><span class="s">"console-appender"</span> <span class="na">target=</span><span class="s">"STDOUT"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;PatternLayout&gt;</span>
+                <span class="nt">&lt;pattern&gt;</span>
+                    <span class="c">&lt;!--%highlight{[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} -
+                     %msg%n}--&gt;</span>
+                    <span class="c">&lt;!--[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n--&gt;</span>
                     %highlight{%d{HH:mm:ss.SSS} %-5level %logger{36}.%M() @%L - %msg%n}
                     {FATAL=red, ERROR=red, WARN=yellow, INFO=black, DEBUG=green, 
                     TRACE=blue}
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/pattern&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/PatternLayout&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/Console&amp;gt;&lt;/span&gt;
+                <span class="nt">&lt;/pattern&gt;</span>
+            <span class="nt">&lt;/PatternLayout&gt;</span>
+        <span class="nt">&lt;/Console&gt;</span>
 
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;RollingFile&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;file-logger&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;fileName=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;${log-path}/${log-name}.log&quot;&lt;/span&gt;
-                     &lt;span class=&quot;na&quot;&gt;filePattern=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;${log-path}/${log-name}-%d{yyyy-MM-dd}.log&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;PatternLayout&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;pattern&amp;gt;&lt;/span&gt;[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} 
-                [%t] %c{1} - %msg%n&lt;span class=&quot;nt&quot;&gt;&amp;lt;/pattern&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/PatternLayout&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;Policies&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;TimeBasedTriggeringPolicy&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;interval=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;modulate=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;true&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/Policies&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/RollingFile&amp;gt;&lt;/span&gt;
+        <span class="nt">&lt;RollingFile</span> <span class="na">name=</span><span class="s">"file-logger"</span> <span class="na">fileName=</span><span class="s">"${log-path}/${log-name}.log"</span>
+                     <span class="na">filePattern=</span><span class="s">"${log-path}/${log-name}-%d{yyyy-MM-dd}.log"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;PatternLayout&gt;</span>
+                <span class="nt">&lt;pattern&gt;</span>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} 
+                [%t] %c{1} - %msg%n<span class="nt">&lt;/pattern&gt;</span>
+            <span class="nt">&lt;/PatternLayout&gt;</span>
+            <span class="nt">&lt;Policies&gt;</span>
+                <span class="nt">&lt;TimeBasedTriggeringPolicy</span> <span class="na">interval=</span><span class="s">"1"</span> <span class="na">modulate=</span><span class="s">"true"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/Policies&gt;</span>
+        <span class="nt">&lt;/RollingFile&gt;</span>
 
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/Appenders&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;Loggers&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;Root&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;level=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;INFO&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;AppenderRef&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ref=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;console-appender&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;level=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;INFO&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;AppenderRef&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ref=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;file-logger&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;level=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;INFO&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/Root&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/Loggers&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/Configuration&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+    <span class="nt">&lt;/Appenders&gt;</span>
+    <span class="nt">&lt;Loggers&gt;</span>
+        <span class="nt">&lt;Root</span> <span class="na">level=</span><span class="s">"INFO"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;AppenderRef</span> <span class="na">ref=</span><span class="s">"console-appender"</span> <span class="na">level=</span><span class="s">"INFO"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;AppenderRef</span> <span class="na">ref=</span><span class="s">"file-logger"</span> <span class="na">level=</span><span class="s">"INFO"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/Root&gt;</span>
+    <span class="nt">&lt;/Loggers&gt;</span>
+<span class="nt">&lt;/Configuration&gt;</span>
+</code></pre></div></div>
 
-&lt;p&gt;Step3: Ghi log bằng code Java:&lt;/p&gt;
+<p>Step3: Ghi log bằng code Java:</p>
 
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.apache.logging.log4j.LogManager&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.apache.logging.log4j.Logger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">org.apache.logging.log4j.LogManager</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.logging.log4j.Logger</span><span class="o">;</span>
 
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Application&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Logger&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;logger&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LogManager&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getLogger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Application&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Application</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">Logger</span> <span class="n">logger</span> <span class="o">=</span> <span class="nc">LogManager</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span><span class="nc">Application</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
 
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello log quickly.&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;warn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello log quickly again.&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+        <span class="n">logger</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"Hello log quickly."</span><span class="o">);</span>
+        <span class="n">logger</span><span class="o">.</span><span class="na">warn</span><span class="o">(</span><span class="s">"Hello log quickly again."</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
 
-&lt;p&gt;Thêm: Loggin Level&lt;/p&gt;
+<p>Thêm: Loggin Level</p>
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/logs.jpeg&quot; alt=&quot;logs-level&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+<p><img src="/assets/images/logs.jpeg" alt="logs-level" class="img-responsive" /></p>
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+<p><br /></p>
 
-&lt;hr /&gt;
+<hr />
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+<p><br /></p>
 
-&lt;p&gt;Refers&lt;/p&gt;
+<p>Refers</p>
 
-&lt;ul&gt;
-  &lt;li&gt;https://stackoverflow.com/q/21979699/9488752 :: add color to log console&lt;/li&gt;
-  &lt;li&gt;https://stackoverflow.com/questions/21206993/very-simple-log4j2-xml-configuration-file-using-console-and-file-appender&lt;/li&gt;
-  &lt;li&gt;https://howtodoinjava.com/log4j2/log4j-2-xml-configuration-example/&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Hiện thực Log4j2 trong project Maven, gói ghém chỉ qua 3 bước như bên dưới.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" /></entry><entry><title type="html">Sử dụng SCM plugin Maven push và clone souce code từ Git</title><link href="/linux/2019/07/10/su-dung-scm-plugin-maven-de-push-va-clone-code-code.html" rel="alternate" type="text/html" title="Sử dụng SCM plugin Maven push và clone souce code từ Git" /><published>2019-07-10T13:38:27+07:00</published><updated>2019-07-10T13:38:27+07:00</updated><id>/linux/2019/07/10/su-dung-scm-plugin-maven-de-push-va-clone-code-code</id><content type="html" xml:base="/linux/2019/07/10/su-dung-scm-plugin-maven-de-push-va-clone-code-code.html">&lt;p&gt;Tập tin &lt;em&gt;pom.xml&lt;/em&gt; của Maven.&lt;/p&gt;
+<ul>
+  <li>https://stackoverflow.com/q/21979699/9488752 :: add color to log console</li>
+  <li>https://stackoverflow.com/questions/21206993/very-simple-log4j2-xml-configuration-file-using-console-and-file-appender</li>
+  <li>https://howtodoinjava.com/log4j2/log4j-2-xml-configuration-example/</li>
+</ul>]]></content><author><name>mtSiniChi</name></author><category term="linux" /><summary type="html"><![CDATA[Hiện thực Log4j2 trong project Maven, gói ghém chỉ qua 3 bước như bên dưới.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" /><media:content medium="image" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Sử dụng SCM plugin Maven push và clone souce code từ Git</title><link href="/linux/2019/07/10/su-dung-scm-plugin-maven-de-push-va-clone-code-code.html" rel="alternate" type="text/html" title="Sử dụng SCM plugin Maven push và clone souce code từ Git" /><published>2019-07-10T13:38:27+07:00</published><updated>2019-07-10T13:38:27+07:00</updated><id>/linux/2019/07/10/su-dung-scm-plugin-maven-de-push-va-clone-code-code</id><content type="html" xml:base="/linux/2019/07/10/su-dung-scm-plugin-maven-de-push-va-clone-code-code.html"><![CDATA[<p>Tập tin <em>pom.xml</em> của Maven.</p>
 
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;project&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://maven.apache.org/POM/4.0.0&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:xsi=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&lt;/span&gt;
-         &lt;span class=&quot;na&quot;&gt;xsi:schemaLocation=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;modelVersion&amp;gt;&lt;/span&gt;4.0.0&lt;span class=&quot;nt&quot;&gt;&amp;lt;/modelVersion&amp;gt;&lt;/span&gt;
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">"http://maven.apache.org/POM/4.0.0"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
+         <span class="na">xsi:schemaLocation=</span><span class="s">"http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
 
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;gs-centralized-configuration&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;0.1.0&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;packaging&amp;gt;&lt;/span&gt;pom&lt;span class=&quot;nt&quot;&gt;&amp;lt;/packaging&amp;gt;&lt;/span&gt;
+    <span class="nt">&lt;groupId&gt;</span>org.springframework<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>gs-centralized-configuration<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>0.1.0<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;packaging&gt;</span>pom<span class="nt">&lt;/packaging&gt;</span>
 
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;scm&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;connection&amp;gt;&lt;/span&gt;scm:git:https://github.com/mtsinichi/spring-cloud-configs.git&lt;span class=&quot;nt&quot;&gt;&amp;lt;/connection&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;developerConnection&amp;gt;&lt;/span&gt;scm:git:https://github.com/mtsinichi/spring-cloud-configs.git&lt;span class=&quot;nt&quot;&gt;&amp;lt;/developerConnection&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;url&amp;gt;&lt;/span&gt;https://github.com/mtsinichi/spring-cloud-configs&lt;span class=&quot;nt&quot;&gt;&amp;lt;/url&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/scm&amp;gt;&lt;/span&gt;
+    <span class="nt">&lt;scm&gt;</span>
+        <span class="nt">&lt;connection&gt;</span>scm:git:https://github.com/mtsinichi/spring-cloud-configs.git<span class="nt">&lt;/connection&gt;</span>
+        <span class="nt">&lt;developerConnection&gt;</span>scm:git:https://github.com/mtsinichi/spring-cloud-configs.git<span class="nt">&lt;/developerConnection&gt;</span>
+        <span class="nt">&lt;url&gt;</span>https://github.com/mtsinichi/spring-cloud-configs<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;/scm&gt;</span>
 
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;modules&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;module&amp;gt;&lt;/span&gt;order-management-service&lt;span class=&quot;nt&quot;&gt;&amp;lt;/module&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;module&amp;gt;&lt;/span&gt;configuration-service&lt;span class=&quot;nt&quot;&gt;&amp;lt;/module&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;module&amp;gt;&lt;/span&gt;user-management-service&lt;span class=&quot;nt&quot;&gt;&amp;lt;/module&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/modules&amp;gt;&lt;/span&gt;
+    <span class="nt">&lt;modules&gt;</span>
+        <span class="nt">&lt;module&gt;</span>order-management-service<span class="nt">&lt;/module&gt;</span>
+        <span class="nt">&lt;module&gt;</span>configuration-service<span class="nt">&lt;/module&gt;</span>
+        <span class="nt">&lt;module&gt;</span>user-management-service<span class="nt">&lt;/module&gt;</span>
+    <span class="nt">&lt;/modules&gt;</span>
 
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;properties&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;checkout.basedir&amp;gt;&lt;/span&gt;${basedir}/clone&lt;span class=&quot;nt&quot;&gt;&amp;lt;/checkout.basedir&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/properties&amp;gt;&lt;/span&gt;
+    <span class="nt">&lt;properties&gt;</span>
+        <span class="nt">&lt;checkout.basedir&gt;</span>${basedir}/clone<span class="nt">&lt;/checkout.basedir&gt;</span>
+    <span class="nt">&lt;/properties&gt;</span>
 
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;build&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;plugins&amp;gt;&lt;/span&gt;
+    <span class="nt">&lt;build&gt;</span>
+        <span class="nt">&lt;plugins&gt;</span>
 
-            &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- git repository --&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;plugin&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.apache.maven.plugins&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;maven-scm-plugin&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;1.9.5&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
-                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;checkoutDirectory&amp;gt;&lt;/span&gt;${basedir}/core&lt;span class=&quot;nt&quot;&gt;&amp;lt;/checkoutDirectory&amp;gt;&lt;/span&gt;
-                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;connectionType&amp;gt;&lt;/span&gt;url&lt;span class=&quot;nt&quot;&gt;&amp;lt;/connectionType&amp;gt;&lt;/span&gt;
-                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;basedir&amp;gt;&lt;/span&gt;${basedir}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/basedir&amp;gt;&lt;/span&gt;
-                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;workingDirectory&amp;gt;&lt;/span&gt;${basedir}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/workingDirectory&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/configuration&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;executions&amp;gt;&lt;/span&gt;
-                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;execution&amp;gt;&lt;/span&gt;
-                        &lt;span class=&quot;nt&quot;&gt;&amp;lt;id&amp;gt;&lt;/span&gt;git-pull-mvn&lt;span class=&quot;nt&quot;&gt;&amp;lt;/id&amp;gt;&lt;/span&gt;
-                        &lt;span class=&quot;nt&quot;&gt;&amp;lt;goals&amp;gt;&lt;/span&gt;
-                            &lt;span class=&quot;nt&quot;&gt;&amp;lt;goal&amp;gt;&lt;/span&gt;checkout&lt;span class=&quot;nt&quot;&gt;&amp;lt;/goal&amp;gt;&lt;/span&gt;
-                        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/goals&amp;gt;&lt;/span&gt;
-                        &lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;phase&amp;gt;validate&amp;lt;/phase&amp;gt;--&amp;gt;&lt;/span&gt;
-                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/execution&amp;gt;&lt;/span&gt;
+            <span class="c">&lt;!-- git repository --&gt;</span>
+            <span class="nt">&lt;plugin&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>maven-scm-plugin<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>1.9.5<span class="nt">&lt;/version&gt;</span>
+                <span class="nt">&lt;configuration&gt;</span>
+                    <span class="nt">&lt;checkoutDirectory&gt;</span>${basedir}/core<span class="nt">&lt;/checkoutDirectory&gt;</span>
+                    <span class="nt">&lt;connectionType&gt;</span>url<span class="nt">&lt;/connectionType&gt;</span>
+                    <span class="nt">&lt;basedir&gt;</span>${basedir}<span class="nt">&lt;/basedir&gt;</span>
+                    <span class="nt">&lt;workingDirectory&gt;</span>${basedir}<span class="nt">&lt;/workingDirectory&gt;</span>
+                <span class="nt">&lt;/configuration&gt;</span>
+                <span class="nt">&lt;executions&gt;</span>
+                    <span class="nt">&lt;execution&gt;</span>
+                        <span class="nt">&lt;id&gt;</span>git-pull-mvn<span class="nt">&lt;/id&gt;</span>
+                        <span class="nt">&lt;goals&gt;</span>
+                            <span class="nt">&lt;goal&gt;</span>checkout<span class="nt">&lt;/goal&gt;</span>
+                        <span class="nt">&lt;/goals&gt;</span>
+                        <span class="c">&lt;!--&lt;phase&gt;validate&lt;/phase&gt;--&gt;</span>
+                    <span class="nt">&lt;/execution&gt;</span>
 
-                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;execution&amp;gt;&lt;/span&gt;
-                        &lt;span class=&quot;nt&quot;&gt;&amp;lt;id&amp;gt;&lt;/span&gt;git-push-mvn&lt;span class=&quot;nt&quot;&gt;&amp;lt;/id&amp;gt;&lt;/span&gt;
-                        &lt;span class=&quot;nt&quot;&gt;&amp;lt;goals&amp;gt;&lt;/span&gt;
-                            &lt;span class=&quot;nt&quot;&gt;&amp;lt;goal&amp;gt;&lt;/span&gt;checkin&lt;span class=&quot;nt&quot;&gt;&amp;lt;/goal&amp;gt;&lt;/span&gt;
-                        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/goals&amp;gt;&lt;/span&gt;
-                        &lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;phase&amp;gt;validate&amp;lt;/phase&amp;gt;--&amp;gt;&lt;/span&gt;
-                    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/execution&amp;gt;&lt;/span&gt;
-                &lt;span class=&quot;nt&quot;&gt;&amp;lt;/executions&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/plugin&amp;gt;&lt;/span&gt;
+                    <span class="nt">&lt;execution&gt;</span>
+                        <span class="nt">&lt;id&gt;</span>git-push-mvn<span class="nt">&lt;/id&gt;</span>
+                        <span class="nt">&lt;goals&gt;</span>
+                            <span class="nt">&lt;goal&gt;</span>checkin<span class="nt">&lt;/goal&gt;</span>
+                        <span class="nt">&lt;/goals&gt;</span>
+                        <span class="c">&lt;!--&lt;phase&gt;validate&lt;/phase&gt;--&gt;</span>
+                    <span class="nt">&lt;/execution&gt;</span>
+                <span class="nt">&lt;/executions&gt;</span>
+            <span class="nt">&lt;/plugin&gt;</span>
 
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/plugins&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/build&amp;gt;&lt;/span&gt;
+        <span class="nt">&lt;/plugins&gt;</span>
+    <span class="nt">&lt;/build&gt;</span>
 
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/project&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>mtSiniChi</name></author><summary type="html">Tập tin pom.xml của Maven.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" /></entry></feed>
+<span class="nt">&lt;/project&gt;</span>
+</code></pre></div></div>]]></content><author><name>mtSiniChi</name></author><category term="linux" /><summary type="html"><![CDATA[Tập tin pom.xml của Maven.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" /><media:content medium="image" url="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

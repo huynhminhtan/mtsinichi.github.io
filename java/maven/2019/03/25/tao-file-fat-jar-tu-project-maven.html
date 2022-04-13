@@ -2,9 +2,9 @@
 <html lang="en"><head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Tạo Tập Tin Fat Jar Từ Project Maven | mtSiniChi</title>
-<meta name="generator" content="Jekyll v3.8.6" />
+<meta name="generator" content="Jekyll v4.2.2" />
 <meta property="og:title" content="Tạo Tập Tin Fat Jar Từ Project Maven" />
 <meta name="author" content="mtSiniChi" />
 <meta property="og:locale" content="en_US" />
@@ -15,8 +15,10 @@
 <meta property="og:site_name" content="mtSiniChi" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2019-03-25T21:35:35+07:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Tạo Tập Tin Fat Jar Từ Project Maven" />
 <script type="application/ld+json">
-{"description":"Bài viết sẽ hướng dẫn tạo ra tập tin Fat Jar từ project Maven bằng việc sử dụng Maven Shade Plugin.","headline":"Tạo Tập Tin Fat Jar Từ Project Maven","dateModified":"2019-03-25T21:35:35+07:00","datePublished":"2019-03-25T21:35:35+07:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"/java/maven/2019/03/25/tao-file-fat-jar-tu-project-maven.html"},"url":"/java/maven/2019/03/25/tao-file-fat-jar-tu-project-maven.html","author":{"@type":"Person","name":"mtSiniChi"},"@context":"https://schema.org"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"mtSiniChi"},"dateModified":"2019-03-25T21:35:35+07:00","datePublished":"2019-03-25T21:35:35+07:00","description":"Bài viết sẽ hướng dẫn tạo ra tập tin Fat Jar từ project Maven bằng việc sử dụng Maven Shade Plugin.","headline":"Tạo Tập Tin Fat Jar Từ Project Maven","mainEntityOfPage":{"@type":"WebPage","@id":"/java/maven/2019/03/25/tao-file-fat-jar-tu-project-maven.html"},"url":"/java/maven/2019/03/25/tao-file-fat-jar-tu-project-maven.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="mtSiniChi" /><script src="/assets/js/anchor.js"></script>
   <script src="/assets/js/jquery-3.1.1.min.js"></script>
@@ -66,7 +68,7 @@
 
 <p>Fat Jar, Uber Jar, Shaded Jar chúng có tên khác nhau nhưng được xem là một. Là một tập tin nén Jar mà trong đó bao gồm tất cả các class file đã được compile, cộng thêm tất cả các dependencies có trong project.</p>
 
-<p>Như vậy, toàn bộ mã nguồn chương trình sẽ được gói gọn trong một file Fat Jar và ta có thể thực thi nhanh chóng thông qua command <code class="highlighter-rouge">java -jar name-file-fat-jar.jar</code>.</p>
+<p>Như vậy, toàn bộ mã nguồn chương trình sẽ được gói gọn trong một file Fat Jar và ta có thể thực thi nhanh chóng thông qua command <code class="language-plaintext highlighter-rouge">java -jar name-file-fat-jar.jar</code>.</p>
 
 <h2 id="chuẩn-bị-mã-nguồn">Chuẩn bị mã nguồn</h2>
 
@@ -177,7 +179,7 @@
 
 <p>Trong project này, mình sử dụng thư viện Vert.X để xem khi run file Jar có bị lỗi thiếu dependency không. Mã nguồn <em>OrderVerticle.java</em> như bên dưới:</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">minhtan</span><span class="o">.</span><span class="na">core</span><span class="o">;</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">com.minhtan.core</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">io.vertx.core.AbstractVerticle</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">io.vertx.core.Vertx</span><span class="o">;</span>

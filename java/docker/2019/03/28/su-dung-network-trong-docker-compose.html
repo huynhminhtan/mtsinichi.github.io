@@ -2,9 +2,9 @@
 <html lang="en"><head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Sử Dụng Network Trong Docker Compose | mtSiniChi</title>
-<meta name="generator" content="Jekyll v3.8.6" />
+<meta name="generator" content="Jekyll v4.2.2" />
 <meta property="og:title" content="Sử Dụng Network Trong Docker Compose" />
 <meta name="author" content="mtSiniChi" />
 <meta property="og:locale" content="en_US" />
@@ -15,8 +15,10 @@
 <meta property="og:site_name" content="mtSiniChi" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2019-03-28T10:08:35+07:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Sử Dụng Network Trong Docker Compose" />
 <script type="application/ld+json">
-{"description":"Bài viết sẽ mô tả cách mà các container giao tiếp với nhau thông qua network docker cùng với ví dụ cụ thể, cũng như các bước có thể chạy một Maven project trên Docker.","headline":"Sử Dụng Network Trong Docker Compose","dateModified":"2019-03-28T10:08:35+07:00","datePublished":"2019-03-28T10:08:35+07:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"/java/docker/2019/03/28/su-dung-network-trong-docker-compose.html"},"url":"/java/docker/2019/03/28/su-dung-network-trong-docker-compose.html","author":{"@type":"Person","name":"mtSiniChi"},"@context":"https://schema.org"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"mtSiniChi"},"dateModified":"2019-03-28T10:08:35+07:00","datePublished":"2019-03-28T10:08:35+07:00","description":"Bài viết sẽ mô tả cách mà các container giao tiếp với nhau thông qua network docker cùng với ví dụ cụ thể, cũng như các bước có thể chạy một Maven project trên Docker.","headline":"Sử Dụng Network Trong Docker Compose","mainEntityOfPage":{"@type":"WebPage","@id":"/java/docker/2019/03/28/su-dung-network-trong-docker-compose.html"},"url":"/java/docker/2019/03/28/su-dung-network-trong-docker-compose.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="mtSiniChi" /><script src="/assets/js/anchor.js"></script>
   <script src="/assets/js/jquery-3.1.1.min.js"></script>
@@ -117,7 +119,7 @@
       <span class="pi">-</span> <span class="s2">"</span><span class="s">6381:6379"</span>
 </code></pre></div></div>
 
-<p>Nếu không định nghĩa network, khi chạy lệnh <code class="highlighter-rouge">docker-compose up</code> Docker sẽ tự động tạo ra một network có tên là <em>[tên-thư-mục]_default</em>, để kiểm tra mình chạy lệnh <code class="highlighter-rouge">docker network ls</code>, vì project mình nằm trong thư mục có tên là <em>maven-docker-network</em> nên dòng thứ 5 một network mới có thêm <em>_default</em> được tạo ra:</p>
+<p>Nếu không định nghĩa network, khi chạy lệnh <code class="language-plaintext highlighter-rouge">docker-compose up</code> Docker sẽ tự động tạo ra một network có tên là <em>[tên-thư-mục]_default</em>, để kiểm tra mình chạy lệnh <code class="language-plaintext highlighter-rouge">docker network ls</code>, vì project mình nằm trong thư mục có tên là <em>maven-docker-network</em> nên dòng thứ 5 một network mới có thêm <em>_default</em> được tạo ra:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>➜ maven-docker-network:✗ docker network <span class="nb">ls
 
@@ -130,7 +132,7 @@
 </span>cfd4ef8c1000        none                           null                <span class="nb">local</span>
 </code></pre></div></div>
 
-<p>Sẽ tiến hành kiểm tra network này bằng lệnh <code class="highlighter-rouge">docker network inspect [NETWORK-ID]/[NAME]</code>:</p>
+<p>Sẽ tiến hành kiểm tra network này bằng lệnh <code class="language-plaintext highlighter-rouge">docker network inspect [NETWORK-ID]/[NAME]</code>:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>➜ maven-docker-network:✗ docker network inspect 8b90584145d2
 <span class="o">[</span>
@@ -184,12 +186,12 @@
 <span class="o">]</span>
 </code></pre></div></div>
 
-<p>Ở trên có 2 container <em>maven-docker-network_app_1</em> và <em>maven-docker-network_redis_db_1</em> nằm trong network này khi chạy <code class="highlighter-rouge">docker-compose up</code>.</p>
+<p>Ở trên có 2 container <em>maven-docker-network_app_1</em> và <em>maven-docker-network_redis_db_1</em> nằm trong network này khi chạy <code class="language-plaintext highlighter-rouge">docker-compose up</code>.</p>
 
 <p>Còn ở phần code, để có thể kết nối với Redis ta sẽ sử dụng chuỗi kết nối là <em>redis://redis_db:6379</em>, với <em>redis_db</em> là tên kết nối giống với tên của container định nghĩa ở <em>docker-compose.yml</em> và sử dụng CONTAINER_PORT mặc định của Redis là 6379.</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// OrderVerticle.java</span>
-<span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">minhtan</span><span class="o">.</span><span class="na">core</span><span class="o">;</span>
+<span class="kn">package</span> <span class="nn">com.minhtan.core</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">io.vertx.core.AbstractVerticle</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">io.vertx.core.Vertx</span><span class="o">;</span>
@@ -309,7 +311,7 @@ app_1       | Get <span class="k">done</span><span class="o">!</span>
 
 <p>Tải source cho toàn bộ từ project Java Maven, Dockerfile và Docker Compose: <a href="/materials/maven-docker-network.zip">maven-docker-network.zip</a></p>
 
-<p>Chạy bằng lệnh <code class="highlighter-rouge">./auto.sh</code>, mình viết nó để chạy một lệnh cho tất cả các công việc:</p>
+<p>Chạy bằng lệnh <code class="language-plaintext highlighter-rouge">./auto.sh</code>, mình viết nó để chạy một lệnh cho tất cả các công việc:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># auto.sh</span>
 mvn clean

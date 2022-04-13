@@ -2,9 +2,9 @@
 <html lang="en"><head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Thực thi gói jar với các thư viện lib bên ngoài | mtSiniChi</title>
-<meta name="generator" content="Jekyll v3.8.6" />
+<meta name="generator" content="Jekyll v4.2.2" />
 <meta property="og:title" content="Thực thi gói jar với các thư viện lib bên ngoài" />
 <meta name="author" content="mtSiniChi" />
 <meta property="og:locale" content="en_US" />
@@ -16,8 +16,11 @@
 <meta property="og:image" content="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-03-03T12:38:27+07:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" />
+<meta property="twitter:title" content="Thực thi gói jar với các thư viện lib bên ngoài" />
 <script type="application/ld+json">
-{"description":"Trình IDEA giúp chúng ta rất nhiều khi muốn chạy project Maven hoặc Spring Boot trong quá trình phát triển, nhưng thực tế khi deploy lên môi trường server hay docker project khi đó phải thực thi câu lệnh command line mà không thông qua trình biên dịch. Bài viết sẽ hướng dẫn thực thi tập tin jar bằng command line thông qua 2 cách.","headline":"Thực thi gói jar với các thư viện lib bên ngoài","dateModified":"2020-03-03T12:38:27+07:00","datePublished":"2020-03-03T12:38:27+07:00","@type":"BlogPosting","image":"/assets/images/via-verde-crm-increases-customer-adoption-hero.png","mainEntityOfPage":{"@type":"WebPage","@id":"/server/2020/03/03/thuc-thi-goi-jar-voi-cac-thu-vien-lib-ben-ngoai.html"},"url":"/server/2020/03/03/thuc-thi-goi-jar-voi-cac-thu-vien-lib-ben-ngoai.html","author":{"@type":"Person","name":"mtSiniChi"},"@context":"https://schema.org"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"mtSiniChi"},"dateModified":"2020-03-03T12:38:27+07:00","datePublished":"2020-03-03T12:38:27+07:00","description":"Trình IDEA giúp chúng ta rất nhiều khi muốn chạy project Maven hoặc Spring Boot trong quá trình phát triển, nhưng thực tế khi deploy lên môi trường server hay docker project khi đó phải thực thi câu lệnh command line mà không thông qua trình biên dịch. Bài viết sẽ hướng dẫn thực thi tập tin jar bằng command line thông qua 2 cách.","headline":"Thực thi gói jar với các thư viện lib bên ngoài","image":"/assets/images/via-verde-crm-increases-customer-adoption-hero.png","mainEntityOfPage":{"@type":"WebPage","@id":"/server/2020/03/03/thuc-thi-goi-jar-voi-cac-thu-vien-lib-ben-ngoai.html"},"url":"/server/2020/03/03/thuc-thi-goi-jar-voi-cac-thu-vien-lib-ben-ngoai.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="mtSiniChi" /><script src="/assets/js/anchor.js"></script>
   <script src="/assets/js/jquery-3.1.1.min.js"></script>
@@ -88,13 +91,13 @@
 <p>Có 2 cách chạy gói jar:</p>
 
 <ul>
-  <li>Gói jar có cả các thư viện: <code class="highlighter-rouge">java -Dappenv=local -jar xyz.jar</code></li>
-  <li>Gói jar với thư viện bên ngoài: <code class="highlighter-rouge">java -cp "./xyz.jar:lib/*" -Dappenv=local vn.com.a.b.Main</code></li>
+  <li>Gói jar có cả các thư viện: <code class="language-plaintext highlighter-rouge">java -Dappenv=local -jar xyz.jar</code></li>
+  <li>Gói jar với thư viện bên ngoài: <code class="language-plaintext highlighter-rouge">java -cp "./xyz.jar:lib/*" -Dappenv=local vn.com.a.b.Main</code></li>
 </ul>
 
 <h2 id="xem-thêm">Xem thêm</h2>
 
-<p>Gói jar bao gồm các thư viện trong Spring Boot sẽ sử dụng <code class="highlighter-rouge">spring-boot-maven-plugin</code>:</p>
+<p>Gói jar bao gồm các thư viện trong Spring Boot sẽ sử dụng <code class="language-plaintext highlighter-rouge">spring-boot-maven-plugin</code>:</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>...
  <span class="nt">&lt;build&gt;</span>
@@ -124,7 +127,7 @@
     <span class="nt">&lt;/build&gt;</span>
 </code></pre></div></div>
 
-<p>Gói jar không bao gồm các thư viện trong nó, mà có thư viện jar nằm trong thư mục <em>build</em> sẽ sử dụng thư viện <code class="highlighter-rouge">maven-dependency-plugin</code>:</p>
+<p>Gói jar không bao gồm các thư viện trong nó, mà có thư viện jar nằm trong thư mục <em>build</em> sẽ sử dụng thư viện <code class="language-plaintext highlighter-rouge">maven-dependency-plugin</code>:</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>...
 <span class="nt">&lt;build&gt;</span>

@@ -2,9 +2,9 @@
 <html lang="en"><head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Linux basic command line | mtSiniChi</title>
-<meta name="generator" content="Jekyll v3.8.6" />
+<meta name="generator" content="Jekyll v4.2.2" />
 <meta property="og:title" content="Linux basic command line" />
 <meta name="author" content="mtSiniChi" />
 <meta property="og:locale" content="en_US" />
@@ -16,8 +16,11 @@
 <meta property="og:image" content="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2019-07-10T13:38:27+07:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="/assets/images/via-verde-crm-increases-customer-adoption-hero.png" />
+<meta property="twitter:title" content="Linux basic command line" />
 <script type="application/ld+json">
-{"description":"Alias","headline":"Linux basic command line","dateModified":"2019-07-10T13:38:27+07:00","datePublished":"2019-07-10T13:38:27+07:00","@type":"BlogPosting","image":"/assets/images/via-verde-crm-increases-customer-adoption-hero.png","mainEntityOfPage":{"@type":"WebPage","@id":"/linux/2019/07/10/linux-basic-command-line.html"},"url":"/linux/2019/07/10/linux-basic-command-line.html","author":{"@type":"Person","name":"mtSiniChi"},"@context":"https://schema.org"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"mtSiniChi"},"dateModified":"2019-07-10T13:38:27+07:00","datePublished":"2019-07-10T13:38:27+07:00","description":"Alias","headline":"Linux basic command line","image":"/assets/images/via-verde-crm-increases-customer-adoption-hero.png","mainEntityOfPage":{"@type":"WebPage","@id":"/linux/2019/07/10/linux-basic-command-line.html"},"url":"/linux/2019/07/10/linux-basic-command-line.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="/feed.xml" title="mtSiniChi" /><script src="/assets/js/anchor.js"></script>
   <script src="/assets/js/jquery-3.1.1.min.js"></script>
@@ -82,76 +85,76 @@
       <h2 id="alias">Alias</h2>
 
 <ul>
-  <li>Add alias: <code class="highlighter-rouge">alias jmeter=apache-jmeter-5.1.1/bin/jmeter</code> to <code class="highlighter-rouge">vim ~/.bashrc</code> or <code class="highlighter-rouge">vim ~/.zshrc</code> then run <code class="highlighter-rouge">source ~/.bashrc</code>.</li>
+  <li>Add alias: <code class="language-plaintext highlighter-rouge">alias jmeter=apache-jmeter-5.1.1/bin/jmeter</code> to <code class="language-plaintext highlighter-rouge">vim ~/.bashrc</code> or <code class="language-plaintext highlighter-rouge">vim ~/.zshrc</code> then run <code class="language-plaintext highlighter-rouge">source ~/.bashrc</code>.</li>
 </ul>
 
 <h2 id="path">Path</h2>
 
 <ul>
-  <li>Add path: <code class="highlighter-rouge">echo 'export PATH="/usr/local/opt/ruby/bin:$PATH"' &gt;&gt; ~/.zshrc</code> then <code class="highlighter-rouge">source ~/.zshrc</code> or reopen terminal to take affect.</li>
+  <li>Add path: <code class="language-plaintext highlighter-rouge">echo 'export PATH="/usr/local/opt/ruby/bin:$PATH"' &gt;&gt; ~/.zshrc</code> then <code class="language-plaintext highlighter-rouge">source ~/.zshrc</code> or reopen terminal to take affect.</li>
 </ul>
 
 <h2 id="user">User</h2>
 
 <ul>
-  <li>Create user: <code class="highlighter-rouge">sudo useradd &lt;user-name&gt;</code>.</li>
-  <li>Change pass: <code class="highlighter-rouge">sudo passwd &lt;user-name&gt;</code>.</li>
-  <li>Login user: <code class="highlighter-rouge">su &lt;user-name&gt;</code>.</li>
-  <li>Change owner and group of file/folder: <code class="highlighter-rouge">chown [-R] &lt;user-name&gt;:&lt;group&gt; [directory]/&lt;file-name&gt;</code>. Ex: <code class="highlighter-rouge">sudo chown -R  mtuser:www-data ./apache-activemq-5.15.0</code>.</li>
-  <li>List all users: <code class="highlighter-rouge">cat /etc/passwd</code>.</li>
-  <li>List all group: <code class="highlighter-rouge">cat /etc/group</code>.</li>
+  <li>Create user: <code class="language-plaintext highlighter-rouge">sudo useradd &lt;user-name&gt;</code>.</li>
+  <li>Change pass: <code class="language-plaintext highlighter-rouge">sudo passwd &lt;user-name&gt;</code>.</li>
+  <li>Login user: <code class="language-plaintext highlighter-rouge">su &lt;user-name&gt;</code>.</li>
+  <li>Change owner and group of file/folder: <code class="language-plaintext highlighter-rouge">chown [-R] &lt;user-name&gt;:&lt;group&gt; [directory]/&lt;file-name&gt;</code>. Ex: <code class="language-plaintext highlighter-rouge">sudo chown -R  mtuser:www-data ./apache-activemq-5.15.0</code>.</li>
+  <li>List all users: <code class="language-plaintext highlighter-rouge">cat /etc/passwd</code>.</li>
+  <li>List all group: <code class="language-plaintext highlighter-rouge">cat /etc/group</code>.</li>
 </ul>
 
 <h2 id="git">Git</h2>
 
 <ul>
-  <li>Discard change: <code class="highlighter-rouge">git checkout -- env.development.config.ini</code>.</li>
-  <li>Drop all local changes and commits: <code class="highlighter-rouge">git fetch origin</code> then <code class="highlighter-rouge">git reset --hard origin/master</code>.</li>
-  <li>Add to .gitignore: <code class="highlighter-rouge">git rm --cached -r ./site/</code>.</li>
-  <li>Store account git: <code class="highlighter-rouge">git config credential.helper store</code> then <code class="highlighter-rouge">git pull</code>.</li>
-  <li>Where credential store: <code class="highlighter-rouge">vi ~/.git-credentials</code>.</li>
-  <li>Verify that the remote URL: <code class="highlighter-rouge">git remote -v</code>.</li>
-  <li>Change your remote’s URL: <code class="highlighter-rouge">git remote set-url origin https://github.com/huynhminhtan/repo.git</code>.</li>
-  <li>Show all branch: <code class="highlighter-rouge">git branch -a</code>.</li>
-  <li>Edit config: <code class="highlighter-rouge">git config --edit</code>.</li>
+  <li>Discard change: <code class="language-plaintext highlighter-rouge">git checkout -- env.development.config.ini</code>.</li>
+  <li>Drop all local changes and commits: <code class="language-plaintext highlighter-rouge">git fetch origin</code> then <code class="language-plaintext highlighter-rouge">git reset --hard origin/master</code>.</li>
+  <li>Add to .gitignore: <code class="language-plaintext highlighter-rouge">git rm --cached -r ./site/</code>.</li>
+  <li>Store account git: <code class="language-plaintext highlighter-rouge">git config credential.helper store</code> then <code class="language-plaintext highlighter-rouge">git pull</code>.</li>
+  <li>Where credential store: <code class="language-plaintext highlighter-rouge">vi ~/.git-credentials</code>.</li>
+  <li>Verify that the remote URL: <code class="language-plaintext highlighter-rouge">git remote -v</code>.</li>
+  <li>Change your remote’s URL: <code class="language-plaintext highlighter-rouge">git remote set-url origin https://github.com/huynhminhtan/repo.git</code>.</li>
+  <li>Show all branch: <code class="language-plaintext highlighter-rouge">git branch -a</code>.</li>
+  <li>Edit config: <code class="language-plaintext highlighter-rouge">git config --edit</code>.</li>
 </ul>
 
 <h2 id="sort">Sort</h2>
 
 <ul>
-  <li>Sort by name full info: <code class="highlighter-rouge">ls -l</code>.</li>
-  <li>Sort by last modified: <code class="highlighter-rouge">ls -t</code>, reverise: <code class="highlighter-rouge">ls -tlr</code>.</li>
-  <li>Sort by file size: <code class="highlighter-rouge">ls -S</code>.</li>
+  <li>Sort by name full info: <code class="language-plaintext highlighter-rouge">ls -l</code>.</li>
+  <li>Sort by last modified: <code class="language-plaintext highlighter-rouge">ls -t</code>, reverise: <code class="language-plaintext highlighter-rouge">ls -tlr</code>.</li>
+  <li>Sort by file size: <code class="language-plaintext highlighter-rouge">ls -S</code>.</li>
 </ul>
 
 <h2 id="scp">Scp</h2>
 
 <ul>
-  <li>Upload file from local to server: <code class="highlighter-rouge">scp ~/assets/foodorder.json root@45.77.174.39:/root/foodorder.json</code> then press password.</li>
+  <li>Upload file from local to server: <code class="language-plaintext highlighter-rouge">scp ~/assets/foodorder.json root@45.77.174.39:/root/foodorder.json</code> then press password.</li>
 </ul>
 
 <h2 id="find">Find</h2>
 
 <ul>
-  <li>Find by port: <code class="highlighter-rouge">lsof -i :8080</code>.</li>
-  <li>Find by port: <code class="highlighter-rouge">sudo netstat -lpn | grep :8080</code>.</li>
-  <li>Find by name: <code class="highlighter-rouge">sudo ps aux | grep 'firefox'</code>.</li>
-  <li>Find name file: <code class="highlighter-rouge">find . -iname "ApacheJMeter*"</code>.</li>
+  <li>Find by port: <code class="language-plaintext highlighter-rouge">lsof -i :8080</code>.</li>
+  <li>Find by port: <code class="language-plaintext highlighter-rouge">sudo netstat -lpn | grep :8080</code>.</li>
+  <li>Find by name: <code class="language-plaintext highlighter-rouge">sudo ps aux | grep 'firefox'</code>.</li>
+  <li>Find name file: <code class="language-plaintext highlighter-rouge">find . -iname "ApacheJMeter*"</code>.</li>
 </ul>
 
 <h2 id="ping">Ping</h2>
 
 <ul>
-  <li>Ping connect by ip and port: <code class="highlighter-rouge">nc -vz localhost 80</code>.</li>
-  <li>Ping connect by ip and port: <code class="highlighter-rouge">telnet localhost 80</code>.</li>
-  <li>Journey package destination: <code class="highlighter-rouge">traceroute localhost 80</code>.</li>
+  <li>Ping connect by ip and port: <code class="language-plaintext highlighter-rouge">nc -vz localhost 80</code>.</li>
+  <li>Ping connect by ip and port: <code class="language-plaintext highlighter-rouge">telnet localhost 80</code>.</li>
+  <li>Journey package destination: <code class="language-plaintext highlighter-rouge">traceroute localhost 80</code>.</li>
 </ul>
 
 <h2 id="redis">Redis</h2>
 
 <ul>
-  <li>Login redis cli cluster: <code class="highlighter-rouge">redis-cli -c -p 7000</code>.</li>
-  <li>Get all key: <code class="highlighter-rouge">KEYS *</code>.</li>
+  <li>Login redis cli cluster: <code class="language-plaintext highlighter-rouge">redis-cli -c -p 7000</code>.</li>
+  <li>Get all key: <code class="language-plaintext highlighter-rouge">KEYS *</code>.</li>
 </ul>
 
 <h2 id="mysql">MySQL</h2>
@@ -160,42 +163,42 @@
   <li>Reset password root:
     <ul>
       <li>Stop mysql-server</li>
-      <li>Create script: <code class="highlighter-rouge">ALTER USER 'root'@'localhost' IDENTIFIED BY '12345678';</code> save ~/Desktop/init.txt</li>
-      <li>Run: <code class="highlighter-rouge">mysqld --init-file=~/Desktop/init.txt &amp;</code></li>
-      <li>Login with new pass: <code class="highlighter-rouge">mysql -u root -p</code></li>
+      <li>Create script: <code class="language-plaintext highlighter-rouge">ALTER USER 'root'@'localhost' IDENTIFIED BY '12345678';</code> save ~/Desktop/init.txt</li>
+      <li>Run: <code class="language-plaintext highlighter-rouge">mysqld --init-file=~/Desktop/init.txt &amp;</code></li>
+      <li>Login with new pass: <code class="language-plaintext highlighter-rouge">mysql -u root -p</code></li>
     </ul>
   </li>
-  <li>Error: <em>Connecting to MySQL server … Authentication plugin ‘caching_sha2_password’ cannot be loaded: dlopen(/usr/local/mysql/lib/plugin/caching_sha2_password.so, 2): image not found</em>, login mysql run: <code class="highlighter-rouge">ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456';</code></li>
+  <li>Error: <em>Connecting to MySQL server … Authentication plugin ‘caching_sha2_password’ cannot be loaded: dlopen(/usr/local/mysql/lib/plugin/caching_sha2_password.so, 2): image not found</em>, login mysql run: <code class="language-plaintext highlighter-rouge">ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456';</code></li>
 </ul>
 
 <h2 id="maven">Maven</h2>
 
 <ul>
-  <li>Spring Boot run app: <code class="highlighter-rouge">mvn spring-boot:run</code>.</li>
-  <li>Clean target folder and build: <code class="highlighter-rouge">mvn clean install</code>.</li>
-  <li>Set JAVA_HOME: execute command <code class="highlighter-rouge">export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64</code> and <code class="highlighter-rouge">export PATH=$PATH:$JAVA_HOME/bin</code>.</li>
+  <li>Spring Boot run app: <code class="language-plaintext highlighter-rouge">mvn spring-boot:run</code>.</li>
+  <li>Clean target folder and build: <code class="language-plaintext highlighter-rouge">mvn clean install</code>.</li>
+  <li>Set JAVA_HOME: execute command <code class="language-plaintext highlighter-rouge">export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64</code> and <code class="language-plaintext highlighter-rouge">export PATH=$PATH:$JAVA_HOME/bin</code>.</li>
 </ul>
 
 <h2 id="ssh">SSH</h2>
 
 <ul>
-  <li>Create the RSA key: <code class="highlighter-rouge">ssh-keygen</code>.</li>
-  <li>Show the RSA public key: <code class="highlighter-rouge">cat ~/.ssh/id_rsa.pub</code>.</li>
-  <li>Run local bash script remote to server: <code class="highlighter-rouge">ssh root@45.69.251.209 'bash -s' &lt; bash-script-file.sh</code>.</li>
+  <li>Create the RSA key: <code class="language-plaintext highlighter-rouge">ssh-keygen</code>.</li>
+  <li>Show the RSA public key: <code class="language-plaintext highlighter-rouge">cat ~/.ssh/id_rsa.pub</code>.</li>
+  <li>Run local bash script remote to server: <code class="language-plaintext highlighter-rouge">ssh root@45.69.251.209 'bash -s' &lt; bash-script-file.sh</code>.</li>
 </ul>
 
 <h2 id="cron">Cron</h2>
 
 <ul>
-  <li>Edit cron: <code class="highlighter-rouge">crontab -e</code>, content example: <code class="highlighter-rouge">* 2 * * * ~/script/up-report.sh &gt;&gt; ~/cronlog.log</code>.</li>
-  <li>Restart cron: <code class="highlighter-rouge">/etc/init.d/cron restart</code>.</li>
+  <li>Edit cron: <code class="language-plaintext highlighter-rouge">crontab -e</code>, content example: <code class="language-plaintext highlighter-rouge">* 2 * * * ~/script/up-report.sh &gt;&gt; ~/cronlog.log</code>.</li>
+  <li>Restart cron: <code class="language-plaintext highlighter-rouge">/etc/init.d/cron restart</code>.</li>
 </ul>
 
 <h2 id="zip">Zip</h2>
 
 <ul>
-  <li>Compress: <code class="highlighter-rouge">zip -r filename.zip folder</code>.</li>
-  <li>Extract:  <code class="highlighter-rouge">unzip filename.zip</code>.</li>
+  <li>Compress: <code class="language-plaintext highlighter-rouge">zip -r filename.zip folder</code>.</li>
+  <li>Extract:  <code class="language-plaintext highlighter-rouge">unzip filename.zip</code>.</li>
 </ul>
 
 <p><br /></p>
