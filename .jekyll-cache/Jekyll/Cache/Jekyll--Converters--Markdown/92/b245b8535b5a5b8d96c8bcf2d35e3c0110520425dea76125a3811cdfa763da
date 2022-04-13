@@ -1,0 +1,21 @@
+I"�<h2 id="ubuntu-loop-loging">Ubuntu Loop Loging</h2>
+
+<p>Ở màn hình đăng nhập, dù đã nhập đúng password nhưng không thể login vào “desktop”, nó lặp lại ở màn hình login.</p>
+
+<p>Giải quyết:</p>
+
+<ul>
+  <li>Vào terminal từ màn hình login: <code class="language-plaintext highlighter-rouge">ctrl + alt + f1</code>.</li>
+  <li>Login vào hệ thống.</li>
+  <li>Thực hiện: <code class="language-plaintext highlighter-rouge">sudo mv ~/.Xauthority ~/.Xauthority.bak</code>.</li>
+  <li>Thực hiện: <code class="language-plaintext highlighter-rouge">sudo service lightdm restart</code>.</li>
+</ul>
+
+<p>Các triệu chứng và điều trị:</p>
+
+<ul>
+  <li>https://www.youtube.com/watch?v=OG4deLa_vK8</li>
+  <li>https://askubuntu.com/questions/223501/ubuntu-gets-stuck-in-a-login-loop</li>
+  <li>https://www.maketecheasier.com/fix-ubuntu-login-loop/</li>
+</ul>
+:ET

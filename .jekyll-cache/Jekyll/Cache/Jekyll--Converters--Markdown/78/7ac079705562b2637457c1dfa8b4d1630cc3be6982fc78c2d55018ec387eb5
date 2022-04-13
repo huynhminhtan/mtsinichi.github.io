@@ -1,0 +1,16 @@
+I"|<h2 id="hướng-dẫn">Hướng dẫn</h2>
+
+<ul>
+  <li>Cài đặt NVM: <code class="language-plaintext highlighter-rouge">curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash</code></li>
+  <li>Cài Nodejs theo version mong muốn: <code class="language-plaintext highlighter-rouge">nvm install 8.9.0</code></li>
+  <li>Kiểm tra: <code class="language-plaintext highlighter-rouge">node -v</code></li>
+  <li>Trang xem version Nodejs: https://nodejs.org/dist/</li>
+</ul>
+
+<h2 id="tham-khảo">Tham khảo</h2>
+
+<ul>
+  <li>https://nodejs.org/dist/</li>
+  <li>https://stackoverflow.com/a/7718438</li>
+</ul>
+:ET

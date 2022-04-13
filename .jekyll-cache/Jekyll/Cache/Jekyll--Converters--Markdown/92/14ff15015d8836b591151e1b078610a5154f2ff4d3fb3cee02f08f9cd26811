@@ -1,0 +1,70 @@
+I"�<h2 id="cài-đặt">Cài đặt</h2>
+
+<p>Chạy container, nếu chưa có sẽ tự pull trên hub.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run <span class="nt">-p</span> 8086:8086 <span class="nt">--name</span><span class="o">=</span>influxdb-master influxdb
+</code></pre></div></div>
+
+<p>Truy cập vào terminal trong docker.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker <span class="nb">exec</span> <span class="nt">--user</span> root <span class="nt">-it</span> influxdb-master bash
+</code></pre></div></div>
+
+<p>Thao tác với InfluxDB.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c"># Verify</span>
+influxd
+
+<span class="c"># Access CLI</span>
+influx
+
+<span class="c"># Create database</span>
+create database mydb
+
+<span class="c"># Show databases</span>
+show databases
+
+<span class="c"># Using database</span>
+use mydb
+
+<span class="c"># Show tables</span>
+show meaturements
+
+<span class="c"># Insert CLI</span>
+insert cpu_load_short,host<span class="o">=</span>server01,region<span class="o">=</span>us-west <span class="nv">value</span><span class="o">=</span>0.7
+
+<span class="c"># Insert HTTP</span>
+curl <span class="nt">-i</span> <span class="nt">-XPOST</span> <span class="s1">'http://localhost:8086/write?db=mydb1'</span> <span class="se">\</span>
+    <span class="nt">--data-binary</span> <span class="s1">'cpu_load_short,host=server01,region=us-west value=0.64 1434055562000000001'</span>
+curl <span class="nt">-i</span> <span class="nt">-XPOST</span> <span class="s1">'http://localhost:8086/write?db=mydb1'</span> <span class="se">\</span>
+    <span class="nt">--data-binary</span> <span class="s1">'cpu_load_short,host=server01,region=us-west value=0.46 1434055562000000002'</span>
+curl <span class="nt">-i</span> <span class="nt">-XPOST</span> <span class="s1">'http://localhost:8086/write?db=mydb1'</span> <span class="se">\</span>
+    <span class="nt">--data-binary</span> <span class="s1">'cpu_load_short,host=server01,region=us-west value=11i'</span>
+
+<span class="c"># Select</span>
+<span class="k">select</span> <span class="k">*</span> from cpu_load_short
+<span class="k">select</span> <span class="k">*</span> from cpu_load_short where value <span class="o">&gt;</span> 1
+<span class="k">select</span> <span class="k">*</span> from cpu_load_short group by region
+
+<span class="c"># Show user</span>
+show <span class="nb">users
+</span>curl <span class="nt">-G</span> <span class="s1">'http://localhost:8086/query?pretty=true'</span> <span class="nt">--data-urlencode</span> <span class="s2">"q=SHOW USERS"</span>
+</code></pre></div></div>
+
+<h2 id="time-series-admin">Time Series Admin</h2>
+
+<p>Giao diện quản trị và thực hiện truy vấn cho InfluxDB databases, chạy thông qua docker:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run <span class="nt">-p</span> 8085:80 <span class="nt">-it</span> timeseriesadmin/timeseriesadmin:0.1.4
+</code></pre></div></div>
+
+<p>Mặc định, không có chứng thực truy cập: <em>http://localhost:8086</em>, user: <em>admin</em>, password: <em>123456</em> (tuỳ chọn), database: <em>mydb1</em>.</p>
+
+<h2 id="tham-khảo">Tham khảo</h2>
+
+<ul>
+  <li>https://docs.influxdata.com/influxdb/v1.7/query_language/data_exploration/</li>
+  <li>https://hub.docker.com/_/influxdb</li>
+</ul>
+:ET

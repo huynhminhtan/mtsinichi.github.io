@@ -1,0 +1,2 @@
+I"�<p>Trình IDEA giúp chúng ta rất nhiều khi muốn chạy project Maven hoặc Spring Boot trong quá trình phát triển, nhưng thực tế khi deploy lên môi trường server hay docker project khi đó phải thực thi câu lệnh command line mà không thông qua trình biên dịch. Bài viết sẽ hướng dẫn thực thi tập tin jar bằng command line thông qua 2 cách.</p>
+:ET

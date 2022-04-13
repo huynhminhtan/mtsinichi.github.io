@@ -1,0 +1,88 @@
+I"e<p>Để thực thi project Java thông qua Docker có nhiều cách, trong đó sử dụng file Fat Jar là một cách đơn giản.</p>
+
+<p>Từ project ban đầu, các bạn phải tạo ra file Fat Jar, xem thêm cách tạo ra file Jar: <a href="/java/maven/2019/03/25/tao-file-fat-jar-tu-project-maven.html">Tạo Tập Tin Fat Jar Từ Project Maven</a></p>
+
+<h1 id="cấu-trúc-thư-mục">Cấu trúc thư mục</h1>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.
+├── dependency-reduced-pom.xml
+├── deploymavendocker.iml
+├── Dockerfile
+├── pom.xml
+├── src
+│   ├── main
+│   │   ├── java
+│   │   │   └── com
+│   │   │       └── minhtan
+│   │   │           └── core
+│   │   │               └── OrderVerticle.java
+│   │   └── resources
+│   └── test
+│       └── java
+└── target
+    ├── classes
+    │   └── com
+    │       └── minhtan
+    │           └── core
+    │               └── OrderVerticle.class
+    ├── generated-sources
+    │   └── annotations
+    ├── maven.-1.0-SNAPSHOT.jar
+    ├── maven-archiver
+    │   └── pom.properties
+    ├── maven-status
+    │   └── maven-compiler-plugin
+    │       ├── compile
+    │       │   └── default-compile
+    │       │       ├── createdFiles.lst
+    │       │       └── inputFiles.lst
+    │       └── testCompile
+    │           └── default-testCompile
+    │               └── inputFiles.lst
+    └── original-maven.-1.0-SNAPSHOT.jar
+
+23 directories, 12 files
+</code></pre></div></div>
+
+<h1 id="xây-dựng-dockerfile">Xây dựng Dockerfile</h1>
+
+<div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">FROM</span><span class="s"> openjdk:8-jre-alpine</span>
+
+<span class="c"># Set file Jar need execute</span>
+<span class="k">ENV</span><span class="s"> VERTICLE_FILE maven.-1.0-SNAPSHOT.jar</span>
+
+<span class="c"># Set the location of the verticles</span>
+<span class="k">ENV</span><span class="s"> VERTICLE_HOME /usr/verticles</span>
+
+<span class="k">EXPOSE</span><span class="s"> 8080</span>
+
+<span class="c"># Copy your fat jar to the container</span>
+<span class="k">COPY</span><span class="s"> target/$VERTICLE_FILE $VERTICLE_HOME/</span>
+
+<span class="c"># Launch the verticle</span>
+<span class="k">WORKDIR</span><span class="s"> $VERTICLE_HOME</span>
+<span class="k">ENTRYPOINT</span><span class="s"> ["sh", "-c"]</span>
+<span class="k">CMD</span><span class="s"> ["exec java -jar $VERTICLE_FILE"]</span>
+</code></pre></div></div>
+
+<h1 id="build-và-run-container">Build và Run container</h1>
+
+<p>Build với tên <em>sample/deploy-java-fat</em>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker build <span class="nt">-t</span> sample/deploy-java-fat <span class="nb">.</span>
+</code></pre></div></div>
+
+<p>Run container, chiêm ngưỡng thành quả:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run <span class="nt">-t</span> <span class="nt">-i</span> <span class="nt">-p</span> 8080:8080 sample/deploy-java-fat
+</code></pre></div></div>
+
+<h1 id="source-code">Source code</h1>
+
+<p>Tải source code: <a href="/materials/deploy-maven-vertx-docker.zip">deploy-maven-vertx-docker.zip</a></p>
+
+<h1 id="tham-khảo">Tham khảo</h1>
+
+<p>https://vertx.io/docs/vertx-docker/#_deploying_a_fat_jar</p>
+
+:ET

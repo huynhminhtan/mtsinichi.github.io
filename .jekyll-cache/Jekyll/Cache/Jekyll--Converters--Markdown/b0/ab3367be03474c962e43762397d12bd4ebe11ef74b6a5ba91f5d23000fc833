@@ -1,0 +1,94 @@
+I"�<p>Bài viết sẽ trả lời câu hỏi: <em>Tôi muốn sử dụng lệnh maven để pull và push source code lên repository git</em>.</p>
+
+<p>Với tính tiện lợi, <a href="https://maven.apache.org/scm/maven-scm-plugin/index.html">Maven SCM Plugin</a> hỗ trợ kết nối, tương tác với nhiều loại SCM (source code management), cũng như cung cấp một số lệnh có thể thao tác nhanh thay vì sử dụng các lệnh git thông thường. Maven SCM Plugin hỗ trợ nhiều lệnh và nhiều mục đích, có 2 loại goals thường hay sử dụng như:</p>
+
+<ul>
+  <li>checkin: commit các thay đổi lên repository.</li>
+  <li>checkout: clone source code trên repository.</li>
+</ul>
+
+<p>Chúng ta sẽ đi qua hiện thực từng goal. Chỉ thao tác với tập tin <em>pom.xml</em> mà không cần sửa đổi tập tin nào khác.</p>
+
+<h2 id="csm-info">CSM Info</h2>
+
+<p>Khai báo địa chỉ repository để <code class="language-plaintext highlighter-rouge">&lt;connectionType&gt;</code> gọi sử dụng.</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;scm&gt;</span>
+    <span class="nt">&lt;connection&gt;</span>scm:git:https://github.com/mtsinichi/spring-cloud-configs.git<span class="nt">&lt;/connection&gt;</span>
+    <span class="nt">&lt;developerConnection&gt;</span>scm:git:https://github.com/mtsinichi/spring-cloud-configs.git<span class="nt">&lt;/developerConnection&gt;</span>
+    <span class="nt">&lt;url&gt;</span>https://github.com/mtsinichi/spring-cloud-configs<span class="nt">&lt;/url&gt;</span>
+<span class="nt">&lt;/scm&gt;</span>
+</code></pre></div></div>
+
+<h2 id="scmcheckin">SCM:checkin</h2>
+
+<p>Thực hiện tổng hợp các lệnh git add, git commit, git push lên repository. Thêm 1 plugin trong <em>pom.xml</em> của project Maven. Trong tag <code class="language-plaintext highlighter-rouge">&lt;configuration&gt;</code> có thuộc tính <code class="language-plaintext highlighter-rouge">&lt;connectionType&gt;</code> dùng để khai báo địa chỉ repository Git. Xem thêm các thuộc tính của goal <em>scm:checkin</em> tại <a href="https://maven.apache.org/scm/maven-scm-plugin/checkin-mojo.html">Optional Parameters scm:checkin</a>.</p>
+
+<p>Chạy lệnh Maven: <code class="language-plaintext highlighter-rouge">mvn scm:checkin -Dmessage="message commit source code"</code>.</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;plugin&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>maven-scm-plugin<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.9.5<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;configuration&gt;</span>
+        <span class="nt">&lt;connectionType&gt;</span>url<span class="nt">&lt;/connectionType&gt;</span>
+        <span class="nt">&lt;basedir&gt;</span>${basedir}<span class="nt">&lt;/basedir&gt;</span>
+        <span class="nt">&lt;workingDirectory&gt;</span>${basedir}<span class="nt">&lt;/workingDirectory&gt;</span>
+    <span class="nt">&lt;/configuration&gt;</span>
+    <span class="nt">&lt;executions&gt;</span>
+        <span class="nt">&lt;execution&gt;</span>
+            <span class="nt">&lt;id&gt;</span>git-push-mvn<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;goals&gt;</span>
+                <span class="nt">&lt;goal&gt;</span>checkin<span class="nt">&lt;/goal&gt;</span>
+            <span class="nt">&lt;/goals&gt;</span>
+            <span class="c">&lt;!--&lt;phase&gt;validate&lt;/phase&gt;--&gt;</span>
+        <span class="nt">&lt;/execution&gt;</span>
+    <span class="nt">&lt;/executions&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</code></pre></div></div>
+
+<h2 id="scmcheckout">SCM:checkout</h2>
+
+<p>Thực hiện công việc clone (không phải pull) souce code trên repository về. Trong tag <code class="language-plaintext highlighter-rouge">&lt;configuration&gt;</code> có thuộc tính <code class="language-plaintext highlighter-rouge">&lt;checkoutDirectory&gt;</code> dùng để chỉ định thư mục sẽ lưu trữ source code được clone từ repository về, nếu không khai báo mặc định sẽ lưu trong <em>target/checkout/</em>. Xem thêm các thuộc tính của goal <em>scm:checkout</em> tại <a href="https://maven.apache.org/scm/maven-scm-plugin/checkout-mojo.html">Optional Parameters scm:checkout</a>.</p>
+
+<p>Chạy lệnh Maven: <code class="language-plaintext highlighter-rouge">mvn scm:checkout</code>.</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;plugin&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>maven-scm-plugin<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.9.5<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;configuration&gt;</span>
+        <span class="nt">&lt;checkoutDirectory&gt;</span>${basedir}/core<span class="nt">&lt;/checkoutDirectory&gt;</span>
+        <span class="nt">&lt;connectionType&gt;</span>url<span class="nt">&lt;/connectionType&gt;</span>
+        <span class="nt">&lt;basedir&gt;</span>${basedir}<span class="nt">&lt;/basedir&gt;</span>
+    <span class="nt">&lt;/configuration&gt;</span>
+    <span class="nt">&lt;executions&gt;</span>
+        <span class="nt">&lt;execution&gt;</span>
+            <span class="nt">&lt;id&gt;</span>git-pull-mvn<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;goals&gt;</span>
+                <span class="nt">&lt;goal&gt;</span>checkout<span class="nt">&lt;/goal&gt;</span>
+            <span class="nt">&lt;/goals&gt;</span>
+            <span class="c">&lt;!--&lt;phase&gt;validate&lt;/phase&gt;--&gt;</span>
+        <span class="nt">&lt;/execution&gt;</span>
+    <span class="nt">&lt;/executions&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</code></pre></div></div>
+
+<h2 id="source-code">Source code</h2>
+
+<p>Xem toàn bộ <em>pom.xml</em> ví dụ tại <a href="/linux/2019/07/10/su-dung-scm-plugin-maven-de-push-va-clone-code-code.html">pom.xml</a></p>
+
+<p><br /></p>
+
+<hr />
+
+<p><br /></p>
+
+<p>Tham khảo</p>
+
+<ul>
+  <li>https://maven.apache.org/scm/maven-scm-plugin/plugin-info.html</li>
+  <li>https://stackoverflow.com/a/10147826/9488752</li>
+</ul>
+
+:ET

@@ -1,0 +1,272 @@
+I"�V<p>Bài viết sẽ mô tả cách mà các container giao tiếp với nhau thông qua network docker cùng với ví dụ cụ thể, cũng như các bước có thể chạy một Maven project trên Docker.</p>
+
+<p>Ví dụ, tạo một ứng dụng hiện thực việc thêm và lấy dữ liệu từ Redis, trong dự án có sử dụng VertX mục đích là thêm một dependency cho project nó bự bự ra ấy mà.</p>
+
+<p>Để project có thể thực thi trên Docker, tức là cả source code và Redis đều chạy trên Docker. Redis ta tận dụng image có sẵn trên Docker Hub, còn source code sẽ tự tạo ra container chứa nó bằng Dockerfile vì sẽ thuận tiện sau này muốn deploy chỉ cần một dòng lệnh <em>docker-compose up</em>.</p>
+
+<p>Từ Maven project muốn chạy trên Docker, ta sẽ tiến hành các bước sau:</p>
+
+<ul>
+  <li>Build project Maven thành tập tin Fat Jar.</li>
+  <li>Xây dựng Dockerfile dựa trên Fat Jar để tạo container thực thi phần source code.</li>
+  <li>Viết <em>docker-compose.yml</em> để kết nối các container lại với nhau.</li>
+</ul>
+
+<p>Trong phạm vi bài này, mình chỉ đề cập đến Dockerfile và docker-compose sử dụng docker network để các containers/ services tương tác qua lại. Xem thêm <a href="/java/maven/2019/03/25/tao-file-fat-jar-tu-project-maven.html">Tạo Tập Tin Fat Jar Từ Project Maven</a></p>
+
+<h1 id="tạo-dockerfile-từ-fat-jar-có-sẵn">Tạo Dockerfile từ Fat Jar có sẵn</h1>
+
+<div class="language-dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Dockerfile</span>
+<span class="k">FROM</span><span class="s"> openjdk:8-jre-alpine</span>
+
+<span class="k">ENV</span><span class="s"> VERTICLE_FILE maven.-1.0-SNAPSHOT.jar</span>
+
+<span class="c"># Set the location of the verticles</span>
+<span class="k">ENV</span><span class="s"> VERTICLE_HOME /usr/verticles</span>
+
+<span class="k">EXPOSE</span><span class="s"> 8080</span>
+
+<span class="c"># Copy your fat jar to the container</span>
+<span class="k">COPY</span><span class="s"> ./target/$VERTICLE_FILE $VERTICLE_HOME/</span>
+
+<span class="c"># Launch the verticle</span>
+<span class="k">WORKDIR</span><span class="s"> $VERTICLE_HOME</span>
+<span class="k">ENTRYPOINT</span><span class="s"> ["sh", "-c"]</span>
+<span class="k">CMD</span><span class="s"> ["exec java -jar $VERTICLE_FILE"]</span>
+</code></pre></div></div>
+
+<h1 id="viết-docker-compose-để-kết-nối-các-container">Viết Docker Compose để kết nối các container</h1>
+
+<h2 id="không-định-nghĩa-network">Không định nghĩa network</h2>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># docker-compose.yml</span>
+<span class="na">version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">3'</span>
+<span class="na">services</span><span class="pi">:</span>
+  <span class="na">app</span><span class="pi">:</span>
+    <span class="na">build</span><span class="pi">:</span> <span class="s">.</span>
+    <span class="na">ports</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">8080:8080"</span>
+    <span class="na">depends_on</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">redis_db</span>
+
+  <span class="na">redis_db</span><span class="pi">:</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s2">"</span><span class="s">redis:alpine"</span>
+    <span class="na">ports</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">6381:6379"</span>
+</code></pre></div></div>
+
+<p>Nếu không định nghĩa network, khi chạy lệnh <code class="language-plaintext highlighter-rouge">docker-compose up</code> Docker sẽ tự động tạo ra một network có tên là <em>[tên-thư-mục]_default</em>, để kiểm tra mình chạy lệnh <code class="language-plaintext highlighter-rouge">docker network ls</code>, vì project mình nằm trong thư mục có tên là <em>maven-docker-network</em> nên dòng thứ 5 một network mới có thêm <em>_default</em> được tạo ra:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>➜ maven-docker-network:✗ docker network <span class="nb">ls
+
+</span>NETWORK ID          NAME                           DRIVER              SCOPE
+8941d3b2ef59        bridge                         bridge              <span class="nb">local
+</span>3a5d1ba57867        composetest_default            bridge              <span class="nb">local
+</span>727484192e4c        host                           host                <span class="nb">local
+</span>062bd6240da9        kafka-net                      bridge              <span class="nb">local
+</span>8b90584145d2        maven-docker-network_default   bridge              <span class="nb">local
+</span>cfd4ef8c1000        none                           null                <span class="nb">local</span>
+</code></pre></div></div>
+
+<p>Sẽ tiến hành kiểm tra network này bằng lệnh <code class="language-plaintext highlighter-rouge">docker network inspect [NETWORK-ID]/[NAME]</code>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>➜ maven-docker-network:✗ docker network inspect 8b90584145d2
+<span class="o">[</span>
+    <span class="o">{</span>
+        <span class="s2">"Name"</span>: <span class="s2">"maven-docker-network_default"</span>,
+        <span class="s2">"Id"</span>: <span class="s2">"8b90584145d2ba53a842e26eb490ef49ab50cee63e970e884e152a735e90697c"</span>,
+        <span class="s2">"Created"</span>: <span class="s2">"2019-03-27T13:23:58.554917217+07:00"</span>,
+        <span class="s2">"Scope"</span>: <span class="s2">"local"</span>,
+        <span class="s2">"Driver"</span>: <span class="s2">"bridge"</span>,
+        <span class="s2">"EnableIPv6"</span>: <span class="nb">false</span>,
+        <span class="s2">"IPAM"</span>: <span class="o">{</span>
+            <span class="s2">"Driver"</span>: <span class="s2">"default"</span>,
+            <span class="s2">"Options"</span>: null,
+            <span class="s2">"Config"</span>: <span class="o">[</span>
+                <span class="o">{</span>
+                    <span class="s2">"Subnet"</span>: <span class="s2">"172.20.0.0/16"</span>,
+                    <span class="s2">"Gateway"</span>: <span class="s2">"172.20.0.1"</span>
+                <span class="o">}</span>
+            <span class="o">]</span>
+        <span class="o">}</span>,
+        <span class="s2">"Internal"</span>: <span class="nb">false</span>,
+        <span class="s2">"Attachable"</span>: <span class="nb">true</span>,
+        <span class="s2">"Ingress"</span>: <span class="nb">false</span>,
+        <span class="s2">"ConfigFrom"</span>: <span class="o">{</span>
+            <span class="s2">"Network"</span>: <span class="s2">""</span>
+        <span class="o">}</span>,
+        <span class="s2">"ConfigOnly"</span>: <span class="nb">false</span>,
+        <span class="s2">"Containers"</span>: <span class="o">{</span>
+            <span class="s2">"8123500b8cbceb75c4849278418be2cddd5d5aca319401b893ff19071099efec"</span>: <span class="o">{</span>
+                <span class="s2">"Name"</span>: <span class="s2">"maven-docker-network_app_1"</span>,
+                <span class="s2">"EndpointID"</span>: <span class="s2">"41377dc0811b2a2f55c745518267562d14dec2f58bc4c60722a1cd6a06c51218"</span>,
+                <span class="s2">"MacAddress"</span>: <span class="s2">"02:42:ac:14:00:03"</span>,
+                <span class="s2">"IPv4Address"</span>: <span class="s2">"172.20.0.3/16"</span>,
+                <span class="s2">"IPv6Address"</span>: <span class="s2">""</span>
+            <span class="o">}</span>,
+            <span class="s2">"cf38661571216d9f19d50473bf7e44a167be159ff198213801fe505c94a74701"</span>: <span class="o">{</span>
+                <span class="s2">"Name"</span>: <span class="s2">"maven-docker-network_redis_db_1"</span>,
+                <span class="s2">"EndpointID"</span>: <span class="s2">"5502446b77efb64587f0618f0701d8a4f5e7ff7c0de07ed16da3e543a9d407f0"</span>,
+                <span class="s2">"MacAddress"</span>: <span class="s2">"02:42:ac:14:00:02"</span>,
+                <span class="s2">"IPv4Address"</span>: <span class="s2">"172.20.0.2/16"</span>,
+                <span class="s2">"IPv6Address"</span>: <span class="s2">""</span>
+            <span class="o">}</span>
+        <span class="o">}</span>,
+        <span class="s2">"Options"</span>: <span class="o">{}</span>,
+        <span class="s2">"Labels"</span>: <span class="o">{</span>
+            <span class="s2">"com.docker.compose.network"</span>: <span class="s2">"default"</span>,
+            <span class="s2">"com.docker.compose.project"</span>: <span class="s2">"maven-docker-network"</span>,
+            <span class="s2">"com.docker.compose.version"</span>: <span class="s2">"1.23.2"</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">]</span>
+</code></pre></div></div>
+
+<p>Ở trên có 2 container <em>maven-docker-network_app_1</em> và <em>maven-docker-network_redis_db_1</em> nằm trong network này khi chạy <code class="language-plaintext highlighter-rouge">docker-compose up</code>.</p>
+
+<p>Còn ở phần code, để có thể kết nối với Redis ta sẽ sử dụng chuỗi kết nối là <em>redis://redis_db:6379</em>, với <em>redis_db</em> là tên kết nối giống với tên của container định nghĩa ở <em>docker-compose.yml</em> và sử dụng CONTAINER_PORT mặc định của Redis là 6379.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// OrderVerticle.java</span>
+<span class="kn">package</span> <span class="nn">com.minhtan.core</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">io.vertx.core.AbstractVerticle</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">io.vertx.core.Vertx</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.redisson.Redisson</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.redisson.api.RList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.redisson.api.RedissonClient</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.redisson.config.Config</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">OrderVerticle</span> <span class="kd">extends</span> <span class="nc">AbstractVerticle</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="nc">Vertx</span> <span class="n">vertx</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">Vertx</span> <span class="nf">getInstanceVertX</span><span class="o">()</span> <span class="o">{</span>
+
+        <span class="k">if</span> <span class="o">(</span><span class="n">vertx</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">vertx</span> <span class="o">=</span> <span class="nc">Vertx</span><span class="o">.</span><span class="na">vertx</span><span class="o">();</span>
+            <span class="n">vertx</span><span class="o">.</span><span class="na">deployVerticle</span><span class="o">(</span><span class="k">new</span> <span class="nc">OrderVerticle</span><span class="o">());</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">vertx</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Vertx</span> <span class="n">vertx</span> <span class="o">=</span> <span class="n">getInstanceVertX</span><span class="o">();</span>
+        <span class="n">vertx</span><span class="o">.</span><span class="na">deployVerticle</span><span class="o">(</span><span class="k">new</span> <span class="nc">OrderVerticle</span><span class="o">());</span>
+
+        <span class="nc">Config</span> <span class="n">config</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Config</span><span class="o">();</span>
+        <span class="c1">// connect to Redis</span>
+        <span class="n">config</span><span class="o">.</span><span class="na">useSingleServer</span><span class="o">().</span><span class="na">setAddress</span><span class="o">(</span><span class="s">"redis://redis_db:6379"</span><span class="o">);</span>
+        <span class="nc">RedissonClient</span> <span class="n">redisson</span> <span class="o">=</span> <span class="nc">Redisson</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">config</span><span class="o">);</span>
+
+        <span class="nc">RList</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="n">redisson</span><span class="o">.</span><span class="na">getList</span><span class="o">(</span><span class="s">"mylist"</span><span class="o">);</span>
+
+        <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"aaaaaaaaaa"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Add 'aaaaaaaaaa' to Redis"</span><span class="o">);</span>
+        <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"bbbbbbbbbb"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Add 'bbbbbbbbbb' to Redis"</span><span class="o">);</span>
+        <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"cccccccccc"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Add 'cccccccccc' to Redis"</span><span class="o">);</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Get list[0],[1],[2],[3] from Redis: "</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">2</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">3</span><span class="o">));</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Get done!"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Mình có viết <em>auto.sh</em> để tổng hợp các script, kết quả cuối cùng:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>➜ maven-docker-network:✗ ./auto.sh
+
+...
+redis_db_1  | 1:M 28 Mar 2019 02:31:48.307 <span class="k">*</span> Ready to accept connections
+app_1       | log4j:WARN No appenders could be found <span class="k">for </span>logger <span class="o">(</span>io.netty.util.internal.logging.InternalLoggerFactory<span class="o">)</span><span class="nb">.</span>
+app_1       | log4j:WARN Please initialize the log4j system properly.
+app_1       | log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig <span class="k">for </span>more info.
+app_1       | Add <span class="s1">'aaaaaaaaaa'</span> to Redis
+app_1       | Add <span class="s1">'bbbbbbbbbb'</span> to Redis
+app_1       | Add <span class="s1">'cccccccccc'</span> to Redis
+app_1       | Get list[0],[1],[2],[3] from Redis:
+app_1       | aaaaaaaaaa
+app_1       | bbbbbbbbbb
+app_1       | cccccccccc
+app_1       | null
+app_1       | Get <span class="k">done</span><span class="o">!</span>
+</code></pre></div></div>
+
+<h2 id="định-nghĩa-network">Định nghĩa network</h2>
+
+<p>Mình có tạo ra một network tên là <em>app-net</em> khi thực thi các container <em>app</em> và <em>redis_db</em> sẽ được nằm trong network này.</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">3'</span>
+
+<span class="na">networks</span><span class="pi">:</span>
+  <span class="na">app-net</span><span class="pi">:</span>
+    <span class="na">driver</span><span class="pi">:</span> <span class="s">bridge</span>
+
+<span class="na">services</span><span class="pi">:</span>
+  <span class="na">app</span><span class="pi">:</span>
+    <span class="na">build</span><span class="pi">:</span> <span class="s">.</span>
+    <span class="na">ports</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">8080:8080"</span>
+    <span class="na">depends_on</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">redis_db</span>
+    <span class="na">networks</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">app-net</span>
+
+  <span class="na">redis_db</span><span class="pi">:</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s2">"</span><span class="s">redis:alpine"</span>
+    <span class="na">ports</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">6381:6379"</span>
+    <span class="na">networks</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">app-net</span>
+</code></pre></div></div>
+
+<p>Tên của network thay vì có <em>_default</em> thì sẽ thay bằng <em>_app-net</em>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>➜  maven-docker-network:✗ docker network <span class="nb">ls
+
+</span>NETWORK ID          NAME                           DRIVER              SCOPE
+8941d3b2ef59        bridge                         bridge              <span class="nb">local
+</span>3a5d1ba57867        composetest_default            bridge              <span class="nb">local
+</span>727484192e4c        host                           host                <span class="nb">local
+</span>062bd6240da9        kafka-net                      bridge              <span class="nb">local
+</span>e5173c05ca34        maven-docker-network_app-net   bridge              <span class="nb">local
+</span>8b90584145d2        maven-docker-network_default   bridge              <span class="nb">local
+</span>cfd4ef8c1000        none                           null                <span class="nb">local</span>
+
+</code></pre></div></div>
+
+<p>Chuỗi kết nối đến Redis cũng không thay đổi, vẫn là <em>redis://redis_db:6379</em>.</p>
+
+<h1 id="tài-nguyên">Tài nguyên</h1>
+
+<p>Tải source cho toàn bộ từ project Java Maven, Dockerfile và Docker Compose: <a href="/materials/maven-docker-network.zip">maven-docker-network.zip</a></p>
+
+<p>Chạy bằng lệnh <code class="language-plaintext highlighter-rouge">./auto.sh</code>, mình viết nó để chạy một lệnh cho tất cả các công việc:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># auto.sh</span>
+mvn clean
+mvn package
+docker <span class="nb">rm</span> <span class="si">$(</span>docker ps <span class="nt">-a</span> <span class="nt">-q</span><span class="si">)</span>
+
+<span class="c"># docker-compose build --no-cache</span>
+<span class="c"># docker-compose up --force-recreate</span>
+docker-compose build
+docker-compose stop
+docker-compose <span class="nb">rm</span> <span class="nt">-f</span>
+docker-compose up
+</code></pre></div></div>
+
+<h1 id="thanks-a-million-for">Thanks a million for</h1>
+
+<ul>
+  <li>https://vsupalov.com/docker-compose-runs-old-containers/</li>
+  <li>https://stackoverflow.com/questions/44705455/after-docker-compose-build-the-docker-compose-up-run-old-not-updated-containers</li>
+</ul>
+
+:ET

@@ -1,0 +1,9 @@
+I"�<p>Để tiếp kiệm thời gian, chỉ cần <code class="language-plaintext highlighter-rouge">cd</code> vào project có chứa file <em>pom.xml</em>, rồi chạy lệnh <code class="language-plaintext highlighter-rouge">idea pom.xml</code> sau đó Intellij tự động import project một cách nhanh nhất cho chúng ta.</p>
+
+<p>Mặc định khi cài đặt, Intellij sẽ tự tạo command line laucher sử dụng được trong terminal. Nếu bị lỗi <em>idea: command not found</em>  thì mở một project bất kỳ chọn <strong>Tool -&gt; Create Command-line Launcher…</strong> rồi nhập <strong>“/usr/local/bin/idea” -&gt; Okay</strong>.</p>
+
+<p><img src="/assets/images/intellij-import-project-maven-via-command.gif" alt="intellij-import-project-maven-via-command" class="img-responsive" /></p>
+
+<p><em>*Do máy mình đã thiết lặp Command-line Launcher rồi nên mới hiện hộp thông báo hỏi có muốn ghi đè hay không.</em></p>
+
+:ET

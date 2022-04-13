@@ -1,0 +1,77 @@
+I"<p>Bài toán được đưa ra, chúng ta sẽ cấu hình server Linux sử dụng HTTPS/SSL và trỏ tên miền <em>cbsys.ga</em> vào port <em>3000</em> đang chạy trên server.</p>
+
+<h2 id="hướng-dẫn">Hướng dẫn</h2>
+
+<ul>
+  <li>Cài Nginx:</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>apt-get update
+<span class="nv">$ </span><span class="nb">sudo </span>apt-get <span class="nb">install </span>nginx
+<span class="nv">$ </span><span class="nb">sudo </span>nginx <span class="nt">-v</span>
+<span class="nv">$ </span><span class="nb">sudo </span>service nginx status
+</code></pre></div></div>
+
+<ul>
+  <li>Cài Cerbot</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>add-apt-repository ppa:certbot/certbot
+<span class="nv">$ </span><span class="nb">sudo </span>apt-get update
+<span class="nv">$ </span><span class="nb">sudo </span>apt-get <span class="nb">install </span>python-certbot-nginx
+
+<span class="nv">$ </span>apt-get <span class="nb">install </span>python3-pyasn1
+<span class="nv">$ </span>certbot <span class="nt">--version</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Enable tường lửa để cài đặt rồi tắt liền: <code class="language-plaintext highlighter-rouge">sudo ufw status</code>, <code class="language-plaintext highlighter-rouge">sudo ufw enable</code>, nếu không sẽ không truy cập được SSH</li>
+  <li>Cấu hình DNS Domain, trỏ domain <em>cbsys.ga</em> sang host đang cài đặt Nginx với <code class="language-plaintext highlighter-rouge">Type:A, Name: cbsys.ga</code></li>
+  <li>Cài SSL với Nginx <code class="language-plaintext highlighter-rouge">sudo certbot --nginx -d cbsys.ga</code>, xem cấu hình khi cài đặt thành công ở <em>/etc/nginx/sites-enabled/default</em></li>
+  <li>Sau đó tắt tường lửa, để truy cập lại được SSH nếu thoát ra <code class="language-plaintext highlighter-rouge">sudo ufw disable</code></li>
+  <li>Vào đường dẫn <em>/etc/nginx/sites-enabled</em> tạo một file <em>cbsys.ga</em> để cấu hình reverse proxy thực hiện mapping tới port <em>3000</em></li>
+</ul>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server {
+
+    	listen 443 ssl;
+	    listen [::]:443 ssl;
+
+        ssl_certificate /etc/letsencrypt/live/cbsys.ga/fullchain.pem; # managed by Certbot
+    	ssl_certificate_key /etc/letsencrypt/live/cbsys.ga/privkey.pem; # managed by Certbot
+    	include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    	ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+        server_name cbsys.ga;
+
+        location / {
+
+            proxy_set_header        Host $host;
+                proxy_set_header        X-Real-IP $remote_addr;
+                proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header        X-Forwarded-Proto $scheme;
+
+                # Fix the “It appears that your reverse proxy set up is broken" error.
+                proxy_pass          http://localhost:3000;
+                proxy_read_timeout  90;
+
+                proxy_redirect      http://localhost:3000 https://cbsys.ga;
+
+        }
+
+}
+</code></pre></div></div>
+
+<ul>
+  <li>Sau đó restart lại Nginx để thấy thay đổi: <code class="language-plaintext highlighter-rouge">sudo service nginx restart</code></li>
+</ul>
+
+<h2 id="tham-khảo">Tham khảo</h2>
+
+<ul>
+  <li>https://www.linode.com/docs/web-servers/nginx/use-nginx-reverse-proxy/#configure-https-with-certbot</li>
+  <li>https://www.digitalocean.com/community/tutorials/how-to-set-up-let-s-encrypt-with-nginx-server-blocks-on-ubuntu-16-04</li>
+  <li>https://www.godaddy.com/garage/how-to-install-an-ssl-certificate-on-ubuntu-for-nginx/</li>
+  <li>https://dzone.com/articles/how-to-install-lets-encrypt-with-nginx-on-ubuntu-1</li>
+</ul>
+:ET

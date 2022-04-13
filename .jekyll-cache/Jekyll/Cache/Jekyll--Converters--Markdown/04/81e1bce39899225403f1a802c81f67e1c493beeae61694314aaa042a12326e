@@ -1,0 +1,2 @@
+I"Q<p>Để tiếp kiệm thời gian, chỉ cần <code class="language-plaintext highlighter-rouge">cd</code> vào project có chứa file <em>pom.xml</em>, rồi chạy lệnh <code class="language-plaintext highlighter-rouge">idea pom.xml</code> sau đó Intellij tự động import project một cách nhanh nhất cho chúng ta.</p>
+:ET

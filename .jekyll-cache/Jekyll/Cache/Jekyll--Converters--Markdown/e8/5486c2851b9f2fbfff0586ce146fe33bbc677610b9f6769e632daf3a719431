@@ -1,0 +1,84 @@
+I"<<p>Bài viết sẽ hướng dẫn chạy chương trình Java bằng việc sử dụng Docker, từ cách viết Dockerfile, build ứng dụng Java và cuối cùng là chạy thực tế.</p>
+
+<h2 id="chuẩn-bị-đường-với-muối">Chuẩn bị đường với muối</h2>
+
+<p>Tạo ra cấu trúc thư mục như sau:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">.</span>
+├── Dockerfile
+├── HelloWorld.java
+└── start.sh
+
+0 directories, 3 files
+</code></pre></div></div>
+
+<p>Định nghĩa <em>Dockerfile</em>:</p>
+
+<div class="language-Dockerfile highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># FROM alpine:latest</span>
+<span class="k">FROM</span><span class="s"> openjdk:8</span>
+
+<span class="c"># Thực thi câu lệnh khi built image</span>
+<span class="c"># RUN DEBIAN_FRONTEND=noninteractive</span>
+
+<span class="c"># RUN apk --update add openjdk8-jre</span>
+
+<span class="c"># Định nghĩa thư mục CMD trỏ tới</span>
+<span class="k">WORKDIR</span><span class="s"> /src</span>
+
+<span class="c"># COPY . /evrun</span>
+<span class="k">COPY</span><span class="s"> . .</span>
+
+<span class="k">RUN </span><span class="nb">chmod </span>a+x ./<span class="k">*</span>
+
+<span class="c"># ENTRYPOINT ["/evrun/start.sh"]</span>
+<span class="k">ENTRYPOINT</span><span class="s"> ["sh","./start.sh"]</span>
+
+<span class="c"># Port cho container</span>
+<span class="c"># EXPOSE 80</span>
+</code></pre></div></div>
+
+<p>Tạo tập tin <em>HelloWorld.java</em>:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloWorld</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Hello, World - mtSiniChi - yoll - hihi"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Tập tin <em>start.sh</em> dùng để build chương trình container:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+<span class="nb">echo</span> <span class="s2">"Workspace dir: "</span> <span class="nv">$PWD</span>
+<span class="c"># pwd</span>
+<span class="c"># ls</span>
+<span class="c"># cat HelloWorld.java</span>
+javac HelloWorld.java
+java HelloWorld
+<span class="c"># exec $@</span>
+</code></pre></div></div>
+
+<h2 id="bắt-đầu-kho-thịt">Bắt đầu kho thịt</h2>
+
+<p>Build container tên <em>java-hello</em>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker build <span class="nt">-t</span> java-hello <span class="nb">.</span>
+</code></pre></div></div>
+
+<p>Chạy container để xem kết quả:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run java-hello
+</code></pre></div></div>
+
+<h2 id="ăn-no-lăn-co-ra-ngủ">Ăn no lăn co ra ngủ</h2>
+
+<p>Kết quả:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker run java-hello
+Workspace <span class="nb">dir</span>:  /src
+Hello, World - mtSiniChi - yoll - hihi
+</code></pre></div></div>
+
+<p>Tải source code: <a href="/materials/docker-java-hello">docker-java-hello.zip</a></p>
+
+:ET

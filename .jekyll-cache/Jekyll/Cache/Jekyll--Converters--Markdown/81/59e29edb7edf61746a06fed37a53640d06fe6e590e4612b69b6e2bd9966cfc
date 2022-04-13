@@ -1,0 +1,206 @@
+I"|5<p><em>Bài viết sẽ hướng dẫn tạo ra tập tin Fat Jar từ project Maven bằng việc sử dụng <a href="https://maven.apache.org/plugins/maven-shade-plugin/">Maven Shade Plugin</a>.</em></p>
+
+<h2 id="fat-jar-là-gì">Fat Jar là gì</h2>
+
+<p>Fat Jar, Uber Jar, Shaded Jar chúng có tên khác nhau nhưng được xem là một. Là một tập tin nén Jar mà trong đó bao gồm tất cả các class file đã được compile, cộng thêm tất cả các dependencies có trong project.</p>
+
+<p>Như vậy, toàn bộ mã nguồn chương trình sẽ được gói gọn trong một file Fat Jar và ta có thể thực thi nhanh chóng thông qua command <code class="language-plaintext highlighter-rouge">java -jar name-file-fat-jar.jar</code>.</p>
+
+<h2 id="chuẩn-bị-mã-nguồn">Chuẩn bị mã nguồn</h2>
+
+<h3 id="cấu-trúc-project">Cấu trúc project</h3>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.
+├── pom.xml
+└── src
+    ├── main
+    │   ├── java
+    │   │   └── com
+    │   │       └── minhtan
+    │   │           └── core
+    │   │               └── OrderVerticle.java
+    │   └── resources
+    └── test
+        └── java
+
+9 directories, 2 files
+</code></pre></div></div>
+
+<h3 id="file-pomxml">File pom.xml</h3>
+
+<p>Thay <em>com.minhtan.core.OrderVerticle</em> thành class có chứa hàm main tương ứng. Hãy tạo ra package chứa class main nếu link tới không thành công, trong ví dụ ngày pakage có tên là <em>com.minhtan.core.</em></p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">"http://maven.apache.org/POM/4.0.0"</span>
+         <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
+         <span class="na">xsi:schemaLocation=</span><span class="s">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+
+    <span class="nt">&lt;groupId&gt;</span>test<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>maven.<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="c">&lt;!-- set packaging if dont create file .jar --&gt;</span>
+    <span class="c">&lt;!-- &lt;packaging&gt;jar&lt;/packaging&gt; --&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+
+    <span class="c">&lt;!--&lt;properties&gt;--&gt;</span>
+    <span class="c">&lt;!--&lt;jdk.version&gt;1.7&lt;/jdk.version&gt;--&gt;</span>
+    <span class="c">&lt;!--&lt;jodatime.version&gt;2.5&lt;/jodatime.version&gt;--&gt;</span>
+    <span class="c">&lt;!--&lt;junit.version&gt;4.11&lt;/junit.version&gt;--&gt;</span>
+    <span class="c">&lt;!--&lt;/properties&gt;--&gt;</span>
+
+    <span class="nt">&lt;build&gt;</span>
+        <span class="nt">&lt;plugins&gt;</span>
+
+            <span class="c">&lt;!-- Set a compiler level --&gt;</span>
+            <span class="nt">&lt;plugin&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>maven-compiler-plugin<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;configuration&gt;</span>
+                    <span class="nt">&lt;source&gt;</span>8<span class="nt">&lt;/source&gt;</span>
+                    <span class="nt">&lt;target&gt;</span>8<span class="nt">&lt;/target&gt;</span>
+                <span class="nt">&lt;/configuration&gt;</span>
+            <span class="nt">&lt;/plugin&gt;</span>
+
+            <span class="c">&lt;!--&lt;plugin&gt;--&gt;</span>
+            <span class="c">&lt;!--&lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;--&gt;</span>
+            <span class="c">&lt;!--&lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;--&gt;</span>
+            <span class="c">&lt;!--&lt;version&gt;2.3.2&lt;/version&gt;--&gt;</span>
+            <span class="c">&lt;!--&lt;configuration&gt;--&gt;</span>
+            <span class="c">&lt;!--&lt;source&gt;${jdk.version}&lt;/source&gt;--&gt;</span>
+            <span class="c">&lt;!--&lt;target&gt;${jdk.version}&lt;/target&gt;--&gt;</span>
+            <span class="c">&lt;!--&lt;/configuration&gt;--&gt;</span>
+            <span class="c">&lt;!--&lt;/plugin&gt;--&gt;</span>
+
+
+            <span class="c">&lt;!-- Maven Shade Plugin --&gt;</span>
+            <span class="nt">&lt;plugin&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>maven-shade-plugin<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>2.3<span class="nt">&lt;/version&gt;</span>
+                <span class="nt">&lt;executions&gt;</span>
+                    <span class="c">&lt;!-- Run shade goal on package phase --&gt;</span>
+                    <span class="nt">&lt;execution&gt;</span>
+                        <span class="nt">&lt;phase&gt;</span>package<span class="nt">&lt;/phase&gt;</span>
+                        <span class="nt">&lt;goals&gt;</span>
+                            <span class="nt">&lt;goal&gt;</span>shade<span class="nt">&lt;/goal&gt;</span>
+                        <span class="nt">&lt;/goals&gt;</span>
+                        <span class="nt">&lt;configuration&gt;</span>
+                            <span class="nt">&lt;transformers&gt;</span>
+                                <span class="c">&lt;!-- add Main-Class to manifest file --&gt;</span>
+                                <span class="nt">&lt;transformer</span>
+                                        <span class="na">implementation=</span><span class="s">"org.apache.maven.plugins.shade.resource.ManifestResourceTransformer"</span><span class="nt">&gt;</span>
+                                    <span class="nt">&lt;mainClass&gt;</span>com.minhtan.core.OrderVerticle<span class="nt">&lt;/mainClass&gt;</span>
+                                <span class="nt">&lt;/transformer&gt;</span>
+                            <span class="nt">&lt;/transformers&gt;</span>
+                        <span class="nt">&lt;/configuration&gt;</span>
+                    <span class="nt">&lt;/execution&gt;</span>
+                <span class="nt">&lt;/executions&gt;</span>
+            <span class="nt">&lt;/plugin&gt;</span>
+
+        <span class="nt">&lt;/plugins&gt;</span>
+    <span class="nt">&lt;/build&gt;</span>
+
+    <span class="nt">&lt;dependencies&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>io.vertx<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>vertx-web<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>3.5.0<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+    <span class="nt">&lt;/dependencies&gt;</span>
+
+<span class="nt">&lt;/project&gt;</span>
+</code></pre></div></div>
+
+<h3 id="tạo-file-demo-orderverticlejava">Tạo file demo OrderVerticle.java</h3>
+
+<p>Trong project này, mình sử dụng thư viện Vert.X để xem khi run file Jar có bị lỗi thiếu dependency không. Mã nguồn <em>OrderVerticle.java</em> như bên dưới:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">com.minhtan.core</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">io.vertx.core.AbstractVerticle</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">io.vertx.core.Vertx</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">OrderVerticle</span> <span class="kd">extends</span> <span class="nc">AbstractVerticle</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="nc">Vertx</span> <span class="n">vertx</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">Vertx</span> <span class="nf">getInstanceVertX</span><span class="o">()</span> <span class="o">{</span>
+
+        <span class="k">if</span> <span class="o">(</span><span class="n">vertx</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">vertx</span> <span class="o">=</span> <span class="nc">Vertx</span><span class="o">.</span><span class="na">vertx</span><span class="o">();</span>
+            <span class="n">vertx</span><span class="o">.</span><span class="na">deployVerticle</span><span class="o">(</span><span class="k">new</span> <span class="nc">OrderVerticle</span><span class="o">());</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">vertx</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">Vertx</span> <span class="n">vertx</span> <span class="o">=</span> <span class="n">getInstanceVertX</span><span class="o">();</span>
+        <span class="n">vertx</span><span class="o">.</span><span class="na">deployVerticle</span><span class="o">(</span><span class="k">new</span> <span class="nc">OrderVerticle</span><span class="o">());</span>
+
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"He nhu u! : build to fat-jar with maven project "</span><span class="o">);</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="tạo-ra-file-jar">Tạo ra File Jar</h2>
+
+<p>Sử dụng command của Maven sẽ tự động tạo ra được file Jar, vào thư mục gốc của project cần build và chạy lệnh bên dưới:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mvn package
+
+<span class="o">[</span>INFO] Scanning <span class="k">for </span>projects...
+<span class="o">[</span>INFO] <span class="nt">------------------------------------------------------------------------</span>
+<span class="o">[</span>INFO] Building maven. 1.0-SNAPSHOT
+<span class="o">[</span>INFO] <span class="nt">------------------------------------------------------------------------</span>
+<span class="o">[</span>INFO]
+<span class="o">[</span>INFO] <span class="nt">---</span> maven-resources-plugin:2.6:resources <span class="o">(</span>default-resources<span class="o">)</span> @ maven. <span class="nt">---</span>
+<span class="o">[</span>WARNING] Using platform encoding <span class="o">(</span>UTF-8 actually<span class="o">)</span> to copy filtered resources, i.e. build is platform dependent!
+<span class="o">[</span>INFO] Copying 0 resource
+<span class="o">[</span>INFO]
+<span class="o">[</span>INFO] <span class="nt">---</span> maven-compiler-plugin:3.2:compile <span class="o">(</span>default-compile<span class="o">)</span> @ maven. <span class="nt">---</span>
+<span class="o">[</span>INFO] Changes detected - recompiling the module!
+...
+</code></pre></div></div>
+
+<p>Sau khi chạy thành công, có 2 tập tin được tạo ra trong thư mục <em>target/</em>:</p>
+
+<ul>
+  <li>maven.-1.0-SNAPSHOT.jar: đây là file Jar chúng ta cần.</li>
+  <li>original-maven.-1.0-SNAPSHOT.jar: không cần sử dụng.</li>
+</ul>
+
+<h2 id="thực-thi-file-jar">Thực thi file Jar</h2>
+
+<p>Hiển thị những class, những dependency có trong file Jar:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jar tf target/maven.-1.0-SNAPSHOT.jar
+
+com/fasterxml/jackson/databind/util/ViewMatcher.class
+META-INF/maven/com.fasterxml.jackson.core/jackson-annotations/
+META-INF/maven/com.fasterxml.jackson.core/jackson-annotations/pom.properties
+META-INF/maven/com.fasterxml.jackson.core/jackson-annotations/pom.xml
+com/fasterxml/jackson/annotation/
+com/fasterxml/jackson/annotation/JacksonAnnotation.class
+com/fasterxml/jackson/annotation/SimpleObjectIdResolver.class
+...
+</code></pre></div></div>
+
+<p>Chạy file Jar, cũng như chạy cả project:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>java <span class="nt">-jar</span> target/maven.-1.0-SNAPSHOT.jar
+
+<span class="o">&gt;</span> He nhu u! : build to fat-jar with maven project
+</code></pre></div></div>
+
+<p>Tải source code: <a href="/materials/create-jar-maven.zip">create-jar-maven.zip</a></p>
+
+<h3 id="tham-khảo">Tham khảo</h3>
+
+<ul>
+  <li>https://www.mkyong.com/maven/how-to-create-a-java-project-with-maven/</li>
+  <li>https://www.tomitribe.com/blog/tomee-fat-jar-deployments/</li>
+  <li>https://www.mkyong.com/maven/create-a-fat-jar-file-maven-shade-plugin/</li>
+</ul>
+:ET

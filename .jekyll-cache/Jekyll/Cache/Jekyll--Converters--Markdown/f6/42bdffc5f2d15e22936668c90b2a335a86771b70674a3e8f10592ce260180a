@@ -1,0 +1,67 @@
+I"3<p>Tập tin <em>pom.xml</em> của Maven.</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">"http://maven.apache.org/POM/4.0.0"</span> <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
+         <span class="na">xsi:schemaLocation=</span><span class="s">"http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+
+    <span class="nt">&lt;groupId&gt;</span>org.springframework<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>gs-centralized-configuration<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>0.1.0<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;packaging&gt;</span>pom<span class="nt">&lt;/packaging&gt;</span>
+
+    <span class="nt">&lt;scm&gt;</span>
+        <span class="nt">&lt;connection&gt;</span>scm:git:https://github.com/mtsinichi/spring-cloud-configs.git<span class="nt">&lt;/connection&gt;</span>
+        <span class="nt">&lt;developerConnection&gt;</span>scm:git:https://github.com/mtsinichi/spring-cloud-configs.git<span class="nt">&lt;/developerConnection&gt;</span>
+        <span class="nt">&lt;url&gt;</span>https://github.com/mtsinichi/spring-cloud-configs<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;/scm&gt;</span>
+
+    <span class="nt">&lt;modules&gt;</span>
+        <span class="nt">&lt;module&gt;</span>order-management-service<span class="nt">&lt;/module&gt;</span>
+        <span class="nt">&lt;module&gt;</span>configuration-service<span class="nt">&lt;/module&gt;</span>
+        <span class="nt">&lt;module&gt;</span>user-management-service<span class="nt">&lt;/module&gt;</span>
+    <span class="nt">&lt;/modules&gt;</span>
+
+    <span class="nt">&lt;properties&gt;</span>
+        <span class="nt">&lt;checkout.basedir&gt;</span>${basedir}/clone<span class="nt">&lt;/checkout.basedir&gt;</span>
+    <span class="nt">&lt;/properties&gt;</span>
+
+    <span class="nt">&lt;build&gt;</span>
+        <span class="nt">&lt;plugins&gt;</span>
+
+            <span class="c">&lt;!-- git repository --&gt;</span>
+            <span class="nt">&lt;plugin&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>maven-scm-plugin<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>1.9.5<span class="nt">&lt;/version&gt;</span>
+                <span class="nt">&lt;configuration&gt;</span>
+                    <span class="nt">&lt;checkoutDirectory&gt;</span>${basedir}/core<span class="nt">&lt;/checkoutDirectory&gt;</span>
+                    <span class="nt">&lt;connectionType&gt;</span>url<span class="nt">&lt;/connectionType&gt;</span>
+                    <span class="nt">&lt;basedir&gt;</span>${basedir}<span class="nt">&lt;/basedir&gt;</span>
+                    <span class="nt">&lt;workingDirectory&gt;</span>${basedir}<span class="nt">&lt;/workingDirectory&gt;</span>
+                <span class="nt">&lt;/configuration&gt;</span>
+                <span class="nt">&lt;executions&gt;</span>
+                    <span class="nt">&lt;execution&gt;</span>
+                        <span class="nt">&lt;id&gt;</span>git-pull-mvn<span class="nt">&lt;/id&gt;</span>
+                        <span class="nt">&lt;goals&gt;</span>
+                            <span class="nt">&lt;goal&gt;</span>checkout<span class="nt">&lt;/goal&gt;</span>
+                        <span class="nt">&lt;/goals&gt;</span>
+                        <span class="c">&lt;!--&lt;phase&gt;validate&lt;/phase&gt;--&gt;</span>
+                    <span class="nt">&lt;/execution&gt;</span>
+
+                    <span class="nt">&lt;execution&gt;</span>
+                        <span class="nt">&lt;id&gt;</span>git-push-mvn<span class="nt">&lt;/id&gt;</span>
+                        <span class="nt">&lt;goals&gt;</span>
+                            <span class="nt">&lt;goal&gt;</span>checkin<span class="nt">&lt;/goal&gt;</span>
+                        <span class="nt">&lt;/goals&gt;</span>
+                        <span class="c">&lt;!--&lt;phase&gt;validate&lt;/phase&gt;--&gt;</span>
+                    <span class="nt">&lt;/execution&gt;</span>
+                <span class="nt">&lt;/executions&gt;</span>
+            <span class="nt">&lt;/plugin&gt;</span>
+
+        <span class="nt">&lt;/plugins&gt;</span>
+    <span class="nt">&lt;/build&gt;</span>
+
+<span class="nt">&lt;/project&gt;</span>
+</code></pre></div></div>
+:ET

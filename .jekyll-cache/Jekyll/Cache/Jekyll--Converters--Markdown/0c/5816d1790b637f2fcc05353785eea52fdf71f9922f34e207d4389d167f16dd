@@ -1,0 +1,93 @@
+I"#<p>Hiện thực Log4j2 trong project Maven, gói ghém chỉ qua 3 bước như bên dưới.</p>
+
+<p>Step1: Thêm dependencies vào <em>pom.xml</em>:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.apache.logging.log4j<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>log4j-api<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>2.6.1<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.apache.logging.log4j<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>log4j-core<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>2.6.1<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div></div>
+
+<p>Step2: Tạo tập tin cấu hình <em>resources/log4j2.xml</em>, nếu tập tin cấu hình không ở <em>resources/</em> cần xác định đường dẫn tập tin cấu hình trong IntellIJ tại <strong>Edit Configurations…</strong> -&gt; <strong>VM Options</strong> nhập <code class="language-plaintext highlighter-rouge">-Dlog4j.configurationFile=your-path/log4j2.xml</code>:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;Configuration</span> <span class="na">name=</span><span class="s">"systemConfiguration"</span> <span class="na">schema=</span><span class="s">"http://jakarta.apache.org/log4j2/"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Properties&gt;</span>
+        <span class="nt">&lt;Property</span> <span class="na">name=</span><span class="s">"log-path"</span><span class="nt">&gt;</span>log<span class="nt">&lt;/Property&gt;</span>
+        <span class="nt">&lt;Property</span> <span class="na">name=</span><span class="s">"log-name"</span><span class="nt">&gt;</span>conv<span class="nt">&lt;/Property&gt;</span>
+    <span class="nt">&lt;/Properties&gt;</span>
+    <span class="nt">&lt;Appenders&gt;</span>
+        <span class="nt">&lt;Console</span> <span class="na">name=</span><span class="s">"console-appender"</span> <span class="na">target=</span><span class="s">"STDOUT"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;PatternLayout&gt;</span>
+                <span class="nt">&lt;pattern&gt;</span>
+                    <span class="c">&lt;!--%highlight{[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} -
+                     %msg%n}--&gt;</span>
+                    <span class="c">&lt;!--[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n--&gt;</span>
+                    %highlight{%d{HH:mm:ss.SSS} %-5level %logger{36}.%M() @%L - %msg%n}
+                    {FATAL=red, ERROR=red, WARN=yellow, INFO=black, DEBUG=green, 
+                    TRACE=blue}
+                <span class="nt">&lt;/pattern&gt;</span>
+            <span class="nt">&lt;/PatternLayout&gt;</span>
+        <span class="nt">&lt;/Console&gt;</span>
+
+        <span class="nt">&lt;RollingFile</span> <span class="na">name=</span><span class="s">"file-logger"</span> <span class="na">fileName=</span><span class="s">"${log-path}/${log-name}.log"</span>
+                     <span class="na">filePattern=</span><span class="s">"${log-path}/${log-name}-%d{yyyy-MM-dd}.log"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;PatternLayout&gt;</span>
+                <span class="nt">&lt;pattern&gt;</span>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} 
+                [%t] %c{1} - %msg%n<span class="nt">&lt;/pattern&gt;</span>
+            <span class="nt">&lt;/PatternLayout&gt;</span>
+            <span class="nt">&lt;Policies&gt;</span>
+                <span class="nt">&lt;TimeBasedTriggeringPolicy</span> <span class="na">interval=</span><span class="s">"1"</span> <span class="na">modulate=</span><span class="s">"true"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/Policies&gt;</span>
+        <span class="nt">&lt;/RollingFile&gt;</span>
+
+    <span class="nt">&lt;/Appenders&gt;</span>
+    <span class="nt">&lt;Loggers&gt;</span>
+        <span class="nt">&lt;Root</span> <span class="na">level=</span><span class="s">"INFO"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;AppenderRef</span> <span class="na">ref=</span><span class="s">"console-appender"</span> <span class="na">level=</span><span class="s">"INFO"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;AppenderRef</span> <span class="na">ref=</span><span class="s">"file-logger"</span> <span class="na">level=</span><span class="s">"INFO"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/Root&gt;</span>
+    <span class="nt">&lt;/Loggers&gt;</span>
+<span class="nt">&lt;/Configuration&gt;</span>
+</code></pre></div></div>
+
+<p>Step3: Ghi log bằng code Java:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">org.apache.logging.log4j.LogManager</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.logging.log4j.Logger</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Application</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">Logger</span> <span class="n">logger</span> <span class="o">=</span> <span class="nc">LogManager</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span><span class="nc">Application</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+        <span class="n">logger</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"Hello log quickly."</span><span class="o">);</span>
+        <span class="n">logger</span><span class="o">.</span><span class="na">warn</span><span class="o">(</span><span class="s">"Hello log quickly again."</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Thêm: Loggin Level</p>
+
+<p><img src="/assets/images/logs.jpeg" alt="logs-level" class="img-responsive" /></p>
+
+<p><br /></p>
+
+<hr />
+
+<p><br /></p>
+
+<p>Refers</p>
+
+<ul>
+  <li>https://stackoverflow.com/q/21979699/9488752 :: add color to log console</li>
+  <li>https://stackoverflow.com/questions/21206993/very-simple-log4j2-xml-configuration-file-using-console-and-file-appender</li>
+  <li>https://howtodoinjava.com/log4j2/log4j-2-xml-configuration-example/</li>
+</ul>
+
+:ET

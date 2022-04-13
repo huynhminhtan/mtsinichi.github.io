@@ -1,0 +1,167 @@
+I"�<h2 id="alias">Alias</h2>
+
+<ul>
+  <li>Add alias: <code class="language-plaintext highlighter-rouge">alias jmeter=apache-jmeter-5.1.1/bin/jmeter</code> to <code class="language-plaintext highlighter-rouge">vim ~/.bashrc</code> or <code class="language-plaintext highlighter-rouge">vim ~/.zshrc</code> then run <code class="language-plaintext highlighter-rouge">source ~/.bashrc</code>.</li>
+</ul>
+
+<h2 id="path">Path</h2>
+
+<ul>
+  <li>Add path: <code class="language-plaintext highlighter-rouge">echo 'export PATH="/usr/local/opt/ruby/bin:$PATH"' &gt;&gt; ~/.zshrc</code> then <code class="language-plaintext highlighter-rouge">source ~/.zshrc</code> or reopen terminal to take affect.</li>
+</ul>
+
+<h2 id="user">User</h2>
+
+<ul>
+  <li>Create user: <code class="language-plaintext highlighter-rouge">sudo useradd &lt;user-name&gt;</code>.</li>
+  <li>Change pass: <code class="language-plaintext highlighter-rouge">sudo passwd &lt;user-name&gt;</code>.</li>
+  <li>Login user: <code class="language-plaintext highlighter-rouge">su &lt;user-name&gt;</code>.</li>
+  <li>Change owner and group of file/folder: <code class="language-plaintext highlighter-rouge">chown [-R] &lt;user-name&gt;:&lt;group&gt; [directory]/&lt;file-name&gt;</code>. Ex: <code class="language-plaintext highlighter-rouge">sudo chown -R  mtuser:www-data ./apache-activemq-5.15.0</code>.</li>
+  <li>List all users: <code class="language-plaintext highlighter-rouge">cat /etc/passwd</code>.</li>
+  <li>List all group: <code class="language-plaintext highlighter-rouge">cat /etc/group</code>.</li>
+</ul>
+
+<h2 id="git">Git</h2>
+
+<ul>
+  <li>Discard change: <code class="language-plaintext highlighter-rouge">git checkout -- env.development.config.ini</code>.</li>
+  <li>Drop all local changes and commits: <code class="language-plaintext highlighter-rouge">git fetch origin</code> then <code class="language-plaintext highlighter-rouge">git reset --hard origin/master</code>.</li>
+  <li>Add to .gitignore: <code class="language-plaintext highlighter-rouge">git rm --cached -r ./site/</code>.</li>
+  <li>Store account git: <code class="language-plaintext highlighter-rouge">git config credential.helper store</code> then <code class="language-plaintext highlighter-rouge">git pull</code>.</li>
+  <li>Where credential store: <code class="language-plaintext highlighter-rouge">vi ~/.git-credentials</code>.</li>
+  <li>Verify that the remote URL: <code class="language-plaintext highlighter-rouge">git remote -v</code>.</li>
+  <li>Change your remote’s URL: <code class="language-plaintext highlighter-rouge">git remote set-url origin https://github.com/huynhminhtan/repo.git</code>.</li>
+  <li>Show all branch: <code class="language-plaintext highlighter-rouge">git branch -a</code>.</li>
+  <li>Edit config: <code class="language-plaintext highlighter-rouge">git config --edit</code>.</li>
+</ul>
+
+<h2 id="sort">Sort</h2>
+
+<ul>
+  <li>Sort by name full info: <code class="language-plaintext highlighter-rouge">ls -l</code>.</li>
+  <li>Sort by last modified: <code class="language-plaintext highlighter-rouge">ls -t</code>, reverise: <code class="language-plaintext highlighter-rouge">ls -tlr</code>.</li>
+  <li>Sort by file size: <code class="language-plaintext highlighter-rouge">ls -S</code>.</li>
+</ul>
+
+<h2 id="scp">Scp</h2>
+
+<ul>
+  <li>Upload file from local to server: <code class="language-plaintext highlighter-rouge">scp ~/assets/foodorder.json root@45.77.174.39:/root/foodorder.json</code> then press password.</li>
+</ul>
+
+<h2 id="find">Find</h2>
+
+<ul>
+  <li>Find by port: <code class="language-plaintext highlighter-rouge">lsof -i :8080</code>.</li>
+  <li>Find by port: <code class="language-plaintext highlighter-rouge">sudo netstat -lpn | grep :8080</code>.</li>
+  <li>Find by name: <code class="language-plaintext highlighter-rouge">sudo ps aux | grep 'firefox'</code>.</li>
+  <li>Find name file: <code class="language-plaintext highlighter-rouge">find . -iname "ApacheJMeter*"</code>.</li>
+</ul>
+
+<h2 id="ping">Ping</h2>
+
+<ul>
+  <li>Ping connect by ip and port: <code class="language-plaintext highlighter-rouge">nc -vz localhost 80</code>.</li>
+  <li>Ping connect by ip and port: <code class="language-plaintext highlighter-rouge">telnet localhost 80</code>.</li>
+  <li>Journey package destination: <code class="language-plaintext highlighter-rouge">traceroute localhost 80</code>.</li>
+</ul>
+
+<h2 id="redis">Redis</h2>
+
+<ul>
+  <li>Login redis cli cluster: <code class="language-plaintext highlighter-rouge">redis-cli -c -p 7000</code>.</li>
+  <li>Get all key: <code class="language-plaintext highlighter-rouge">KEYS *</code>.</li>
+</ul>
+
+<h2 id="mysql">MySQL</h2>
+
+<ul>
+  <li>Reset password root:
+    <ul>
+      <li>Stop mysql-server</li>
+      <li>Create script: <code class="language-plaintext highlighter-rouge">ALTER USER 'root'@'localhost' IDENTIFIED BY '12345678';</code> save ~/Desktop/init.txt</li>
+      <li>Run: <code class="language-plaintext highlighter-rouge">mysqld --init-file=~/Desktop/init.txt &amp;</code></li>
+      <li>Login with new pass: <code class="language-plaintext highlighter-rouge">mysql -u root -p</code></li>
+    </ul>
+  </li>
+  <li>Error: <em>Connecting to MySQL server … Authentication plugin ‘caching_sha2_password’ cannot be loaded: dlopen(/usr/local/mysql/lib/plugin/caching_sha2_password.so, 2): image not found</em>, login mysql run: <code class="language-plaintext highlighter-rouge">ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456';</code></li>
+</ul>
+
+<h2 id="maven">Maven</h2>
+
+<ul>
+  <li>Spring Boot run app: <code class="language-plaintext highlighter-rouge">mvn spring-boot:run</code>.</li>
+  <li>Clean target folder and build: <code class="language-plaintext highlighter-rouge">mvn clean install</code>.</li>
+  <li>Set JAVA_HOME: execute command <code class="language-plaintext highlighter-rouge">export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64</code> and <code class="language-plaintext highlighter-rouge">export PATH=$PATH:$JAVA_HOME/bin</code>.</li>
+</ul>
+
+<h2 id="ssh">SSH</h2>
+
+<ul>
+  <li>Create the RSA key: <code class="language-plaintext highlighter-rouge">ssh-keygen</code>.</li>
+  <li>Show the RSA public key: <code class="language-plaintext highlighter-rouge">cat ~/.ssh/id_rsa.pub</code>.</li>
+  <li>Run local bash script remote to server: <code class="language-plaintext highlighter-rouge">ssh root@45.69.251.209 'bash -s' &lt; bash-script-file.sh</code>.</li>
+</ul>
+
+<h2 id="cron">Cron</h2>
+
+<ul>
+  <li>Edit cron: <code class="language-plaintext highlighter-rouge">crontab -e</code>, content example: <code class="language-plaintext highlighter-rouge">* 2 * * * ~/script/up-report.sh &gt;&gt; ~/cronlog.log</code>.</li>
+  <li>Restart cron: <code class="language-plaintext highlighter-rouge">/etc/init.d/cron restart</code>.</li>
+</ul>
+
+<h2 id="zip">Zip</h2>
+
+<ul>
+  <li>Compress: <code class="language-plaintext highlighter-rouge">zip -r filename.zip folder</code>.</li>
+  <li>Extract:  <code class="language-plaintext highlighter-rouge">unzip filename.zip</code>.</li>
+</ul>
+
+<p><br /></p>
+
+<hr />
+
+<p><br /></p>
+
+<h2 id="refers">Refers</h2>
+
+<ul>
+  <li>User
+    <ul>
+      <li>https://www.hostingadvice.com/how-to/change-file-ownershipgroups-linux/</li>
+      <li>http://xahlee.info/linux/linux_users_groups_admin.html</li>
+    </ul>
+  </li>
+  <li>Sort
+    <ul>
+      <li>https://www.lostsaloon.com/technology/how-to-sort-the-output-of-ls-in-linux/</li>
+    </ul>
+  </li>
+  <li>Alias
+    <ul>
+      <li>https://www.tecmint.com/create-alias-in-linux/</li>
+    </ul>
+  </li>
+  <li>Maven
+    <ul>
+      <li>https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html</li>
+    </ul>
+  </li>
+  <li>Git
+    <ul>
+      <li>https://rogerdudler.github.io/git-guide/</li>
+    </ul>
+  </li>
+  <li>Scp
+    <ul>
+      <li>https://kb.iweb.com/hc/en-us/articles/230241568-Copying-a-file-to-another-server-through-SSH</li>
+    </ul>
+  </li>
+  <li>MySQL
+    <ul>
+      <li>https://dev.mysql.com/doc/refman/8.0/en/resetting-permissions.html</li>
+      <li>https://stackoverflow.com/a/50130875</li>
+    </ul>
+  </li>
+</ul>
+:ET
